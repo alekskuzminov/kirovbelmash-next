@@ -1,9 +1,19 @@
-// TODO: перенести контент из SPA
+import { Metadata } from 'next';
+import CalculatorHero from '@/components/calculator/CalculatorHero';
+import Calculator from '@/components/calculator/Calculator';
+import CalculatorFAQ from '@/components/calculator/CalculatorFAQ';
+
+export const metadata: Metadata = {
+    title: 'Калькулятор стоимости оборудования | Кировбелмаш',
+    description: 'Рассчитайте предварительную стоимость промышленного оборудования и дополнительных услуг онлайн.',
+};
 
 export default function CalculatorPage() {
     return (
-        <div className="min-h-screen flex items-center justify-center">
-            <h1 className="text-4xl font-bold">Калькулятор</h1>
-        </div>
+        <main>
+            <CalculatorHero />
+            <Calculator />
+            <CalculatorFAQ />
+        </main>
     );
 }

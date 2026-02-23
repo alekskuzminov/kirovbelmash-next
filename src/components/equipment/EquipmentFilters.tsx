@@ -57,7 +57,7 @@ export default function EquipmentFilters({
                             { label: 'Каталог оборудования' }
                         ]}
                     />
-                    <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-2">
+                    <h1 className="text-2xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 sm:mb-5 leading-tight">
                         Каталог оборудования
                     </h1>
                     <p className="text-sm sm:text-base text-gray-600 max-w-2xl">

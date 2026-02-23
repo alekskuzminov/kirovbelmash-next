@@ -29,13 +29,13 @@ export default function Advantages() {
                     {advantages.map((advantage, index) => (
                         <div
                             key={index}
-                            className="bg-gray-800/50 backdrop-blur-sm p-5 sm:p-8 rounded-xl border border-gray-700/50 hover:bg-gray-800/80 transition-all duration-300"
+                            className="group bg-gray-800/50 backdrop-blur-sm p-5 sm:p-8 rounded-xl border border-gray-700/50 hover:bg-gray-800/80 transition-all duration-300"
                         >
                             <div className="flex items-center gap-4 mb-4 sm:mb-6">
-                                <div className="w-12 h-12 sm:w-14 sm:h-14 shrink-0 flex items-center justify-center bg-red-600/20 rounded-xl">
-                                    <i className={`${advantage.icon} text-2xl sm:text-3xl text-red-500`}></i>
+                                <div className="w-12 h-12 sm:w-14 sm:h-14 shrink-0 flex items-center justify-center bg-red-600 rounded-xl group-hover:bg-white transition-colors duration-300">
+                                    <i className={`${advantage.icon} text-2xl sm:text-3xl text-white group-hover:text-red-600 transition-colors duration-300`}></i>
                                 </div>
-                                <div className="text-2xl sm:text-3xl font-bold text-red-500">{advantage.value}</div>
+                                <div className="text-2xl sm:text-3xl font-bold text-red-600">{advantage.value}</div>
                             </div>
                             <h3 className="text-lg sm:text-xl font-bold mb-2 sm:mb-3 text-white">
                                 {advantage.title}

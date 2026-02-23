@@ -60,7 +60,7 @@ export default async function EquipmentDetailPage({ params }: Props) {
                             <div className="inline-block px-3 py-1 bg-red-50 text-red-600 text-xs sm:text-sm font-medium rounded-full mb-3 sm:mb-4 border border-red-100">
                                 {item.category}
                             </div>
-                            <h1 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold text-gray-900 mb-3 sm:mb-4">
+                            <h1 className="text-2xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 sm:mb-5">
                                 {item.name}
                             </h1>
                             {item.badge && (

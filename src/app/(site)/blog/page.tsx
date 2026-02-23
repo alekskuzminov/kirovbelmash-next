@@ -1,9 +1,17 @@
-// TODO: перенести контент из SPA
+import { Metadata } from 'next';
+import BlogHero from '@/components/blog/BlogHero';
+import BlogGrid from '@/components/blog/BlogGrid';
+
+export const metadata: Metadata = {
+    title: 'Блог | КировБелМаш',
+    description: 'Статьи о производстве топливных брикетов и пеллет, выборе оборудования и реальном опыте клиентов.',
+};
 
 export default function BlogPage() {
     return (
-        <div className="min-h-screen flex items-center justify-center">
-            <h1 className="text-4xl font-bold">Блог</h1>
-        </div>
+        <main className="min-h-screen bg-white pb-20">
+            <BlogHero />
+            <BlogGrid />
+        </main>
     );
 }

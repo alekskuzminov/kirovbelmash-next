@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
+import Breadcrumbs from '@/components/ui/Breadcrumbs';
 import { projectStats } from './projectsData';
 
 export default function ProjectsHero() {
@@ -18,18 +19,23 @@ export default function ProjectsHero() {
 
             <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 sm:pt-40 pb-16 sm:pb-24">
                 <div className="max-w-2xl">
-                    <nav className="flex items-center space-x-2 text-xs sm:text-sm text-gray-300 mb-3 sm:mb-4">
-                        <Link href="/" className="hover:text-white transition-colors cursor-pointer">Главная</Link>
-                        <i className="ri-arrow-right-s-line text-base text-gray-400"></i>
-                        <span className="text-white font-medium">Проекты</span>
-                    </nav>
+                    <Breadcrumbs
+                        items={[
+                            { label: 'Главная', href: '/' },
+                            { label: 'Проекты' }
+                        ]}
+                        className="mb-3 sm:mb-4"
+                        textColor="text-gray-300"
+                        activeTextColor="text-white"
+                        hoverColor="hover:text-white"
+                    />
                     <div className="flex items-center space-x-2 mb-3 sm:mb-4">
                         <div className="w-6 sm:w-8 h-0.5 bg-red-500"></div>
                         <span className="text-red-400 text-xs sm:text-sm font-medium tracking-wider uppercase">
                             Портфолио
                         </span>
                     </div>
-                    <h1 className="text-2xl sm:text-4xl lg:text-5xl font-bold text-white mb-3 sm:mb-4 leading-tight">
+                    <h1 className="text-2xl sm:text-4xl lg:text-5xl font-bold text-white mb-4 sm:mb-5 leading-tight">
                         Реализованные<br />проекты
                     </h1>
                     <p className="text-sm sm:text-lg text-gray-200 leading-relaxed max-w-lg">

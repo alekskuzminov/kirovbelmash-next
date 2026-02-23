@@ -40,7 +40,7 @@ export default function EquipmentCatalog() {
                                     alt={item.category}
                                     fill
                                     loading="lazy"
-                                    className="object-contain object-center drop-shadow-sm group-hover:scale-105 transition-transform duration-500 ease-out"
+                                    className="object-contain object-center group-hover:scale-105 transition-transform duration-500 ease-out"
                                     sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
                                 />
                                 <span className="absolute top-4 right-4 z-20 bg-white/90 backdrop-blur-md text-xs font-semibold text-gray-700 px-3 py-1.5 rounded-lg shadow-sm ring-1 ring-black/5">

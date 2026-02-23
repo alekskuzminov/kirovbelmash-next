@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { projectsData } from '@/components/projects/projectsData';
 import ContactForm from '@/components/home/ContactForm';
 import ProjectImageGallery from '@/components/projects/ProjectImageGallery';
+import Breadcrumbs from '@/components/ui/Breadcrumbs';
 
 interface PageProps {
     params: Promise<{ id: string }>;
@@ -42,16 +43,17 @@ export default async function ProjectDetailPage({ params }: PageProps) {
     const images = Array(5).fill(item.image);
 
     return (
-        <div className="min-h-screen bg-white pb-20 pt-32 lg:pt-36">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-4 lg:pt-8">
+        <div className="min-h-screen bg-white pb-20 pt-32 sm:pt-40">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 {/* Breadcrumbs */}
-                <nav className="flex items-center text-sm text-gray-500 mb-8 overflow-x-auto whitespace-nowrap pb-2">
-                    <Link href="/" className="hover:text-red-600 transition-colors">Главная</Link>
-                    <span className="mx-2 text-gray-400">/</span>
-                    <Link href="/projects" className="hover:text-red-600 transition-colors">Проекты</Link>
-                    <span className="mx-2 text-gray-400">/</span>
-                    <span className="text-gray-900 font-medium">{item.title}</span>
-                </nav>
+                <Breadcrumbs
+                    items={[
+                        { label: 'Главная', href: '/' },
+                        { label: 'Проекты', href: '/projects' },
+                        { label: item.title }
+                    ]}
+                    className="mb-8"
+                />
 
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-20">
                     {/* Левая колонка: Галерея */}
@@ -62,7 +64,7 @@ export default async function ProjectDetailPage({ params }: PageProps) {
                         <div className="text-sm font-bold text-red-600 uppercase tracking-wider mb-2">
                             {item.category}
                         </div>
-                        <h1 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4 leading-tight">
+                        <h1 className="text-2xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 sm:mb-5 leading-tight">
                             {item.title}
                         </h1>
 

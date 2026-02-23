@@ -26,13 +26,13 @@ type DropdownId = 'lines' | 'equipment' | null;
 
 const navLinks = [
     { href: '/', label: 'Главная', isAnchor: false, dropdownId: null as DropdownId },
-    { href: '/#production-lines', label: 'Линии', isAnchor: true, dropdownId: 'lines' as DropdownId },
+    { href: '/#production-lines', label: 'Производственные линии', isAnchor: true, dropdownId: 'lines' as DropdownId },
     { href: '/oborudovanie', label: 'Каталог оборудования', isAnchor: false, dropdownId: 'equipment' as DropdownId },
-    { href: '/about', label: 'О компании', isAnchor: false, dropdownId: null as DropdownId },
-    { href: '/services', label: 'Услуги', isAnchor: false, dropdownId: null as DropdownId },
-    { href: '/projects', label: 'Проекты', isAnchor: false, dropdownId: null as DropdownId },
-    { href: '/blog', label: 'Блог', isAnchor: false, dropdownId: null as DropdownId },
     { href: '/calculator', label: 'Калькулятор', isAnchor: false, dropdownId: null as DropdownId },
+    { href: '/projects', label: 'Проекты', isAnchor: false, dropdownId: null as DropdownId },
+    { href: '/services', label: 'Услуги', isAnchor: false, dropdownId: null as DropdownId },
+    { href: '/blog', label: 'Блог', isAnchor: false, dropdownId: null as DropdownId },
+    { href: '/about', label: 'О компании', isAnchor: false, dropdownId: null as DropdownId },
     { href: '/contacts', label: 'Контакты', isAnchor: false, dropdownId: null as DropdownId },
 ];
 
@@ -61,8 +61,8 @@ export default function SiteNavbar({ variant = 'transparent' }: SiteNavbarProps)
     }, [pathname]);
 
     // Страницы с темным блоком hero, где шапка должна быть прозрачной до скролла
-    const transparentPaths = ['/', '/about'];
-    const transparentPrefixes = ['/linii-', '/sushilnie-', '/production-lines'];
+    const transparentPaths = ['/', '/about', '/calculator'];
+    const transparentPrefixes = ['/linii-', '/sushilnie-', '/production-lines', '/services', '/projects', '/blog'];
 
     const isTransparentPage =
         transparentPaths.includes(pathname || '') ||
