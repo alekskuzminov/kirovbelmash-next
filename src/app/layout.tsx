@@ -43,7 +43,7 @@ export default function RootLayout({
 }>) {
   return (
     // TODO: динамический lang при переносе i18n
-    <html lang="ru">
+    <html lang="ru" className="scroll-smooth scroll-pt-28">
       <body className="antialiased">{children}</body>
     </html>
   );

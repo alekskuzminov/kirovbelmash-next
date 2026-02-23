@@ -1,9 +1,21 @@
-// TODO: перенести контент из SPA
+import ProjectsHero from '@/components/projects/ProjectsHero';
+import ProjectsGallery from '@/components/projects/ProjectsGallery';
+import Testimonials from '@/components/projects/Testimonials';
+import ProjectsCTA from '@/components/projects/ProjectsCTA';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+    title: 'Реализованные проекты | КировБелМаш',
+    description: 'Примеры реализованных проектов по установке оборудования для производства топливных брикетов и пеллет.',
+};
 
 export default function ProjectsPage() {
     return (
-        <div className="min-h-screen flex items-center justify-center">
-            <h1 className="text-4xl font-bold">Проекты</h1>
-        </div>
+        <>
+            <ProjectsHero />
+            <ProjectsGallery />
+            <Testimonials />
+            <ProjectsCTA />
+        </>
     );
 }
