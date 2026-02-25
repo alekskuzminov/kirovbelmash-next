@@ -6,7 +6,7 @@ import { openContactModal } from '@/components/common/ContactModal';
 
 export default function Hero() {
     return (
-        <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+        <section className="relative min-h-screen pt-28 pb-16 flex items-center justify-center overflow-hidden">
             {/* Background Image */}
             <div className="absolute inset-0 z-0">
                 <Image
@@ -20,14 +20,14 @@ export default function Hero() {
             </div>
 
             {/* Content */}
-            <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-16">
+            <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="text-left">
                     {/* Red Badge */}
                     <div className="inline-flex items-center px-4 py-2 bg-red-600 rounded-lg mb-6">
                         <span className="text-white text-sm font-semibold tracking-wide">ПРОИЗВОДИТЕЛЬ ОБОРУДОВАНИЯ</span>
                     </div>
 
-                    <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold text-white mb-6 leading-tight">
+                    <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-6 leading-tight">
                         Производство линий{' '}
                         <span className="sm:whitespace-nowrap">брикетирования и гранулирования</span>
                         <br />{' '}
