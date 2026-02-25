@@ -1,11 +1,13 @@
 import { Metadata } from 'next';
+import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import { findLineVariant, getAllLineIds, getLineBackLink, lineVariants } from '@/components/lines/linesData';
+import { findLineVariant, getAllLineIds, getLineBackLink } from '@/components/lines/linesData';
 import LineDetailHero from '@/components/lines/LineDetailHero';
 import LineGallery from '@/components/lines/LineGallery';
 import LineSpecs from '@/components/lines/LineSpecs';
 import LineComposition from '@/components/lines/LineComposition';
 import ContactForm from '@/components/home/ContactForm';
+import Breadcrumbs from '@/components/ui/Breadcrumbs';
 
 interface ProductionLinePageProps {
     params: Promise<{ id: string }>;
@@ -41,37 +43,63 @@ export default async function ProductionLinePage({ params }: ProductionLinePageP
     const backLabel = backLabels[backHref] ?? 'Линии';
 
     return (
-        <div className="min-h-screen bg-white">
-            {/* Hero */}
-            <LineDetailHero variant={variant} backHref={backHref} backLabel={backLabel} />
+        <div className="min-h-screen bg-gray-50/50 pb-12">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 sm:pt-40">
+                <Breadcrumbs
+                    items={[
+                        { label: 'Главная', href: '/' },
+                        { label: 'Линии', href: '/#production-lines' },
+                        { label: backLabel, href: backHref },
+                        { label: variant.name },
+                    ]}
+                    className="mb-6"
+                />
 
-            {/* Galleries + Specs */}
-            <section className="py-10 bg-white">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 mb-10">
-                        {/* Renders */}
-                        <LineGallery
-                            images={variant.renders}
-                            title="Рендеры линии"
-                            icon="ri-3d-cube-sphere-line"
-                        />
-                        {/* Specs */}
-                        <LineSpecs variant={variant} />
-                    </div>
+                <div className="bg-white rounded-3xl p-6 sm:p-10 shadow-sm border border-gray-100 mb-10">
+                    <div className="flex flex-col xl:grid xl:grid-cols-2 gap-10 xl:gap-16">
+                        {/* Right Column (Hero): Title, Info, Specs (first on mobile, second on desktop) */}
+                        <div className="order-1 xl:order-2">
+                            {/* Hero Info (H1, Price, Description, Buttons) */}
+                            <LineDetailHero variant={variant} backHref={backHref} backLabel={backLabel} />
 
-                    {/* Schemes */}
-                    <div className="max-w-xl">
-                        <LineGallery
-                            images={variant.schemes}
-                            title="Схема линии"
-                            icon="ri-flow-chart"
-                        />
+                            <hr className="hidden xl:block my-8 border-gray-100" />
+
+                            {/* Tech Specs */}
+                            <LineSpecs variant={variant} />
+                        </div>
+
+                        {/* Left Column: Renders (second on mobile, first on desktop) */}
+                        <div className="order-2 xl:order-1 xl:border-r xl:border-gray-100 xl:pr-10 xl:sticky xl:top-32 xl:self-start">
+                            <LineGallery images={variant.renders} />
+                        </div>
                     </div>
                 </div>
-            </section>
 
-            {/* Composition */}
-            <LineComposition composition={variant.composition} backHref={backHref} />
+                {/* Composition */}
+                <LineComposition composition={variant.composition} />
+
+                {/* Schemes */}
+                <div className="bg-white rounded-3xl p-6 sm:p-10 shadow-sm border border-gray-100 mb-10">
+                    <LineGallery
+                        images={variant.schemes}
+                        title="Схемы линии"
+                        icon="ri-flow-chart"
+                        showLogo={false}
+                        aspectClass="aspect-[16/9]"
+                    />
+                </div>
+
+                {/* Back to all lines button */}
+                <div className="text-center mb-10">
+                    <Link
+                        href={backHref}
+                        className="inline-flex items-center gap-2 px-8 py-3 text-sm font-semibold text-gray-700 bg-white border border-gray-200 hover:border-gray-300 hover:shadow-md rounded-xl transition-all"
+                    >
+                        <i className="ri-arrow-left-line" />
+                        Все линии
+                    </Link>
+                </div>
+            </div>
 
             {/* Quote Form */}
             <ContactForm initialMessage={`Запрос КП: ${variant.name}`} />

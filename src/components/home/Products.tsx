@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { briquettingLines } from '@/data/products';
+import { SITE_CONFIG } from '@/config/site.config';
 
 const lineUrls: Record<number, string> = {
     1: '/linii-briketirovaniya',
@@ -23,11 +24,25 @@ export default function Products() {
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
                     {briquettingLines.map((line) => (
-                        <div
+                        <Link
                             key={line.id}
-                            className="bg-white rounded-xl border border-gray-200 overflow-hidden hover:shadow-xl transition-all duration-300 group"
+                            href={lineUrls[line.id]}
+                            className="block bg-white rounded-xl border border-gray-200 overflow-hidden hover:shadow-xl transition-all duration-300 group"
                         >
-                            <div className="relative w-full h-64 bg-white overflow-hidden">
+                            <div className="relative w-full h-64 bg-white overflow-hidden p-6">
+                                {/* Logo watermark */}
+                                <div className="absolute top-4 left-4 flex items-center gap-1.5 z-10 bg-white/80 p-1.5 pr-2.5 rounded-lg backdrop-blur-sm shadow-sm pointer-events-none">
+                                    <Image
+                                        src={SITE_CONFIG.assets.logo}
+                                        alt={SITE_CONFIG.assets.logoAlt}
+                                        width={20}
+                                        height={20}
+                                        className="object-contain"
+                                    />
+                                    <span className="text-[10px] font-bold text-gray-900 tracking-tight leading-none pt-0.5">
+                                        КировБелМаш
+                                    </span>
+                                </div>
                                 <Image
                                     src={line.image}
                                     alt={line.name}
@@ -49,15 +64,14 @@ export default function Products() {
                                     <span className="text-red-600 font-semibold text-xs sm:text-sm">
                                         {line.capacity}
                                     </span>
-                                    <Link
-                                        href={lineUrls[line.id]}
-                                        className="px-4 sm:px-6 py-2 sm:py-2.5 bg-red-600 text-white text-xs sm:text-sm font-semibold rounded-lg hover:bg-red-700 transition-colors whitespace-nowrap"
+                                    <span
+                                        className="inline-block px-4 sm:px-6 py-2 sm:py-2.5 bg-red-600 text-white text-xs sm:text-sm font-semibold rounded-lg hover:bg-red-700 transition-colors whitespace-nowrap"
                                     >
                                         Подробнее
-                                    </Link>
+                                    </span>
                                 </div>
                             </div>
-                        </div>
+                        </Link>
                     ))}
                 </div>
             </div>

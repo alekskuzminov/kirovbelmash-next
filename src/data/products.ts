@@ -4,21 +4,21 @@ export const briquettingLines = [
         name: 'Линии брикетирования',
         description: 'Полный цикл производства топливных брикетов из древесных отходов',
         capacity: 'от 0,5 до 2 тонн/час',
-        image: '/images/lines/briquetting/preview-briquette-line.jpg',
+        image: '/images/lines/briquetting/preview-briquette-line-home.webp',
     },
     {
         id: 2,
         name: 'Линии гранулирования',
         description: 'Комплексные решения для производства топливных пеллет',
         capacity: 'от 0,5 до 2 тонн/час',
-        image: '/images/lines/granulation/preview-granulation-line.jpg',
+        image: '/images/lines/granulation/preview-pellets-line-home.webp',
     },
     {
         id: 3,
         name: 'Сушильные линии',
         description: 'Линии для доведения влажности сырья до оптимальных показателей',
         capacity: 'от 0,5 до 2 тонн/час',
-        image: '/images/lines/drying/preview-drying-line.jpg',
+        image: '/images/lines/drying/preview-drying-line-home.webp',
     },
 ];
 

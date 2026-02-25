@@ -45,7 +45,9 @@ export default function LineHero({
                 className="absolute inset-0 object-cover z-0"
             />
             {/* Gradient overlay */}
-            <div className="absolute inset-0 bg-gray-900/75 z-10" />
+            <div className="absolute inset-0 bg-black/70 z-10" />
+            {/* Дополнительное верхнее затемнение под хедер */}
+            <div className="absolute top-0 left-0 right-0 h-32 sm:h-48 bg-gradient-to-b from-black/50 to-transparent z-10" />
 
             {/* Content — pt-24/32 to clear fixed navbar */}
             <div className="relative z-20 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 sm:pt-40 pb-12 sm:pb-16">

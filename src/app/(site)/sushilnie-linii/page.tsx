@@ -26,16 +26,16 @@ export default function DryingLinePage() {
                     { label: 'Линии', href: '/#production-lines' },
                     { label: 'Сушильные линии' },
                 ]}
-                image="/images/line-backgrounds/drying-lines.webp"
+                image="/images/lines/drying/drying-lines-hero-bg.webp"
             />
 
             {/* Подзаголовок секции */}
             <section id="variants" className="pt-8 pb-6 bg-white border-b border-gray-100">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <h2 className="text-xl sm:text-2xl font-bold text-gray-900 mb-1">
+                    <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-2">
                         Готовые сушильные линии для производства брикетов и пеллет
                     </h2>
-                    <p className="text-sm text-gray-600 max-w-2xl">
+                    <p className="text-base text-gray-600 max-w-2xl">
                         Производительность от 500 до 2000 кг/час. Снижение влажности до W ≤ 12%.
                     </p>
                 </div>

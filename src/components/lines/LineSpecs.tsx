@@ -6,11 +6,14 @@ interface LineSpecsProps {
 
 const specs = (v: LineVariant) => [
     { label: 'Производительность', value: v.capacity },
-    { label: 'Номинальная мощность', value: v.power },
+    { label: 'Установленная мощность', value: v.installedPower || v.power },
+    { label: 'Потребляемая мощность', value: v.consumedPower || '—' },
+    { label: 'Обслуживающий персонал', value: v.staff || '—' },
     { label: 'Тип сырья', value: v.rawMaterial },
+    { label: 'Влажность сырья', value: v.rawMoisture || '—' },
     { label: 'Готовый продукт', value: v.product },
-    { label: 'Срок поставки', value: v.deliveryWeeks },
-    { label: 'Доля комплектации РФ', value: v.rfComplect },
+    { label: 'Площадь для установки оборудования', value: v.installationArea || '—' },
+    { label: 'Высота потолков', value: v.ceilingHeight || '—' },
 ];
 
 export default function LineSpecs({ variant }: LineSpecsProps) {

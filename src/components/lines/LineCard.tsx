@@ -10,7 +10,10 @@ interface LineCardProps {
 
 export default function LineCard({ variant }: LineCardProps) {
     return (
-        <div className="bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-lg transition-shadow duration-300 overflow-hidden flex flex-col">
+        <Link
+            href={`/production-lines/${variant.id}`}
+            className="block bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-lg transition-shadow duration-300 overflow-hidden flex flex-col group"
+        >
             {/* Image */}
             <div className="relative aspect-[4/3] overflow-hidden bg-gray-100">
                 {/* Logo watermark */}
@@ -40,7 +43,7 @@ export default function LineCard({ variant }: LineCardProps) {
                 </h3>
 
                 <p className="text-2xl font-bold text-gray-900 mb-4">
-                    <span className="text-base font-normal text-gray-500">Цена: </span>
+                    <span className="text-lg font-medium text-gray-600">Цена: </span>
                     {variant.price}
                 </p>
 
@@ -60,14 +63,13 @@ export default function LineCard({ variant }: LineCardProps) {
 
                 {/* CTA */}
                 <div className="mt-2 text-center">
-                    <Link
-                        href={`/production-lines/${variant.id}`}
-                        className="inline-block px-8 py-3 bg-red-600 text-white text-sm font-semibold rounded-xl hover:bg-red-700 transition-colors shadow-sm"
+                    <span
+                        className="inline-block px-8 py-3 bg-red-600 text-white text-sm font-semibold rounded-xl group-hover:bg-red-700 transition-colors shadow-sm"
                     >
                         Подробнее
-                    </Link>
+                    </span>
                 </div>
             </div>
-        </div>
+        </Link>
     );
 }

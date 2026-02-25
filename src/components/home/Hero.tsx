@@ -10,7 +10,7 @@ export default function Hero() {
             {/* Background Image */}
             <div className="absolute inset-0 z-0">
                 <Image
-                    src="/images/backgrounds/hero-main-bg.webp"
+                    src="/images/home/hero-bg.webp"
                     alt="Производственные линии КировБелМаш"
                     fill
                     priority
