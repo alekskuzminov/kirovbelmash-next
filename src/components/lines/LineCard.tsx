@@ -12,7 +12,7 @@ export default function LineCard({ variant }: LineCardProps) {
     return (
         <div className="bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-lg transition-shadow duration-300 overflow-hidden flex flex-col">
             {/* Image */}
-            <div className="relative h-56 sm:h-64 overflow-hidden bg-gray-100">
+            <div className="relative aspect-[4/3] overflow-hidden bg-gray-100">
                 {/* Logo watermark */}
                 <div className="absolute top-4 left-4 flex items-center gap-1.5 z-10 bg-white/80 p-1.5 pr-2.5 rounded-lg backdrop-blur-sm shadow-sm">
                     <Image
@@ -51,9 +51,9 @@ export default function LineCard({ variant }: LineCardProps) {
                         { label: 'Тип сырья', value: variant.rawMaterial },
                         { label: 'Готовый продукт', value: variant.product },
                     ].map(({ label, value }) => (
-                        <div key={label} className="flex gap-4 text-sm">
-                            <dt className="text-gray-500 flex-shrink-0 w-44">{label}</dt>
-                            <dd className="text-gray-800 font-medium">{value}</dd>
+                        <div key={label} className="flex gap-2 text-sm">
+                            <dt className="text-gray-500 w-1/2">{label}</dt>
+                            <dd className="text-gray-800 font-medium w-1/2">{value}</dd>
                         </div>
                     ))}
                 </dl>

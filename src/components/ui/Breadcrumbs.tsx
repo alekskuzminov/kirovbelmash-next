@@ -26,7 +26,7 @@ export default function Breadcrumbs({
                 const isLast = index === items.length - 1;
 
                 return (
-                    <div key={index} className="flex items-center flex-shrink-0">
+                    <div key={index} className={`flex items-center ${isLast ? 'min-w-0' : 'flex-shrink-0'}`}>
                         {item.href && !isLast ? (
                             <Link href={item.href} className={`${hoverColor} transition-colors cursor-pointer`}>
                                 {item.label}

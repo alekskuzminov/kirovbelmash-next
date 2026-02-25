@@ -65,7 +65,7 @@ export default function SiteNavbar({ variant = 'transparent' }: SiteNavbarProps)
 
     // Страницы с темным блоком hero, где шапка должна быть прозрачной до скролла
     const transparentPaths = ['/', '/about', '/calculator'];
-    const transparentPrefixes = ['/linii-', '/sushilnie-', '/production-lines', '/services', '/blog'];
+    const transparentPrefixes = ['/linii-', '/sushilnie-', '/services', '/blog'];
 
     const isTransparentPage =
         transparentPaths.includes(pathname || '') ||
@@ -96,14 +96,14 @@ export default function SiteNavbar({ variant = 'transparent' }: SiteNavbarProps)
 
     // ── Desktop nav link text style helper ──
     const desktopLinkCls = (path: string) =>
-        `text-sm font-medium transition-colors whitespace-nowrap cursor-pointer flex items-center space-x-1 ${isActive(path)
+        `text-base font-medium transition-colors whitespace-nowrap cursor-pointer flex items-center space-x-1 ${isActive(path)
             ? 'text-red-600'
             : isSolid
                 ? 'text-gray-700 hover:text-red-600'
                 : 'text-gray-100 hover:text-white'
         }`;
 
-    const simpleLinkCls = `text-sm font-medium transition-colors whitespace-nowrap cursor-pointer ${isSolid ? 'text-gray-700 hover:text-red-600' : 'text-gray-100 hover:text-white'
+    const simpleLinkCls = `text-base font-medium transition-colors whitespace-nowrap cursor-pointer ${isSolid ? 'text-gray-700 hover:text-red-600' : 'text-gray-100 hover:text-white'
         }`;
 
     const arrowCls = (id: DropdownId) =>
@@ -176,7 +176,7 @@ export default function SiteNavbar({ variant = 'transparent' }: SiteNavbarProps)
 
                         <a
                             href={`mailto:${SITE_CONFIG.contacts.email}`}
-                            className={`flex items-center space-x-2 text-sm hover:text-red-500 transition-colors cursor-pointer ${isSolid ? 'text-gray-600' : 'text-gray-200'
+                            className={`flex items-center space-x-2 text-base font-medium hover:text-red-500 transition-colors cursor-pointer ${isSolid ? 'text-gray-600' : 'text-gray-200'
                                 }`}
                         >
                             <i className="ri-mail-line text-base"></i>
@@ -187,7 +187,7 @@ export default function SiteNavbar({ variant = 'transparent' }: SiteNavbarProps)
 
                         <a
                             href={`tel:${SITE_CONFIG.contacts.phone}`}
-                            className={`flex items-center space-x-2 font-medium text-sm hover:text-red-500 transition-colors cursor-pointer ${isSolid ? 'text-gray-800' : 'text-white'
+                            className={`flex items-center space-x-2 font-semibold text-base hover:text-red-500 transition-colors cursor-pointer ${isSolid ? 'text-gray-800' : 'text-white'
                                 }`}
                         >
                             <i className="ri-phone-line text-base"></i>
