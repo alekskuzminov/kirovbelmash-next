@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import { advantages } from '@/mocks/products';
+import { advantages } from '@/data/products';
 
 export default function Advantages() {
     return (

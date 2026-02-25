@@ -1,4 +1,4 @@
-import Link from 'next/link';
+import ContactModalButton from '@/components/common/ContactModalButton';
 
 export default function EquipmentCTA() {
     return (
@@ -18,13 +18,13 @@ export default function EquipmentCTA() {
                             </p>
                         </div>
                         <div className="flex flex-col sm:flex-row gap-2 sm:gap-3 w-full sm:w-auto">
-                            <Link
-                                href="/contacts"
+                            <ContactModalButton
+                                message={'\u0417\u0430\u044f\u0432\u043a\u0430 \u043d\u0430 \u043f\u043e\u0434\u0431\u043e\u0440 \u043e\u0431\u043e\u0440\u0443\u0434\u043e\u0432\u0430\u043d\u0438\u044f'}
                                 className="px-6 sm:px-8 py-3 sm:py-3.5 bg-white text-red-600 text-xs sm:text-sm font-semibold rounded-lg hover:bg-gray-50 transition-colors shadow-lg whitespace-nowrap cursor-pointer flex items-center justify-center gap-2"
                             >
                                 <i className="ri-mail-send-line text-base"></i>
                                 Оставить заявку
-                            </Link>
+                            </ContactModalButton>
                             <a
                                 href="tel:+79005218477"
                                 className="px-6 sm:px-8 py-3 sm:py-3.5 bg-white/10 text-white text-xs sm:text-sm font-semibold rounded-lg hover:bg-white/20 transition-colors border border-white/20 whitespace-nowrap cursor-pointer flex items-center justify-center gap-2"

@@ -1,4 +1,4 @@
-import { historyTimeline } from '@/mocks/about';
+import { historyTimeline } from '@/data/about';
 
 export default function HistoryTimeline() {
     return (

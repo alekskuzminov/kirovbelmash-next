@@ -2,6 +2,7 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
+import { openContactModal } from '@/components/common/ContactModal';
 
 export default function Hero() {
     return (
@@ -40,12 +41,12 @@ export default function Hero() {
                     </p>
 
                     <div className="flex flex-col sm:flex-row gap-4 mb-16">
-                        <Link
-                            href="/contacts"
+                        <button
+                            onClick={() => openContactModal('Заявка на обратный звонок')}
                             className="px-8 py-4 bg-red-600 text-white text-base font-semibold rounded-lg hover:bg-red-700 transition-all duration-300 shadow-lg hover:shadow-xl whitespace-nowrap text-center"
                         >
                             Получить коммерческое предложение
-                        </Link>
+                        </button>
                         <Link
                             href="/calculator"
                             className="px-8 py-4 bg-white/10 backdrop-blur-sm text-white text-base font-semibold rounded-lg hover:bg-white/20 transition-all duration-300 border-2 border-white/30 whitespace-nowrap text-center"

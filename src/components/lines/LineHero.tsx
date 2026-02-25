@@ -4,6 +4,7 @@ import { ReactNode } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import Breadcrumbs from '@/components/ui/Breadcrumbs';
+import ContactModalButton from '@/components/common/ContactModalButton';
 
 interface Breadcrumb {
     label: string;
@@ -82,12 +83,12 @@ export default function LineHero({
 
                     {/* CTA buttons */}
                     <div className="flex flex-wrap gap-2 sm:gap-3">
-                        <Link
-                            href="/contacts"
+                        <ContactModalButton
+                            message={'\u041f\u043e\u0434\u0431\u043e\u0440 \u043f\u0440\u043e\u0438\u0437\u0432\u043e\u0434\u0441\u0442\u0432\u0435\u043d\u043d\u043e\u0439 \u043b\u0438\u043d\u0438\u0438'}
                             className="px-4 sm:px-6 py-2.5 sm:py-3 bg-red-600 text-white text-xs sm:text-sm font-medium rounded-lg hover:bg-red-700 transition-colors whitespace-nowrap cursor-pointer inline-flex items-center justify-center"
                         >
                             Получить КП
-                        </Link>
+                        </ContactModalButton>
                         <Link
                             href="#variants"
                             className="px-4 sm:px-6 py-2.5 sm:py-3 bg-white/10 backdrop-blur-sm text-white text-xs sm:text-sm font-medium rounded-lg hover:bg-white/20 transition-colors border border-white/20 whitespace-nowrap cursor-pointer"

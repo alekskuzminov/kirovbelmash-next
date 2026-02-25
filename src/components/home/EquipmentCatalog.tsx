@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { equipmentCatalog } from '@/mocks/products';
+import { equipmentCatalog } from '@/data/products';
 
 export default function EquipmentCatalog() {
     return (

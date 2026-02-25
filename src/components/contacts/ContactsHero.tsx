@@ -1,4 +1,3 @@
-import Link from 'next/link';
 import Breadcrumbs from '@/components/ui/Breadcrumbs';
 
 export default function ContactsHero() {

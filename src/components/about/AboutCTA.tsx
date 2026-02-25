@@ -1,37 +1,9 @@
 "use client";
 
-import { useState } from 'react';
 import Link from 'next/link';
+import AboutCTAForm from './AboutCTAForm';
 
 export default function AboutCTA() {
-    const [formData, setFormData] = useState({ name: '', phone: '', email: '', message: '' });
-    const [isSubmitting, setIsSubmitting] = useState(false);
-    const [isSubmitted, setIsSubmitted] = useState(false);
-
-    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-        e.preventDefault();
-        if (!formData.name.trim() || !formData.phone.trim()) return;
-        setIsSubmitting(true);
-        try {
-            const body = new URLSearchParams();
-            body.append('name', formData.name);
-            body.append('phone', formData.phone);
-            body.append('email', formData.email);
-            body.append('message', formData.message);
-            await fetch('https://readdy.ai/api/form/d6ao9p5bd17lru29lum0', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-                body: body.toString(),
-            });
-            setIsSubmitted(true);
-            setFormData({ name: '', phone: '', email: '', message: '' });
-        } catch {
-            // silent
-        } finally {
-            setIsSubmitting(false);
-        }
-    };
-
     return (
         <section className="relative py-12 sm:py-20 overflow-hidden">
             <div className="absolute inset-0 w-full h-full">
@@ -85,85 +57,7 @@ export default function AboutCTA() {
                     </div>
 
                     <div className="bg-white rounded-xl sm:rounded-2xl p-5 sm:p-7 shadow-2xl">
-                        {isSubmitted ? (
-                            <div className="text-center py-12">
-                                <div className="w-16 h-16 flex items-center justify-center bg-green-100 rounded-full mx-auto mb-4">
-                                    <i className="ri-check-line text-3xl text-green-600"></i>
-                                </div>
-                                <h3 className="text-xl font-bold text-gray-900 mb-2">Заявка отправлена!</h3>
-                                <p className="text-sm text-gray-500">Мы свяжемся с вами в ближайшее время</p>
-                                <button
-                                    onClick={() => setIsSubmitted(false)}
-                                    className="mt-6 px-6 py-2.5 bg-red-600 text-white text-sm font-medium rounded-lg hover:bg-red-700 transition-colors whitespace-nowrap cursor-pointer"
-                                >
-                                    Отправить ещё
-                                </button>
-                            </div>
-                        ) : (
-                            <form
-                                id="about-callback-form"
-                                data-readdy-form
-                                onSubmit={handleSubmit}
-                            >
-                                <h3 className="text-xl font-bold text-gray-900 mb-5">Обратная связь</h3>
-                                <div className="space-y-4">
-                                    <div>
-                                        <label className="block text-sm font-medium text-gray-700 mb-1.5">Имя *</label>
-                                        <input
-                                            type="text"
-                                            name="name"
-                                            required
-                                            value={formData.name}
-                                            onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                                            className="w-full px-4 py-3 text-sm border border-gray-200 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent outline-none transition-all"
-                                            placeholder="Ваше имя"
-                                        />
-                                    </div>
-                                    <div>
-                                        <label className="block text-sm font-medium text-gray-700 mb-1.5">Телефон *</label>
-                                        <input
-                                            type="tel"
-                                            name="phone"
-                                            required
-                                            value={formData.phone}
-                                            onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                                            className="w-full px-4 py-3 text-sm border border-gray-200 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent outline-none transition-all"
-                                            placeholder="+7 (___) ___-__-__"
-                                        />
-                                    </div>
-                                    <div>
-                                        <label className="block text-sm font-medium text-gray-700 mb-1.5">Email</label>
-                                        <input
-                                            type="email"
-                                            name="email"
-                                            value={formData.email}
-                                            onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                                            className="w-full px-4 py-3 text-sm border border-gray-200 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent outline-none transition-all"
-                                            placeholder="email@example.com"
-                                        />
-                                    </div>
-                                    <div>
-                                        <label className="block text-sm font-medium text-gray-700 mb-1.5">Сообщение</label>
-                                        <textarea
-                                            name="message"
-                                            rows={3}
-                                            maxLength={500}
-                                            value={formData.message}
-                                            onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                                            className="w-full px-4 py-3 text-sm border border-gray-200 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent outline-none transition-all resize-none"
-                                            placeholder="Опишите вашу задачу"
-                                        ></textarea>
-                                    </div>
-                                    <button
-                                        type="submit"
-                                        disabled={isSubmitting}
-                                        className="w-full px-6 py-3 bg-red-600 text-white text-sm font-medium rounded-lg hover:bg-red-700 transition-colors disabled:opacity-50 whitespace-nowrap cursor-pointer"
-                                    >
-                                        {isSubmitting ? 'Отправка...' : 'Отправить заявку'}
-                                    </button>
-                                </div>
-                            </form>
-                        )}
+                        <AboutCTAForm />
                     </div>
                 </div>
             </div>

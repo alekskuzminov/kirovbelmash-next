@@ -5,7 +5,8 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname, useRouter } from 'next/navigation';
 import { SITE_CONFIG } from '@/config/site.config';
-import { equipmentCategories } from '@/mocks/equipment';
+import { equipmentCategories } from '@/data/equipment';
+import { openContactModal } from '@/components/common/ContactModal';
 
 interface SiteNavbarProps {
     variant?: 'transparent' | 'solid';
@@ -55,14 +56,16 @@ export default function SiteNavbar({ variant = 'transparent' }: SiteNavbarProps)
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
-    useEffect(() => {
+    const [prevPathname, setPrevPathname] = useState(pathname);
+    if (pathname !== prevPathname) {
+        setPrevPathname(pathname);
         setIsMobileMenuOpen(false);
         setMobileOpenSub(null);
-    }, [pathname]);
+    }
 
     // Страницы с темным блоком hero, где шапка должна быть прозрачной до скролла
     const transparentPaths = ['/', '/about', '/calculator'];
-    const transparentPrefixes = ['/linii-', '/sushilnie-', '/production-lines', '/services', '/projects', '/blog'];
+    const transparentPrefixes = ['/linii-', '/sushilnie-', '/production-lines', '/services', '/blog'];
 
     const isTransparentPage =
         transparentPaths.includes(pathname || '') ||
@@ -91,11 +94,6 @@ export default function SiteNavbar({ variant = 'transparent' }: SiteNavbarProps)
         setOpenDropdown(null);
     };
 
-    const handleEquipmentCategoryClick = (category: string) => {
-        router.push(`/oborudovanie?category=${encodeURIComponent(category)}`);
-        setOpenDropdown(null);
-    };
-
     // ── Desktop nav link text style helper ──
     const desktopLinkCls = (path: string) =>
         `text-sm font-medium transition-colors whitespace-nowrap cursor-pointer flex items-center space-x-1 ${isActive(path)
@@ -113,8 +111,7 @@ export default function SiteNavbar({ variant = 'transparent' }: SiteNavbarProps)
 
     return (
         <nav
-            className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isSolid ? 'bg-white shadow-md' : 'bg-transparent'
-                }`}
+            className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isSolid ? 'bg-white' : 'bg-transparent'} ${isScrolled ? 'shadow-md' : ''}`}
         >
             {/* Row 1: Logo + Contacts + CTA */}
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -197,12 +194,12 @@ export default function SiteNavbar({ variant = 'transparent' }: SiteNavbarProps)
                             <span className="whitespace-nowrap">{SITE_CONFIG.contacts.phoneFormatted}</span>
                         </a>
 
-                        <Link
-                            href="/contacts"
+                        <button
+                            onClick={() => openContactModal('Заявка на обратный звонок')}
                             className="px-5 py-2 bg-red-600 text-white text-sm font-medium rounded-lg hover:bg-red-700 transition-colors whitespace-nowrap cursor-pointer"
                         >
                             Получить КП
-                        </Link>
+                        </button>
                     </div>
 
                     {/* Mobile burger */}
@@ -269,14 +266,14 @@ export default function SiteNavbar({ variant = 'transparent' }: SiteNavbarProps)
                                             <div className="absolute top-full left-1/2 -translate-x-1/2 pt-2">
                                                 <div className="bg-white rounded-lg shadow-xl border border-gray-100 py-2 min-w-[300px] max-h-[70vh] overflow-y-auto">
                                                     {equipmentSubMenu.map((sub) => (
-                                                        <a
+                                                        <Link
                                                             key={sub.category}
                                                             href={`/oborudovanie?category=${encodeURIComponent(sub.category)}`}
-                                                            onClick={(e) => { e.preventDefault(); handleEquipmentCategoryClick(sub.category); }}
+                                                            onClick={() => setOpenDropdown(null)}
                                                             className={dropdownItemCls}
                                                         >
                                                             {sub.label}
-                                                        </a>
+                                                        </Link>
                                                     ))}
                                                 </div>
                                             </div>
@@ -320,21 +317,19 @@ export default function SiteNavbar({ variant = 'transparent' }: SiteNavbarProps)
                                         </button>
                                         {mobileOpenSub === 'lines' && (
                                             <div className="ml-4 space-y-0.5">
-                                                <a
+                                                <Link
                                                     href="/#production-lines"
                                                     onClick={(e) => {
-                                                        e.preventDefault();
                                                         setIsMobileMenuOpen(false);
                                                         if (pathname === '/') {
+                                                            e.preventDefault();
                                                             document.getElementById('production-lines')?.scrollIntoView({ behavior: 'smooth' });
-                                                        } else {
-                                                            router.push('/#production-lines');
                                                         }
                                                     }}
                                                     className="block py-2 px-3 text-sm text-gray-600 hover:text-red-600 hover:bg-red-50 rounded-lg cursor-pointer transition-colors"
                                                 >
                                                     Все линии
-                                                </a>
+                                                </Link>
                                                 {linesSubMenu.map((sub) => (
                                                     <Link
                                                         key={sub.label}
@@ -371,18 +366,14 @@ export default function SiteNavbar({ variant = 'transparent' }: SiteNavbarProps)
                                                     Всё оборудование
                                                 </Link>
                                                 {equipmentSubMenu.map((sub) => (
-                                                    <a
+                                                    <Link
                                                         key={sub.category}
                                                         href={`/oborudovanie?category=${encodeURIComponent(sub.category)}`}
-                                                        onClick={(e) => {
-                                                            e.preventDefault();
-                                                            setIsMobileMenuOpen(false);
-                                                            handleEquipmentCategoryClick(sub.category);
-                                                        }}
+                                                        onClick={() => setIsMobileMenuOpen(false)}
                                                         className="block py-2 px-3 text-sm text-gray-600 hover:text-red-600 hover:bg-red-50 rounded-lg cursor-pointer transition-colors"
                                                     >
                                                         {sub.label}
-                                                    </a>
+                                                    </Link>
                                                 ))}
                                             </div>
                                         )}
@@ -443,12 +434,15 @@ export default function SiteNavbar({ variant = 'transparent' }: SiteNavbarProps)
                                 <i className="ri-phone-line text-base"></i>
                                 <span>{SITE_CONFIG.contacts.phoneFormatted}</span>
                             </a>
-                            <Link
-                                href="/contacts"
+                            <button
+                                onClick={() => {
+                                    setIsMobileMenuOpen(false);
+                                    openContactModal('Заявка на обратный звонок');
+                                }}
                                 className="block w-full px-6 py-2.5 bg-red-600 text-white text-sm font-medium rounded-lg hover:bg-red-700 transition-colors text-center cursor-pointer whitespace-nowrap"
                             >
                                 Получить КП
-                            </Link>
+                            </button>
                         </div>
                     </div>
                 </div>

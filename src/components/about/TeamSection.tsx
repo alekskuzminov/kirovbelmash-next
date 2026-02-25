@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import Image from 'next/image';
-import { teamMembers } from '@/mocks/about';
+import { teamMembers } from '@/data/about';
 
 export default function TeamSection() {
     const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);

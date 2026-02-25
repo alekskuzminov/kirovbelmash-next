@@ -1,5 +1,6 @@
 import SiteNavbar from '@/components/feature/SiteNavbar';
 import SiteFooter from '@/components/SiteFooter';
+import ContactModal from '@/components/common/ContactModal';
 
 export default function SiteLayout({
     children,
@@ -13,6 +14,7 @@ export default function SiteLayout({
             <main>{children}</main>
 
             <SiteFooter />
+            <ContactModal />
         </>
     );
 }

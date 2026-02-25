@@ -44,9 +44,6 @@ export default function RootLayout({
   return (
     // TODO: динамический lang при переносе i18n
     <html lang="ru" className="scroll-smooth scroll-pt-[64px] lg:scroll-pt-[108px]">
-      <head>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.5.0/remixicon.min.css" />
-      </head>
       <body className="antialiased">{children}</body>
     </html>
   );

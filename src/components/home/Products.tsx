@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { briquettingLines } from '@/mocks/products';
+import { briquettingLines } from '@/data/products';
 
 const lineUrls: Record<number, string> = {
     1: '/linii-briketirovaniya',

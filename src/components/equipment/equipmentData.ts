@@ -35,7 +35,7 @@ export const equipmentItems: EquipmentItem[] = [
     description:
       'Автоматическая система резки брикетов для получения изделий заданной длины. Обеспечивает точную резку и высокую производительность при минимальном участии оператора.',
     image:
-      'https://readdy.ai/api/search-image?query=industrial%20automatic%20briquette%20cutting%20machine%20heavy%20duty%20steel%20construction%20with%20conveyor%20and%20blade%20system%20on%20clean%20light%20gray%20factory%20floor%20professional%20product%20photography%20high%20detail&width=600&height=400&seq=eq101&orientation=landscape',
+      '/images/equipment/briquette-presses/briquette-cutting-machine.jpg',
     specs: [
       { label: 'Производительность', value: '500 кг/ч' },
       { label: 'Мощность двигателя', value: '3 кВт' },
@@ -64,7 +64,7 @@ export const equipmentItems: EquipmentItem[] = [
     description:
       'Специализированный пресс для производства брикетов типа Pini Kay с характерной формой и центральным отверстием. Высокое качество брикетов и стабильная работа.',
     image:
-      'https://readdy.ai/api/search-image?query=industrial%20pini%20kay%20briquette%20press%20machine%20heavy%20duty%20steel%20frame%20with%20hydraulic%20system%20and%20hopper%20on%20clean%20light%20gray%20factory%20floor%20professional%20product%20photography&width=600&height=400&seq=eq102&orientation=landscape',
+      '/images/equipment/briquette-presses/pini-kay-press-pbm2.jpg',
     specs: [
       { label: 'Производительность', value: '400 кг/ч' },
       { label: 'Мощность двигателя', value: '30 кВт' },
@@ -93,7 +93,7 @@ export const equipmentItems: EquipmentItem[] = [
     description:
       'Высокопроизводительный гранулятор с кольцевой матрицей для производства топливных пеллет. Надёжная конструкция и стабильное качество гранул.',
     image:
-      'https://readdy.ai/api/search-image?query=industrial%20ring%20die%20pellet%20mill%20granulator%20machine%20large%20steel%20equipment%20with%20feeding%20system%20and%20motor%20on%20clean%20light%20gray%20factory%20floor%20professional%20product%20photography&width=600&height=400&seq=eq103&orientation=landscape',
+      '/images/equipment/pellet-presses/pellet-mill-ogm15.jpg',
     specs: [
       { label: 'Производительность', value: '1500 кг/ч' },
       { label: 'Мощность двигателя', value: '110 кВт' },
@@ -122,7 +122,7 @@ export const equipmentItems: EquipmentItem[] = [
     description:
       'Вертикальная колонна для охлаждения готовых пеллет после гранулятора. Обеспечивает равномерное охлаждение и подготовку гранул к упаковке.',
     image:
-      'https://readdy.ai/api/search-image?query=industrial%20vertical%20pellet%20cooling%20column%20tower%20steel%20structure%20with%20air%20distribution%20system%20on%20clean%20light%20gray%20factory%20floor%20professional%20product%20photography&width=600&height=400&seq=eq104&orientation=landscape',
+      '/images/equipment/pellet-presses/pellet-cooling-column.jpg',
     specs: [
       { label: 'Производительность', value: '2000 кг/ч' },
       { label: 'Мощность вентилятора', value: '5.5 кВт' },
@@ -151,7 +151,7 @@ export const equipmentItems: EquipmentItem[] = [
     description:
       'Дисковая рубительная машина для первичного измельчения древесины. Перерабатывает брёвна, горбыль и обрезки в технологическую щепу.',
     image:
-      'https://readdy.ai/api/search-image?query=industrial%20disc%20wood%20chipper%20machine%20large%20steel%20equipment%20with%20feeding%20chute%20and%20discharge%20on%20clean%20light%20gray%20factory%20floor%20professional%20product%20photography&width=600&height=400&seq=eq105&orientation=landscape',
+      '/images/equipment/chippers/wood-chipper-rdm22.jpg',
     specs: [
       { label: 'Производительность', value: '5000 кг/ч' },
       { label: 'Мощность двигателя', value: '55 кВт' },
@@ -180,7 +180,7 @@ export const equipmentItems: EquipmentItem[] = [
     description:
       'Барабанная рубительная машина для переработки крупных древесных отходов. Высокая производительность и равномерная фракция щепы.',
     image:
-      'https://readdy.ai/api/search-image?query=industrial%20drum%20wood%20chipper%20machine%20large%20rotating%20drum%20with%20blades%20steel%20frame%20heavy%20duty%20on%20clean%20light%20gray%20factory%20floor%20professional%20product%20photography&width=600&height=400&seq=eq106&orientation=landscape',
+      '/images/equipment/chippers/drum-chipper-rbm55.jpg',
     specs: [
       { label: 'Производительность', value: '8000 кг/ч' },
       { label: 'Мощность двигателя', value: '90 кВт' },
@@ -209,7 +209,7 @@ export const equipmentItems: EquipmentItem[] = [
     description:
       'Высокопроизводительная молотковая дробилка для измельчения древесных отходов и щепы. Обеспечивает равномерную фракцию на выходе.',
     image:
-      'https://readdy.ai/api/search-image?query=industrial%20hammer%20mill%20crusher%20machine%20heavy%20duty%20steel%20construction%20with%20large%20hopper%20and%20motor%20on%20clean%20light%20gray%20factory%20floor%20professional%20product%20photography&width=600&height=400&seq=eq107&orientation=landscape',
+      '/images/equipment/crushers/hammer-mill-kde.jpg',
     specs: [
       { label: 'Производительность', value: '3000 кг/ч' },
       { label: 'Мощность двигателя', value: '75 кВт' },
@@ -238,7 +238,7 @@ export const equipmentItems: EquipmentItem[] = [
     description:
       'Дробилка для вторичного измельчения щепы в мелкую фракцию. Равномерный помол и высокая надёжость при непрерывной работе.',
     image:
-      'https://readdy.ai/api/search-image?query=industrial%20wood%20chip%20shredder%20grinder%20machine%20steel%20body%20with%20large%20inlet%20and%20electric%20motor%20on%20clean%20light%20gray%20factory%20floor%20professional%20product%20photography&width=600&height=400&seq=eq108&orientation=landscape',
+      '/images/equipment/crushers/hammer-mill-dss.jpg',
     specs: [
       { label: 'Производительность', value: '2000 кг/ч' },
       { label: 'Мощность двигателя', value: '55 кВт' },
@@ -267,7 +267,7 @@ export const equipmentItems: EquipmentItem[] = [
     description:
       'Компактный бункер-накопитель с ворошителем для хранения и равномерной подачи сыпучих материалов. Предотвращает сводообразование.',
     image:
-      'https://readdy.ai/api/search-image?query=industrial%20storage%20hopper%20bin%20with%20agitator%20stirrer%20mechanism%20compact%20steel%20container%20with%20legs%20and%20discharge%20on%20clean%20light%20gray%20factory%20floor%20professional%20product%20photography&width=600&height=400&seq=eq109&orientation=landscape',
+      '/images/equipment/bunkers/bunker-3m3.jpg',
     specs: [
       { label: 'Объём бункера', value: '3 м³' },
       { label: 'Мощность ворошителя', value: '1.5 кВт' },
@@ -295,7 +295,7 @@ export const equipmentItems: EquipmentItem[] = [
     description:
       'Бункер-накопитель среднего объёма с ворошителем для производственных линий. Надёжная система выгрузки и контроля уровня.',
     image:
-      'https://readdy.ai/api/search-image?query=industrial%20storage%20silo%20hopper%20with%20agitator%20system%20medium%20steel%20construction%20with%20platform%20on%20clean%20light%20gray%20factory%20floor%20professional%20product%20photography&width=600&height=400&seq=eq110&orientation=landscape',
+      '/images/equipment/bunkers/bunker-6m3.jpg',
     specs: [
       { label: 'Объём бункера', value: '6 м³' },
       { label: 'Мощность ворошителя', value: '2.2 кВт' },
@@ -325,7 +325,7 @@ export const equipmentItems: EquipmentItem[] = [
     description:
       'Промышленная барабанная сушилка для снижения влажности сырья перед брикетированием или гранулированием. Высокая эффективность теплообмена.',
     image:
-      'https://readdy.ai/api/search-image?query=industrial%20rotary%20drum%20dryer%20large%20cylindrical%20steel%20equipment%20with%20support%20frame%20and%20drive%20motor%20on%20clean%20light%20gray%20factory%20floor%20professional%20product%20photography&width=600&height=400&seq=eq111&orientation=landscape',
+      '/images/equipment/dryers/drum-dryer-avm15.jpg',
     specs: [
       { label: 'Производительность', value: '1500 кг/ч' },
       { label: 'Диаметр барабана', value: '2000 мм' },
@@ -354,7 +354,7 @@ export const equipmentItems: EquipmentItem[] = [
     description:
       'Компактная барабанная сушилка для малых и средних производств. Эффективная сушка при минимальных энергозатратах.',
     image:
-      'https://readdy.ai/api/search-image?query=compact%20industrial%20rotary%20drum%20dryer%20medium%20cylindrical%20steel%20equipment%20with%20support%20frame%20on%20clean%20light%20gray%20factory%20floor%20professional%20product%20photography&width=600&height=400&seq=eq112&orientation=landscape',
+      '/images/equipment/dryers/drum-dryer-avm065.jpg',
     specs: [
       { label: 'Производительность', value: '650 кг/ч' },
       { label: 'Диаметр барабана', value: '1400 мм' },
@@ -382,7 +382,7 @@ export const equipmentItems: EquipmentItem[] = [
     description:
       'Теплогенератор для сушильных комплексов. Работает на древесных отходах, обеспечивает стабильную температуру теплоносителя.',
     image:
-      'https://readdy.ai/api/search-image?query=industrial%20heat%20generator%20furnace%20steel%20construction%20with%20combustion%20chamber%20and%20air%20blower%20on%20clean%20light%20gray%20factory%20floor%20professional%20product%20photography&width=600&height=400&seq=eq113&orientation=landscape',
+      '/images/equipment/dryers/heat-gen-tgm15.jpg',
     specs: [
       { label: 'Тепловая мощность', value: '1500 кВт' },
       { label: 'Расход топлива', value: '300 кг/ч' },
@@ -410,7 +410,7 @@ export const equipmentItems: EquipmentItem[] = [
     description:
       'Компактный теплогенератор для небольших сушильных установок. Эффективное сжигание древесных отходов и стабильная работа.',
     image:
-      'https://readdy.ai/api/search-image?query=compact%20industrial%20heat%20generator%20furnace%20medium%20steel%20construction%20with%20combustion%20chamber%20on%20clean%20light%20gray%20factory%20floor%20professional%20product%20photography&width=600&height=400&seq=eq114&orientation=landscape',
+      '/images/equipment/dryers/heat-gen-tgk10.jpg',
     specs: [
       { label: 'Тепловая мощность', value: '1000 кВт' },
       { label: 'Расход топлива', value: '200 кг/ч' },
@@ -438,7 +438,7 @@ export const equipmentItems: EquipmentItem[] = [
     description:
       'Вихревой теплогенератор для сушильных комплексов. Высокая эффективность сжигания и равномерный нагрев теплоносителя.',
     image:
-      'https://readdy.ai/api/search-image?query=industrial%20vortex%20heat%20generator%20furnace%20steel%20construction%20with%20cyclone%20chamber%20and%20blower%20on%20clean%20light%20gray%20factory%20floor%20professional%20product%20photography&width=600&height=400&seq=eq115&orientation=landscape',
+      '/images/equipment/dryers/heat-gen-tgvg10.jpg',
     specs: [
       { label: 'Тепловая мощность', value: '1000 кВт' },
       { label: 'Расход топлива', value: '180 кг/ч' },
@@ -468,7 +468,7 @@ export const equipmentItems: EquipmentItem[] = [
     description:
       'Крупный циклон-осадитель для отделения опилок и пыли из воздушного потока. Высокая эффективность очистки и большая производительность.',
     image:
-      'https://readdy.ai/api/search-image?query=large%20industrial%20cyclone%20separator%20dust%20collector%20tall%20steel%20conical%20structure%20with%20inlet%20and%20discharge%20on%20clean%20light%20gray%20factory%20floor%20professional%20product%20photography&width=600&height=400&seq=eq116&orientation=landscape',
+      '/images/equipment/pneumatic/cyclone-uc2500.jpg',
     specs: [
       { label: 'Производительность', value: '5000 м³/ч' },
       { label: 'Диаметр циклона', value: '2500 мм' },
@@ -497,7 +497,7 @@ export const equipmentItems: EquipmentItem[] = [
     description:
       'Циклон среднего размера для отделения опилок из воздушного потока. Оптимален для средних производственных линий.',
     image:
-      'https://readdy.ai/api/search-image?query=medium%20industrial%20cyclone%20separator%20dust%20collector%20steel%20conical%20structure%20with%20inlet%20pipe%20on%20clean%20light%20gray%20factory%20floor%20professional%20product%20photography&width=600&height=400&seq=eq117&orientation=landscape',
+      '/images/equipment/pneumatic/cyclone-uc1600.jpg',
     specs: [
       { label: 'Производительность', value: '3000 м³/ч' },
       { label: 'Диаметр циклона', value: '1600 мм' },
@@ -525,7 +525,7 @@ export const equipmentItems: EquipmentItem[] = [
     description:
       'Компактный циклон для малых производств и локальной очистки воздуха от опилок и пыли. Простая конструкция и надёжная работа.',
     image:
-      'https://readdy.ai/api/search-image?query=compact%20industrial%20cyclone%20separator%20small%20dust%20collector%20steel%20conical%20structure%20on%20clean%20light%20gray%20factory%20floor%20professional%20product%20photography&width=600&height=400&seq=eq118&orientation=landscape',
+      '/images/equipment/pneumatic/cyclone-uc100.jpg',
     specs: [
       { label: 'Производительность', value: '1000 м³/ч' },
       { label: 'Диаметр циклона', value: '1000 мм' },
@@ -553,7 +553,7 @@ export const equipmentItems: EquipmentItem[] = [
     description:
       'Шлюзовой затвор для герметичной выгрузки материала из циклонов и бункеров. Предотвращает подсос воздуха в систему.',
     image:
-      'https://readdy.ai/api/search-image?query=industrial%20rotary%20airlock%20valve%20feeder%20steel%20housing%20with%20rotor%20and%20motor%20on%20clean%20light%20gray%20factory%20floor%20professional%20product%20photography&width=600&height=400&seq=eq119&orientation=landscape',
+      '/images/equipment/pneumatic/airlock-valve.jpg',
     specs: [
       { label: 'Производительность', value: '5 м³/ч' },
       { label: 'Мощность двигателя', value: '0.75 кВт' },
@@ -582,7 +582,7 @@ export const equipmentItems: EquipmentItem[] = [
     description:
       'Стокерный склад с механическим подвижным дном для хранения и равномерной подачи сыпучих материалов. Надёжная механическая конструкция.',
     image:
-      'https://readdy.ai/api/search-image?query=industrial%20walking%20floor%20storage%20system%20mechanical%20moving%20floor%20large%20steel%20structure%20with%20chain%20drive%20on%20clean%20light%20gray%20factory%20floor%20professional%20product%20photography&width=600&height=400&seq=eq120&orientation=landscape',
+      '/images/equipment/receiving/walking-floor-mechanical.jpg',
     specs: [
       { label: 'Объём склада', value: '50 м³' },
       { label: 'Мощность привода', value: '7.5 кВт' },
@@ -611,7 +611,7 @@ export const equipmentItems: EquipmentItem[] = [
     description:
       'Стокерный склад с гидравлическим подвижным дном. Плавная регулировка скорости подачи и высокая надёжость гидропривода.',
     image:
-      'https://readdy.ai/api/search-image?query=industrial%20hydraulic%20walking%20floor%20storage%20system%20large%20steel%20structure%20with%20hydraulic%20cylinders%20on%20clean%20light%20gray%20factory%20floor%20professional%20product%20photography&width=600&height=400&seq=eq121&orientation=landscape',
+      '/images/equipment/receiving/walking-floor-hydraulic.jpg',
     specs: [
       { label: 'Объём склада', value: '50 м³' },
       { label: 'Мощность гидростанции', value: '11 кВт' },
@@ -640,7 +640,7 @@ export const equipmentItems: EquipmentItem[] = [
     description:
       'Ленточный конвейер для горизонтального и наклонного перемещения сыпучих материалов. Универсальное решение для производственных линий.',
     image:
-      'https://readdy.ai/api/search-image?query=industrial%20belt%20conveyor%20long%20rubber%20belt%20transport%20system%20with%20steel%20frame%20rollers%20and%20motor%20on%20clean%20light%20gray%20factory%20floor%20professional%20product%20photography&width=600&height=400&seq=eq122&orientation=landscape',
+      '/images/equipment/conveyors/belt-conveyor.jpg',
     specs: [
       { label: 'Производительность', value: '30 м³/ч' },
       { label: 'Ширина ленты', value: '500 мм' },
@@ -663,7 +663,7 @@ export const equipmentItems: EquipmentItem[] = [
     description:
       'Z-образный скребковый транспортёр для вертикального и горизонтального перемещения материалов. Герметичная конструкция.',
     image:
-      'https://readdy.ai/api/search-image?query=industrial%20Z-shaped%20scraper%20chain%20conveyor%20vertical%20and%20horizontal%20steel%20enclosed%20transport%20system%20on%20clean%20light%20gray%20factory%20floor%20professional%20product%20photography&width=600&height=400&seq=eq123&orientation=landscape',
+      '/images/equipment/conveyors/scraper-conveyor-z.jpg',
     specs: [
       { label: 'Производительность', value: '15 м³/ч' },
       { label: 'Мощность привода', value: '7.5 кВт' },
@@ -692,7 +692,7 @@ export const equipmentItems: EquipmentItem[] = [
     description:
       'Прямой скребковый транспортёр для горизонтального перемещения сыпучих материалов. Надёжная конструкция и простое обслуживание.',
     image:
-      'https://readdy.ai/api/search-image?query=industrial%20straight%20scraper%20chain%20conveyor%20horizontal%20steel%20enclosed%20transport%20system%20with%20drive%20unit%20on%20clean%20light%20gray%20factory%20floor%20professional%20product%20photography&width=600&height=400&seq=eq124&orientation=landscape',
+      '/images/equipment/conveyors/scraper-conveyor-straight.jpg',
     specs: [
       { label: 'Производительность', value: '15 м³/ч' },
       { label: 'Мощность привода', value: '5.5 кВт' },
@@ -720,7 +720,7 @@ export const equipmentItems: EquipmentItem[] = [
     description:
       'Вертикальный ковшовый элеватор для подъёма сыпучих материалов на высоту. Компактная конструкция и высокая производительность.',
     image:
-      'https://readdy.ai/api/search-image?query=industrial%20bucket%20elevator%20vertical%20conveyor%20tall%20steel%20structure%20with%20motor%20and%20housing%20on%20clean%20light%20gray%20factory%20floor%20professional%20product%20photography&width=600&height=400&seq=eq125&orientation=landscape',
+      '/images/equipment/conveyors/bucket-elevator.jpg',
     specs: [
       { label: 'Производительность', value: '20 м³/ч' },
       { label: 'Высота подъёма', value: 'до 25 м' },
@@ -748,7 +748,7 @@ export const equipmentItems: EquipmentItem[] = [
     description:
       'Ленточный конвейер с гофрированными бортами для транспортировки под большим углом наклона. Предотвращает просыпание материала.',
     image:
-      'https://readdy.ai/api/search-image?query=industrial%20belt%20conveyor%20with%20corrugated%20sidewalls%20cleated%20belt%20transport%20system%20steep%20incline%20on%20clean%20light%20gray%20factory%20floor%20professional%20product%20photography&width=600&height=400&seq=eq126&orientation=landscape',
+      '/images/equipment/conveyors/belt-conveyor-sidewall.jpg',
     specs: [
       { label: 'Производительность', value: '25 м³/ч' },
       { label: 'Ширина ленты', value: '500 мм' },
@@ -771,7 +771,7 @@ export const equipmentItems: EquipmentItem[] = [
     description:
       'Шнековый транспортёр для дозированной подачи сыпучих материалов. Точная регулировка производительности и герметичная конструкция.',
     image:
-      'https://readdy.ai/api/search-image?query=industrial%20screw%20feeder%20auger%20conveyor%20steel%20tube%20with%20spiral%20blade%20and%20motor%20on%20clean%20light%20gray%20factory%20floor%20professional%20product%20photography&width=600&height=400&seq=eq127&orientation=landscape',
+      '/images/equipment/conveyors/screw-feeder.jpg',
     specs: [
       { label: 'Производительность', value: '10 м³/ч' },
       { label: 'Диаметр шнека', value: '250 мм' },
@@ -794,7 +794,7 @@ export const equipmentItems: EquipmentItem[] = [
     description:
       'L-образный скребковый транспортёр для подъёма материалов под углом. Сочетает горизонтальный и наклонный участки.',
     image:
-      'https://readdy.ai/api/search-image?query=industrial%20L-shaped%20inclined%20scraper%20chain%20conveyor%20angular%20steel%20enclosed%20transport%20system%20on%20clean%20light%20gray%20factory%20floor%20professional%20product%20photography&width=600&height=400&seq=eq128&orientation=landscape',
+      '/images/equipment/conveyors/chain-conveyor-l.jpg',
     specs: [
       { label: 'Производительность', value: '12 м³/ч' },
       { label: 'Мощность привода', value: '5.5 кВт' },
@@ -818,7 +818,7 @@ export const equipmentItems: EquipmentItem[] = [
     description:
       'Барабанный грохот для сортировки щепы, опилок и других сыпучих материалов. Вращающийся барабан обеспечивает эффективное разделение по фракциям.',
     image:
-      'https://readdy.ai/api/search-image?query=industrial%20trommel%20drum%20screen%20separator%20rotating%20cylindrical%20steel%20mesh%20equipment%20with%20frame%20and%20motor%20on%20clean%20light%20gray%20factory%20floor%20professional%20product%20photography&width=600&height=400&seq=eq129&orientation=landscape',
+      '/images/equipment/screening/rotary-screener.jpg',
     specs: [
       { label: 'Производительность', value: '8000 кг/ч' },
       { label: 'Диаметр барабана', value: '1500 мм' },
@@ -842,7 +842,7 @@ export const equipmentItems: EquipmentItem[] = [
     description:
       'Дисковый сепаратор для отделения крупных включений и сортировки материала. Эффективное разделение по размеру частиц.',
     image:
-      'https://readdy.ai/api/search-image?query=industrial%20disc%20separator%20screening%20machine%20rotating%20discs%20steel%20frame%20with%20motor%20on%20clean%20light%20gray%20factory%20floor%20professional%20product%20photography&width=600&height=400&seq=eq130&orientation=landscape',
+      '/images/equipment/screening/disc-separator.jpg',
     specs: [
       { label: 'Производительность', value: '6000 кг/ч' },
       { label: 'Количество дисков', value: '12 шт' },

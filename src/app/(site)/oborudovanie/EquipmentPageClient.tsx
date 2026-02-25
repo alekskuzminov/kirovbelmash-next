@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useMemo, useEffect } from 'react';
+import { useState, useMemo } from 'react';
 import { useSearchParams, useRouter, usePathname } from 'next/navigation';
 import EquipmentFilters from '@/components/equipment/EquipmentFilters';
 import EquipmentCard from '@/components/equipment/EquipmentCard';
@@ -13,21 +13,10 @@ export default function EquipmentPageClient() {
     const pathname = usePathname();
 
     const categoryFromUrl = searchParams.get('category') || 'Все';
-    const [activeCategory, setActiveCategory] = useState(categoryFromUrl);
+    const activeCategory = equipmentCategories.includes(categoryFromUrl) ? categoryFromUrl : 'Все';
     const [searchQuery, setSearchQuery] = useState('');
 
-    useEffect(() => {
-        const cat = searchParams.get('category');
-        if (cat && equipmentCategories.includes(cat)) {
-            setActiveCategory(cat);
-        } else if (!cat) {
-            setActiveCategory('Все');
-        }
-    }, [searchParams]);
-
     const handleCategoryChange = (category: string) => {
-        setActiveCategory(category);
-
         // Create new URLSearchParams object
         const params = new URLSearchParams(searchParams.toString());
 

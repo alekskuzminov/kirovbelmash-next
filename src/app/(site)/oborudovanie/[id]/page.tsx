@@ -1,6 +1,6 @@
 import { Metadata } from 'next';
 import Image from 'next/image';
-import Link from 'next/link';
+import ContactModalButton from '@/components/common/ContactModalButton';
 import { notFound } from 'next/navigation';
 import { equipmentItems } from '@/components/equipment/equipmentData';
 import EquipmentCTA from '@/components/equipment/EquipmentCTA';
@@ -71,13 +71,13 @@ export default async function EquipmentDetailPage({ params }: Props) {
                         </div>
 
                         <div className="flex-shrink-0 w-full md:w-auto">
-                            <Link
-                                href="/contacts"
+                            <ContactModalButton
+                                message={`\u041f\u0440\u043e\u0448\u0443 \u043f\u043e\u0434\u0433\u043e\u0442\u043e\u0432\u0438\u0442\u044c \u043a\u043e\u043c\u043c\u0435\u0440\u0447\u0435\u0441\u043a\u043e\u0435 \u043f\u0440\u0435\u0434\u043b\u043e\u0436\u0435\u043d\u0438\u0435 \u043d\u0430 \u043e\u0431\u043e\u0440\u0443\u0434\u043e\u0432\u0430\u043d\u0438\u0435: \u00ab${item.name}\u00bb`}
                                 className="w-full md:w-auto px-6 sm:px-8 py-3 sm:py-3.5 bg-red-600 text-white text-sm font-medium rounded-xl hover:bg-red-700 transition-colors flex items-center justify-center gap-2 shadow-sm"
                             >
                                 <i className="ri-mail-send-line text-lg"></i>
                                 Получить коммерческое
-                            </Link>
+                            </ContactModalButton>
                         </div>
                     </div>
                 </div>

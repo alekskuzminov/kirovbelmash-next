@@ -1,4 +1,6 @@
 @import "tailwindcss";
+@import "remixicon/fonts/remixicon.css";
+
 @theme {
   --color-red-50: rgb(255, 245, 245);
   --color-red-100: rgb(254, 226, 226);
@@ -18,6 +20,7 @@
     opacity: 0;
     transform: scale(0.95) translateY(10px);
   }
+
   to {
     opacity: 1;
     transform: scale(1) translateY(0);
@@ -26,6 +29,36 @@
 
 .animate-modal-in {
   animation: modal-in 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95) translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.2s ease-out;
+}
+
+.animate-scaleIn {
+  animation: scaleIn 0.25s ease-out;
 }
 
 /* ===== Utility classes ===== */
@@ -46,6 +79,7 @@
 .scrollbar-hide::-webkit-scrollbar {
   display: none;
 }
+
 .scrollbar-hide {
   -ms-overflow-style: none;
   scrollbar-width: none;

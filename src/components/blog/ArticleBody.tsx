@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import ContactModalButton from '@/components/common/ContactModalButton';
 import Image from 'next/image';
 import type { BlogPost, BlogSection } from './blogData';
 
@@ -128,12 +129,12 @@ export default function ArticleBody({ post, relatedPosts }: ArticleBodyProps) {
                                 Наши инженеры подберут оптимальное решение под ваши задачи и объёмы производства.
                             </p>
 
-                            <Link
-                                href="/contacts"
+                            <ContactModalButton
+                                message={'\u041a\u043e\u043d\u0441\u0443\u043b\u044c\u0442\u0430\u0446\u0438\u044f \u043f\u043e \u043e\u0431\u043e\u0440\u0443\u0434\u043e\u0432\u0430\u043d\u0438\u044e'}
                                 className="flex items-center justify-center w-full px-4 py-3.5 bg-red-600 text-white text-sm font-semibold rounded-xl hover:bg-red-700 transition-colors shadow-md shadow-red-600/20"
                             >
                                 Запросить КП
-                            </Link>
+                            </ContactModalButton>
 
                             <a
                                 href="tel:+79005218477"

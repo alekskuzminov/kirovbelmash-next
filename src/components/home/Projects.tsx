@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { projectsData } from '@/mocks/projects';
+import { projectsData } from '@/data/projects';
 
 export default function Projects() {
     return (

@@ -17,7 +17,7 @@ export default function ContactDetails() {
                                     <div>
                                         <p className="text-xs text-gray-500 mb-1">Компания</p>
                                         <p className="text-sm font-semibold text-gray-900">
-                                            "КировБелМаш"
+                                            &quot;КировБелМаш&quot;
                                         </p>
                                     </div>
                                 </div>

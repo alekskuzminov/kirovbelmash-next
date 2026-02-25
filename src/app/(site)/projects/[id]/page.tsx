@@ -1,6 +1,5 @@
 import { notFound } from 'next/navigation';
 import { Metadata } from 'next';
-import Link from 'next/link';
 import { projectsData } from '@/components/projects/projectsData';
 import ContactForm from '@/components/home/ContactForm';
 import ProjectImageGallery from '@/components/projects/ProjectImageGallery';

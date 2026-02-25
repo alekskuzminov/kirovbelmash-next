@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import Breadcrumbs from '@/components/ui/Breadcrumbs';
-import { companyStats } from '@/mocks/about';
+import { companyStats } from '@/data/about';
 
 export default function AboutHero() {
     return (

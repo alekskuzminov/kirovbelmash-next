@@ -4,7 +4,7 @@ import EquipmentPageClient from './EquipmentPageClient';
 
 export const metadata: Metadata = {
     title: 'Каталог оборудования | Kirovbelmash',
-    description: 'Проверка промышленного оборудования для производства брикетов, пеллет и переработки древесины. Полный каталог станков и линий.',
+    description: 'Каталог промышленного оборудования для производства брикетов, пеллет и переработки древесины. Полный каталог станков и линий.',
 };
 
 export default function EquipmentPage() {

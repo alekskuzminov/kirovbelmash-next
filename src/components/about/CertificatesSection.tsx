@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import { certificates } from '@/mocks/about';
+import { certificates } from '@/data/about';
 
 export default function CertificatesSection() {
     return (
