@@ -25,27 +25,27 @@ export const briquettingLines = [
 export const equipmentCatalog = [
     {
         category: 'Станки для производства брикетов',
-        image: '/images/equipment/briquette-presses/preview-briquette-machine.jpg',
+        image: '/images/equipment/briquette-presses/preview-briquette-presses-home.webp',
         count: 2,
     },
     {
         category: 'Станки для производства пеллет',
-        image: '/images/equipment/pellet-presses/preview-pellet-machine.jpg',
+        image: '/images/equipment/pellet-presses/preview-pellet-presses-home.jpg',
         count: 2,
     },
     {
         category: 'Рубительные машины',
-        image: '/images/equipment/chippers/preview-chipper.jpg',
+        image: '/images/equipment/chippers/preview-chippers-home.webp',
         count: 2,
     },
     {
         category: 'Дробильное оборудование',
-        image: '/images/equipment/crushers/preview-crusher.jpg',
+        image: '/images/equipment/crushers/preview-crushers-home.webp',
         count: 2,
     },
     {
         category: 'Бункеры-накопители с ворошителем',
-        image: '/images/equipment/bunkers/preview-bunker.jpg',
+        image: '/images/equipment/bunkers/preview-bunkers-home.webp',
         count: 2,
     },
     {

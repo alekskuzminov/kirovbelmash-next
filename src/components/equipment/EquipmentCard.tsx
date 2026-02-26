@@ -19,13 +19,6 @@ export default function EquipmentCard({ item, index }: EquipmentCardProps) {
             className="group bg-white rounded-xl overflow-hidden border border-gray-100 hover:border-red-200 transition-all duration-300 hover:shadow-xl relative flex flex-col h-full"
             style={{ animationDelay: `${index * 60}ms` }}
         >
-            {item.badge && (
-                <div
-                    className={`absolute top-3 right-3 z-10 px-2.5 py-1 text-[10px] sm:text-xs font-bold uppercase tracking-wide rounded border ${badgeColors[item.badge] || 'bg-gray-800 text-white'}`}
-                >
-                    {item.badge}
-                </div>
-            )}
 
             <Link href={`/oborudovanie/${item.id}`} className="block relative w-full h-44 sm:h-56 bg-gray-50 overflow-hidden flex-shrink-0">
                 <Image

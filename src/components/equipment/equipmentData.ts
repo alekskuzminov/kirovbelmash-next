@@ -10,6 +10,7 @@ export interface EquipmentItem {
   power: string;
   capacity: string;
   weight: string;
+  gallery?: string[];
 }
 
 export const equipmentCategories = [
@@ -35,7 +36,7 @@ export const equipmentItems: EquipmentItem[] = [
     description:
       'Автоматическая система резки брикетов для получения изделий заданной длины. Обеспечивает точную резку и высокую производительность при минимальном участии оператора.',
     image:
-      '/images/equipment/briquette-presses/briquette-cutting-machine.jpg',
+      '/images/equipment/briquette-presses/briquette-cutting-machine/preview-briquette-cutting-machine-catalog.webp',
     specs: [
       { label: 'Производительность', value: '500 кг/ч' },
       { label: 'Мощность двигателя', value: '3 кВт' },
@@ -56,6 +57,13 @@ export const equipmentItems: EquipmentItem[] = [
     power: '3 кВт',
     capacity: '500 кг/ч',
     weight: '450 кг',
+    gallery: [
+      '/images/equipment/briquette-presses/briquette-cutting-machine/briquette-cutting-machine-galery-1.webp',
+      '/images/equipment/briquette-presses/briquette-cutting-machine/briquette-cutting-machine-galery-2.webp',
+      '/images/equipment/briquette-presses/briquette-cutting-machine/briquette-cutting-machine-galery-3.webp',
+      '/images/equipment/briquette-presses/briquette-cutting-machine/briquette-cutting-machine-galery-4.webp',
+      '/images/equipment/briquette-presses/briquette-cutting-machine/briquette-cutting-machine-galery-5.webp',
+    ],
   },
   {
     id: 2,
@@ -64,7 +72,7 @@ export const equipmentItems: EquipmentItem[] = [
     description:
       'Специализированный пресс для производства брикетов типа Pini Kay с характерной формой и центральным отверстием. Высокое качество брикетов и стабильная работа.',
     image:
-      '/images/equipment/briquette-presses/pini-kay-press-pbm2.jpg',
+      '/images/equipment/briquette-presses/pini-kay-press-pbm2/preview-pini-kay-press-pbm2-catalog.webp',
     specs: [
       { label: 'Производительность', value: '400 кг/ч' },
       { label: 'Мощность двигателя', value: '30 кВт' },
@@ -84,6 +92,11 @@ export const equipmentItems: EquipmentItem[] = [
     power: '30 кВт',
     capacity: '400 кг/ч',
     weight: '1800 кг',
+    gallery: [
+      '/images/equipment/briquette-presses/pini-kay-press-pbm2/pini-kay-press-pbm2-galery-1.webp',
+      '/images/equipment/briquette-presses/pini-kay-press-pbm2/pini-kay-press-pbm2-galery-2.webp',
+      '/images/equipment/briquette-presses/pini-kay-press-pbm2/pini-kay-press-pbm2-galery-3.webp',
+    ],
   },
   // Станки для производства пеллет
   {
@@ -93,7 +106,7 @@ export const equipmentItems: EquipmentItem[] = [
     description:
       'Высокопроизводительный гранулятор с кольцевой матрицей для производства топливных пеллет. Надёжная конструкция и стабильное качество гранул.',
     image:
-      '/images/equipment/pellet-presses/pellet-mill-ogm15.jpg',
+      '/images/equipment/pellet-presses/pellet-mill-ogm15/preview-pellet-mill-ogm15-catalog.webp',
     specs: [
       { label: 'Производительность', value: '1500 кг/ч' },
       { label: 'Мощность двигателя', value: '110 кВт' },
@@ -114,6 +127,10 @@ export const equipmentItems: EquipmentItem[] = [
     power: '110 кВт',
     capacity: '1500 кг/ч',
     weight: '3800 кг',
+    gallery: [
+      '/images/equipment/pellet-presses/pellet-mill-ogm15/pellet-mill-ogm15-galery-1.webp',
+      '/images/equipment/pellet-presses/pellet-mill-ogm15/pellet-mill-ogm15-galery-2.webp',
+    ],
   },
   {
     id: 4,
@@ -122,7 +139,7 @@ export const equipmentItems: EquipmentItem[] = [
     description:
       'Вертикальная колонна для охлаждения готовых пеллет после гранулятора. Обеспечивает равномерное охлаждение и подготовку гранул к упаковке.',
     image:
-      '/images/equipment/pellet-presses/pellet-cooling-column.jpg',
+      '/images/equipment/pellet-presses/pellet-cooling-column/preview-pellet-cooling-column-catalog.webp',
     specs: [
       { label: 'Производительность', value: '2000 кг/ч' },
       { label: 'Мощность вентилятора', value: '5.5 кВт' },
@@ -142,6 +159,12 @@ export const equipmentItems: EquipmentItem[] = [
     power: '5.5 кВт',
     capacity: '2000 кг/ч',
     weight: '1200 кг',
+    gallery: [
+      '/images/equipment/pellet-presses/pellet-cooling-column/pellet-cooling-column-galery-1.webp',
+      '/images/equipment/pellet-presses/pellet-cooling-column/pellet-cooling-column-galery-2.webp',
+      '/images/equipment/pellet-presses/pellet-cooling-column/pellet-cooling-column-galery-3.webp',
+      '/images/equipment/pellet-presses/pellet-cooling-column/pellet-cooling-column-galery-4.webp',
+    ],
   },
   // Рубительные машины
   {
@@ -151,7 +174,7 @@ export const equipmentItems: EquipmentItem[] = [
     description:
       'Дисковая рубительная машина для первичного измельчения древесины. Перерабатывает брёвна, горбыль и обрезки в технологическую щепу.',
     image:
-      '/images/equipment/chippers/wood-chipper-rdm22.jpg',
+      '/images/equipment/chippers/wood-chipper-rdm22/preview-wood-chipper-rdm22-catalog.webp',
     specs: [
       { label: 'Производительность', value: '5000 кг/ч' },
       { label: 'Мощность двигателя', value: '55 кВт' },
@@ -172,6 +195,11 @@ export const equipmentItems: EquipmentItem[] = [
     power: '55 кВт',
     capacity: '5000 кг/ч',
     weight: '2200 кг',
+    gallery: [
+      '/images/equipment/chippers/wood-chipper-rdm22/wood-chipper-rdm22-galery-1.webp',
+      '/images/equipment/chippers/wood-chipper-rdm22/wood-chipper-rdm22-galery-2.webp',
+      '/images/equipment/chippers/wood-chipper-rdm22/wood-chipper-rdm22-galery-3.webp',
+    ],
   },
   {
     id: 6,
@@ -180,7 +208,7 @@ export const equipmentItems: EquipmentItem[] = [
     description:
       'Барабанная рубительная машина для переработки крупных древесных отходов. Высокая производительность и равномерная фракция щепы.',
     image:
-      '/images/equipment/chippers/drum-chipper-rbm55.jpg',
+      '/images/equipment/chippers/drum-chipper-rbm55/preview-drum-chipper-rbm55-catalog.webp',
     specs: [
       { label: 'Производительность', value: '8000 кг/ч' },
       { label: 'Мощность двигателя', value: '90 кВт' },
@@ -200,6 +228,9 @@ export const equipmentItems: EquipmentItem[] = [
     power: '90 кВт',
     capacity: '8000 кг/ч',
     weight: '4800 кг',
+    gallery: [
+      '/images/equipment/chippers/drum-chipper-rbm55/drum-chipper-rbm55-galery-1.webp',
+    ],
   },
   // Дробильное оборудование
   {
@@ -209,7 +240,7 @@ export const equipmentItems: EquipmentItem[] = [
     description:
       'Высокопроизводительная молотковая дробилка для измельчения древесных отходов и щепы. Обеспечивает равномерную фракцию на выходе.',
     image:
-      '/images/equipment/crushers/hammer-mill-kde.jpg',
+      '/images/equipment/crushers/hammer-mill-kde/preview-hammer-mill-kde-catalog.webp',
     specs: [
       { label: 'Производительность', value: '3000 кг/ч' },
       { label: 'Мощность двигателя', value: '75 кВт' },
@@ -238,7 +269,7 @@ export const equipmentItems: EquipmentItem[] = [
     description:
       'Дробилка для вторичного измельчения щепы в мелкую фракцию. Равномерный помол и высокая надёжость при непрерывной работе.',
     image:
-      '/images/equipment/crushers/hammer-mill-dss.jpg',
+      '/images/equipment/crushers/hammer-mill-dss/preview-hammer-mill-dss-catalog.webp',
     specs: [
       { label: 'Производительность', value: '2000 кг/ч' },
       { label: 'Мощность двигателя', value: '55 кВт' },
@@ -258,6 +289,11 @@ export const equipmentItems: EquipmentItem[] = [
     power: '55 кВт',
     capacity: '2000 кг/ч',
     weight: '1900 кг',
+    gallery: [
+      '/images/equipment/crushers/hammer-mill-dss/hammer-mill-dss-galery-1.webp',
+      '/images/equipment/crushers/hammer-mill-dss/hammer-mill-dss-galery-2.webp',
+      '/images/equipment/crushers/hammer-mill-dss/hammer-mill-dss-galery-3.webp',
+    ],
   },
   // Бункеры-накопители с ворошителем
   {
@@ -267,7 +303,7 @@ export const equipmentItems: EquipmentItem[] = [
     description:
       'Компактный бункер-накопитель с ворошителем для хранения и равномерной подачи сыпучих материалов. Предотвращает сводообразование.',
     image:
-      '/images/equipment/bunkers/bunker-3m3.jpg',
+      '/images/equipment/bunkers/bunker-3m3/preview-bunker-3m3-catalog.webp',
     specs: [
       { label: 'Объём бункера', value: '3 м³' },
       { label: 'Мощность ворошителя', value: '1.5 кВт' },
@@ -287,6 +323,10 @@ export const equipmentItems: EquipmentItem[] = [
     power: '3.7 кВт',
     capacity: '3 м³',
     weight: '650 кг',
+    gallery: [
+      '/images/equipment/bunkers/bunker-3m3/bunker-3m3-galery-1.webp',
+      '/images/equipment/bunkers/bunker-3m3/bunker-3m3-galery-2.webp',
+    ],
   },
   {
     id: 10,
@@ -295,7 +335,7 @@ export const equipmentItems: EquipmentItem[] = [
     description:
       'Бункер-накопитель среднего объёма с ворошителем для производственных линий. Надёжная система выгрузки и контроля уровня.',
     image:
-      '/images/equipment/bunkers/bunker-6m3.jpg',
+      '/images/equipment/bunkers/bunker-6m3/preview-bunker-6m3-catalog.webp',
     specs: [
       { label: 'Объём бункера', value: '6 м³' },
       { label: 'Мощность ворошителя', value: '2.2 кВт' },
@@ -316,6 +356,11 @@ export const equipmentItems: EquipmentItem[] = [
     power: '5.2 кВт',
     capacity: '6 м³',
     weight: '1100 кг',
+    gallery: [
+      '/images/equipment/bunkers/bunker-6m3/bunker-6m3-galery-1.webp',
+      '/images/equipment/bunkers/bunker-6m3/bunker-6m3-galery-2.webp',
+      '/images/equipment/bunkers/bunker-6m3/bunker-6m3-galery-3.webp',
+    ],
   },
   // Сушильное оборудование
   {
@@ -325,7 +370,7 @@ export const equipmentItems: EquipmentItem[] = [
     description:
       'Промышленная барабанная сушилка для снижения влажности сырья перед брикетированием или гранулированием. Высокая эффективность теплообмена.',
     image:
-      '/images/equipment/dryers/drum-dryer-avm15.jpg',
+      '/images/equipment/dryers/drum-dryer-avm15/1.jpg',
     specs: [
       { label: 'Производительность', value: '1500 кг/ч' },
       { label: 'Диаметр барабана', value: '2000 мм' },
@@ -354,7 +399,7 @@ export const equipmentItems: EquipmentItem[] = [
     description:
       'Компактная барабанная сушилка для малых и средних производств. Эффективная сушка при минимальных энергозатратах.',
     image:
-      '/images/equipment/dryers/drum-dryer-avm065.jpg',
+      '/images/equipment/dryers/drum-dryer-avm065/1.jpg',
     specs: [
       { label: 'Производительность', value: '650 кг/ч' },
       { label: 'Диаметр барабана', value: '1400 мм' },
@@ -382,7 +427,7 @@ export const equipmentItems: EquipmentItem[] = [
     description:
       'Теплогенератор для сушильных комплексов. Работает на древесных отходах, обеспечивает стабильную температуру теплоносителя.',
     image:
-      '/images/equipment/dryers/heat-gen-tgm15.jpg',
+      '/images/equipment/dryers/heat-gen-tgm15/1.jpg',
     specs: [
       { label: 'Тепловая мощность', value: '1500 кВт' },
       { label: 'Расход топлива', value: '300 кг/ч' },
@@ -410,7 +455,7 @@ export const equipmentItems: EquipmentItem[] = [
     description:
       'Компактный теплогенератор для небольших сушильных установок. Эффективное сжигание древесных отходов и стабильная работа.',
     image:
-      '/images/equipment/dryers/heat-gen-tgk10.jpg',
+      '/images/equipment/dryers/heat-gen-tgk10/1.jpg',
     specs: [
       { label: 'Тепловая мощность', value: '1000 кВт' },
       { label: 'Расход топлива', value: '200 кг/ч' },
@@ -438,7 +483,7 @@ export const equipmentItems: EquipmentItem[] = [
     description:
       'Вихревой теплогенератор для сушильных комплексов. Высокая эффективность сжигания и равномерный нагрев теплоносителя.',
     image:
-      '/images/equipment/dryers/heat-gen-tgvg10.jpg',
+      '/images/equipment/dryers/heat-gen-tgvg10/1.jpg',
     specs: [
       { label: 'Тепловая мощность', value: '1000 кВт' },
       { label: 'Расход топлива', value: '180 кг/ч' },
@@ -468,7 +513,7 @@ export const equipmentItems: EquipmentItem[] = [
     description:
       'Крупный циклон-осадитель для отделения опилок и пыли из воздушного потока. Высокая эффективность очистки и большая производительность.',
     image:
-      '/images/equipment/pneumatic/cyclone-uc2500.jpg',
+      '/images/equipment/pneumatic/cyclone-uc2500/1.jpg',
     specs: [
       { label: 'Производительность', value: '5000 м³/ч' },
       { label: 'Диаметр циклона', value: '2500 мм' },
@@ -497,7 +542,7 @@ export const equipmentItems: EquipmentItem[] = [
     description:
       'Циклон среднего размера для отделения опилок из воздушного потока. Оптимален для средних производственных линий.',
     image:
-      '/images/equipment/pneumatic/cyclone-uc1600.jpg',
+      '/images/equipment/pneumatic/cyclone-uc1600/1.jpg',
     specs: [
       { label: 'Производительность', value: '3000 м³/ч' },
       { label: 'Диаметр циклона', value: '1600 мм' },
@@ -525,7 +570,7 @@ export const equipmentItems: EquipmentItem[] = [
     description:
       'Компактный циклон для малых производств и локальной очистки воздуха от опилок и пыли. Простая конструкция и надёжная работа.',
     image:
-      '/images/equipment/pneumatic/cyclone-uc100.jpg',
+      '/images/equipment/pneumatic/cyclone-uc100/1.jpg',
     specs: [
       { label: 'Производительность', value: '1000 м³/ч' },
       { label: 'Диаметр циклона', value: '1000 мм' },
@@ -553,7 +598,7 @@ export const equipmentItems: EquipmentItem[] = [
     description:
       'Шлюзовой затвор для герметичной выгрузки материала из циклонов и бункеров. Предотвращает подсос воздуха в систему.',
     image:
-      '/images/equipment/pneumatic/airlock-valve.jpg',
+      '/images/equipment/pneumatic/airlock-valve/1.jpg',
     specs: [
       { label: 'Производительность', value: '5 м³/ч' },
       { label: 'Мощность двигателя', value: '0.75 кВт' },
@@ -582,7 +627,7 @@ export const equipmentItems: EquipmentItem[] = [
     description:
       'Стокерный склад с механическим подвижным дном для хранения и равномерной подачи сыпучих материалов. Надёжная механическая конструкция.',
     image:
-      '/images/equipment/receiving/walking-floor-mechanical.jpg',
+      '/images/equipment/receiving/walking-floor-mechanical/1.jpg',
     specs: [
       { label: 'Объём склада', value: '50 м³' },
       { label: 'Мощность привода', value: '7.5 кВт' },
@@ -611,7 +656,7 @@ export const equipmentItems: EquipmentItem[] = [
     description:
       'Стокерный склад с гидравлическим подвижным дном. Плавная регулировка скорости подачи и высокая надёжость гидропривода.',
     image:
-      '/images/equipment/receiving/walking-floor-hydraulic.jpg',
+      '/images/equipment/receiving/walking-floor-hydraulic/1.jpg',
     specs: [
       { label: 'Объём склада', value: '50 м³' },
       { label: 'Мощность гидростанции', value: '11 кВт' },
@@ -640,7 +685,7 @@ export const equipmentItems: EquipmentItem[] = [
     description:
       'Ленточный конвейер для горизонтального и наклонного перемещения сыпучих материалов. Универсальное решение для производственных линий.',
     image:
-      '/images/equipment/conveyors/belt-conveyor.jpg',
+      '/images/equipment/conveyors/belt-conveyor/1.jpg',
     specs: [
       { label: 'Производительность', value: '30 м³/ч' },
       { label: 'Ширина ленты', value: '500 мм' },
@@ -663,7 +708,7 @@ export const equipmentItems: EquipmentItem[] = [
     description:
       'Z-образный скребковый транспортёр для вертикального и горизонтального перемещения материалов. Герметичная конструкция.',
     image:
-      '/images/equipment/conveyors/scraper-conveyor-z.jpg',
+      '/images/equipment/conveyors/scraper-conveyor-z/1.jpg',
     specs: [
       { label: 'Производительность', value: '15 м³/ч' },
       { label: 'Мощность привода', value: '7.5 кВт' },
@@ -692,7 +737,7 @@ export const equipmentItems: EquipmentItem[] = [
     description:
       'Прямой скребковый транспортёр для горизонтального перемещения сыпучих материалов. Надёжная конструкция и простое обслуживание.',
     image:
-      '/images/equipment/conveyors/scraper-conveyor-straight.jpg',
+      '/images/equipment/conveyors/scraper-conveyor-straight/1.jpg',
     specs: [
       { label: 'Производительность', value: '15 м³/ч' },
       { label: 'Мощность привода', value: '5.5 кВт' },
@@ -720,7 +765,7 @@ export const equipmentItems: EquipmentItem[] = [
     description:
       'Вертикальный ковшовый элеватор для подъёма сыпучих материалов на высоту. Компактная конструкция и высокая производительность.',
     image:
-      '/images/equipment/conveyors/bucket-elevator.jpg',
+      '/images/equipment/conveyors/bucket-elevator/1.jpg',
     specs: [
       { label: 'Производительность', value: '20 м³/ч' },
       { label: 'Высота подъёма', value: 'до 25 м' },
@@ -748,7 +793,7 @@ export const equipmentItems: EquipmentItem[] = [
     description:
       'Ленточный конвейер с гофрированными бортами для транспортировки под большим углом наклона. Предотвращает просыпание материала.',
     image:
-      '/images/equipment/conveyors/belt-conveyor-sidewall.jpg',
+      '/images/equipment/conveyors/belt-conveyor-sidewall/1.jpg',
     specs: [
       { label: 'Производительность', value: '25 м³/ч' },
       { label: 'Ширина ленты', value: '500 мм' },
@@ -771,7 +816,7 @@ export const equipmentItems: EquipmentItem[] = [
     description:
       'Шнековый транспортёр для дозированной подачи сыпучих материалов. Точная регулировка производительности и герметичная конструкция.',
     image:
-      '/images/equipment/conveyors/screw-feeder.jpg',
+      '/images/equipment/conveyors/screw-feeder/1.jpg',
     specs: [
       { label: 'Производительность', value: '10 м³/ч' },
       { label: 'Диаметр шнека', value: '250 мм' },
@@ -794,7 +839,7 @@ export const equipmentItems: EquipmentItem[] = [
     description:
       'L-образный скребковый транспортёр для подъёма материалов под углом. Сочетает горизонтальный и наклонный участки.',
     image:
-      '/images/equipment/conveyors/chain-conveyor-l.jpg',
+      '/images/equipment/conveyors/chain-conveyor-l/1.jpg',
     specs: [
       { label: 'Производительность', value: '12 м³/ч' },
       { label: 'Мощность привода', value: '5.5 кВт' },
@@ -818,7 +863,7 @@ export const equipmentItems: EquipmentItem[] = [
     description:
       'Барабанный грохот для сортировки щепы, опилок и других сыпучих материалов. Вращающийся барабан обеспечивает эффективное разделение по фракциям.',
     image:
-      '/images/equipment/screening/rotary-screener.jpg',
+      '/images/equipment/screening/rotary-screener/1.jpg',
     specs: [
       { label: 'Производительность', value: '8000 кг/ч' },
       { label: 'Диаметр барабана', value: '1500 мм' },
@@ -842,7 +887,7 @@ export const equipmentItems: EquipmentItem[] = [
     description:
       'Дисковый сепаратор для отделения крупных включений и сортировки материала. Эффективное разделение по размеру частиц.',
     image:
-      '/images/equipment/screening/disc-separator.jpg',
+      '/images/equipment/screening/disc-separator/1.jpg',
     specs: [
       { label: 'Производительность', value: '6000 кг/ч' },
       { label: 'Количество дисков', value: '12 шт' },

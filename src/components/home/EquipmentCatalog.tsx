@@ -34,16 +34,18 @@ export default function EquipmentCatalog() {
                             href={`/oborudovanie?category=${encodeURIComponent(item.category)}`}
                             className="group flex flex-col bg-white rounded-2xl border border-gray-100 shadow-[0_4px_20px_-4px_rgba(0,0,0,0.05)] hover:shadow-[0_20px_40px_-12px_rgba(0,0,0,0.12)] hover:-translate-y-1.5 transition-all duration-500 overflow-hidden"
                         >
-                            <div className="relative w-full h-48 bg-white overflow-hidden">
-                                <Image
-                                    src={item.image}
-                                    alt={item.category}
-                                    fill
-                                    loading="lazy"
-                                    className="object-contain object-center group-hover:scale-105 transition-transform duration-500 ease-out"
-                                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
-                                />
-                                <span className="absolute top-4 right-4 z-20 bg-white/90 backdrop-blur-md text-xs font-semibold text-gray-700 px-3 py-1.5 rounded-lg shadow-sm ring-1 ring-black/5">
+                            <div className="relative w-full h-52 bg-white p-8">
+                                <div className="relative w-full h-full overflow-hidden">
+                                    <Image
+                                        src={item.image}
+                                        alt={item.category}
+                                        fill
+                                        loading="lazy"
+                                        className="object-contain object-center group-hover:scale-110 transition-transform duration-500 ease-out"
+                                        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                                    />
+                                </div>
+                                <span className="absolute top-4 right-4 z-20 bg-white/90 backdrop-blur-md text-[10px] font-semibold text-gray-700 px-2.5 py-1 rounded-lg shadow-sm ring-1 ring-black/5">
                                     {item.count}{' '}
                                     {item.count === 1
                                         ? 'позиция'
