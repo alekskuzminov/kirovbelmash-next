@@ -50,27 +50,27 @@ export const equipmentCatalog = [
     },
     {
         category: 'Сушильное оборудование',
-        image: '/images/equipment/dryers/preview-dryer.jpg',
+        image: '/images/equipment/dryers/preview-dryers-home.webp',
         count: 5,
     },
     {
         category: 'Пневмотранспортное оборудование',
-        image: '/images/equipment/pneumatic/preview-pneumatic.jpg',
+        image: '/images/equipment/pneumatic/preview-pneumatic-home.webp',
         count: 4,
     },
     {
         category: 'Приемное оборудование',
-        image: '/images/equipment/receiving/preview-receiving.jpg',
+        image: '/images/equipment/receiving/preview-receiving-home.webp',
         count: 2,
     },
     {
         category: 'Транспортирующее оборудование',
-        image: '/images/equipment/conveyors/preview-conveyor.jpg',
+        image: '/images/equipment/conveyors/preview-conveyors-home.webp',
         count: 7,
     },
     {
         category: 'Сортировочно-просеивающее оборудование',
-        image: '/images/equipment/screening/preview-screening.jpg',
+        image: '/images/equipment/screening/preview-screening-home.webp',
         count: 2,
     },
 ];

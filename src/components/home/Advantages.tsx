@@ -1,18 +1,48 @@
+"use client";
+import React, { useEffect, useState, useRef } from 'react';
 import Image from 'next/image';
 import { advantages } from '@/data/products';
 
 export default function Advantages() {
+    const sectionRef = useRef<HTMLElement>(null);
+    const [offset, setOffset] = useState(0);
+
+    useEffect(() => {
+        const handleScroll = () => {
+            if (!sectionRef.current) return;
+            const scrolled = window.scrollY;
+            const sectionTop = sectionRef.current.offsetTop;
+            const viewportHeight = window.innerHeight;
+
+            // Расчет смещения только когда блок в поле зрения
+            if (scrolled + viewportHeight > sectionTop) {
+                // Коэффициент 0.3 для умеренной скорости
+                setOffset((scrolled - sectionTop) * 0.3);
+            }
+        };
+
+        window.addEventListener('scroll', handleScroll, { passive: true });
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, []);
+
     return (
-        <section className="relative py-12 sm:py-20 overflow-hidden">
-            <div className="absolute inset-0 w-full h-full">
+        <section ref={sectionRef} className="relative py-12 sm:py-20 overflow-hidden">
+            {/* Фоновое изображение с параллаксом */}
+            <div
+                className="absolute inset-0 w-full h-[140%] -top-[20%]"
+                style={{
+                    transform: `translateY(${offset}px)`,
+                    willChange: 'transform'
+                }}
+            >
                 <Image
-                    src="/images/backgrounds/advantages-bg.webp"
+                    src="/images/home/why-bg.webp"
                     alt="Производственное оборудование"
                     fill
                     loading="lazy"
                     className="object-cover object-center"
                 />
-                <div className="absolute inset-0 bg-gradient-to-b from-gray-950/60 via-gray-950/50 to-gray-950/60" />
+                <div className="absolute inset-0 bg-gradient-to-b from-gray-950/80 via-gray-950/70 to-gray-950/80" />
             </div>
 
             <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

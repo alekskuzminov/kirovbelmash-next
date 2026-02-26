@@ -370,7 +370,7 @@ export const equipmentItems: EquipmentItem[] = [
     description:
       'Промышленная барабанная сушилка для снижения влажности сырья перед брикетированием или гранулированием. Высокая эффективность теплообмена.',
     image:
-      '/images/equipment/dryers/drum-dryer-avm15/1.jpg',
+      '/images/equipment/dryers/drum-dryer-avm15/preview-drum-dryer-avm15-catalog.webp',
     specs: [
       { label: 'Производительность', value: '1500 кг/ч' },
       { label: 'Диаметр барабана', value: '2000 мм' },
@@ -391,6 +391,13 @@ export const equipmentItems: EquipmentItem[] = [
     power: '11 кВт',
     capacity: '1500 кг/ч',
     weight: '6500 кг',
+    gallery: [
+      '/images/equipment/dryers/drum-dryer-avm15/drum-dryer-avm15-galery-1.webp',
+      '/images/equipment/dryers/drum-dryer-avm15/drum-dryer-avm15-galery-2.webp',
+      '/images/equipment/dryers/drum-dryer-avm15/drum-dryer-avm15-galery-3.webp',
+      '/images/equipment/dryers/drum-dryer-avm15/drum-dryer-avm15-galery-4.webp',
+      '/images/equipment/dryers/drum-dryer-avm15/drum-dryer-avm15-galery-5.webp',
+    ],
   },
   {
     id: 12,
@@ -399,7 +406,7 @@ export const equipmentItems: EquipmentItem[] = [
     description:
       'Компактная барабанная сушилка для малых и средних производств. Эффективная сушка при минимальных энергозатратах.',
     image:
-      '/images/equipment/dryers/drum-dryer-avm065/1.jpg',
+      '/images/equipment/dryers/drum-dryer-avm065/preview-drum-dryer-avm065-catalog.webp',
     specs: [
       { label: 'Производительность', value: '650 кг/ч' },
       { label: 'Диаметр барабана', value: '1400 мм' },
@@ -419,6 +426,15 @@ export const equipmentItems: EquipmentItem[] = [
     power: '5.5 кВт',
     capacity: '650 кг/ч',
     weight: '3200 кг',
+    gallery: [
+      '/images/equipment/dryers/drum-dryer-avm065/drum-dryer-avm065-galery-1.webp',
+      '/images/equipment/dryers/drum-dryer-avm065/drum-dryer-avm065-galery-2.webp',
+      '/images/equipment/dryers/drum-dryer-avm065/drum-dryer-avm065-galery-3.webp',
+      '/images/equipment/dryers/drum-dryer-avm065/drum-dryer-avm065-galery-4.webp',
+      '/images/equipment/dryers/drum-dryer-avm065/drum-dryer-avm065-galery-5.webp',
+      '/images/equipment/dryers/drum-dryer-avm065/drum-dryer-avm065-galery-6.webp',
+      '/images/equipment/dryers/drum-dryer-avm065/drum-dryer-avm065-galery-7.webp',
+    ],
   },
   {
     id: 13,
@@ -427,7 +443,7 @@ export const equipmentItems: EquipmentItem[] = [
     description:
       'Теплогенератор для сушильных комплексов. Работает на древесных отходах, обеспечивает стабильную температуру теплоносителя.',
     image:
-      '/images/equipment/dryers/heat-gen-tgm15/1.jpg',
+      '/images/equipment/dryers/heat-gen-tgm15/preview-heat-gen-tgm15-catalog.webp',
     specs: [
       { label: 'Тепловая мощность', value: '1500 кВт' },
       { label: 'Расход топлива', value: '300 кг/ч' },
@@ -447,6 +463,12 @@ export const equipmentItems: EquipmentItem[] = [
     power: '15 кВт',
     capacity: '1500 кВт',
     weight: '2800 кг',
+    gallery: [
+      '/images/equipment/dryers/heat-gen-tgm15/heat-gen-tgm15-galery-1.webp',
+      '/images/equipment/dryers/heat-gen-tgm15/heat-gen-tgm15-galery-2.webp',
+      '/images/equipment/dryers/heat-gen-tgm15/heat-gen-tgm15-galery-3.webp',
+      '/images/equipment/dryers/heat-gen-tgm15/heat-gen-tgm15-galery-4.webp',
+    ],
   },
   {
     id: 14,
@@ -455,7 +477,7 @@ export const equipmentItems: EquipmentItem[] = [
     description:
       'Компактный теплогенератор для небольших сушильных установок. Эффективное сжигание древесных отходов и стабильная работа.',
     image:
-      '/images/equipment/dryers/heat-gen-tgk10/1.jpg',
+      '/images/equipment/dryers/heat-gen-tgk10/preview-heat-gen-tgk10-catalog.webp',
     specs: [
       { label: 'Тепловая мощность', value: '1000 кВт' },
       { label: 'Расход топлива', value: '200 кг/ч' },
@@ -475,6 +497,9 @@ export const equipmentItems: EquipmentItem[] = [
     power: '11 кВт',
     capacity: '1000 кВт',
     weight: '2200 кг',
+    gallery: [
+      '/images/equipment/dryers/heat-gen-tgk10/heat-gen-tgk10-galery-1.webp',
+    ],
   },
   {
     id: 15,
@@ -483,7 +508,7 @@ export const equipmentItems: EquipmentItem[] = [
     description:
       'Вихревой теплогенератор для сушильных комплексов. Высокая эффективность сжигания и равномерный нагрев теплоносителя.',
     image:
-      '/images/equipment/dryers/heat-gen-tgvg10/1.jpg',
+      '/images/equipment/dryers/heat-gen-tgvg10/preview-heat-gen-tgvg10-catalog.webp',
     specs: [
       { label: 'Тепловая мощность', value: '1000 кВт' },
       { label: 'Расход топлива', value: '180 кг/ч' },
@@ -504,6 +529,11 @@ export const equipmentItems: EquipmentItem[] = [
     power: '11 кВт',
     capacity: '1000 кВт',
     weight: '2400 кг',
+    gallery: [
+      '/images/equipment/dryers/heat-gen-tgvg10/heat-gen-tgvg10-galery-1.webp',
+      '/images/equipment/dryers/heat-gen-tgvg10/heat-gen-tgvg10-galery-2.webp',
+      '/images/equipment/dryers/heat-gen-tgvg10/heat-gen-tgvg10-galery-3.webp',
+    ],
   },
   // Пневмотранспортное оборудование
   {
@@ -513,7 +543,7 @@ export const equipmentItems: EquipmentItem[] = [
     description:
       'Крупный циклон-осадитель для отделения опилок и пыли из воздушного потока. Высокая эффективность очистки и большая производительность.',
     image:
-      '/images/equipment/pneumatic/cyclone-uc2500/1.jpg',
+      '/images/equipment/pneumatic/cyclone-uc2500/preview-cyclone-uc2500-catalog.webp',
     specs: [
       { label: 'Производительность', value: '5000 м³/ч' },
       { label: 'Диаметр циклона', value: '2500 мм' },
@@ -534,6 +564,9 @@ export const equipmentItems: EquipmentItem[] = [
     power: '-',
     capacity: '5000 м³/ч',
     weight: '1800 кг',
+    gallery: [
+      '/images/equipment/pneumatic/cyclone-uc2500/cyclone-uc2500-galery-1.webp',
+    ],
   },
   {
     id: 17,
@@ -542,7 +575,7 @@ export const equipmentItems: EquipmentItem[] = [
     description:
       'Циклон среднего размера для отделения опилок из воздушного потока. Оптимален для средних производственных линий.',
     image:
-      '/images/equipment/pneumatic/cyclone-uc1600/1.jpg',
+      '/images/equipment/pneumatic/cyclone-uc1600/preview-cyclone-uc1600-catalog.webp',
     specs: [
       { label: 'Производительность', value: '3000 м³/ч' },
       { label: 'Диаметр циклона', value: '1600 мм' },
@@ -562,6 +595,9 @@ export const equipmentItems: EquipmentItem[] = [
     power: '-',
     capacity: '3000 м³/ч',
     weight: '950 кг',
+    gallery: [
+      '/images/equipment/pneumatic/cyclone-uc1600/cyclone-uc1600-galery-1.webp',
+    ],
   },
   {
     id: 18,
@@ -570,7 +606,7 @@ export const equipmentItems: EquipmentItem[] = [
     description:
       'Компактный циклон для малых производств и локальной очистки воздуха от опилок и пыли. Простая конструкция и надёжная работа.',
     image:
-      '/images/equipment/pneumatic/cyclone-uc100/1.jpg',
+      '/images/equipment/pneumatic/cyclone-uc100/preview-cyclone-uc100-catalog.webp',
     specs: [
       { label: 'Производительность', value: '1000 м³/ч' },
       { label: 'Диаметр циклона', value: '1000 мм' },
@@ -590,6 +626,9 @@ export const equipmentItems: EquipmentItem[] = [
     power: '-',
     capacity: '1000 м³/ч',
     weight: '320 кг',
+    gallery: [
+      '/images/equipment/pneumatic/cyclone-uc100/cyclone-uc100-galery-1.webp',
+    ],
   },
   {
     id: 19,
@@ -598,7 +637,7 @@ export const equipmentItems: EquipmentItem[] = [
     description:
       'Шлюзовой затвор для герметичной выгрузки материала из циклонов и бункеров. Предотвращает подсос воздуха в систему.',
     image:
-      '/images/equipment/pneumatic/airlock-valve/1.jpg',
+      '/images/equipment/pneumatic/airlock-valve/preview-airlock-valve-catalog.webp',
     specs: [
       { label: 'Производительность', value: '5 м³/ч' },
       { label: 'Мощность двигателя', value: '0.75 кВт' },
@@ -618,6 +657,13 @@ export const equipmentItems: EquipmentItem[] = [
     power: '0.75 кВт',
     capacity: '5 м³/ч',
     weight: '85 кг',
+    gallery: [
+      '/images/equipment/pneumatic/airlock-valve/airlock-valve-galery-1.webp',
+      '/images/equipment/pneumatic/airlock-valve/airlock-valve-galery-2.webp',
+      '/images/equipment/pneumatic/airlock-valve/airlock-valve-galery-3.webp',
+      '/images/equipment/pneumatic/airlock-valve/airlock-valve-galery-4.webp',
+      '/images/equipment/pneumatic/airlock-valve/airlock-valve-galery-5.webp',
+    ],
   },
   // Приёмное оборудование
   {
@@ -627,7 +673,7 @@ export const equipmentItems: EquipmentItem[] = [
     description:
       'Стокерный склад с механическим подвижным дном для хранения и равномерной подачи сыпучих материалов. Надёжная механическая конструкция.',
     image:
-      '/images/equipment/receiving/walking-floor-mechanical/1.jpg',
+      '/images/equipment/receiving/walking-floor-mechanical/preview-walking-floor-mechanical-catalog.webp',
     specs: [
       { label: 'Объём склада', value: '50 м³' },
       { label: 'Мощность привода', value: '7.5 кВт' },
@@ -648,6 +694,9 @@ export const equipmentItems: EquipmentItem[] = [
     power: '7.5 кВт',
     capacity: '50 м³',
     weight: '6500 кг',
+    gallery: [
+      '/images/equipment/receiving/walking-floor-mechanical/walking-floor-mechanical-galery-1.webp',
+    ],
   },
   {
     id: 21,
@@ -656,7 +705,7 @@ export const equipmentItems: EquipmentItem[] = [
     description:
       'Стокерный склад с гидравлическим подвижным дном. Плавная регулировка скорости подачи и высокая надёжость гидропривода.',
     image:
-      '/images/equipment/receiving/walking-floor-hydraulic/1.jpg',
+      '/images/equipment/receiving/walking-floor-hydraulic/preview-walking-floor-hydraulic-catalog.webp',
     specs: [
       { label: 'Объём склада', value: '50 м³' },
       { label: 'Мощность гидростанции', value: '11 кВт' },
@@ -676,6 +725,14 @@ export const equipmentItems: EquipmentItem[] = [
     power: '11 кВт',
     capacity: '50 м³',
     weight: '7200 кг',
+    gallery: [
+      '/images/equipment/receiving/walking-floor-hydraulic/walking-floor-hydraulic-galery-1.webp',
+      '/images/equipment/receiving/walking-floor-hydraulic/walking-floor-hydraulic-galery-2.webp',
+      '/images/equipment/receiving/walking-floor-hydraulic/walking-floor-hydraulic-galery-3.webp',
+      '/images/equipment/receiving/walking-floor-hydraulic/walking-floor-hydraulic-galery-4.webp',
+      '/images/equipment/receiving/walking-floor-hydraulic/walking-floor-hydraulic-galery-5.webp',
+      '/images/equipment/receiving/walking-floor-hydraulic/walking-floor-hydraulic-galery-6.webp',
+    ],
   },
   // Транспортирующее оборудование
   {
@@ -685,7 +742,7 @@ export const equipmentItems: EquipmentItem[] = [
     description:
       'Ленточный конвейер для горизонтального и наклонного перемещения сыпучих материалов. Универсальное решение для производственных линий.',
     image:
-      '/images/equipment/conveyors/belt-conveyor/1.jpg',
+      '/images/equipment/conveyors/belt-conveyor/preview-belt-conveyor-catalog.webp',
     specs: [
       { label: 'Производительность', value: '30 м³/ч' },
       { label: 'Ширина ленты', value: '500 мм' },
@@ -700,6 +757,12 @@ export const equipmentItems: EquipmentItem[] = [
     power: '5.5 кВт',
     capacity: '30 м³/ч',
     weight: '600 кг',
+    gallery: [
+      '/images/equipment/conveyors/belt-conveyor/belt-conveyor-galery-1.webp',
+      '/images/equipment/conveyors/belt-conveyor/belt-conveyor-galery-2.webp',
+      '/images/equipment/conveyors/belt-conveyor/belt-conveyor-galery-3.webp',
+      '/images/equipment/conveyors/belt-conveyor/belt-conveyor-galery-4.webp',
+    ],
   },
   {
     id: 23,
@@ -708,7 +771,7 @@ export const equipmentItems: EquipmentItem[] = [
     description:
       'Z-образный скребковый транспортёр для вертикального и горизонтального перемещения материалов. Герметичная конструкция.',
     image:
-      '/images/equipment/conveyors/scraper-conveyor-z/1.jpg',
+      '/images/equipment/conveyors/scraper-conveyor-z/preview-scraper-conveyor-z-catalog.webp',
     specs: [
       { label: 'Производительность', value: '15 м³/ч' },
       { label: 'Мощность привода', value: '7.5 кВт' },
@@ -729,6 +792,9 @@ export const equipmentItems: EquipmentItem[] = [
     power: '7.5 кВт',
     capacity: '15 м³/ч',
     weight: '1200 кг',
+    gallery: [
+      '/images/equipment/conveyors/scraper-conveyor-z/scraper-conveyor-z-galery-1.webp',
+    ],
   },
   {
     id: 24,
@@ -737,7 +803,7 @@ export const equipmentItems: EquipmentItem[] = [
     description:
       'Прямой скребковый транспортёр для горизонтального перемещения сыпучих материалов. Надёжная конструкция и простое обслуживание.',
     image:
-      '/images/equipment/conveyors/scraper-conveyor-straight/1.jpg',
+      '/images/equipment/conveyors/scraper-conveyor-straight/preview-scraper-conveyor-straight-catalog.webp',
     specs: [
       { label: 'Производительность', value: '15 м³/ч' },
       { label: 'Мощность привода', value: '5.5 кВт' },
@@ -757,6 +823,10 @@ export const equipmentItems: EquipmentItem[] = [
     power: '5.5 кВт',
     capacity: '15 м³/ч',
     weight: '850 кг',
+    gallery: [
+      '/images/equipment/conveyors/scraper-conveyor-straight/scraper-conveyor-straight-galery-1.webp',
+      '/images/equipment/conveyors/scraper-conveyor-straight/scraper-conveyor-straight-galery-2.webp',
+    ],
   },
   {
     id: 25,
@@ -765,7 +835,7 @@ export const equipmentItems: EquipmentItem[] = [
     description:
       'Вертикальный ковшовый элеватор для подъёма сыпучих материалов на высоту. Компактная конструкция и высокая производительность.',
     image:
-      '/images/equipment/conveyors/bucket-elevator/1.jpg',
+      '/images/equipment/conveyors/bucket-elevator/preview-bucket-elevator-catalog.webp',
     specs: [
       { label: 'Производительность', value: '20 м³/ч' },
       { label: 'Высота подъёма', value: 'до 25 м' },
@@ -785,6 +855,11 @@ export const equipmentItems: EquipmentItem[] = [
     power: '7.5 кВт',
     capacity: '20 м³/ч',
     weight: '1100 кг',
+    gallery: [
+      '/images/equipment/conveyors/bucket-elevator/bucket-elevator-galery-1.webp',
+      '/images/equipment/conveyors/bucket-elevator/bucket-elevator-galery-2.webp',
+      '/images/equipment/conveyors/bucket-elevator/bucket-elevator-galery-3.webp',
+    ],
   },
   {
     id: 26,
@@ -793,7 +868,7 @@ export const equipmentItems: EquipmentItem[] = [
     description:
       'Ленточный конвейер с гофрированными бортами для транспортировки под большим углом наклона. Предотвращает просыпание материала.',
     image:
-      '/images/equipment/conveyors/belt-conveyor-sidewall/1.jpg',
+      '/images/equipment/conveyors/belt-conveyor-sidewall/preview-belt-conveyor-sidewall-catalog.webp',
     specs: [
       { label: 'Производительность', value: '25 м³/ч' },
       { label: 'Ширина ленты', value: '500 мм' },
@@ -808,6 +883,10 @@ export const equipmentItems: EquipmentItem[] = [
     power: '5.5 кВт',
     capacity: '25 м³/ч',
     weight: '750 кг',
+    gallery: [
+      '/images/equipment/conveyors/belt-conveyor-sidewall/belt-conveyor-sidewall-galery-1.webp',
+      '/images/equipment/conveyors/belt-conveyor-sidewall/belt-conveyor-sidewall-galery-2.webp',
+    ],
   },
   {
     id: 27,
@@ -816,7 +895,7 @@ export const equipmentItems: EquipmentItem[] = [
     description:
       'Шнековый транспортёр для дозированной подачи сыпучих материалов. Точная регулировка производительности и герметичная конструкция.',
     image:
-      '/images/equipment/conveyors/screw-feeder/1.jpg',
+      '/images/equipment/conveyors/screw-feeder/preview-screw-feeder-catalog.webp',
     specs: [
       { label: 'Производительность', value: '10 м³/ч' },
       { label: 'Диаметр шнека', value: '250 мм' },
@@ -831,6 +910,12 @@ export const equipmentItems: EquipmentItem[] = [
     power: '3 кВт',
     capacity: '10 м³/ч',
     weight: '320 кг',
+    gallery: [
+      '/images/equipment/conveyors/screw-feeder/screw-feeder-galery-1.webp',
+      '/images/equipment/conveyors/screw-feeder/screw-feeder-galery-2.webp',
+      '/images/equipment/conveyors/screw-feeder/screw-feeder-galery-3.webp',
+      '/images/equipment/conveyors/screw-feeder/screw-feeder-galery-4.webp',
+    ],
   },
   {
     id: 28,
@@ -839,7 +924,7 @@ export const equipmentItems: EquipmentItem[] = [
     description:
       'L-образный скребковый транспортёр для подъёма материалов под углом. Сочетает горизонтальный и наклонный участки.',
     image:
-      '/images/equipment/conveyors/chain-conveyor-l/1.jpg',
+      '/images/equipment/conveyors/chain-conveyor-l/preview-chain-conveyor-l-catalog.webp',
     specs: [
       { label: 'Производительность', value: '12 м³/ч' },
       { label: 'Мощность привода', value: '5.5 кВт' },
@@ -854,6 +939,10 @@ export const equipmentItems: EquipmentItem[] = [
     power: '5.5 кВт',
     capacity: '12 м³/ч',
     weight: '950 кг',
+    gallery: [
+      '/images/equipment/conveyors/chain-conveyor-l/chain-conveyor-l-galery-1.webp',
+      '/images/equipment/conveyors/chain-conveyor-l/chain-conveyor-l-galery-2.webp',
+    ],
   },
   // Сортировочно-просеивающее оборудование
   {
@@ -863,7 +952,7 @@ export const equipmentItems: EquipmentItem[] = [
     description:
       'Барабанный грохот для сортировки щепы, опилок и других сыпучих материалов. Вращающийся барабан обеспечивает эффективное разделение по фракциям.',
     image:
-      '/images/equipment/screening/rotary-screener/1.jpg',
+      '/images/equipment/screening/rotary-screener/preview-rotary-screener-catalog.webp',
     specs: [
       { label: 'Производительность', value: '8000 кг/ч' },
       { label: 'Диаметр барабана', value: '1500 мм' },
@@ -879,6 +968,10 @@ export const equipmentItems: EquipmentItem[] = [
     power: '4 кВт',
     capacity: '8000 кг/ч',
     weight: '2200 кг',
+    gallery: [
+      '/images/equipment/screening/rotary-screener/rotary-screener-galery-1.webp',
+      '/images/equipment/screening/rotary-screener/rotary-screener-galery-2.webp',
+    ],
   },
   {
     id: 30,
@@ -887,7 +980,7 @@ export const equipmentItems: EquipmentItem[] = [
     description:
       'Дисковый сепаратор для отделения крупных включений и сортировки материала. Эффективное разделение по размеру частиц.',
     image:
-      '/images/equipment/screening/disc-separator/1.jpg',
+      '/images/equipment/screening/disc-separator/preview-disc-separator-catalog.webp',
     specs: [
       { label: 'Производительность', value: '6000 кг/ч' },
       { label: 'Количество дисков', value: '12 шт' },
@@ -902,5 +995,8 @@ export const equipmentItems: EquipmentItem[] = [
     power: '3 кВт',
     capacity: '6000 кг/ч',
     weight: '850 кг',
+    gallery: [
+      '/images/equipment/screening/disc-separator/disc-separator-galery-1.webp',
+    ],
   },
 ];

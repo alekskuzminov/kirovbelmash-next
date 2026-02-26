@@ -34,7 +34,7 @@ export default function EquipmentCatalog() {
                             href={`/oborudovanie?category=${encodeURIComponent(item.category)}`}
                             className="group flex flex-col bg-white rounded-2xl border border-gray-100 shadow-[0_4px_20px_-4px_rgba(0,0,0,0.05)] hover:shadow-[0_20px_40px_-12px_rgba(0,0,0,0.12)] hover:-translate-y-1.5 transition-all duration-500 overflow-hidden"
                         >
-                            <div className="relative w-full h-52 bg-white p-8">
+                            <div className="relative w-full h-52 bg-white p-6">
                                 <div className="relative w-full h-full overflow-hidden">
                                     <Image
                                         src={item.image}
