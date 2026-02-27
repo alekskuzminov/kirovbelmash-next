@@ -1,15 +1,39 @@
 'use client';
 
-import { useState } from 'react';
-import { projectsData, projectCategories } from './projectsData';
+import { useState, useMemo } from 'react';
+import { projectsData, projectCategories, Project } from './projectsData';
 import ProjectCard from './ProjectCard';
+
+const monthMap: Record<string, number> = {
+    'Январь': 1, 'Февраль': 2, 'Март': 3, 'Апрель': 4, 'Май': 5, 'Июнь': 6,
+    'Июль': 7, 'Август': 8, 'Сентябрь': 9, 'Октябрь': 10, 'Ноябрь': 11, 'Декабрь': 12
+};
 
 export default function ProjectsGallery() {
     const [activeCategory, setActiveCategory] = useState('Все');
+    const [activeYear, setActiveYear] = useState('Все');
 
-    const filtered = activeCategory === 'Все'
-        ? projectsData
-        : projectsData.filter((p) => p.category === activeCategory);
+    // Dynamically calculate available years from data
+    const availableYears = useMemo(() => {
+        const years = Array.from(new Set(projectsData.map(p => p.year)));
+        return ['Все', ...years.sort((a, b) => b.localeCompare(a))];
+    }, []);
+
+    // Combined filtering and sorting
+    const filteredAndSorted = useMemo(() => {
+        return projectsData
+            .filter((p) => {
+                const categoryMatch = activeCategory === 'Все' || p.category === activeCategory;
+                const yearMatch = activeYear === 'Все' || p.year === activeYear;
+                return categoryMatch && yearMatch;
+            })
+            .sort((a, b) => {
+                // Sort by year desc
+                if (b.year !== a.year) return b.year.localeCompare(a.year);
+                // Then by month desc
+                return (monthMap[b.month] || 0) - (monthMap[a.month] || 0);
+            });
+    }, [activeCategory, activeYear]);
 
     return (
         <section className="py-12 sm:py-20 bg-white">
@@ -23,7 +47,8 @@ export default function ProjectsGallery() {
                     </p>
                 </div>
 
-                <div className="flex flex-wrap justify-center gap-1.5 sm:gap-2 mb-8 sm:mb-12">
+                {/* Categories Filter */}
+                <div className="flex flex-wrap justify-center gap-1.5 sm:gap-2 mb-4">
                     {projectCategories.map((cat) => (
                         <button
                             key={cat}
@@ -38,20 +63,36 @@ export default function ProjectsGallery() {
                     ))}
                 </div>
 
+                {/* Years Filter */}
+                <div className="flex flex-wrap justify-center gap-1.5 sm:gap-2 mb-8 sm:mb-12">
+                    {availableYears.map((year) => (
+                        <button
+                            key={year}
+                            onClick={() => setActiveYear(year)}
+                            className={`px-3 sm:px-4 py-1 rounded-lg text-[10px] sm:text-xs font-semibold transition-all duration-200 whitespace-nowrap border cursor-pointer ${activeYear === year
+                                ? 'bg-gray-900 text-white border-gray-900'
+                                : 'bg-white text-gray-600 border-gray-200 hover:border-gray-400'
+                                }`}
+                        >
+                            {year}
+                        </button>
+                    ))}
+                </div>
+
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 items-stretch">
-                    {filtered.map((project) => (
+                    {filteredAndSorted.map((project) => (
                         <div key={project.id}>
                             <ProjectCard project={project} />
                         </div>
                     ))}
                 </div>
 
-                {filtered.length === 0 && (
+                {filteredAndSorted.length === 0 && (
                     <div className="text-center py-16">
                         <div className="w-16 h-16 flex items-center justify-center bg-gray-100 rounded-full mx-auto mb-4">
                             <i className="ri-folder-open-line text-2xl text-gray-400"></i>
                         </div>
-                        <p className="text-gray-500">В данной категории пока нет проектов</p>
+                        <p className="text-gray-500">В данной категории или году пока нет проектов</p>
                     </div>
                 )}
             </div>

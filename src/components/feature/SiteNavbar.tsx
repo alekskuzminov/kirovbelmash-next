@@ -50,6 +50,31 @@ export default function SiteNavbar({ variant = 'transparent' }: SiteNavbarProps)
     const pathname = usePathname();
     const router = useRouter();
 
+    // Messenger links for iteration
+    const messengers = [
+        {
+            id: 'telegram',
+            icon: SITE_CONFIG.assets.icons.telegram,
+            whiteIcon: '/icons/telegram-white.svg',
+            href: SITE_CONFIG.social.telegram,
+            label: 'Telegram'
+        },
+        {
+            id: 'vk',
+            icon: SITE_CONFIG.assets.icons.vk,
+            whiteIcon: '/icons/vk-white.svg',
+            href: SITE_CONFIG.social.vk,
+            label: 'VK'
+        },
+        {
+            id: 'max',
+            icon: SITE_CONFIG.assets.icons.max,
+            whiteIcon: '/icons/Max_logo.svg',
+            href: SITE_CONFIG.social.max,
+            label: 'Max'
+        },
+    ];
+
     useEffect(() => {
         const handleScroll = () => setIsScrolled(window.scrollY > 50);
         window.addEventListener('scroll', handleScroll);
@@ -64,8 +89,8 @@ export default function SiteNavbar({ variant = 'transparent' }: SiteNavbarProps)
     }
 
     // Страницы с темным блоком hero, где шапка должна быть прозрачной до скролла
-    const transparentPaths = ['/', '/about', '/calculator'];
-    const transparentPrefixes = ['/linii-', '/sushilnie-', '/services', '/blog'];
+    const transparentPaths = ['/', '/about', '/calculator', '/contacts', '/projects', '/services', '/blog'];
+    const transparentPrefixes = ['/linii-', '/sushilnie-', '/blog/'];
 
     const isTransparentPage =
         transparentPaths.includes(pathname || '') ||
@@ -149,27 +174,32 @@ export default function SiteNavbar({ variant = 'transparent' }: SiteNavbarProps)
                     {/* Desktop: Messengers + Email + Phone + CTA */}
                     <div className="hidden lg:flex items-center space-x-5">
                         {/* Messengers */}
-                        <div className="flex items-center space-x-2">
-                            <a
-                                href={SITE_CONFIG.social.telegram}
-                                target="_blank"
-                                rel="nofollow noopener noreferrer"
-                                className={`w-9 h-9 flex items-center justify-center rounded-full transition-all cursor-pointer ${isSolid ? 'bg-sky-500 text-white hover:bg-sky-600' : 'bg-white/15 text-white hover:bg-white/25'
-                                    }`}
-                                title="Telegram"
-                            >
-                                <i className="ri-telegram-fill text-base"></i>
-                            </a>
-                            <a
-                                href={SITE_CONFIG.social.whatsapp}
-                                target="_blank"
-                                rel="nofollow noopener noreferrer"
-                                className={`w-9 h-9 flex items-center justify-center rounded-full transition-all cursor-pointer ${isSolid ? 'bg-green-500 text-white hover:bg-green-600' : 'bg-white/15 text-white hover:bg-white/25'
-                                    }`}
-                                title="WhatsApp"
-                            >
-                                <i className="ri-whatsapp-fill text-base"></i>
-                            </a>
+                        <div className="flex items-center space-x-3">
+                            {messengers.map((m) => (
+                                <a
+                                    key={m.id}
+                                    href={m.href}
+                                    target="_blank"
+                                    rel="nofollow noopener noreferrer"
+                                    className={`w-6 h-6 flex items-center justify-center rounded-full transition-all hover:scale-110 active:scale-95 cursor-pointer ${!isSolid ? 'hover:bg-white/10' : ''
+                                        }`}
+                                    aria-label={m.label}
+                                >
+                                    <Image
+                                        src={isSolid ? m.icon : m.whiteIcon}
+                                        alt={m.label}
+                                        width={40}
+                                        height={40}
+                                        style={{
+                                            width: isSolid
+                                                ? '18px'
+                                                : (m.id === 'max' ? '16px' : '23px'),
+                                            height: 'auto'
+                                        }}
+                                        className="object-contain"
+                                    />
+                                </a>
+                            ))}
                         </div>
 
                         <div className={`w-px h-6 ${isSolid ? 'bg-gray-200' : 'bg-white/20'}`}></div>
@@ -408,23 +438,26 @@ export default function SiteNavbar({ variant = 'transparent' }: SiteNavbarProps)
 
                         {/* Mobile contact section */}
                         <div className="pt-3 mt-2 border-t border-gray-200 space-y-3">
-                            <div className="flex items-center space-x-2">
-                                <a
-                                    href={SITE_CONFIG.social.telegram}
-                                    target="_blank"
-                                    rel="nofollow noopener noreferrer"
-                                    className="w-9 h-9 flex items-center justify-center bg-sky-500 rounded-full text-white cursor-pointer"
-                                >
-                                    <i className="ri-telegram-fill text-base"></i>
-                                </a>
-                                <a
-                                    href={SITE_CONFIG.social.whatsapp}
-                                    target="_blank"
-                                    rel="nofollow noopener noreferrer"
-                                    className="w-9 h-9 flex items-center justify-center bg-green-500 rounded-full text-white cursor-pointer"
-                                >
-                                    <i className="ri-whatsapp-fill text-base"></i>
-                                </a>
+                            {/* Messengers */}
+                            <div className="flex items-center gap-2.5">
+                                {messengers.map((m) => (
+                                    <a
+                                        key={m.id}
+                                        href={m.href}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="w-8 h-8 flex items-center justify-center rounded-full bg-gray-50 transition-transform active:scale-95"
+                                        aria-label={m.label}
+                                    >
+                                        <Image
+                                            src={m.icon}
+                                            alt={m.label}
+                                            width={18}
+                                            height={18}
+                                            className="w-full h-full object-contain"
+                                        />
+                                    </a>
+                                ))}
                             </div>
                             <a href={`mailto:${SITE_CONFIG.contacts.email}`} className="flex items-center space-x-2 text-gray-600 text-sm">
                                 <i className="ri-mail-line text-base"></i>

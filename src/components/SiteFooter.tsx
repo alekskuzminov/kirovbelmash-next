@@ -38,23 +38,46 @@ export default function SiteFooter() {
                                 className="w-9 h-9 sm:w-10 sm:h-10 flex items-center justify-center bg-gray-800 hover:bg-red-600 rounded-lg transition-colors cursor-pointer"
                                 title="Telegram"
                             >
-                                <i className="ri-telegram-fill text-base sm:text-lg"></i>
+                                <Image
+                                    src="/icons/telegram-white.svg"
+                                    alt="Telegram"
+                                    width={23}
+                                    height={23}
+                                    className="object-contain"
+                                    style={{ width: '23px', height: 'auto' }}
+                                />
                             </a>
                             <a
-                                href={social.whatsapp}
+                                href={social.vk}
                                 target="_blank"
                                 rel="nofollow noopener noreferrer"
                                 className="w-9 h-9 sm:w-10 sm:h-10 flex items-center justify-center bg-gray-800 hover:bg-red-600 rounded-lg transition-colors cursor-pointer"
-                                title="WhatsApp"
+                                title="ВКонтакте"
                             >
-                                <i className="ri-whatsapp-fill text-base sm:text-lg"></i>
+                                <Image
+                                    src="/icons/vk-white.svg"
+                                    alt="ВКонтакте"
+                                    width={23}
+                                    height={23}
+                                    className="object-contain"
+                                    style={{ width: '23px', height: 'auto' }}
+                                />
                             </a>
                             <a
-                                href={`tel:${contacts.phone}`}
+                                href={social.max}
+                                target="_blank"
+                                rel="nofollow noopener noreferrer"
                                 className="w-9 h-9 sm:w-10 sm:h-10 flex items-center justify-center bg-gray-800 hover:bg-red-600 rounded-lg transition-colors cursor-pointer"
-                                title="Позвонить"
+                                title="Max"
                             >
-                                <i className="ri-phone-fill text-base sm:text-lg"></i>
+                                <Image
+                                    src="/icons/Max_logo.svg"
+                                    alt="Max"
+                                    width={16}
+                                    height={16}
+                                    className="object-contain"
+                                    style={{ width: '16px', height: 'auto' }}
+                                />
                             </a>
                         </div>
                     </div>

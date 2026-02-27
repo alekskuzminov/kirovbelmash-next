@@ -1,8 +1,12 @@
 import { notFound } from 'next/navigation';
+import Link from 'next/link';
 import { Metadata } from 'next';
+import Image from 'next/image';
 import { projectsData } from '@/components/projects/projectsData';
 import ContactForm from '@/components/home/ContactForm';
 import ProjectImageGallery from '@/components/projects/ProjectImageGallery';
+import ContactModalButton from '@/components/common/ContactModalButton';
+import { SITE_CONFIG } from '@/config/site.config';
 import Breadcrumbs from '@/components/ui/Breadcrumbs';
 
 interface PageProps {
@@ -39,7 +43,9 @@ export default async function ProjectDetailPage({ params }: PageProps) {
         notFound();
     }
 
-    const images = Array(5).fill(item.image);
+    const images = item.gallery && item.gallery.length > 0
+        ? item.gallery
+        : Array(5).fill(item.image);
 
     return (
         <div className="min-h-screen bg-white pb-20 pt-32 sm:pt-40">
@@ -75,9 +81,26 @@ export default async function ProjectDetailPage({ params }: PageProps) {
                             <span className="text-lg font-medium text-gray-900 leading-none">{item.year}</span>
                         </div>
 
-                        <p className="text-gray-600 leading-relaxed mb-8 text-base">
+                        <p className="text-gray-600 leading-relaxed mb-4 text-base">
                             {item.description}
                         </p>
+
+                        <div className="flex flex-wrap gap-3 mb-8">
+                            <Link
+                                href="/projects"
+                                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg border border-gray-200 text-gray-700 text-sm font-medium hover:border-gray-400 hover:text-gray-900 transition-colors"
+                            >
+                                <i className="ri-arrow-left-s-line text-base" />
+                                Все проекты
+                            </Link>
+                            <ContactModalButton
+                                message={`КП по проекту: «${item.title}»`}
+                                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-red-600 text-white text-sm font-medium hover:bg-red-700 transition-colors shadow-sm cursor-pointer"
+                            >
+                                Запросить КП
+                                <i className="ri-send-plane-fill text-base" />
+                            </ContactModalButton>
+                        </div>
 
                         {item.specs && item.specs.length > 0 && (
                             <div className="mb-8">
@@ -130,6 +153,38 @@ export default async function ProjectDetailPage({ params }: PageProps) {
             </div>
 
             <div className="bg-gray-50 pt-20">
+                {item.video && (
+                    <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 mb-20">
+                        <h3 className="text-2xl font-bold text-gray-900 mb-6 text-center">
+                            Видео работы линии
+                        </h3>
+                        <div className="relative rounded-2xl overflow-hidden border border-gray-100 shadow-lg">
+                            {/* Logo watermark */}
+                            <div className="absolute top-4 left-4 flex items-center gap-1.5 z-10 bg-white/80 p-1.5 pr-2.5 rounded-lg backdrop-blur-sm shadow-sm pointer-events-none">
+                                <Image
+                                    src={SITE_CONFIG.assets.logo}
+                                    alt={SITE_CONFIG.assets.logoAlt}
+                                    width={20}
+                                    height={20}
+                                    className="object-contain"
+                                />
+                                <span className="text-xs font-bold text-gray-900">{SITE_CONFIG.company.name}</span>
+                            </div>
+                            {/* Video in native aspect ratio */}
+                            <video
+                                controls
+                                autoPlay
+                                muted
+                                loop
+                                className="w-full block"
+                                preload="metadata"
+                            >
+                                <source src={item.video} type="video/mp4" />
+                                Ваш браузер не поддерживает встроенные видео.
+                            </video>
+                        </div>
+                    </div>
+                )}
                 <ContactForm initialMessage={`Требуется консультация по проекту: «${item.title}»`} isModal={false} />
             </div>
         </div>

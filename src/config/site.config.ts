@@ -15,7 +15,7 @@ export const SITE_CONFIG = {
   contacts: {
     phone: '+79005218477',
     phoneFormatted: '+7 900 521-84-77',
-    email: 'sale@kirovbelmash.tw1.ru',
+    email: 'sale@kirovbelmash.ru',
     workingHours: 'Пн-Пт: 7:30 — 16:30',
     address: {
       city: 'г. Белая Холуница',
@@ -27,12 +27,22 @@ export const SITE_CONFIG = {
 
   social: {
     telegram: 'https://t.me/kirovbelmash',
+    viber: 'viber://chat?number=79005218477',
     whatsapp: 'https://wa.me/79005218477',
+    vk: 'https://vk.com/kirovbelmash',
+    max: 'https://max.ru/kirovbelmash',
   },
 
   assets: {
     logo: '/images/logo/logo.webp',
     logoAlt: 'КировБелМаш',
+    icons: {
+      telegram: '/icons/telegram-logo.svg',
+      viber: '/icons/viber-sign-logo.svg',
+      whatsapp: '/icons/whatsapp-sign-logo.svg',
+      vk: '/icons/vk-logo.svg',
+      max: '/icons/max-messenger-sign-logo.svg',
+    },
   },
 } as const;
 

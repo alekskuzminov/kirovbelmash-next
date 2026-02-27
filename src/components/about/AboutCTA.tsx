@@ -42,7 +42,7 @@ export default function AboutCTA() {
                                 </div>
                                 <div>
                                     <div className="text-xs text-gray-400">Email</div>
-                                    <a href="mailto:sale@kirovbelmash.tw1.ru" className="text-sm text-white font-medium hover:text-red-400 transition-colors cursor-pointer">sale@kirovbelmash.tw1.ru</a>
+                                    <a href="mailto:sale@kirovbelmash.ru" className="text-sm text-white font-medium hover:text-red-400 transition-colors cursor-pointer">sale@kirovbelmash.ru</a>
                                 </div>
                             </div>
                         </div>

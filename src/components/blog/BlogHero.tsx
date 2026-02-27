@@ -6,13 +6,14 @@ export default function BlogHero() {
         <section className="relative min-h-[400px] sm:min-h-[500px] overflow-hidden bg-gray-900">
             <div className="absolute inset-0 w-full h-full">
                 <Image
-                    src="https://readdy.ai/api/search-image?query=professional%20industrial%20factory%20interior%20wide%20shot%20modern%20equipment%20clean%20bright%20lighting&width=1920&height=1080&seq=blghero&orientation=landscape"
+                    src="/images/blog/blog-hero-bg.webp"
                     alt="Блог КировБелМаш — статьи об оборудовании"
                     fill
-                    className="object-cover object-center"
+                    className="object-cover object-top"
                     priority
                 />
-                <div className="absolute inset-0 bg-gradient-to-r from-gray-900/90 via-gray-900/70 to-gray-900/40" />
+                <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/65 to-black/40" />
+                <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-transparent to-transparent" />
             </div>
 
             <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 sm:pt-40 pb-12 sm:pb-16 h-full flex flex-col justify-end">

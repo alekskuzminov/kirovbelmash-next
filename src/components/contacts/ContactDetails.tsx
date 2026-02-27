@@ -1,3 +1,6 @@
+import Image from 'next/image';
+import { SITE_CONFIG } from '@/config/site.config';
+
 export default function ContactDetails() {
     return (
         <section className="py-10 sm:py-16 bg-white">
@@ -111,28 +114,48 @@ export default function ContactDetails() {
                             </div>
                         </div>
 
-                        <div className="flex items-center space-x-4">
+                        <div className="flex items-center space-x-5">
                             <a
-                                href="https://t.me/"
+                                href={SITE_CONFIG.social.telegram}
                                 target="_blank"
                                 rel="nofollow noopener noreferrer"
-                                className="w-12 h-12 flex items-center justify-center bg-sky-500 rounded-full text-white hover:scale-110 transition-transform cursor-pointer"
+                                className="w-12 h-12 flex items-center justify-center bg-[#F5F7FA] rounded-full hover:scale-110 transition-transform cursor-pointer shadow-sm border border-gray-100"
+                                aria-label="Telegram"
                             >
-                                <i className="ri-telegram-fill text-xl"></i>
+                                <Image
+                                    src={SITE_CONFIG.assets.icons.telegram}
+                                    alt="Telegram"
+                                    width={28}
+                                    height={28}
+                                />
                             </a>
                             <a
-                                href="https://wa.me/79005218477"
+                                href={SITE_CONFIG.social.vk}
                                 target="_blank"
                                 rel="nofollow noopener noreferrer"
-                                className="w-12 h-12 flex items-center justify-center bg-green-500 rounded-full text-white hover:scale-110 transition-transform cursor-pointer"
+                                className="w-12 h-12 flex items-center justify-center bg-[#F5F7FA] rounded-full hover:scale-110 transition-transform cursor-pointer shadow-sm border border-gray-100"
+                                aria-label="VK"
                             >
-                                <i className="ri-whatsapp-fill text-xl"></i>
+                                <Image
+                                    src={SITE_CONFIG.assets.icons.vk}
+                                    alt="VK"
+                                    width={28}
+                                    height={28}
+                                />
                             </a>
                             <a
-                                href="tel:+79005218477"
-                                className="w-12 h-12 flex items-center justify-center bg-violet-600 rounded-full text-white hover:scale-110 transition-transform cursor-pointer"
+                                href={SITE_CONFIG.social.max}
+                                target="_blank"
+                                rel="nofollow noopener noreferrer"
+                                className="w-12 h-12 flex items-center justify-center bg-[#F5F7FA] rounded-full hover:scale-110 transition-transform cursor-pointer shadow-sm border border-gray-100"
+                                aria-label="Max"
                             >
-                                <i className="ri-phone-fill text-xl"></i>
+                                <Image
+                                    src={SITE_CONFIG.assets.icons.max}
+                                    alt="Max"
+                                    width={24}
+                                    height={24}
+                                />
                             </a>
                         </div>
                     </div>
@@ -234,10 +257,10 @@ export default function ContactDetails() {
                                                     Общая почта
                                                 </p>
                                                 <a
-                                                    href="mailto:brike@kirovbelmash.tw1.ru"
+                                                    href="mailto:brike@kirovbelmash.ru"
                                                     className="text-sm text-red-600 hover:text-red-700 transition-colors cursor-pointer"
                                                 >
-                                                    brike@kirovbelmash.tw1.ru
+                                                    brike@kirovbelmash.ru
                                                 </a>
                                             </div>
                                             <div>
@@ -245,10 +268,10 @@ export default function ContactDetails() {
                                                     Отдел продаж
                                                 </p>
                                                 <a
-                                                    href="mailto:sale@kirovbelmash.tw1.ru"
+                                                    href="mailto:sale@kirovbelmash.ru"
                                                     className="text-sm text-red-600 hover:text-red-700 transition-colors cursor-pointer"
                                                 >
-                                                    sale@kirovbelmash.tw1.ru
+                                                    sale@kirovbelmash.ru
                                                 </a>
                                             </div>
                                             <div>
@@ -256,10 +279,10 @@ export default function ContactDetails() {
                                                     Отдел снабжения
                                                 </p>
                                                 <a
-                                                    href="mailto:snab@kirovbelmash.tw1.ru"
+                                                    href="mailto:snab@kirovbelmash.ru"
                                                     className="text-sm text-red-600 hover:text-red-700 transition-colors cursor-pointer"
                                                 >
-                                                    snab@kirovbelmash.tw1.ru
+                                                    snab@kirovbelmash.ru
                                                 </a>
                                             </div>
                                             <div>
@@ -267,10 +290,10 @@ export default function ContactDetails() {
                                                     Конструкторский отдел
                                                 </p>
                                                 <a
-                                                    href="mailto:ogk@kirovbelmash.tw1.ru"
+                                                    href="mailto:ogk@kirovbelmash.ru"
                                                     className="text-sm text-red-600 hover:text-red-700 transition-colors cursor-pointer"
                                                 >
-                                                    ogk@kirovbelmash.tw1.ru
+                                                    ogk@kirovbelmash.ru
                                                 </a>
                                             </div>
                                             <div>
@@ -278,10 +301,10 @@ export default function ContactDetails() {
                                                     Бухгалтерия
                                                 </p>
                                                 <a
-                                                    href="mailto:mail@kirovbelmash.tw1.ru"
+                                                    href="mailto:mail@kirovbelmash.ru"
                                                     className="text-sm text-red-600 hover:text-red-700 transition-colors cursor-pointer"
                                                 >
-                                                    mail@kirovbelmash.tw1.ru
+                                                    mail@kirovbelmash.ru
                                                 </a>
                                             </div>
                                         </div>

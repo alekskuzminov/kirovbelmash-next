@@ -69,7 +69,7 @@ export default function CertificatesSection() {
                         </div>
                         <div className="relative w-full h-[200px] sm:h-[300px] rounded-xl overflow-hidden">
                             <Image
-                                src="/images/backgrounds/about-certificates-bg.webp"
+                                src="/images/about/about-certificates-bg.webp"
                                 alt="Контроль качества на производстве"
                                 fill
                                 className="object-cover object-top"

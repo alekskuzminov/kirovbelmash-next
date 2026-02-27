@@ -42,7 +42,7 @@ export default function MissionValues() {
                         </p>
                         <div className="relative w-full h-[200px] sm:h-[300px] rounded-xl overflow-hidden">
                             <Image
-                                src="/images/backgrounds/about-mission-bg.webp"
+                                src="/images/about/about-mission-bg.webp"
                                 alt="Производственный цех КировБелМаш"
                                 fill
                                 className="object-cover object-top"

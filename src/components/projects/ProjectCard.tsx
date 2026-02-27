@@ -26,10 +26,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
                         <i className="ri-arrow-right-line text-xl text-gray-800"></i>
                     </div>
                 </div>
-                <div className="absolute top-3 right-3 px-3 py-1 bg-red-600 text-white text-xs font-semibold rounded-full">
-                    {project.year}
-                </div>
-                <div className="absolute top-3 left-3 px-3 py-1 bg-white/90 text-gray-800 text-xs font-medium rounded-full backdrop-blur-sm">
+                <div className="absolute top-3 left-3 px-3 py-1 bg-white/90 text-gray-800 text-xs font-medium rounded-full backdrop-blur-sm shadow-sm">
                     {project.category}
                 </div>
             </div>
@@ -39,9 +36,15 @@ export default function ProjectCard({ project }: ProjectCardProps) {
                     <h3 className="text-sm sm:text-base font-bold text-gray-900 mb-1.5 sm:mb-2 group-hover:text-red-600 transition-colors">
                         {project.title}
                     </h3>
-                    <div className="flex items-center space-x-2 text-xs sm:text-sm text-gray-500 mb-2 sm:mb-3">
-                        <i className="ri-map-pin-line text-red-500"></i>
-                        <span>{project.location}</span>
+                    <div className="flex items-center gap-4 text-xs sm:text-sm text-gray-500 mb-2 sm:mb-3">
+                        <div className="flex items-center space-x-1.5 line-clamp-1">
+                            <i className="ri-map-pin-line text-red-500 shrink-0"></i>
+                            <span className="truncate">{project.location}</span>
+                        </div>
+                        <div className="flex items-center space-x-1.5 shrink-0 ml-auto">
+                            <i className="ri-calendar-line text-red-500"></i>
+                            <span className="font-medium text-gray-600">{project.year}</span>
+                        </div>
                     </div>
                     <p className="text-xs sm:text-sm text-gray-600 leading-relaxed line-clamp-2">
                         {project.description}

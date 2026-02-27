@@ -6,7 +6,7 @@ export default function CalculatorHero() {
         <section className="relative min-h-[420px] sm:min-h-[520px] overflow-visible pb-16 sm:pb-20 lg:pb-24 mb-16 sm:mb-24">
             <div className="absolute inset-0 w-full h-full">
                 <Image
-                    src="/images/backgrounds/calculator-hero-bg.webp"
+                    src="/images/calculator/calculator-hero-bg.webp"
                     alt="Калькулятор стоимости промышленного оборудования"
                     fill
                     priority

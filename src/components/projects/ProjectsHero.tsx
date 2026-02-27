@@ -7,13 +7,14 @@ export default function ProjectsHero() {
         <section className="relative min-h-[450px] sm:min-h-[480px] overflow-visible mb-16 sm:mb-24">
             <div className="absolute inset-0 w-full h-full">
                 <Image
-                    src="/images/backgrounds/projects-hero-bg.webp"
+                    src="/images/projects/projects-hero-bg.webp"
                     alt="Реализованные проекты КировБелМаш"
                     fill
                     className="object-cover object-top"
                     priority
                 />
                 <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-black/30"></div>
+                <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/20 to-transparent h-1/2"></div>
             </div>
 
             <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 sm:pt-40 pb-16 sm:pb-24">

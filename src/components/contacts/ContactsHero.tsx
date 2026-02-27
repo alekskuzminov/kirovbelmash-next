@@ -21,10 +21,10 @@ export default function ContactsHero() {
                     <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 sm:p-6 border border-white/10">
                         <h3 className="text-base sm:text-lg font-bold text-white mb-2 sm:mb-3">Отдел продаж:</h3>
                         <a
-                            href="mailto:sale@kirovbelmash.tw1.ru"
+                            href="mailto:sale@kirovbelmash.ru"
                             className="block text-red-400 hover:text-red-300 text-sm mb-2 cursor-pointer transition-colors"
                         >
-                            sale@kirovbelmash.tw1.ru
+                            sale@kirovbelmash.ru
                         </a>
                         <a
                             href="tel:+79005218477"
@@ -37,10 +37,10 @@ export default function ContactsHero() {
                     <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 sm:p-6 border border-white/10">
                         <h3 className="text-base sm:text-lg font-bold text-white mb-2 sm:mb-3">Отдел снабжения:</h3>
                         <a
-                            href="mailto:snab@kirovbelmash.tw1.ru"
+                            href="mailto:snab@kirovbelmash.ru"
                             className="block text-red-400 hover:text-red-300 text-sm mb-2 cursor-pointer transition-colors"
                         >
-                            snab@kirovbelmash.tw1.ru
+                            snab@kirovbelmash.ru
                         </a>
                         <a
                             href="tel:+79195263341"
