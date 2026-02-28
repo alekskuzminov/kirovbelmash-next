@@ -23,6 +23,31 @@ export const SITE_CONFIG = {
       country: 'Россия',
       street: 'ул. Глазырина, 112',
     },
+    departments: {
+      sales: {
+        phone: '+79005218477',
+        phoneFormatted: '+7-900-521-84-77',
+        email: 'sale@kirovbelmash.ru',
+      },
+      supply: {
+        phone: '+79195263341',
+        phoneFormatted: '+7-919-526-33-41',
+        email: 'snab@kirovbelmash.ru',
+      },
+      general: {
+        phone: '+78336441850',
+        phoneFormatted: '+7-833-644-18-50',
+        email: 'brike@kirovbelmash.ru',
+      },
+      accounting: {
+        phone: '+79513474534',
+        phoneFormatted: '+7-951-347-45-34',
+        email: 'mail@kirovbelmash.ru',
+      },
+      engineering: {
+        email: 'ogk@kirovbelmash.ru',
+      },
+    },
   },
 
   social: {

@@ -5,8 +5,8 @@ import LineHero from '@/components/lines/LineHero';
 import LinesCTA from '@/components/lines/LinesCTA';
 
 export const metadata: Metadata = {
-    title: 'Линии гранулирования | КировБелМаш',
-    description: 'Оборудование для производства топливных пеллет из опилок и древесных отходов. Изготовим линию гранулирования топливных пеллет «под ключ».',
+    title: 'Оборудование для производства топливных пеллет',
+    description: 'Линии гранулирования и оборудование для производства топливных пеллет из опилок, щепы и других древесных отходов. Проектирование, изготовление, монтаж, запуск',
 };
 
 export default function GranulationLinePage() {

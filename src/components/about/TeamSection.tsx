@@ -1,12 +1,7 @@
-"use client";
-
-import { useState } from 'react';
 import Image from 'next/image';
 import { teamMembers } from '@/data/about';
 
 export default function TeamSection() {
-    const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
-
     return (
         <section id="team" className="py-12 sm:py-20 bg-white">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -29,8 +24,6 @@ export default function TeamSection() {
                         <div
                             key={index}
                             className="group bg-white rounded-xl border border-gray-100 overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500"
-                            onMouseEnter={() => setHoveredIndex(index)}
-                            onMouseLeave={() => setHoveredIndex(null)}
                         >
                             <div className="relative w-full h-[240px] sm:h-[320px] overflow-hidden">
                                 <Image
@@ -40,12 +33,10 @@ export default function TeamSection() {
                                     className="object-cover object-top group-hover:scale-105 transition-transform duration-700"
                                 />
                                 <div
-                                    className={`absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent transition-opacity duration-500 ${hoveredIndex === index ? 'opacity-100' : 'opacity-0'
-                                        }`}
+                                    className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent transition-opacity duration-500 opacity-0 group-hover:opacity-100"
                                 ></div>
                                 <div
-                                    className={`absolute bottom-0 left-0 right-0 p-5 transition-all duration-500 ${hoveredIndex === index ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'
-                                        }`}
+                                    className="absolute bottom-0 left-0 right-0 p-5 transition-all duration-500 translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100"
                                 >
                                     <p className="text-sm text-gray-200 leading-relaxed">{member.description}</p>
                                 </div>

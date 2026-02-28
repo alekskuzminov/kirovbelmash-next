@@ -1,17 +1,20 @@
 "use client";
 
 import Link from 'next/link';
+import Image from 'next/image';
+import { SITE_CONFIG } from '@/config/site.config';
 import AboutCTAForm from './AboutCTAForm';
 
 export default function AboutCTA() {
     return (
         <section className="relative py-12 sm:py-20 overflow-hidden">
             <div className="absolute inset-0 w-full h-full">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                    src="https://readdy.ai/api/search-image?query=industrial%20factory%20interior%20with%20heavy%20machinery%20and%20production%20equipment%20dramatic%20warm%20lighting%20wide%20angle%20view%20showing%20manufacturing%20capability%20and%20scale%20professional%20industrial%20photography%20dark%20tones&width=1920&height=700&seq=aboutcta1&orientation=landscape"
+                {/* TODO: Заменить на реальное фото цеха — файл: /images/about/about-cta-bg.webp */}
+                <Image
+                    src="/images/about/about-cta-bg.webp"
                     alt="Производство КировБелМаш"
-                    className="w-full h-full object-cover object-top"
+                    fill
+                    className="object-cover object-top"
                 />
                 <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/70 to-black/50"></div>
             </div>
@@ -33,7 +36,7 @@ export default function AboutCTA() {
                                 </div>
                                 <div>
                                     <div className="text-xs text-gray-400">Телефон</div>
-                                    <a href="tel:+79005218477" className="text-sm text-white font-medium hover:text-red-400 transition-colors cursor-pointer">+7 900 521-84-77</a>
+                                    <a href={`tel:${SITE_CONFIG.contacts.phone}`} className="text-sm text-white font-medium hover:text-red-400 transition-colors cursor-pointer">{SITE_CONFIG.contacts.phoneFormatted}</a>
                                 </div>
                             </div>
                             <div className="flex items-center space-x-3">
@@ -42,7 +45,7 @@ export default function AboutCTA() {
                                 </div>
                                 <div>
                                     <div className="text-xs text-gray-400">Email</div>
-                                    <a href="mailto:sale@kirovbelmash.ru" className="text-sm text-white font-medium hover:text-red-400 transition-colors cursor-pointer">sale@kirovbelmash.ru</a>
+                                    <a href={`mailto:${SITE_CONFIG.contacts.email}`} className="text-sm text-white font-medium hover:text-red-400 transition-colors cursor-pointer">{SITE_CONFIG.contacts.email}</a>
                                 </div>
                             </div>
                         </div>

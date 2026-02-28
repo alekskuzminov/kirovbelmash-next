@@ -1,6 +1,9 @@
 import Breadcrumbs from '@/components/ui/Breadcrumbs';
+import { SITE_CONFIG } from '@/config/site.config';
 
 export default function ContactsHero() {
+    const { sales, supply } = SITE_CONFIG.contacts.departments;
+
     return (
         <section className="pt-32 sm:pt-40 pb-8 sm:pb-12 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -21,32 +24,32 @@ export default function ContactsHero() {
                     <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 sm:p-6 border border-white/10">
                         <h3 className="text-base sm:text-lg font-bold text-white mb-2 sm:mb-3">Отдел продаж:</h3>
                         <a
-                            href="mailto:sale@kirovbelmash.ru"
+                            href={`mailto:${sales.email}`}
                             className="block text-red-400 hover:text-red-300 text-sm mb-2 cursor-pointer transition-colors"
                         >
-                            sale@kirovbelmash.ru
+                            {sales.email}
                         </a>
                         <a
-                            href="tel:+79005218477"
+                            href={`tel:${sales.phone}`}
                             className="block text-gray-300 hover:text-white text-sm cursor-pointer transition-colors"
                         >
-                            +7-900-521-84-77
+                            {sales.phoneFormatted}
                         </a>
                     </div>
 
                     <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 sm:p-6 border border-white/10">
                         <h3 className="text-base sm:text-lg font-bold text-white mb-2 sm:mb-3">Отдел снабжения:</h3>
                         <a
-                            href="mailto:snab@kirovbelmash.ru"
+                            href={`mailto:${supply.email}`}
                             className="block text-red-400 hover:text-red-300 text-sm mb-2 cursor-pointer transition-colors"
                         >
-                            snab@kirovbelmash.ru
+                            {supply.email}
                         </a>
                         <a
-                            href="tel:+79195263341"
+                            href={`tel:${supply.phone}`}
                             className="block text-gray-300 hover:text-white text-sm cursor-pointer transition-colors"
                         >
-                            +7-919-526-33-41
+                            {supply.phoneFormatted}
                         </a>
                     </div>
                 </div>

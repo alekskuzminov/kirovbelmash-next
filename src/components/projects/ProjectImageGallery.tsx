@@ -20,7 +20,6 @@ export default function ProjectImageGallery({ images, title }: ProjectImageGalle
                     alt={`${title} - Главное фото`}
                     fill
                     className="object-cover object-center"
-                    priority
                     sizes="(max-width: 1024px) 100vw, 50vw"
                 />
 

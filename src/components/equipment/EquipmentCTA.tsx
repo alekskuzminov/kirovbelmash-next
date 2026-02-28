@@ -1,4 +1,5 @@
 import ContactModalButton from '@/components/common/ContactModalButton';
+import { SITE_CONFIG } from '@/config/site.config';
 
 export default function EquipmentCTA() {
     return (
@@ -26,7 +27,7 @@ export default function EquipmentCTA() {
                                 Оставить заявку
                             </ContactModalButton>
                             <a
-                                href="tel:+79005218477"
+                                href={`tel:${SITE_CONFIG.contacts.phone}`}
                                 className="px-6 sm:px-8 py-3 sm:py-3.5 bg-white/10 text-white text-xs sm:text-sm font-semibold rounded-lg hover:bg-white/20 transition-colors border border-white/20 whitespace-nowrap cursor-pointer flex items-center justify-center gap-2"
                             >
                                 <i className="ri-phone-line text-base"></i>

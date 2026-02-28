@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import ContactModalButton from '@/components/common/ContactModalButton';
 import Image from 'next/image';
+import { SITE_CONFIG } from '@/config/site.config';
 import type { BlogPost, BlogSection } from './blogData';
 
 interface ArticleBodyProps {
@@ -137,13 +138,13 @@ export default function ArticleBody({ post, relatedPosts }: ArticleBodyProps) {
                             </ContactModalButton>
 
                             <a
-                                href="tel:+79005218477"
+                                href={`tel:${SITE_CONFIG.contacts.phone}`}
                                 className="mt-6 flex items-center justify-center space-x-2 text-sm text-gray-300 hover:text-white transition-colors"
                             >
                                 <svg className="w-4 h-4 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                                 </svg>
-                                <span className="font-medium">+7 900 521-84-77</span>
+                                <span className="font-medium">{SITE_CONFIG.contacts.phoneFormatted}</span>
                             </a>
                         </div>
 
@@ -153,7 +154,8 @@ export default function ArticleBody({ post, relatedPosts }: ArticleBodyProps) {
                                 <h3 className="text-base font-bold text-gray-900 mb-6">Похожие статьи</h3>
                                 <div className="space-y-6">
                                     {relatedPosts.map((related) => {
-                                        const defaultImage = `https://readdy.ai/api/search-image?query=professional%20industrial%20woodworking%20equipment%20forestry%20bright%20factory%20concept&width=300&height=200&seq=${related.id}&orientation=landscape`;
+                                        // TODO: Заменить на реальное фото, когда появится — /images/blog/blog-placeholder.webp
+                                        const defaultImage = `/images/blog/blog-placeholder.webp`;
                                         const imageSrc = related.image.startsWith('/') ? defaultImage : related.image;
 
                                         return (

@@ -39,7 +39,7 @@ export default function LineHero({
             {/* Background image */}
             <Image
                 src={image}
-                alt=""
+                alt={label}
                 fill
                 priority
                 className="absolute inset-0 object-cover z-0"

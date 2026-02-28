@@ -12,7 +12,8 @@ function formatDate(dateStr: string) {
 }
 
 export default function ArticleHero({ post }: ArticleHeroProps) {
-    const defaultImage = `https://readdy.ai/api/search-image?query=professional%20industrial%20woodworking%20equipment%20forestry%20bright%20factory%20concept&width=1920&height=1080&seq=${post.id}&orientation=landscape`;
+    // TODO: Заменить на реальное фото, когда появится — /images/blog/blog-placeholder.webp
+    const defaultImage = `/images/blog/blog-placeholder.webp`;
     const imageSrc = post.image.startsWith('/') ? defaultImage : post.image;
 
     return (

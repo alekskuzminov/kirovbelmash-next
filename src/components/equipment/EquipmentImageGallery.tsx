@@ -37,7 +37,6 @@ const EquipmentImageGallery = ({ mainImage, gallery = [], itemName }: EquipmentI
                     alt={itemName}
                     fill
                     sizes="(max-width: 1024px) 100vw, 50vw"
-                    priority
                     className="object-contain"
                 />
             </div>
@@ -50,8 +49,8 @@ const EquipmentImageGallery = ({ mainImage, gallery = [], itemName }: EquipmentI
                             key={idx}
                             onClick={() => setActiveImage(img)}
                             className={`relative aspect-[4/3] rounded-xl overflow-hidden bg-white border-2 transition-all duration-200 ${activeImage === img
-                                    ? 'border-red-600 shadow-md scale-[0.98]'
-                                    : 'border-gray-100 hover:border-red-300'
+                                ? 'border-red-600 shadow-md scale-[0.98]'
+                                : 'border-gray-100 hover:border-red-300'
                                 }`}
                         >
                             <Image

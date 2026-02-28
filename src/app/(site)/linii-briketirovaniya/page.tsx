@@ -5,8 +5,8 @@ import LineHero from '@/components/lines/LineHero';
 import LinesCTA from '@/components/lines/LinesCTA';
 
 export const metadata: Metadata = {
-    title: 'Линии брикетирования | КировБелМаш',
-    description: 'Оборудование для производства топливных брикетов из опилок и древесных отходов. Изготовим линию брикетирования евродров Pini Key и Ruf «под ключ».',
+    title: 'Оборудование для производства топливных брикетов',
+    description: 'Линии брикетирования и оборудование для производства топливных брикетов из опилок и других древесных отходов. Проектирование, изготовление, монтаж, запуск',
 };
 
 export default function BriquettingLinePage() {

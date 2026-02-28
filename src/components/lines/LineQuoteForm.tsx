@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import Link from 'next/link';
 import { SITE_CONFIG } from '@/config/site.config';
 
 interface LineQuoteFormProps {
@@ -182,9 +183,9 @@ export default function LineQuoteForm({ lineName }: LineQuoteFormProps) {
                                 </button>
                                 <p className="text-xs text-gray-400 text-center">
                                     Нажимая кнопку, вы соглашаетесь с{' '}
-                                    <a href="/privacy" className="underline hover:text-gray-600">
+                                    <Link href="/privacy" className="underline hover:text-gray-600">
                                         политикой конфиденциальности
-                                    </a>
+                                    </Link>
                                 </p>
                             </form>
                         )}

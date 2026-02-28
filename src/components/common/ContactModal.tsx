@@ -3,18 +3,20 @@
 import { useState, useEffect, useCallback } from 'react';
 import ContactForm from '@/components/home/ContactForm';
 
-let openModalFn: ((initialMessage?: string) => void) | null = null;
+let openModalFn: ((initialMessage?: string, title?: string) => void) | null = null;
 
-export function openContactModal(initialMessage: string = '') {
-    if (openModalFn) openModalFn(initialMessage);
+export function openContactModal(initialMessage: string = '', title?: string) {
+    if (openModalFn) openModalFn(initialMessage, title);
 }
 
 export default function ContactModal() {
     const [isOpen, setIsOpen] = useState(false);
     const [message, setMessage] = useState('');
+    const [modalTitle, setModalTitle] = useState<string | undefined>(undefined);
 
-    const open = useCallback((msg: string = '') => {
+    const open = useCallback((msg: string = '', title?: string) => {
         setMessage(msg);
+        setModalTitle(title);
         setIsOpen(true);
     }, []);
 
@@ -57,7 +59,7 @@ export default function ContactModal() {
                 </button>
 
                 <div className="modal-form-wrapper">
-                    <ContactForm initialMessage={message} isModal={true} />
+                    <ContactForm initialMessage={message} isModal={true} modalTitle={modalTitle} />
                 </div>
             </div>
         </div>

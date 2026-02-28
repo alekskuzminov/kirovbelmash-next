@@ -225,10 +225,10 @@ export default function SiteNavbar({ variant = 'transparent' }: SiteNavbarProps)
                         </a>
 
                         <button
-                            onClick={() => openContactModal('Заявка на обратный звонок')}
+                            onClick={() => openContactModal('', 'Расскажите о вашей задаче')}
                             className="px-5 py-2 bg-red-600 text-white text-sm font-medium rounded-lg hover:bg-red-700 transition-colors whitespace-nowrap cursor-pointer"
                         >
-                            Получить КП
+                            Обсудить проект
                         </button>
                     </div>
 
@@ -470,11 +470,11 @@ export default function SiteNavbar({ variant = 'transparent' }: SiteNavbarProps)
                             <button
                                 onClick={() => {
                                     setIsMobileMenuOpen(false);
-                                    openContactModal('Заявка на обратный звонок');
+                                    openContactModal('', 'Расскажите о вашей задаче');
                                 }}
                                 className="block w-full px-6 py-2.5 bg-red-600 text-white text-sm font-medium rounded-lg hover:bg-red-700 transition-colors text-center cursor-pointer whitespace-nowrap"
                             >
-                                Получить КП
+                                Обсудить проект
                             </button>
                         </div>
                     </div>

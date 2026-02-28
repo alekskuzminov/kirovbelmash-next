@@ -175,10 +175,10 @@ export default function ContactDetails() {
                                         <div>
                                             <p className="text-xs text-gray-500 mb-1">Общий</p>
                                             <a
-                                                href="tel:+78336441850"
+                                                href={`tel:${SITE_CONFIG.contacts.departments.general.phone}`}
                                                 className="text-sm font-medium text-gray-900 hover:text-red-600 transition-colors cursor-pointer"
                                             >
-                                                +7-833-644-18-50
+                                                {SITE_CONFIG.contacts.departments.general.phoneFormatted}
                                             </a>
                                         </div>
                                     </div>
@@ -194,10 +194,10 @@ export default function ContactDetails() {
                                                 Отдел продаж
                                             </p>
                                             <a
-                                                href="tel:+79005218477"
+                                                href={`tel:${SITE_CONFIG.contacts.departments.sales.phone}`}
                                                 className="block text-sm font-medium text-gray-900 hover:text-red-600 transition-colors cursor-pointer"
                                             >
-                                                +7-900-521-84-77
+                                                {SITE_CONFIG.contacts.departments.sales.phoneFormatted}
                                             </a>
                                         </div>
                                     </div>
@@ -213,10 +213,10 @@ export default function ContactDetails() {
                                                 Отдел снабжения
                                             </p>
                                             <a
-                                                href="tel:+79195263341"
+                                                href={`tel:${SITE_CONFIG.contacts.departments.supply.phone}`}
                                                 className="block text-sm font-medium text-gray-900 hover:text-red-600 transition-colors cursor-pointer"
                                             >
-                                                +7-919-526-33-41
+                                                {SITE_CONFIG.contacts.departments.supply.phoneFormatted}
                                             </a>
                                         </div>
                                     </div>
@@ -232,10 +232,10 @@ export default function ContactDetails() {
                                                 Бухгалтерия
                                             </p>
                                             <a
-                                                href="tel:+79513474534"
+                                                href={`tel:${SITE_CONFIG.contacts.departments.accounting.phone}`}
                                                 className="block text-sm font-medium text-gray-900 hover:text-red-600 transition-colors cursor-pointer"
                                             >
-                                                +7-951-347-45-34
+                                                {SITE_CONFIG.contacts.departments.accounting.phoneFormatted}
                                             </a>
                                         </div>
                                     </div>
@@ -257,10 +257,10 @@ export default function ContactDetails() {
                                                     Общая почта
                                                 </p>
                                                 <a
-                                                    href="mailto:brike@kirovbelmash.ru"
+                                                    href={`mailto:${SITE_CONFIG.contacts.departments.general.email}`}
                                                     className="text-sm text-red-600 hover:text-red-700 transition-colors cursor-pointer"
                                                 >
-                                                    brike@kirovbelmash.ru
+                                                    {SITE_CONFIG.contacts.departments.general.email}
                                                 </a>
                                             </div>
                                             <div>
@@ -268,10 +268,10 @@ export default function ContactDetails() {
                                                     Отдел продаж
                                                 </p>
                                                 <a
-                                                    href="mailto:sale@kirovbelmash.ru"
+                                                    href={`mailto:${SITE_CONFIG.contacts.departments.sales.email}`}
                                                     className="text-sm text-red-600 hover:text-red-700 transition-colors cursor-pointer"
                                                 >
-                                                    sale@kirovbelmash.ru
+                                                    {SITE_CONFIG.contacts.departments.sales.email}
                                                 </a>
                                             </div>
                                             <div>
@@ -279,10 +279,10 @@ export default function ContactDetails() {
                                                     Отдел снабжения
                                                 </p>
                                                 <a
-                                                    href="mailto:snab@kirovbelmash.ru"
+                                                    href={`mailto:${SITE_CONFIG.contacts.departments.supply.email}`}
                                                     className="text-sm text-red-600 hover:text-red-700 transition-colors cursor-pointer"
                                                 >
-                                                    snab@kirovbelmash.ru
+                                                    {SITE_CONFIG.contacts.departments.supply.email}
                                                 </a>
                                             </div>
                                             <div>
@@ -290,10 +290,10 @@ export default function ContactDetails() {
                                                     Конструкторский отдел
                                                 </p>
                                                 <a
-                                                    href="mailto:ogk@kirovbelmash.ru"
+                                                    href={`mailto:${SITE_CONFIG.contacts.departments.engineering.email}`}
                                                     className="text-sm text-red-600 hover:text-red-700 transition-colors cursor-pointer"
                                                 >
-                                                    ogk@kirovbelmash.ru
+                                                    {SITE_CONFIG.contacts.departments.engineering.email}
                                                 </a>
                                             </div>
                                             <div>
@@ -301,10 +301,10 @@ export default function ContactDetails() {
                                                     Бухгалтерия
                                                 </p>
                                                 <a
-                                                    href="mailto:mail@kirovbelmash.ru"
+                                                    href={`mailto:${SITE_CONFIG.contacts.departments.accounting.email}`}
                                                     className="text-sm text-red-600 hover:text-red-700 transition-colors cursor-pointer"
                                                 >
-                                                    mail@kirovbelmash.ru
+                                                    {SITE_CONFIG.contacts.departments.accounting.email}
                                                 </a>
                                             </div>
                                         </div>

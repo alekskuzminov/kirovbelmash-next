@@ -7,9 +7,10 @@ import { submitContactForm } from '@/lib/api';
 interface ContactFormProps {
     initialMessage?: string;
     isModal?: boolean;
+    modalTitle?: string;
 }
 
-export default function ContactForm({ initialMessage = '', isModal = false }: ContactFormProps = {}) {
+export default function ContactForm({ initialMessage = '', isModal = false, modalTitle }: ContactFormProps = {}) {
     const [formData, setFormData] = useState({
         name: '',
         company: '',
@@ -182,7 +183,7 @@ export default function ContactForm({ initialMessage = '', isModal = false }: Co
         return (
             <div className="bg-white w-full">
                 <div className="bg-gradient-to-r from-red-600 to-red-700 px-6 py-5 sm:px-8 sm:py-6">
-                    <h2 className="text-xl sm:text-2xl font-bold text-white mb-2">Получить коммерческое предложение</h2>
+                    <h2 className="text-xl sm:text-2xl font-bold text-white mb-2">{modalTitle || 'Получить коммерческое предложение'}</h2>
                     <p className="text-red-100 text-sm">Оставьте заявку, и мы свяжемся с вами в ближайшее время</p>
                 </div>
                 <div className="p-6 sm:p-8">{formContent}</div>

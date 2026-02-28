@@ -12,7 +12,8 @@ function formatDate(dateStr: string) {
 }
 
 export default function BlogCard({ post }: BlogCardProps) {
-    const defaultImage = `https://readdy.ai/api/search-image?query=professional%20industrial%20woodworking%20equipment%20forestry%20bright%20factory%20concept&width=600&height=400&seq=${post.id}&orientation=landscape`;
+    // TODO: Заменить на реальное фото, когда появится — /images/blog/blog-placeholder.webp
+    const defaultImage = `/images/blog/blog-placeholder.webp`;
 
     return (
         <article className="group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 flex flex-col h-full">
