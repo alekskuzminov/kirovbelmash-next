@@ -1,5 +1,12 @@
 import type { Metadata } from "next";
+import { Inter } from "next/font/google";
 import "./globals.css";
+
+const inter = Inter({
+  subsets: ["latin", "cyrillic"],
+  display: "swap",
+  variable: "--font-inter",
+});
 
 export const metadata: Metadata = {
   title: {
@@ -47,7 +54,7 @@ export default function RootLayout({
   return (
     // TODO: динамический lang при переносе i18n
     <html lang="ru" className="scroll-smooth scroll-pt-[64px] lg:scroll-pt-[108px]">
-      <body className="antialiased">{children}</body>
+      <body className={`${inter.variable} font-sans antialiased`}>{children}</body>
     </html>
   );
 }
