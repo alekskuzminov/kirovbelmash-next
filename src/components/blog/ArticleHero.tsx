@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import Breadcrumbs from '@/components/ui/Breadcrumbs';
 import type { BlogPost } from './blogData';
+import { HERO_BLUR } from '@/lib/heroBlur';
 
 interface ArticleHeroProps {
     post: BlogPost;
@@ -26,6 +27,8 @@ export default function ArticleHero({ post }: ArticleHeroProps) {
                     className="object-cover object-center"
                     priority
                     sizes="100vw"
+                    placeholder="blur"
+                    blurDataURL={HERO_BLUR.blog}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-gray-900/90 via-gray-900/60 to-gray-900/30" />
             </div>

@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import Breadcrumbs from '@/components/ui/Breadcrumbs';
+import { HERO_BLUR } from '@/lib/heroBlur';
 
 export default function CalculatorHero() {
     return (
@@ -12,6 +13,8 @@ export default function CalculatorHero() {
                     priority
                     className="object-cover object-top"
                     sizes="100vw"
+                    placeholder="blur"
+                    blurDataURL={HERO_BLUR.calculator}
                 />
                 <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-black/35"></div>
             </div>

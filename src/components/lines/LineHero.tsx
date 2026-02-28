@@ -24,6 +24,8 @@ interface LineHeroProps {
     breadcrumbs: Breadcrumb[];
     /** URL фонового изображения */
     image: string;
+    /** BlurDataURL для instant placeholder (опционально) */
+    blurDataURL?: string;
 }
 
 export default function LineHero({
@@ -33,6 +35,7 @@ export default function LineHero({
     description,
     breadcrumbs,
     image,
+    blurDataURL,
 }: LineHeroProps) {
     return (
         <section className="relative overflow-hidden min-h-[450px] sm:min-h-[580px] bg-gray-900">
@@ -44,6 +47,7 @@ export default function LineHero({
                 priority
                 sizes="100vw"
                 className="absolute inset-0 object-cover z-0"
+                {...(blurDataURL ? { placeholder: 'blur' as const, blurDataURL } : {})}
             />
             {/* Gradient overlay */}
             <div className="absolute inset-0 bg-black/70 z-10" />

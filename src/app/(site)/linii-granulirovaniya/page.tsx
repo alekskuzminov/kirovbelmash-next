@@ -3,6 +3,7 @@ import { lineVariants } from '@/components/lines/linesData';
 import LineCard from '@/components/lines/LineCard';
 import LineHero from '@/components/lines/LineHero';
 import LinesCTA from '@/components/lines/LinesCTA';
+import { HERO_BLUR } from '@/lib/heroBlur';
 
 export const metadata: Metadata = {
     title: 'Оборудование для производства топливных пеллет',
@@ -27,6 +28,7 @@ export default function GranulationLinePage() {
                     { label: 'Линии гранулирования' },
                 ]}
                 image="/images/lines/granulation/pellets-lines-hero-bg.webp"
+                blurDataURL={HERO_BLUR.linesGranulation}
             />
 
             {/* Подзаголовок секции */}

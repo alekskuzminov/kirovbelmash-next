@@ -3,6 +3,7 @@ import { lineVariants } from '@/components/lines/linesData';
 import LineCard from '@/components/lines/LineCard';
 import LineHero from '@/components/lines/LineHero';
 import LinesCTA from '@/components/lines/LinesCTA';
+import { HERO_BLUR } from '@/lib/heroBlur';
 
 export const metadata: Metadata = {
     title: 'Сушильные линии | КировБелМаш',
@@ -27,6 +28,7 @@ export default function DryingLinePage() {
                     { label: 'Сушильные линии' },
                 ]}
                 image="/images/lines/drying/drying-lines-hero-bg.webp"
+                blurDataURL={HERO_BLUR.linesDrying}
             />
 
             {/* Подзаголовок секции */}

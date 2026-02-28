@@ -3,6 +3,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { openContactModal } from '@/components/common/ContactModal';
+import { HERO_BLUR } from '@/lib/heroBlur';
 
 export default function Hero() {
     return (
@@ -15,6 +16,8 @@ export default function Hero() {
                     fill
                     priority
                     sizes="100vw"
+                    placeholder="blur"
+                    blurDataURL={HERO_BLUR.heroHome}
                     className="object-cover object-top"
                 />
                 <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/60 to-black/70" />

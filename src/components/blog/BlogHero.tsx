@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import Breadcrumbs from '@/components/ui/Breadcrumbs';
+import { HERO_BLUR } from '@/lib/heroBlur';
 
 export default function BlogHero() {
     return (
@@ -12,6 +13,8 @@ export default function BlogHero() {
                     className="object-cover object-top"
                     priority
                     sizes="100vw"
+                    placeholder="blur"
+                    blurDataURL={HERO_BLUR.blog}
                 />
                 <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/65 to-black/40" />
                 <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-transparent to-transparent" />

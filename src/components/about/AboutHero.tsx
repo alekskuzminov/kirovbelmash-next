@@ -2,6 +2,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import Breadcrumbs from '@/components/ui/Breadcrumbs';
 import { companyStats } from '@/data/about';
+import { HERO_BLUR } from '@/lib/heroBlur';
 
 export default function AboutHero() {
     return (
@@ -14,6 +15,8 @@ export default function AboutHero() {
                     className="object-cover object-top"
                     priority
                     sizes="100vw"
+                    placeholder="blur"
+                    blurDataURL={HERO_BLUR.aboutHero}
                 />
                 <div className="absolute inset-0 bg-gradient-to-r from-black/75 via-black/55 to-black/35"></div>
             </div>
