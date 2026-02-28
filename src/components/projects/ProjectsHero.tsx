@@ -12,6 +12,7 @@ export default function ProjectsHero() {
                     fill
                     className="object-cover object-top"
                     priority
+                    sizes="100vw"
                 />
                 <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-black/30"></div>
                 <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/20 to-transparent h-1/2"></div>

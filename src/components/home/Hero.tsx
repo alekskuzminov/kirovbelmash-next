@@ -14,6 +14,7 @@ export default function Hero() {
                     alt="Производственные линии КировБелМаш"
                     fill
                     priority
+                    sizes="100vw"
                     className="object-cover object-top"
                 />
                 <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/60 to-black/70" />

@@ -13,6 +13,7 @@ export default function AboutHero() {
                     fill
                     className="object-cover object-top"
                     priority
+                    sizes="100vw"
                 />
                 <div className="absolute inset-0 bg-gradient-to-r from-black/75 via-black/55 to-black/35"></div>
             </div>

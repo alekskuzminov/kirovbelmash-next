@@ -42,6 +42,7 @@ export default function LineHero({
                 alt={label}
                 fill
                 priority
+                sizes="100vw"
                 className="absolute inset-0 object-cover z-0"
             />
             {/* Gradient overlay */}
