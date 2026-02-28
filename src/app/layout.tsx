@@ -34,6 +34,9 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/",
   },
+  icons: {
+    icon: "/images/logo/logo.webp",
+  },
 };
 
 export default function RootLayout({
