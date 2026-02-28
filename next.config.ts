@@ -3,8 +3,6 @@ import type { NextConfig } from "next";
 const nextConfig: NextConfig = {
   // TODO: добавить output: 'standalone' если потребуется self-hosted деплой
   images: {
-    loader: 'custom',
-    loaderFile: './s3-image-loader.js',
     remotePatterns: [
       {
         protocol: 'https',

@@ -21,7 +21,6 @@ export default function ProjectImageGallery({ images, title }: ProjectImageGalle
                     fill
                     className="object-cover object-center"
                     sizes="(max-width: 1024px) 100vw, 50vw"
-                    unoptimized={true}
                 />
 
                 {/* Стрелки переключения */}
@@ -51,7 +50,7 @@ export default function ProjectImageGallery({ images, title }: ProjectImageGalle
                             }`}
                         aria-label={`Переключить на фото ${idx + 1}`}
                     >
-                        <Image src={img} alt={`Миниатюра ${idx + 1}`} fill sizes="20vw" className="object-cover" unoptimized={true} />
+                        <Image src={img} alt={`Миниатюра ${idx + 1}`} fill sizes="20vw" className="object-cover" />
                     </button>
                 ))}
             </div>
