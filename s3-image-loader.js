@@ -1,4 +1,4 @@
-export default function s3Loader({ src, width, quality }: { src: string, width: number, quality?: number }) {
+export default function s3Loader({ src, width, quality }) {
     const cdnHost = 'https://cdn.kirovbelmash-next.ru';
 
     // Если путь начинается с /images/ (как это прописано везде в коде)
