@@ -6,6 +6,11 @@ const nextConfig: NextConfig = {
     remotePatterns: [
       {
         protocol: 'https',
+        hostname: 'kirovbelmash-next.ru',
+        pathname: '/**', // весь контент с этого домена
+      },
+      {
+        protocol: 'https',
         hostname: 'static.readdy.ai',
       },
       {
