@@ -35,7 +35,7 @@ export default function LineHero({
     image,
 }: LineHeroProps) {
     return (
-        <section className="relative overflow-hidden min-h-[450px] sm:min-h-[580px]">
+        <section className="relative overflow-hidden min-h-[450px] sm:min-h-[580px] bg-gray-900">
             {/* Background image */}
             <Image
                 src={image}

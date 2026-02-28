@@ -3,7 +3,7 @@ import Breadcrumbs from '@/components/ui/Breadcrumbs';
 
 export default function CalculatorHero() {
     return (
-        <section className="relative min-h-[420px] sm:min-h-[520px] overflow-visible pb-16 sm:pb-20 lg:pb-24 mb-16 sm:mb-24">
+        <section className="relative min-h-[420px] sm:min-h-[520px] overflow-visible pb-16 sm:pb-20 lg:pb-24 mb-16 sm:mb-24 bg-gray-900">
             <div className="absolute inset-0 w-full h-full">
                 <Image
                     src="/images/calculator/calculator-hero-bg.webp"

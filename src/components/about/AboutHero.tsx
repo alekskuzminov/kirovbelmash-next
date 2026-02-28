@@ -5,7 +5,7 @@ import { companyStats } from '@/data/about';
 
 export default function AboutHero() {
     return (
-        <section className="relative min-h-[450px] sm:min-h-[600px] overflow-visible pb-32 sm:pb-40 lg:pb-48 mb-16 sm:mb-24">
+        <section className="relative min-h-[450px] sm:min-h-[600px] overflow-visible pb-32 sm:pb-40 lg:pb-48 mb-16 sm:mb-24 bg-gray-900">
             <div className="absolute inset-0 w-full h-full">
                 <Image
                     src="/images/about/about-hero-bg.webp"

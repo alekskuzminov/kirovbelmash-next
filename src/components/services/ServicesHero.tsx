@@ -3,7 +3,7 @@ import Breadcrumbs from '@/components/ui/Breadcrumbs';
 
 export default function ServicesHero() {
     return (
-        <section className="relative min-h-[450px] sm:min-h-[600px] overflow-visible pb-24 sm:pb-32 md:pb-40 mb-16 sm:mb-24">
+        <section className="relative min-h-[450px] sm:min-h-[600px] overflow-visible pb-24 sm:pb-32 md:pb-40 mb-16 sm:mb-24 bg-gray-900">
             <div className="absolute inset-0 w-full h-full">
                 <Image
                     src="/images/services/services-hero-bg.webp"

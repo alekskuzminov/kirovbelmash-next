@@ -6,7 +6,7 @@ import { openContactModal } from '@/components/common/ContactModal';
 
 export default function Hero() {
     return (
-        <section className="relative min-h-screen pt-28 pb-16 flex items-center justify-center overflow-hidden">
+        <section className="relative min-h-screen pt-28 pb-16 flex items-center justify-center overflow-hidden bg-gray-900">
             {/* Background Image */}
             <div className="absolute inset-0 z-0">
                 <Image
