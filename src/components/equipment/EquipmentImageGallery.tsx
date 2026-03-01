@@ -19,14 +19,14 @@ const EquipmentImageGallery = ({ mainImage, gallery = [], itemName }: EquipmentI
     return (
         <div className="w-full">
             {/* Основное изображение */}
-            <div className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden bg-white border border-gray-100 mb-3 shadow-sm transition-all duration-500">
+            <div className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden bg-transparent mb-4 transition-all duration-500">
 
                 <Image
                     src={activeImage}
                     alt={itemName}
                     fill
                     sizes="(max-width: 1024px) 100vw, 50vw"
-                    className="object-contain p-4 sm:p-6"
+                    className="object-contain"
                 />
             </div>
 
@@ -37,9 +37,9 @@ const EquipmentImageGallery = ({ mainImage, gallery = [], itemName }: EquipmentI
                         <button
                             key={idx}
                             onClick={() => setActiveImage(img)}
-                            className={`relative aspect-[4/3] rounded-xl overflow-hidden bg-white border-2 transition-all duration-200 ${activeImage === img
+                            className={`relative aspect-[4/3] rounded-xl overflow-hidden border-2 transition-all duration-200 ${activeImage === img
                                 ? 'border-red-600 shadow-md scale-[0.98]'
-                                : 'border-gray-100 hover:border-red-300'
+                                : 'border-transparent hover:border-red-300'
                                 }`}
                         >
                             <Image
@@ -47,7 +47,7 @@ const EquipmentImageGallery = ({ mainImage, gallery = [], itemName }: EquipmentI
                                 alt={`${itemName} - фото ${idx + 1}`}
                                 fill
                                 sizes="(max-width: 1024px) 25vw, 15vw"
-                                className="object-contain p-2"
+                                className="object-cover"
                             />
                         </button>
                     ))}

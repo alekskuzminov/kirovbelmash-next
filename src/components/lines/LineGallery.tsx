@@ -33,13 +33,12 @@ export default function LineGallery({
             )}
 
             {/* Main image */}
-            <div className={`relative w-full ${aspectClass} rounded-2xl overflow-hidden bg-white border border-gray-200 mb-3`}>
-
+            <div className={`relative w-full ${aspectClass} rounded-2xl overflow-hidden bg-transparent mb-4`}>
                 <Image
                     src={images[active]}
                     alt={`${title} ${active + 1}`}
                     fill
-                    className="object-contain object-center p-4 sm:p-6"
+                    className="object-contain object-center"
                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 75vw, 100vw"
                     unoptimized={true}
                 />
@@ -54,14 +53,14 @@ export default function LineGallery({
                             onClick={() => setActive(i)}
                             className={`relative flex-1 ${aspectClass} rounded-lg overflow-hidden border-2 transition-all ${i === active
                                 ? 'border-red-600 shadow-md'
-                                : 'border-gray-200 hover:border-gray-400'
+                                : 'border-transparent hover:border-gray-400'
                                 }`}
                         >
                             <Image
                                 src={src}
                                 alt={`${title} ${i + 1}`}
                                 fill
-                                className="object-contain object-center p-2"
+                                className="object-cover object-center"
                                 sizes="80px"
                                 unoptimized={true}
                             />
