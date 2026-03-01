@@ -30,7 +30,7 @@ export default function GranulationLinePage() {
                     </div>,
                     // Мобильная версия (скрыта на десктопах)
                     <div key="mobile-1" className="block sm:hidden text-base">
-                        Линии гранулирования &quot;под ключ&quot;
+                        Линии гранулирования топливных пеллет &quot;под ключ&quot;
                     </div>,
                     <div key="mobile-2" className="block sm:hidden text-base">
                         Проектирование, производство, обучение персонала и запуск
