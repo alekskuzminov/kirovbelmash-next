@@ -17,6 +17,8 @@ export default function ContactsHero() {
                     priority
                 />
                 <div className="absolute inset-0 bg-gradient-to-br from-black/85 via-black/50 to-black/75 shadow-inner" />
+                {/* Top overlay for header readability */}
+                <div className="absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-black/80 to-transparent" />
             </div>
 
             <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
