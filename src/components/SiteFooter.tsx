@@ -1,9 +1,13 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { SITE_CONFIG } from '@/config/site.config';
+import { equipmentCategories } from '@/components/equipment/equipmentData';
 
 export default function SiteFooter() {
     const { contacts, social, assets, company } = SITE_CONFIG;
+
+    // Filter out 'Все' category
+    const footerCategories = equipmentCategories.filter(cat => cat !== 'Все');
 
     return (
         <footer className="bg-gradient-to-b from-gray-900 to-gray-950 text-white">
@@ -90,16 +94,10 @@ export default function SiteFooter() {
                             </Link>
                         </h4>
                         <ul className="space-y-2 sm:space-y-3">
-                            {[
-                                'Прессы и грануляторы',
-                                'Сушильное оборудование',
-                                'Дробильное оборудование',
-                                'Транспортёры',
-                                'Вспомогательное',
-                            ].map((item) => (
+                            {footerCategories.map((item) => (
                                 <li key={item}>
                                     <Link
-                                        href="/oborudovanie"
+                                        href={`/oborudovanie?category=${encodeURIComponent(item)}`}
                                         className="text-xs sm:text-sm text-gray-400 hover:text-red-500 transition-colors cursor-pointer"
                                     >
                                         {item}
