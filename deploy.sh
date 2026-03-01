@@ -20,4 +20,4 @@ npm run build
 echo "🔄 Restarting PM2 process..."
 pm2 restart kirovbelmash
 
-echo "✅ Deploy complete! Site is live at https://45.11.93.44"
+echo "✅ Deploy complete! Site is live at https://85.117.235.122"
