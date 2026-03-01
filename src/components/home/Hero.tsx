@@ -47,7 +47,7 @@ export default function Hero() {
                     <div className="flex flex-col sm:flex-row gap-4 mb-16">
                         <button
                             onClick={() => openContactModal('Заявка на обратный звонок')}
-                            className="px-8 py-4 bg-red-600 text-white text-base font-semibold rounded-lg hover:bg-red-700 transition-all duration-300 shadow-lg hover:shadow-xl whitespace-nowrap text-center"
+                            className="px-8 py-4 bg-red-600 text-white text-base font-semibold rounded-lg hover:bg-red-700 transition-all duration-300 shadow-lg hover:shadow-xl whitespace-nowrap text-center cursor-pointer"
                         >
                             Получить коммерческое предложение
                         </button>

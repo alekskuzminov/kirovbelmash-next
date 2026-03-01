@@ -177,7 +177,7 @@ export default function LineQuoteForm({ lineName }: LineQuoteFormProps) {
                                 </div>
                                 <button
                                     type="submit"
-                                    className="w-full py-3.5 bg-red-600 hover:bg-red-700 text-white text-sm font-bold rounded-xl transition-colors shadow-sm hover:shadow-md"
+                                    className="w-full py-3.5 bg-red-600 hover:bg-red-700 text-white text-sm font-bold rounded-xl transition-colors shadow-sm hover:shadow-md cursor-pointer"
                                 >
                                     Отправить заявку
                                 </button>
