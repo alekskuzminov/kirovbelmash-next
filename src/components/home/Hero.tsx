@@ -38,11 +38,19 @@ export default function Hero() {
                         <span className="text-red-600">под ключ за 60 дней</span>
                     </h1>
 
-                    <p className="text-base sm:text-lg lg:text-xl text-gray-200 mb-8 max-w-2xl leading-relaxed">
-                        Полный цикл: проектируем, производим, обучаем и запускаем
-                        <br />
-                        Гарантия качества и сервисная поддержка
-                    </p>
+                    <div className="text-base sm:text-lg lg:text-xl text-gray-200 mb-8 max-w-2xl leading-relaxed">
+                        {/* Desktop text */}
+                        <div className="hidden sm:block">
+                            Полный цикл: проектируем, производим, обучаем и запускаем
+                            <br />
+                            Гарантия качества и сервисная поддержка
+                        </div>
+                        {/* Mobile text */}
+                        <div className="block sm:hidden space-y-1">
+                            <div>Проектирование, производство, обучение, запуск</div>
+                            <div>Гарантия качества и сервис</div>
+                        </div>
+                    </div>
 
                     <div className="flex flex-col sm:flex-row gap-4 mb-16">
                         <button

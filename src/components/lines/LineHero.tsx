@@ -84,7 +84,7 @@ export default function LineHero({
                     {/* Description — каждая строка отдельно */}
                     <div className="text-lg sm:text-xl text-gray-200 leading-relaxed mb-6 sm:mb-8 space-y-1">
                         {description.map((line, i) => (
-                            <p key={i}>{line}</p>
+                            <div key={i}>{line}</div>
                         ))}
                     </div>
 
