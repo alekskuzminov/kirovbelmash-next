@@ -32,9 +32,10 @@ export default function ProjectVideo({ videoUrl, title, poster }: ProjectVideoPr
                     <span className="text-xs font-bold text-gray-900">{SITE_CONFIG.company.name}</span>
                 </div>
 
-                {/* Video Player */}
                 <video
                     controls
+                    muted
+                    autoPlay
                     preload="metadata"
                     poster={poster}
                     className="w-full h-full block"

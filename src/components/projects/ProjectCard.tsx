@@ -9,7 +9,7 @@ interface ProjectCardProps {
 export default function ProjectCard({ project }: ProjectCardProps) {
     return (
         <Link
-            href={`/projects/${project.id}`}
+            href={`/projects/${project.slug}`}
             className="block group bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 border border-gray-100 cursor-pointer h-full"
         >
             <div className="relative w-full h-48 sm:h-56 bg-gray-100 overflow-hidden">

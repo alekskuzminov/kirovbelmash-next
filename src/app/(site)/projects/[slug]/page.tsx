@@ -11,18 +11,18 @@ import Breadcrumbs from '@/components/ui/Breadcrumbs';
 import ProjectVideo from '@/components/projects/ProjectVideo';
 
 interface PageProps {
-    params: Promise<{ id: string }>;
+    params: Promise<{ slug: string }>;
 }
 
 export function generateStaticParams() {
     return projectsData.map((project) => ({
-        id: project.id.toString(),
+        slug: project.slug,
     }));
 }
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
-    const { id } = await params;
-    const project = projectsData.find((p) => p.id.toString() === id);
+    const { slug } = await params;
+    const project = projectsData.find((p) => p.slug === slug);
 
     if (!project) {
         return {
@@ -37,8 +37,8 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 }
 
 export default async function ProjectDetailPage({ params }: PageProps) {
-    const { id } = await params;
-    const item = projectsData.find((p) => p.id.toString() === id);
+    const { slug } = await params;
+    const item = projectsData.find((p) => p.slug === slug);
 
     if (!item) {
         notFound();
