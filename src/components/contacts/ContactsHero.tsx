@@ -16,7 +16,7 @@ export default function ContactsHero() {
                     className="object-cover object-center"
                     priority
                 />
-                <div className="absolute inset-0 bg-gradient-to-br from-gray-900/95 via-gray-900/80 to-gray-900/90 shadow-inner" />
+                <div className="absolute inset-0 bg-gradient-to-br from-black/98 via-black/90 to-black/95 shadow-inner" />
             </div>
 
             <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
