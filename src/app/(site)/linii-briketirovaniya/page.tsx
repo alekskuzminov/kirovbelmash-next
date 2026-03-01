@@ -30,10 +30,10 @@ export default function BriquettingLinePage() {
                     </div>,
                     // Мобильная версия (скрыта на десктопах)
                     <div key="mobile-1" className="block sm:hidden text-base">
-                        Линии брикетирования &quot;под ключ&quot; за 2 месяца
+                        Линии брикетирования Pini Key и Ruf &quot;под ключ&quot; за 2 месяца
                     </div>,
                     <div key="mobile-2" className="block sm:hidden text-base">
-                        Проектирование, производство, обучение, запуск
+                        Проектирование, производство, обучение персонала и запуск
                     </div>,
                     <div key="mobile-3" className="block sm:hidden text-base">
                         Гарантия качества и сервис
