@@ -3,6 +3,7 @@
 import { useState, FormEvent } from 'react';
 import { SITE_CONFIG } from '@/config/site.config';
 import { submitContactForm } from '@/lib/api';
+import PrivacyDisclaimer from '@/components/ui/PrivacyDisclaimer';
 
 interface ContactFormProps {
     initialMessage?: string;
@@ -155,6 +156,8 @@ export default function ContactForm({ initialMessage = '', isModal = false, moda
                         </p>
                     </div>
                 )}
+
+                <PrivacyDisclaimer />
             </div>
         </form>
     );

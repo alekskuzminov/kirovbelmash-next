@@ -2,6 +2,7 @@
 
 import { useState, FormEvent } from 'react';
 import { submitContactForm } from '@/lib/api';
+import PrivacyDisclaimer from '@/components/ui/PrivacyDisclaimer';
 
 export default function ContactsForm() {
     const [formData, setFormData] = useState({
@@ -147,6 +148,8 @@ export default function ContactsForm() {
                                 </p>
                             </div>
                         )}
+
+                        <PrivacyDisclaimer />
                     </form>
                 </div>
             </div>

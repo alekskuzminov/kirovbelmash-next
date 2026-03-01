@@ -1,8 +1,8 @@
 'use client';
 
 import { useState } from 'react';
-import Link from 'next/link';
 import { SITE_CONFIG } from '@/config/site.config';
+import PrivacyDisclaimer from '@/components/ui/PrivacyDisclaimer';
 
 interface LineQuoteFormProps {
     lineName: string;
@@ -170,12 +170,7 @@ export default function LineQuoteForm({ lineName }: LineQuoteFormProps) {
                                 >
                                     Отправить заявку
                                 </button>
-                                <p className="text-xs text-gray-400 text-center">
-                                    Нажимая кнопку, вы соглашаетесь с{' '}
-                                    <Link href="/privacy" className="underline hover:text-gray-600">
-                                        политикой конфиденциальности
-                                    </Link>
-                                </p>
+                                <PrivacyDisclaimer className="mt-4" />
                             </form>
                         )}
                     </div>

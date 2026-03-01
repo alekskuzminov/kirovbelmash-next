@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import PrivacyDisclaimer from '@/components/ui/PrivacyDisclaimer';
 
 interface StaticLeadFormProps {
     formId: string;
@@ -222,10 +223,12 @@ export default function StaticLeadForm({
                 </button>
             </div>
 
-            {footerNote && (
+            {footerNote ? (
                 <p className="text-xs text-gray-400 text-center mt-3">
                     {footerNote}
                 </p>
+            ) : (
+                <PrivacyDisclaimer />
             )}
         </form>
     );
