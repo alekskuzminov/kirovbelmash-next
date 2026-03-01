@@ -73,7 +73,7 @@ export default function Projects() {
                     {visibleProjects.map((project, idx) => (
                         <Link
                             key={`${project.id}-${current}-${idx}`}
-                            href={`/projects/${project.id}`}
+                            href={`/projects/${project.slug}`}
                             className="group block rounded-xl overflow-hidden shadow-sm hover:shadow-lg border border-gray-100 transition-all duration-300 bg-white"
                         >
                             {/* Image */}
