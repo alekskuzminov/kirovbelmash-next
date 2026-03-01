@@ -62,8 +62,8 @@ export default async function EquipmentDetailPage({ params }: Props) {
                 <div className="bg-white rounded-3xl p-6 sm:p-10 shadow-sm border border-gray-100 mb-10">
                     <div className="flex flex-col xl:grid xl:grid-cols-2 gap-10 xl:gap-16">
 
-                        {/* Левая колонка: Галерея (вторая на мобилке, первая на десктопе) */}
-                        <div className="order-2 xl:order-1 xl:border-r xl:border-gray-100 xl:pr-10 xl:sticky xl:top-32 xl:self-start">
+                        {/* Левая колонка: Галерея (всегда первая) */}
+                        <div className="order-1 xl:border-r xl:border-gray-100 xl:pr-10 xl:sticky xl:top-32 xl:self-start">
                             <EquipmentImageGallery
                                 mainImage={item.image}
                                 gallery={item.gallery}
@@ -71,8 +71,8 @@ export default async function EquipmentDetailPage({ params }: Props) {
                             />
                         </div>
 
-                        {/* Правая колонка: Инфо и Характеристики (первая на мобилке, вторая на десктопе) */}
-                        <div className="order-1 xl:order-2">
+                        {/* Правая колонка: Инфо и Характеристики (всегда вторая) */}
+                        <div className="order-2">
                             <div className="mb-8 font-inter">
                                 <div className="inline-block px-3 py-1 rounded-full bg-red-50 text-red-600 text-[10px] sm:text-xs font-bold uppercase tracking-wider mb-4 border border-red-100">
                                     {item.category}

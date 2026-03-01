@@ -57,8 +57,8 @@ export default async function ProductionLinePage({ params }: ProductionLinePageP
 
                 <div className="bg-white rounded-3xl p-6 sm:p-10 shadow-sm border border-gray-100 mb-10">
                     <div className="flex flex-col xl:grid xl:grid-cols-2 gap-10 xl:gap-16">
-                        {/* Right Column (Hero): Title, Info, Specs (first on mobile, second on desktop) */}
-                        <div className="order-1 xl:order-2">
+                        {/* Upper Info (Hero, Specs) - Second */}
+                        <div className="order-2">
                             {/* Hero Info (H1, Price, Description, Buttons) */}
                             <LineDetailHero variant={variant} backHref={backHref} backLabel={backLabel} />
 
@@ -68,8 +68,8 @@ export default async function ProductionLinePage({ params }: ProductionLinePageP
                             <LineSpecs variant={variant} />
                         </div>
 
-                        {/* Left Column: Renders (second on mobile, first on desktop) */}
-                        <div className="order-2 xl:order-1 xl:border-r xl:border-gray-100 xl:pr-10 xl:sticky xl:top-32 xl:self-start">
+                        {/* Left Column: Renders (always first) */}
+                        <div className="order-1 xl:border-r xl:border-gray-100 xl:pr-10 xl:sticky xl:top-32 xl:self-start">
                             <LineGallery images={variant.renders} />
                         </div>
                     </div>
