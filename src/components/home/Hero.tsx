@@ -47,13 +47,13 @@ export default function Hero() {
                     <div className="flex flex-col sm:flex-row gap-4 mb-16">
                         <button
                             onClick={() => openContactModal('Заявка на обратный звонок')}
-                            className="px-8 py-4 bg-red-600 text-white text-base font-semibold rounded-lg hover:bg-red-700 transition-all duration-300 shadow-lg hover:shadow-xl whitespace-nowrap text-center cursor-pointer"
+                            className="w-full sm:w-auto px-6 py-3.5 sm:px-8 sm:py-4 bg-red-600 text-white text-sm sm:text-base font-semibold rounded-lg hover:bg-red-700 transition-all duration-300 shadow-lg hover:shadow-xl text-center cursor-pointer"
                         >
                             Получить коммерческое предложение
                         </button>
                         <Link
                             href="/calculator"
-                            className="px-8 py-4 bg-white/10 backdrop-blur-sm text-white text-base font-semibold rounded-lg hover:bg-white/20 transition-all duration-300 border-2 border-white/30 whitespace-nowrap text-center"
+                            className="w-full sm:w-auto px-6 py-3.5 sm:px-8 sm:py-4 bg-white/10 backdrop-blur-sm text-white text-sm sm:text-base font-semibold rounded-lg hover:bg-white/20 transition-all duration-300 border-2 border-white/30 text-center"
                         >
                             Рассчитать стоимость
                         </Link>
