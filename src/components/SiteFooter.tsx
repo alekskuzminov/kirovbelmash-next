@@ -208,9 +208,12 @@ export default function SiteFooter() {
                         <p className="text-xs sm:text-sm text-gray-400">
                             © {new Date().getFullYear()} {company.name}. Все права защищены.
                         </p>
-                        <p className="text-xs sm:text-sm text-gray-500">
-                            {contacts.address.city}, {contacts.address.street}
-                        </p>
+                        <Link
+                            href="/privacy-policy"
+                            className="text-xs sm:text-sm text-gray-500 hover:text-red-400 transition-colors"
+                        >
+                            Политика конфиденциальности
+                        </Link>
                     </div>
                 </div>
             </div>
