@@ -18,9 +18,26 @@ export default function GranulationLinePage() {
                 headingMain="Оборудование для производства топливных пеллет"
                 headingAccent="из опилок и древесных отходов"
                 description={[
-                    'Изготовим линию гранулирования топливных пеллет «под ключ».',
-                    'Полный цикл: проектируем, производим, обучаем и запускаем.',
-                    'Гарантия качества и сервисная поддержка.',
+                    // Десктопная версия (скрыта на мобильных)
+                    <div key="desktop-1" className="hidden sm:block">
+                        Изготовим линию гранулирования топливных пеллет «под ключ».
+                    </div>,
+                    <div key="desktop-2" className="hidden sm:block">
+                        Полный цикл: проектируем, производим, обучаем и запускаем.
+                    </div>,
+                    <div key="desktop-3" className="hidden sm:block">
+                        Гарантия качества и сервисная поддержка.
+                    </div>,
+                    // Мобильная версия (скрыта на десктопах)
+                    <div key="mobile-1" className="block sm:hidden text-base">
+                        Линии гранулирования &quot;под ключ&quot;
+                    </div>,
+                    <div key="mobile-2" className="block sm:hidden text-base">
+                        Проектирование, производство, обучение персонала и запуск
+                    </div>,
+                    <div key="mobile-3" className="block sm:hidden text-base">
+                        Гарантия качества и сервис
+                    </div>,
                 ]}
                 breadcrumbs={[
                     { label: 'Главная', href: '/' },
