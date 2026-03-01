@@ -5,18 +5,18 @@ import ArticleHero from '@/components/blog/ArticleHero';
 import ArticleBody from '@/components/blog/ArticleBody';
 
 interface PageProps {
-    params: Promise<{ id: string }>;
+    params: Promise<{ slug: string }>;
 }
 
 export function generateStaticParams() {
     return blogPosts.map((post) => ({
-        id: post.id.toString(),
+        slug: post.slug,
     }));
 }
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
-    const { id } = await params;
-    const post = blogPosts.find((p) => p.id.toString() === id);
+    const { slug } = await params;
+    const post = blogPosts.find((p) => p.slug === slug);
 
     if (!post) {
         return {
@@ -31,8 +31,8 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 }
 
 export default async function BlogPostPage({ params }: PageProps) {
-    const { id } = await params;
-    const post = blogPosts.find((p) => p.id.toString() === id);
+    const { slug } = await params;
+    const post = blogPosts.find((p) => p.slug === slug);
 
     if (!post) {
         notFound();

@@ -13,9 +13,8 @@ function formatDate(dateStr: string) {
 }
 
 export default function ArticleHero({ post }: ArticleHeroProps) {
-    // TODO: Заменить на реальное фото, когда появится — /images/blog/blog-placeholder.webp
-    const defaultImage = `/images/blog/blog-placeholder.webp`;
-    const imageSrc = post.image.startsWith('/') ? defaultImage : post.image;
+    const defaultImage = `/images/blog/blog_placeholder.png`;
+    const imageSrc = post.image || defaultImage;
 
     return (
         <section className="relative min-h-[420px] sm:min-h-[560px] overflow-hidden bg-gray-900">

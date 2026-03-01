@@ -154,14 +154,13 @@ export default function ArticleBody({ post, relatedPosts }: ArticleBodyProps) {
                                 <h3 className="text-base font-bold text-gray-900 mb-6">Похожие статьи</h3>
                                 <div className="space-y-6">
                                     {relatedPosts.map((related) => {
-                                        // TODO: Заменить на реальное фото, когда появится — /images/blog/blog-placeholder.webp
-                                        const defaultImage = `/images/blog/blog-placeholder.webp`;
-                                        const imageSrc = related.image.startsWith('/') ? defaultImage : related.image;
+                                        const defaultImage = `/images/blog/blog_placeholder.png`;
+                                        const imageSrc = related.image || defaultImage;
 
                                         return (
                                             <Link
                                                 key={related.id}
-                                                href={`/blog/${related.id}`}
+                                                href={`/blog/${related.slug}`}
                                                 className="group flex gap-4 items-center"
                                             >
                                                 <div className="relative w-[72px] h-[54px] flex-shrink-0 rounded-lg overflow-hidden shadow-sm">

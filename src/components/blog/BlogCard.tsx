@@ -12,14 +12,13 @@ function formatDate(dateStr: string) {
 }
 
 export default function BlogCard({ post }: BlogCardProps) {
-    // TODO: Заменить на реальное фото, когда появится — /images/blog/blog-placeholder.webp
-    const defaultImage = `/images/blog/blog-placeholder.webp`;
+    const defaultImage = `/images/blog/blog_placeholder.png`;
 
     return (
         <article className="group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 flex flex-col h-full">
-            <Link href={`/blog/${post.id}`} className="block relative w-full h-56 overflow-hidden bg-gray-100">
+            <Link href={`/blog/${post.slug}`} className="block relative w-full h-56 overflow-hidden bg-gray-100">
                 <Image
-                    src={post.image.startsWith('/') ? defaultImage : post.image}
+                    src={post.image || defaultImage}
                     alt={post.title}
                     fill
                     className="object-cover object-center group-hover:scale-105 transition-transform duration-500"
