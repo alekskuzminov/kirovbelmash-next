@@ -48,26 +48,13 @@ export default function EquipmentCard({ item, index }: EquipmentCardProps) {
                     </h3>
                 </Link>
 
-                <p className="text-xs sm:text-sm text-gray-500 leading-relaxed mb-3 sm:mb-4 line-clamp-2 flex-grow">
-                    {item.description}
-                </p>
-
                 <div className="grid grid-cols-3 gap-1.5 sm:gap-2 mb-3 sm:mb-4">
-                    <div className="flex flex-col items-center justify-center bg-gray-50 rounded-lg py-1.5 sm:py-2 px-1 text-center">
-                        <i className="ri-flashlight-line text-red-500 text-sm sm:text-base mb-0.5 sm:mb-1"></i>
-                        <span className="text-[9px] sm:text-[10px] text-gray-500 leading-tight">Мощность</span>
-                        <span className="text-[10px] sm:text-xs font-semibold text-gray-900 truncate w-full">{item.power}</span>
-                    </div>
-                    <div className="flex flex-col items-center justify-center bg-gray-50 rounded-lg py-1.5 sm:py-2 px-1 text-center">
-                        <i className="ri-speed-line text-red-500 text-sm sm:text-base mb-0.5 sm:mb-1"></i>
-                        <span className="text-[9px] sm:text-[10px] text-gray-500 leading-tight">Произв.</span>
-                        <span className="text-[10px] sm:text-xs font-semibold text-gray-900 truncate w-full">{item.capacity}</span>
-                    </div>
-                    <div className="flex flex-col items-center justify-center bg-gray-50 rounded-lg py-1.5 sm:py-2 px-1 text-center">
-                        <i className="ri-scales-3-line text-red-500 text-sm sm:text-base mb-0.5 sm:mb-1"></i>
-                        <span className="text-[9px] sm:text-[10px] text-gray-500 leading-tight">Масса</span>
-                        <span className="text-[10px] sm:text-xs font-semibold text-gray-900 truncate w-full">{item.weight}</span>
-                    </div>
+                    {item.specs.slice(0, 3).map((spec, idx) => (
+                        <div key={idx} className="flex flex-col items-center justify-center bg-gray-50 rounded-lg py-2 px-1 text-center">
+                            <span className="text-[9px] sm:text-[10px] text-gray-500 leading-tight mb-1">{spec.label}</span>
+                            <span className="text-[10px] sm:text-xs font-semibold text-gray-900 truncate w-full">{spec.value}</span>
+                        </div>
+                    ))}
                 </div>
 
                 <Link
