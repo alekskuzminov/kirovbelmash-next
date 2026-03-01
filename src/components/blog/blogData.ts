@@ -40,7 +40,7 @@ export const blogPosts: BlogPost[] = [
         date: '2026-02-12',
         readTime: 8,
         image:
-            '/images/blog/blog_placeholder.png',
+            '/images/blog/kak-vybrat-press-dlya-briketirovaniya/main.png',
         tags: ['Брикетирование', 'Выбор оборудования', 'RUF', 'Nestro', 'Cypress'],
         content: [
             {
@@ -116,7 +116,7 @@ export const blogPosts: BlogPost[] = [
         date: '2026-01-28',
         readTime: 6,
         image:
-            '/images/blog/blog_placeholder.png',
+            '/images/blog/pelletnie-linii-ogm-vs-gt500/main.png',
         tags: ['Пеллеты', 'Гранулирование', 'ОГМ', 'ГТ-500', 'Малый бизнес'],
         content: [
             {
@@ -188,7 +188,7 @@ export const blogPosts: BlogPost[] = [
         date: '2026-01-15',
         readTime: 7,
         image:
-            '/images/blog/blog_placeholder.png',
+            '/images/blog/baraban-ili-lentochnik-kak-vybrat-sushilku/main.png',
         tags: ['Сушка', 'Барабанная сушилка', 'Ленточная сушилка', 'АС-3'],
         content: [
             {
@@ -260,7 +260,7 @@ export const blogPosts: BlogPost[] = [
         date: '2025-12-20',
         readTime: 9,
         image:
-            '/images/blog/blog_placeholder.png',
+            '/images/blog/avtomatizatsiya-linii-briketirovaniya-2025/main.png',
         tags: ['Автоматизация', 'SCADA', 'Оборудование', 'Индустрия 4.0', 'Цифровизация'],
         content: [
             {
@@ -322,7 +322,7 @@ export const blogPosts: BlogPost[] = [
         date: '2025-11-30',
         readTime: 5,
         image:
-            '/images/blog/blog_placeholder.png',
+            '/images/blog/opyt-klienta-lesprom-kirov/main.png',
         tags: ['Кейс', 'RUF', 'Брикетирование', 'Окупаемость', 'Клиент'],
         content: [
             {
@@ -388,7 +388,7 @@ export const blogPosts: BlogPost[] = [
         date: '2025-11-10',
         readTime: 7,
         image:
-            '/images/blog/blog_placeholder.png',
+            '/images/blog/drobiteli-i-rubilki-pervichna-pererabotka/main.png',
         tags: ['Дробление', 'Рубильные машины', 'Молотковые дробилки', 'Подготовка сырья'],
         content: [
             {
