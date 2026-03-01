@@ -49,12 +49,20 @@ export default function EquipmentCard({ item, index }: EquipmentCardProps) {
                 </Link>
 
                 <div className="grid grid-cols-3 gap-1.5 sm:gap-2 mb-3 sm:mb-4">
-                    {item.specs.slice(0, 3).map((spec, idx) => (
-                        <div key={idx} className="flex flex-col items-center justify-center bg-gray-50 rounded-lg py-2 px-1 text-center">
-                            <span className="text-[9px] sm:text-[10px] text-gray-500 leading-tight mb-1">{spec.label}</span>
-                            <span className="text-[10px] sm:text-xs font-semibold text-gray-900 truncate w-full">{spec.value}</span>
-                        </div>
-                    ))}
+                    {item.specs.slice(0, 3).map((spec, idx) => {
+                        let shortLabel = spec.label;
+                        if (shortLabel.toLowerCase() === 'производительность') shortLabel = 'Произв.';
+                        else if (shortLabel.toLowerCase() === 'мощность двигателя') shortLabel = 'Мощность';
+                        else if (shortLabel.toLowerCase() === 'тепловая мощность') shortLabel = 'Мощность';
+                        else if (shortLabel.toLowerCase() === 'максимальный диаметр бревна') shortLabel = 'Макс. бревно';
+
+                        return (
+                            <div key={idx} className="flex flex-col items-center justify-center bg-gray-50 rounded-lg py-2 px-1 text-center">
+                                <span className="text-[9px] sm:text-[10px] text-gray-500 leading-tight mb-1">{shortLabel}</span>
+                                <span className="text-[10px] sm:text-xs font-semibold text-gray-900 truncate w-full">{spec.value}</span>
+                            </div>
+                        )
+                    })}
                 </div>
 
                 <Link
