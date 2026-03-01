@@ -52,7 +52,7 @@ export default function ContactModal() {
             <div className="relative w-full max-w-lg bg-white rounded-2xl shadow-2xl animate-scaleIn flex flex-col max-h-[100dvh] sm:max-h-[90vh]">
                 <button
                     onClick={close}
-                    className="absolute top-3 right-3 sm:top-4 sm:right-4 z-10 w-8 h-8 flex items-center justify-center rounded-full bg-black/10 hover:bg-black/20 transition-colors cursor-pointer text-white"
+                    className="absolute top-3 right-3 sm:top-4 sm:right-4 z-50 w-8 h-8 flex items-center justify-center rounded-full bg-black/10 hover:bg-black/20 transition-colors cursor-pointer text-white"
                     aria-label="Закрыть"
                 >
                     <i className="ri-close-line text-lg"></i>
