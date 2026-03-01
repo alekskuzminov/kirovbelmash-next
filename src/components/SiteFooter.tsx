@@ -206,7 +206,7 @@ export default function SiteFooter() {
                 <div className="pt-6 sm:pt-8 border-t border-gray-800">
                     <div className="flex flex-col sm:flex-row items-center justify-between space-y-3 sm:space-y-0">
                         <p className="text-xs sm:text-sm text-gray-400">
-                            © {company.copyrightYear} {company.name}. Все права защищены.
+                            © {new Date().getFullYear()} {company.name}. Все права защищены.
                         </p>
                         <p className="text-xs sm:text-sm text-gray-500">
                             {contacts.address.city}, {contacts.address.street}
