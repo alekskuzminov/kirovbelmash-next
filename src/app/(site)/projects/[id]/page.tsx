@@ -8,6 +8,7 @@ import ProjectImageGallery from '@/components/projects/ProjectImageGallery';
 import ContactModalButton from '@/components/common/ContactModalButton';
 import { SITE_CONFIG } from '@/config/site.config';
 import Breadcrumbs from '@/components/ui/Breadcrumbs';
+import ProjectVideo from '@/components/projects/ProjectVideo';
 
 interface PageProps {
     params: Promise<{ id: string }>;
@@ -154,36 +155,11 @@ export default async function ProjectDetailPage({ params }: PageProps) {
 
             <div className="bg-gray-50 pt-20">
                 {item.video && (
-                    <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 mb-20">
-                        <h3 className="text-2xl font-bold text-gray-900 mb-6 text-center">
-                            Видео работы линии
-                        </h3>
-                        <div className="relative rounded-2xl overflow-hidden border border-gray-100 shadow-lg">
-                            {/* Logo watermark */}
-                            <div className="absolute top-4 left-4 flex items-center gap-1.5 z-10 bg-white/80 p-1.5 pr-2.5 rounded-lg backdrop-blur-sm shadow-sm pointer-events-none">
-                                <Image
-                                    src={SITE_CONFIG.assets.logo}
-                                    alt={SITE_CONFIG.assets.logoAlt}
-                                    width={20}
-                                    height={20}
-                                    className="object-contain"
-                                />
-                                <span className="text-xs font-bold text-gray-900">{SITE_CONFIG.company.name}</span>
-                            </div>
-                            {/* Video in native aspect ratio */}
-                            <video
-                                controls
-                                autoPlay
-                                muted
-                                loop
-                                className="w-full block"
-                                preload="metadata"
-                            >
-                                <source src={item.video} type="video/mp4" />
-                                Ваш браузер не поддерживает встроенные видео.
-                            </video>
-                        </div>
-                    </div>
+                    <ProjectVideo
+                        videoUrl={item.video}
+                        title={item.title}
+                        poster={item.image}
+                    />
                 )}
                 <ContactForm initialMessage={`Требуется консультация по проекту: «${item.title}»`} isModal={false} />
             </div>
