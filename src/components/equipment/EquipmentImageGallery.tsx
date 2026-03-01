@@ -37,7 +37,7 @@ const EquipmentImageGallery = ({ mainImage, gallery = [], itemName }: EquipmentI
                     alt={itemName}
                     fill
                     sizes="(max-width: 1024px) 100vw, 50vw"
-                    className="object-contain"
+                    className="object-contain p-4 sm:p-6"
                 />
             </div>
 
@@ -58,7 +58,7 @@ const EquipmentImageGallery = ({ mainImage, gallery = [], itemName }: EquipmentI
                                 alt={`${itemName} - фото ${idx + 1}`}
                                 fill
                                 sizes="(max-width: 1024px) 25vw, 15vw"
-                                className="object-contain p-1"
+                                className="object-contain p-2"
                             />
                         </button>
                     ))}

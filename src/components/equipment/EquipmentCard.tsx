@@ -20,13 +20,13 @@ export default function EquipmentCard({ item, index }: EquipmentCardProps) {
             style={{ animationDelay: `${index * 60}ms` }}
         >
 
-            <Link href={`/oborudovanie/${item.id}`} className="block relative w-full h-44 sm:h-56 bg-gray-50 overflow-hidden flex-shrink-0">
+            <Link href={`/oborudovanie/${item.id}`} className="block relative w-full h-44 sm:h-56 bg-white overflow-hidden flex-shrink-0">
                 <Image
                     src={item.image}
                     alt={item.name}
                     fill
                     sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                    className="object-cover object-top group-hover:scale-105 transition-transform duration-500"
+                    className="object-contain p-4 group-hover:scale-105 transition-transform duration-500"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 <div className="absolute bottom-3 right-3 opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-2 group-hover:translate-y-0">

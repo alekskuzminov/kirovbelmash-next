@@ -15,7 +15,7 @@ export default function LineCard({ variant }: LineCardProps) {
             className="block bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-lg transition-shadow duration-300 overflow-hidden flex flex-col group"
         >
             {/* Image */}
-            <div className="relative aspect-[4/3] overflow-hidden bg-gray-100">
+            <div className="relative aspect-[4/3] overflow-hidden bg-white">
                 {/* Logo watermark */}
                 <div className="absolute top-4 left-4 flex items-center gap-1.5 z-10 bg-white/80 p-1.5 pr-2.5 rounded-lg backdrop-blur-sm shadow-sm">
                     <Image
@@ -32,7 +32,7 @@ export default function LineCard({ variant }: LineCardProps) {
                     alt={variant.name}
                     fill
                     sizes="(max-width: 768px) 100vw, 50vw"
-                    className="object-cover object-center transition-transform duration-500 hover:scale-105"
+                    className="object-contain p-4 object-center transition-transform duration-500 hover:scale-105"
                 />
             </div>
 

@@ -51,7 +51,7 @@ export default function LineGallery({
                     src={images[active]}
                     alt={`${title} ${active + 1}`}
                     fill
-                    className="object-contain object-center"
+                    className="object-contain object-center p-4 sm:p-6"
                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 75vw, 100vw"
                     unoptimized={true}
                 />
@@ -73,7 +73,7 @@ export default function LineGallery({
                                 src={src}
                                 alt={`${title} ${i + 1}`}
                                 fill
-                                className="object-contain object-center"
+                                className="object-contain object-center p-2"
                                 sizes="80px"
                                 unoptimized={true}
                             />
