@@ -288,7 +288,11 @@ export default function SiteNavbar({ variant = 'transparent' }: SiteNavbarProps)
                                         onMouseEnter={() => handleDropdownEnter('equipment')}
                                         onMouseLeave={handleDropdownLeave}
                                     >
-                                        <Link href="/oborudovanie" className={desktopLinkCls('/oborudovanie')}>
+                                        <Link
+                                            href="/oborudovanie"
+                                            className={desktopLinkCls('/oborudovanie')}
+                                            onClick={() => setOpenDropdown(null)}
+                                        >
                                             <span>{link.label}</span>
                                             <i className={arrowCls('equipment')}></i>
                                         </Link>
