@@ -12,7 +12,7 @@ export default function SiteFooter() {
     return (
         <footer className="bg-gradient-to-b from-gray-900 to-gray-950 text-white">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-16">
-                <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-12 mb-8 sm:mb-12">
+                <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-12 mb-8 sm:mb-12">
 
                     {/* Column 1: Logo + Description + Socials */}
                     <div>
@@ -155,7 +155,7 @@ export default function SiteFooter() {
                     </div>
 
                     {/* Column 4: Contacts */}
-                    <div className="col-span-2 sm:col-span-1">
+                    <div className="col-span-1">
                         <h4 className="text-sm sm:text-base font-bold mb-4 sm:mb-6">Контакты</h4>
                         <ul className="space-y-3 sm:space-y-4">
                             <li className="flex items-start space-x-3">
