@@ -87,7 +87,7 @@ export default function SiteFooter() {
 
                         {/* Production Lines Quick Links */}
                         <div className="space-y-4">
-                            <h4 className="text-xs sm:text-sm font-bold text-gray-300 uppercase tracking-wider">Линии полного цикла</h4>
+                            <h4 className="text-sm sm:text-base font-bold text-white mb-4">Линии полного цикла</h4>
                             <ul className="space-y-2">
                                 <li>
                                     <Link href="/linii-briketirovaniya" className="text-xs sm:text-sm text-gray-400 hover:text-red-500 transition-colors">
