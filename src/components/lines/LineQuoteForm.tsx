@@ -14,7 +14,6 @@ export default function LineQuoteForm({ lineName }: LineQuoteFormProps) {
         position: '',
         organization: '',
         city: '',
-        equipment: lineName,
         message: '',
     });
     const [submitted, setSubmitted] = useState(false);
@@ -148,17 +147,7 @@ export default function LineQuoteForm({ lineName }: LineQuoteFormProps) {
                                         />
                                     </div>
                                 </div>
-                                <div>
-                                    <label className="block text-xs font-semibold text-gray-500 mb-1.5">
-                                        Тип оборудования
-                                    </label>
-                                    <input
-                                        name="equipment"
-                                        value={form.equipment}
-                                        onChange={handleChange}
-                                        className={inputCls}
-                                    />
-                                </div>
+
                                 <div>
                                     <label className="block text-xs font-semibold text-gray-500 mb-1.5">
                                         Сообщение

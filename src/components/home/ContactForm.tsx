@@ -16,7 +16,6 @@ export default function ContactForm({ initialMessage = '', isModal = false, moda
         company: '',
         email: '',
         phone: '',
-        equipment: '',
         message: initialMessage,
     });
     const [isSubmitting, setIsSubmitting] = useState(false);
@@ -32,13 +31,12 @@ export default function ContactForm({ initialMessage = '', isModal = false, moda
             phone: formData.phone,
             email: formData.email,
             company: formData.company,
-            equipment: formData.equipment,
             message: formData.message,
         });
 
         if (ok) {
             setSubmitStatus('success');
-            setFormData({ name: '', company: '', email: '', phone: '', equipment: '', message: '' });
+            setFormData({ name: '', company: '', email: '', phone: '', message: '' });
         } else {
             setSubmitStatus('error');
         }
@@ -113,25 +111,7 @@ export default function ContactForm({ initialMessage = '', isModal = false, moda
                     />
                 </div>
 
-                <div>
-                    <label htmlFor="equipment" className="block text-xs sm:text-sm font-semibold text-gray-900 mb-1.5 sm:mb-2">
-                        Тип оборудования
-                    </label>
-                    <select
-                        id="equipment"
-                        name="equipment"
-                        value={formData.equipment}
-                        onChange={(e) => setFormData({ ...formData, equipment: e.target.value })}
-                        className="w-full px-3 sm:px-4 py-2.5 sm:py-3 text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent outline-none transition-all cursor-pointer"
-                    >
-                        <option value="">Выберите тип оборудования</option>
-                        <option value="briquetting">Линия брикетирования</option>
-                        <option value="granulation">Линия гранулирования</option>
-                        <option value="drying">Сушильное оборудование</option>
-                        <option value="crushing">Дробильное оборудование</option>
-                        <option value="custom">Индивидуальное решение</option>
-                    </select>
-                </div>
+
 
                 <div>
                     <label htmlFor="message" className="block text-xs sm:text-sm font-semibold text-gray-900 mb-1.5 sm:mb-2">
@@ -181,12 +161,12 @@ export default function ContactForm({ initialMessage = '', isModal = false, moda
 
     if (isModal) {
         return (
-            <div className="bg-white w-full">
-                <div className="bg-gradient-to-r from-red-600 to-red-700 px-6 py-5 sm:px-8 sm:py-6">
-                    <h2 className="text-xl sm:text-2xl font-bold text-white mb-2">{modalTitle || 'Получить коммерческое предложение'}</h2>
-                    <p className="text-red-100 text-sm">Оставьте заявку, и мы свяжемся с вами в ближайшее время</p>
+            <div className="bg-white w-full flex flex-col h-full max-h-full overflow-hidden rounded-2xl">
+                <div className="bg-gradient-to-r from-red-600 to-red-700 px-5 py-4 sm:px-8 sm:py-6 shrink-0 relative z-10">
+                    <h2 className="text-xl sm:text-2xl font-bold text-white mb-1.5 sm:mb-2 pr-6">{modalTitle || 'Получить коммерческое предложение'}</h2>
+                    <p className="text-red-100 text-xs sm:text-sm leading-snug">Оставьте заявку, и мы свяжемся с вами в ближайшее время</p>
                 </div>
-                <div className="p-6 sm:p-8">{formContent}</div>
+                <div className="p-5 sm:p-8 overflow-y-auto overscroll-contain flex-1 bg-white">{formContent}</div>
             </div>
         );
     }
