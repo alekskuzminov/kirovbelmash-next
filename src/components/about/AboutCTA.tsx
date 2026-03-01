@@ -9,14 +9,15 @@ export default function AboutCTA() {
     return (
         <section className="relative py-12 sm:py-20 overflow-hidden">
             <div className="absolute inset-0 w-full h-full">
-                {/* TODO: Заменить на реальное фото цеха — файл: /images/about/about-cta-bg.webp */}
                 <Image
-                    src="/images/about/about-cta-bg.webp"
+                    src="/images/backgrounds/about-cta-bg.png"
                     alt="Производство КировБелМаш"
                     fill
-                    className="object-cover object-top"
+                    className="object-cover object-center"
+                    priority
                 />
-                <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/70 to-black/50"></div>
+                <div className="absolute inset-0 bg-gradient-to-r from-black/95 via-black/80 to-transparent"></div>
+                <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/40"></div>
             </div>
 
             <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
