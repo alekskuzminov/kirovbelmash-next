@@ -10,7 +10,7 @@ export default function AboutCTA() {
         <section className="relative py-12 sm:py-20 overflow-hidden">
             <div className="absolute inset-0 w-full h-full">
                 <Image
-                    src="/images/backgrounds/about-cta-bg.png"
+                    src="/images/about/about-cta-bg.jpg"
                     alt="Производство КировБелМаш"
                     fill
                     className="object-cover object-center"

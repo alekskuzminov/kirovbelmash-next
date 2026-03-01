@@ -10,7 +10,7 @@ export default function ContactsHero() {
             {/* Background Image */}
             <div className="absolute inset-0 z-0">
                 <Image
-                    src="/images/backgrounds/contacts-hero-bg.png"
+                    src="/images/contacts/contacts-hero-bg.png"
                     alt="Контакты КировБелМаш"
                     fill
                     className="object-cover object-center"
