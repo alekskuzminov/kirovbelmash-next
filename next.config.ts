@@ -10,6 +10,10 @@ const nextConfig: NextConfig = {
       },
       {
         protocol: 'https',
+        hostname: 'cdn.kirovbelmash-site.ru',
+      },
+      {
+        protocol: 'https',
         hostname: 'static.readdy.ai',
       },
       {
