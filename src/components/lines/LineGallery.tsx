@@ -34,19 +34,7 @@ export default function LineGallery({
 
             {/* Main image */}
             <div className={`relative w-full ${aspectClass} rounded-2xl overflow-hidden bg-white border border-gray-200 mb-3`}>
-                {/* Logo watermark */}
-                {showLogo && (
-                    <div className="absolute top-4 left-4 flex items-center gap-1.5 z-10 bg-white/80 p-1.5 pr-2.5 rounded-lg backdrop-blur-sm shadow-sm pointer-events-none">
-                        <Image
-                            src={SITE_CONFIG.assets.logo}
-                            alt={SITE_CONFIG.assets.logoAlt}
-                            width={20}
-                            height={20}
-                            className="object-contain"
-                        />
-                        <span className="text-xs font-bold text-gray-900">{SITE_CONFIG.company.name}</span>
-                    </div>
-                )}
+
                 <Image
                     src={images[active]}
                     alt={`${title} ${active + 1}`}

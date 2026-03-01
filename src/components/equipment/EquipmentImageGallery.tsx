@@ -20,17 +20,6 @@ const EquipmentImageGallery = ({ mainImage, gallery = [], itemName }: EquipmentI
         <div className="w-full">
             {/* Основное изображение */}
             <div className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden bg-white border border-gray-100 mb-3 shadow-sm transition-all duration-500">
-                {/* Logo watermark */}
-                <div className="absolute top-4 left-4 flex items-center gap-1.5 z-10 bg-white/80 p-1.5 pr-2.5 rounded-lg backdrop-blur-sm shadow-sm pointer-events-none">
-                    <Image
-                        src={SITE_CONFIG.assets.logo}
-                        alt={SITE_CONFIG.assets.logoAlt}
-                        width={20}
-                        height={20}
-                        className="object-contain"
-                    />
-                    <span className="text-xs font-bold text-gray-900">{SITE_CONFIG.company.name}</span>
-                </div>
 
                 <Image
                     src={activeImage}
