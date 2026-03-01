@@ -32,7 +32,7 @@ export default function LineCard({ variant }: LineCardProps) {
                     alt={variant.name}
                     fill
                     sizes="(max-width: 768px) 100vw, 50vw"
-                    className="object-contain p-4 object-center transition-transform duration-500 hover:scale-105"
+                    className="object-contain p-2 object-center transition-transform duration-500 hover:scale-105"
                 />
             </div>
 
