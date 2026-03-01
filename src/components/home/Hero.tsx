@@ -47,7 +47,7 @@ export default function Hero() {
                         </div>
                         {/* Mobile text */}
                         <div className="block sm:hidden space-y-1">
-                            <div>Проектирование, производство, обучение, запуск</div>
+                            <div>Проектирование, производство, обучение персонала и запуск</div>
                             <div>Гарантия качества и сервис</div>
                         </div>
                     </div>
