@@ -8,7 +8,7 @@ export const projectsData: Project[] = [
         category: 'Брикетирование',
         description: 'Сырье подается в накопительный бункер, далее проходя через аэродинамическую сушильную линию поступает на брикетирование. Готовый продукт — брикет Pini & kay.',
         image: '/images/projects/2025/2025-08-briquetting-vologda/2025-08-briquetting-vologda-main.webp',
-        video: 'https://cdn.kirovbelmash-site.ru/2025-08-briquetting-vologda-video.mp4',
+        video: 'https://cdn.kirovbelmash-site.ru/projects/2025/2025-08-briquetting-vologda/2025-08-briquetting-vologda-video.mp4',
         gallery: [
             '/images/projects/2025/2025-08-briquetting-vologda/2025-08-briquetting-vologda-main.webp',
             '/images/projects/2025/2025-08-briquetting-vologda/2025-08-briquetting-vologda-gallery-1.webp',
@@ -70,7 +70,7 @@ export const projectsData: Project[] = [
         category: 'Брикетирование',
         description: 'Сырьё в данной линии — опил и щепа. Всё сырьё просеивается и делится на фракции: мелкое сырьё сразу уходит в сушку, крупное проходит через дробилку и поступает в сушку. После сушки сырьё брикетируется.',
         image: '/images/projects/2025/2025-06-briquetting-perm/2025-06-briquetting-perm-main.webp',
-        video: 'https://cdn.kirovbelmash-site.ru/2025-06-briquetting-perm-video.mp4',
+        video: 'https://cdn.kirovbelmash-site.ru/projects/2025/2025-06-briquetting-perm/2025-06-briquetting-perm-video.mp4',
         gallery: [
             '/images/projects/2025/2025-06-briquetting-perm/2025-06-briquetting-perm-main.webp',
             '/images/projects/2025/2025-06-briquetting-perm/2025-06-briquetting-perm-gallery-1.webp',
@@ -204,7 +204,7 @@ export const projectsData: Project[] = [
         category: 'Комбинированные линии',
         description: 'Горбыль измельчается в щепу в рубительной машине. Далее щепа загружается в накопитель "Живое дно". Из "Живого дна" щепа автоматически поступает в дробилку для предварительного измельчения. После сушки сырьё поступает в пресс-гранулятор или пресс-брикетер. Теплогенератор сушки работает на газу.',
         image: '/images/projects/2022/2022-12-combined-khmao/2022-12-combined-khmao-main.webp',
-        video: 'https://cdn.kirovbelmash-site.ru/2022-12-combined-khmao-video.mp4',
+        video: 'https://cdn.kirovbelmash-site.ru/projects/2022/2022-12-combined-khmao/2022-12-combined-khmao-video.mp4',
         gallery: [
             '/images/projects/2022/2022-12-combined-khmao/2022-12-combined-khmao-main.webp',
             '/images/projects/2022/2022-12-combined-khmao/2022-12-combined-khmao-gallery-1.webp',
@@ -233,7 +233,7 @@ export const projectsData: Project[] = [
         category: 'Сушка',
         description: 'В данной линии осуществляется раздельная подача сырья на сушку и топлива для теплогенератора. Сырье в сушку поступает из живого дна №1. Топливо в теплогенератор поступает из живого дна №2. Таким образом сырье не смешивается и в качестве топлива можно использовать кору, некачественный опил и т.д.',
         image: '/images/projects/2022/2022-08-drying-komi/2022-08-drying-komi-main.webp',
-        video: 'https://cdn.kirovbelmash-site.ru/2022-08-drying-komi-video.mp4',
+        video: 'https://cdn.kirovbelmash-site.ru/projects/2022/2022-08-drying-komi/2022-08-drying-komi-video.mp4',
         gallery: [
             '/images/projects/2022/2022-08-drying-komi/2022-08-drying-komi-main.webp',
             '/images/projects/2022/2022-08-drying-komi/2022-08-drying-komi-gallery-1.webp',
@@ -261,7 +261,7 @@ export const projectsData: Project[] = [
         category: 'Брикетирование',
         description: 'Щепа с помощью гидравлического живого дна, проходя через сепаратор для отделения крупнокусковых включений, ссыпается на L-образный скребковый транспортер, из которого основная масса поступает в дробилку, а часть щепы подается в бункер теплогенератора в качестве топлива. Из дробилки измельченное сырье поступает в сушку, далее — на прессование.',
         image: '/images/projects/2020/2020-09-briquetting-mari-el/2020-09-briquetting-mari-el-main.webp',
-        video: 'https://cdn.kirovbelmash-site.ru/2020-09-briquetting-mari-el-video.mp4',
+        video: 'https://cdn.kirovbelmash-site.ru/projects/2020/2020-09-briquetting-mari-el/2020-09-briquetting-mari-el-video.mp4',
         gallery: [
             '/images/projects/2020/2020-09-briquetting-mari-el/2020-09-briquetting-mari-el-main.webp',
             '/images/projects/2020/2020-09-briquetting-mari-el/2020-09-briquetting-mari-el-gallery-1.webp',
@@ -289,7 +289,7 @@ export const projectsData: Project[] = [
         category: 'Гранулирование',
         description: 'Сырье из живого дна, проходя через сепаратор для отделения крупнокусковых включений, разделяется просеивающим устройством на мелкую (опил → в сушку) и крупную (щепа → в теплогенератор) фракции. При переполнении бункера теплогенератора крупная фракция перенаправляется в дробилку и далее в сушку.',
         image: '/images/projects/2020/2020-03-granulation-komi/2020-03-granulation-komi-main.webp',
-        video: 'https://cdn.kirovbelmash-site.ru/2020-03-granulation-komi-video.mp4',
+        video: 'https://cdn.kirovbelmash-site.ru/projects/2020/2020-03-granulation-komi/2020-03-granulation-komi-video.mp4',
         gallery: [
             '/images/projects/2020/2020-03-granulation-komi/2020-03-granulation-komi-main.webp',
             '/images/projects/2020/2020-03-granulation-komi/2020-03-granulation-komi-gallery-1.webp',
@@ -343,7 +343,7 @@ export const projectsData: Project[] = [
         category: 'Брикетирование',
         description: 'Сырьем для изготовления брикетов является опил, щепа и обрезь торцовки, которые ранее вывозились на спецплощадку. КировБелМаш спроектировал линию со шредером для измельчения обрезков в щепу, молотковой дробилкой и сушильным барабаном. После сушки из сырья прессуется брикет RUF.',
         image: '/images/projects/2019/2019-07-briquetting-kirov/2019-07-briquetting-kirov-main.webp',
-        video: 'https://cdn.kirovbelmash-site.ru/2019-07-briquetting-kirov-video.mp4',
+        video: 'https://cdn.kirovbelmash-site.ru/projects/2019/2019-07-briquetting-kirov/2019-07-briquetting-kirov-video.mp4',
         gallery: [
             '/images/projects/2019/2019-07-briquetting-kirov/2019-07-briquetting-kirov-main.webp',
             '/images/projects/2019/2019-07-briquetting-kirov/2019-07-briquetting-kirov-gallery-1.webp',
@@ -376,7 +376,7 @@ export const projectsData: Project[] = [
         category: 'Гранулирование',
         description: 'В данной линии установлен теплогенератор вихревого типа, работающий на щепе. Опилки автоматически подаются в сушку через просеивающее устройство барабанного типа для отделения крупных частиц и коры. В сите в зимнее время осуществляется камнедробление смерзшихся комков. После сушки сырье додрабливается, поступает в гранулятор, охладитель, сито и на фасовку.',
         image: '/images/projects/2018/2018-06-granulation-kirov/2018-06-granulation-kirov-main.webp',
-        video: 'https://cdn.kirovbelmash-site.ru/2018-06-granulation-kirov-video.mp4',
+        video: 'https://cdn.kirovbelmash-site.ru/projects/2018/2018-06-granulation-kirov/2018-06-granulation-kirov-video.mp4',
         gallery: [
             '/images/projects/2018/2018-06-granulation-kirov/2018-06-granulation-kirov-main.webp',
             '/images/projects/2018/2018-06-granulation-kirov/2018-06-granulation-kirov-gallery-1.webp',
@@ -407,7 +407,7 @@ export const projectsData: Project[] = [
         category: 'Сушка',
         description: 'Сушильный комплекс на базе теплогенератора для подготовки опила к дальнейшему брикетированию или гранулированию.',
         image: '/images/projects/2018/2018-05-drying-kirov/2018-05-drying-kirov-main.webp',
-        video: 'https://cdn.kirovbelmash-site.ru/2018-05-drying-kirov-video.mp4',
+        video: 'https://cdn.kirovbelmash-site.ru/projects/2018/2018-05-drying-kirov/2018-05-drying-kirov-video.mp4',
         gallery: [
             '/images/projects/2018/2018-05-drying-kirov/2018-05-drying-kirov-main.webp',
             '/images/projects/2018/2018-05-drying-kirov/2018-05-drying-kirov-gallery-1.webp',
@@ -540,7 +540,7 @@ export const projectsData: Project[] = [
         category: 'Брикетирование',
         description: 'Нами был установлен участок брикетирования. Оборудование по подготовке сырья (дробление и сушка) были установлены заказчиком предварительно.',
         image: '/images/projects/2016/2016-01-briquetting-perm/2016-01-briquetting-perm-main.webp',
-        video: 'https://cdn.kirovbelmash-site.ru/2016-01-briquetting-perm-video.mp4',
+        video: 'https://cdn.kirovbelmash-site.ru/projects/2016/2016-01-briquetting-perm/2016-01-briquetting-perm-video.mp4',
         gallery: [
             '/images/projects/2016/2016-01-briquetting-perm/2016-01-briquetting-perm-main.webp',
             '/images/projects/2016/2016-01-briquetting-perm/2016-01-briquetting-perm-gallery-1.webp',
@@ -563,7 +563,7 @@ export const projectsData: Project[] = [
         category: 'Брикетирование',
         description: 'Нами был установлен участок брикетирования. Оборудование по подготовке сырья (дробление и сушка) были установлены заказчиком предварительно.',
         image: '/images/projects/2015/2015-09-briquetting-ossetia/2015-09-briquetting-ossetia-main.webp',
-        video: 'https://cdn.kirovbelmash-site.ru/2015-09-briquetting-ossetia-video.mp4',
+        video: 'https://cdn.kirovbelmash-site.ru/projects/2015/2015-09-briquetting-ossetia/2015-09-briquetting-ossetia-video.mp4',
         gallery: [
             '/images/projects/2015/2015-09-briquetting-ossetia/2015-09-briquetting-ossetia-main.webp',
             '/images/projects/2015/2015-09-briquetting-ossetia/2015-09-briquetting-ossetia-gallery-1.webp',
@@ -584,7 +584,7 @@ export const projectsData: Project[] = [
         category: 'Гранулирование',
         description: 'Стружка засасывается с помощью вакуумной молотковой дробилки, измельчается и подается в бункер-накопитель, далее поступает в гранулятор. Полученные гранулы охлаждаются в охладителе, просеиваются и поступают на фасовку.',
         image: '/images/projects/2014/2014-01-granulation-kirov/2014-01-granulation-kirov-main.webp',
-        video: 'https://cdn.kirovbelmash-site.ru/2014-01-granulation-kirov-video.mp4',
+        video: 'https://cdn.kirovbelmash-site.ru/projects/2014/2014-01-granulation-kirov/2014-01-granulation-kirov-video.mp4',
         gallery: [
             '/images/projects/2014/2014-01-granulation-kirov/2014-01-granulation-kirov-main.webp',
             '/images/projects/2014/2014-01-granulation-kirov/2014-01-granulation-kirov-gallery-1.webp',

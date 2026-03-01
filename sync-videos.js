@@ -46,28 +46,30 @@ function getFiles(dir, files_) {
 }
 
 async function uploadVideos() {
-    const publicDir = path.join(__dirname, 'public');
-    const videos = getFiles(publicDir);
+    const imagesDir = path.join(__dirname, 'public', 'images');
+    const videos = getFiles(imagesDir);
 
     console.log(`🚀 Найдено видео для загрузки: ${videos.length}`);
 
     for (const videoPath of videos) {
-        const fileName = path.basename(videoPath);
+        // Получаем путь относительно папки images, например: projects/2025/project-name/video.mp4
+        const relativePath = path.relative(imagesDir, videoPath).replace(/\\/g, '/');
+        const fileKey = relativePath;
         const fileBuffer = fs.readFileSync(videoPath);
 
-        console.log(`📤 Загрузка: ${fileName}...`);
+        console.log(`📤 Загрузка: ${fileKey}...`);
 
         try {
             await s3Client.send(new PutObjectCommand({
                 Bucket: S3_BUCKET,
-                Key: fileName,
+                Key: fileKey,
                 Body: fileBuffer,
                 ContentType: 'video/mp4',
                 CacheControl: 'public, max-age=31536000, immutable'
             }));
-            console.log(`✅ Успешно: ${fileName}`);
+            console.log(`✅ Успешно: ${fileKey}`);
         } catch (error) {
-            console.error(`❌ Ошибка загрузки ${fileName}:`, error);
+            console.error(`❌ Ошибка загрузки ${fileKey}:`, error);
         }
     }
 
