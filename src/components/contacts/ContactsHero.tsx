@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import Breadcrumbs from '@/components/ui/Breadcrumbs';
 import { SITE_CONFIG } from '@/config/site.config';
 
@@ -5,8 +6,20 @@ export default function ContactsHero() {
     const { sales, supply } = SITE_CONFIG.contacts.departments;
 
     return (
-        <section className="pt-32 sm:pt-40 pb-8 sm:pb-12 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <section className="relative pt-32 sm:pt-40 pb-8 sm:pb-12 overflow-hidden bg-gray-900">
+            {/* Background Image */}
+            <div className="absolute inset-0 z-0">
+                <Image
+                    src="/images/backgrounds/contacts-hero-bg.png"
+                    alt="Контакты КировБелМаш"
+                    fill
+                    className="object-cover object-center"
+                    priority
+                />
+                <div className="absolute inset-0 bg-gradient-to-br from-gray-900/95 via-gray-900/80 to-gray-900/90 shadow-inner" />
+            </div>
+
+            <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <Breadcrumbs
                     items={[
                         { label: 'Главная', href: '/' },
