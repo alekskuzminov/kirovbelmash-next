@@ -34,7 +34,7 @@ export default function SiteFooter() {
                         <p className="text-xs sm:text-sm text-gray-400 leading-relaxed mb-4 sm:mb-6">
                             {company.description}
                         </p>
-                        <div className="flex items-center space-x-3">
+                        <div className="flex items-center space-x-3 mb-8">
                             <a
                                 href={social.telegram}
                                 target="_blank"
@@ -83,6 +83,28 @@ export default function SiteFooter() {
                                     style={{ width: '16px', height: 'auto' }}
                                 />
                             </a>
+                        </div>
+
+                        {/* Production Lines Quick Links */}
+                        <div className="space-y-4">
+                            <h4 className="text-xs sm:text-sm font-bold text-gray-300 uppercase tracking-wider">Линии полного цикла</h4>
+                            <ul className="space-y-2">
+                                <li>
+                                    <Link href="/linii-briketirovaniya" className="text-xs sm:text-sm text-gray-400 hover:text-red-500 transition-colors">
+                                        Линии брикетирования
+                                    </Link>
+                                </li>
+                                <li>
+                                    <Link href="/linii-granulirovaniya" className="text-xs sm:text-sm text-gray-400 hover:text-red-500 transition-colors">
+                                        Линии гранулирования
+                                    </Link>
+                                </li>
+                                <li>
+                                    <Link href="/sushilnie-linii" className="text-xs sm:text-sm text-gray-400 hover:text-red-500 transition-colors">
+                                        Сушильные линии
+                                    </Link>
+                                </li>
+                            </ul>
                         </div>
                     </div>
 
