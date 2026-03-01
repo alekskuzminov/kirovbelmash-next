@@ -18,8 +18,8 @@ interface LineHeroProps {
     headingMain: ReactNode;
     /** Акцентная (красная) последняя строка H1 */
     headingAccent: string;
-    /** Описание — массив строк, каждая на отдельной строке */
-    description: string[];
+    /** Описание — массив строк или JSX-элементов, каждая на отдельной строке */
+    description: ReactNode[];
     /** Хлебные крошки */
     breadcrumbs: Breadcrumb[];
     /** URL фонового изображения */
