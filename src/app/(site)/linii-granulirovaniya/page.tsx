@@ -55,7 +55,7 @@ export default function GranulationLinePage() {
                         Готовые линии производства топливных пеллет
                     </h2>
                     <p className="text-base text-gray-600 max-w-2xl">
-                        Производительность от 500 до 2000 кг/час. Стандарт ENplus A1/A2.
+                        Производительность от 500 до 2000 кг/час. Комплектация «под ключ».
                     </p>
                 </div>
             </section>

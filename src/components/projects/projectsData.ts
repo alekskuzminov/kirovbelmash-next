@@ -700,5 +700,5 @@ export const projectStats = [
     { value: '80+', label: 'Реализованных проектов' },
     { value: '35+', label: 'Регионов России' },
     { value: '98%', label: 'Довольных клиентов' },
-    { value: '10', label: 'Лет на рынке' },
+    { value: '14', label: 'Лет на рынке' },
 ];

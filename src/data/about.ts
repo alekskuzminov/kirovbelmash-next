@@ -1,6 +1,6 @@
 export const historyTimeline = [
     {
-        year: '2014',
+        year: '2011',
         title: 'Основание компании',
         description: 'КировБелМаш основана в г. Белая Холуница Кировской области. Начало производства первых прессов для брикетирования древесных отходов.',
         icon: 'ri-flag-line',
@@ -122,7 +122,7 @@ export const certificates = [
 ];
 
 export const companyStats = [
-    { value: '10+', label: 'Лет на рынке' },
+    { value: '14+', label: 'Лет на рынке' },
     { value: '5000', label: 'м² производства' },
     { value: '70+', label: 'Специалистов' },
     { value: '80+', label: 'Проектов' },

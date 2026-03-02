@@ -80,7 +80,7 @@ export default function Hero() {
                         </div>
                     </div>
 
-                    <div className="flex flex-col sm:flex-row gap-4 mb-16 opacity-0 animate-slideUp [animation-delay:600ms]">
+                    <div className="flex flex-col sm:flex-row gap-4 mb-16">
                         <button
                             onClick={() => openContactModal('Заявка на обратный звонок')}
                             className="w-full sm:w-auto px-6 py-3.5 sm:px-8 sm:py-4 bg-red-600 text-white text-sm sm:text-base font-semibold rounded-lg hover:bg-red-700 transition-all duration-300 shadow-lg hover:shadow-xl text-center cursor-pointer"
@@ -89,7 +89,7 @@ export default function Hero() {
                         </button>
                         <Link
                             href="/calculator"
-                            className="w-full sm:w-auto px-6 py-3.5 sm:px-8 sm:py-4 bg-white/10 backdrop-blur-sm text-white text-sm sm:text-base font-semibold rounded-lg hover:bg-white/20 transition-all duration-300 border-2 border-white/30 text-center"
+                            className="w-full sm:w-auto px-6 py-3.5 sm:px-8 sm:py-4 bg-white/10 backdrop-blur-md text-white text-sm sm:text-base font-semibold rounded-lg hover:bg-white/20 transition-all duration-300 border border-white/10 text-center"
                         >
                             Рассчитать стоимость
                         </Link>
@@ -97,7 +97,7 @@ export default function Hero() {
 
                     {/* Features Grid */}
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-5xl">
-                        <div className="flex items-start gap-4 opacity-0 animate-slideUp [animation-delay:800ms]">
+                        <div className="flex items-start gap-4">
                             <div className="w-12 h-12 flex items-center justify-center">
                                 <i className="ri-tools-line text-4xl text-red-600"></i>
                             </div>
@@ -108,7 +108,7 @@ export default function Hero() {
                             </div>
                         </div>
 
-                        <div className="flex items-start gap-4 opacity-0 animate-slideUp [animation-delay:900ms]">
+                        <div className="flex items-start gap-4">
                             <div className="w-12 h-12 flex items-center justify-center">
                                 <i className="ri-time-line text-4xl text-red-600"></i>
                             </div>
@@ -119,7 +119,7 @@ export default function Hero() {
                             </div>
                         </div>
 
-                        <div className="flex items-start gap-4 opacity-0 animate-slideUp [animation-delay:1000ms]">
+                        <div className="flex items-start gap-4">
                             <div className="w-12 h-12 flex items-center justify-center">
                                 <i className="ri-graduation-cap-line text-4xl text-red-600"></i>
                             </div>
@@ -130,7 +130,7 @@ export default function Hero() {
                             </div>
                         </div>
 
-                        <div className="flex items-start gap-4 opacity-0 animate-slideUp [animation-delay:1100ms]">
+                        <div className="flex items-start gap-4">
                             <div className="w-12 h-12 flex items-center justify-center">
                                 <i className="ri-customer-service-2-line text-4xl text-red-600"></i>
                             </div>

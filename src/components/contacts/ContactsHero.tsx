@@ -36,7 +36,7 @@ export default function ContactsHero() {
                 <h1 className="text-2xl sm:text-4xl lg:text-5xl font-bold text-white mb-4 sm:mb-5">КОНТАКТЫ</h1>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-8 mt-6 sm:mt-10">
-                    <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 sm:p-6 border border-white/10">
+                    <div className="bg-white/10 backdrop-blur-md rounded-xl p-4 sm:p-6 border border-white/10">
                         <h3 className="text-base sm:text-lg font-bold text-white mb-2 sm:mb-3">Отдел продаж:</h3>
                         <a
                             href={`mailto:${sales.email}`}
@@ -52,7 +52,7 @@ export default function ContactsHero() {
                         </a>
                     </div>
 
-                    <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 sm:p-6 border border-white/10">
+                    <div className="bg-white/10 backdrop-blur-md rounded-xl p-4 sm:p-6 border border-white/10">
                         <h3 className="text-base sm:text-lg font-bold text-white mb-2 sm:mb-3">Отдел снабжения:</h3>
                         <a
                             href={`mailto:${supply.email}`}

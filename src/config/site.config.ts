@@ -8,7 +8,7 @@ export const SITE_CONFIG = {
     tagline: 'Промышленное оборудование',
     description:
       'Производство промышленного оборудования для линий брикетирования и гранулирования.',
-    foundedYear: 2010,
+    foundedYear: 2011,
     copyrightYear: 2025,
   },
 

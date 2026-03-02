@@ -142,8 +142,8 @@ export const serviceAdvantages = [
         icon: 'ri-building-4-line',
     },
     {
-        title: 'Опыт с 2014 года',
-        desc: 'Более 10 лет успешной работы в сфере промышленного оборудования',
+        title: 'Опыт с 2011 года',
+        desc: 'Более 14 лет успешной работы в сфере промышленного оборудования',
         icon: 'ri-calendar-check-line',
     },
     {
