@@ -77,8 +77,8 @@ export default function LineHero({
                         {...(blurDataURL ? { placeholder: 'blur' as const, blurDataURL } : {})}
                     />
                 </div>
-                {/* Brand Dark Blue Gradient Filter */}
-                <div className="absolute inset-0 bg-gradient-to-b from-[#020617]/80 via-[#020617]/60 to-[#020617]/80" />
+                {/* Brand Neutral Dark Gradient Filter */}
+                <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/60 to-black/80" />
                 {/* Additional top subtle darkening */}
                 <div className="absolute top-0 left-0 right-0 h-32 sm:h-48 bg-gradient-to-b from-black/20 to-transparent" />
             </div>

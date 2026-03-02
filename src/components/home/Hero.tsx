@@ -48,7 +48,7 @@ export default function Hero() {
                         className="object-cover object-bottom"
                     />
                 </div>
-                <div className="absolute inset-0 bg-gradient-to-b from-[#020617]/80 via-[#020617]/60 to-[#020617]/80" />
+                <div className="absolute inset-0 bg-gradient-to-b from-gray-950/80 via-gray-950/60 to-gray-950/80" />
             </div>
 
             {/* Content */}

@@ -48,10 +48,10 @@ export default function Advantages() {
             <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="text-center mb-10 sm:mb-16">
                     <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-3 sm:mb-4 text-white">
-                        Наш потенциал и ресурсы
+                        КировБелМаш в цифрах и фактах
                     </h2>
                     <p className="text-sm sm:text-lg text-gray-300 max-w-3xl mx-auto px-2">
-                        Опыт и возможности КировБелМаш в цифрах и фактах
+                        Производственный потенциал и ресурсы компании
                     </p>
                 </div>
 
