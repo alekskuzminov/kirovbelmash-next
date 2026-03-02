@@ -84,14 +84,14 @@ export const advantages = [
     },
     {
         icon: 'ri-time-line',
-        value: '10 лет',
+        value: '15 лет',
         title: 'Опыт работы',
         description: 'Успешно реализованные проекты по всей России и странам СНГ',
     },
     {
         icon: 'ri-team-line',
         value: '70+ человек',
-        title: 'Команда',
+        title: 'Наша команда',
         description: 'Опытные инженеры, технологи и сервисные специалисты',
     },
     {

@@ -26,7 +26,7 @@ export default function Advantages() {
     }, []);
 
     return (
-        <section ref={sectionRef} className="relative py-12 sm:py-20 overflow-hidden">
+        <section ref={sectionRef} className="relative pt-12 pb-16 sm:pt-20 sm:pb-32 overflow-hidden">
             {/* Фоновое изображение с параллаксом */}
             <div
                 className="absolute inset-0 w-full h-[140%] -top-[20%]"
@@ -42,37 +42,34 @@ export default function Advantages() {
                     loading="lazy"
                     className="object-cover object-center"
                 />
-                <div className="absolute inset-0 bg-gradient-to-b from-gray-950/80 via-gray-950/70 to-gray-950/80" />
+                <div className="absolute inset-0 bg-gradient-to-b from-[#020617]/80 via-[#020617]/65 to-[#020617]/80" />
             </div>
 
             <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="text-center mb-10 sm:mb-16">
                     <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-3 sm:mb-4 text-white">
-                        Почему выбирают КировБелМаш
+                        Наш потенциал и ресурсы
                     </h2>
                     <p className="text-sm sm:text-lg text-gray-300 max-w-3xl mx-auto px-2">
-                        Ведущий производитель промышленного оборудования с проверенным опытом
+                        Опыт и возможности КировБелМаш в цифрах и фактах
                     </p>
                 </div>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-8">
+                <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3 sm:gap-4">
                     {advantages.map((advantage, index) => (
                         <div
                             key={index}
-                            className="group bg-gray-800/50 backdrop-blur-sm p-5 sm:p-8 rounded-xl border border-gray-700/50 hover:bg-gray-800/80 transition-all duration-300"
+                            className="group bg-gray-950/10 backdrop-blur-md pt-5 pb-7 px-4 rounded-xl border border-white/5 hover:bg-gray-950/20 transition-all duration-300 flex flex-col items-center text-center"
                         >
-                            <div className="flex items-center gap-4 mb-4 sm:mb-6">
-                                <div className="w-12 h-12 sm:w-14 sm:h-14 shrink-0 flex items-center justify-center bg-red-600 rounded-xl group-hover:bg-white transition-colors duration-300">
-                                    <i className={`${advantage.icon} text-2xl sm:text-3xl text-white group-hover:text-red-600 transition-colors duration-300`}></i>
+                            <div className="flex flex-row items-center justify-center gap-2 mb-4">
+                                <div className="w-7 h-7 shrink-0 flex items-center justify-center bg-red-600/80 rounded-lg group-hover:bg-white transition-colors duration-300">
+                                    <i className={`${advantage.icon} text-sm text-white group-hover:text-red-600 transition-colors duration-300`}></i>
                                 </div>
-                                <div className="text-2xl sm:text-3xl font-bold text-red-600">{advantage.value}</div>
+                                <div className="text-lg sm:text-xl font-bold text-red-600 whitespace-nowrap">{advantage.value}</div>
                             </div>
-                            <h3 className="text-lg sm:text-xl font-bold mb-2 sm:mb-3 text-white">
+                            <h3 className="text-sm sm:text-base font-bold text-white/90 leading-tight min-h-[2.5rem] flex items-center justify-center">
                                 {advantage.title}
                             </h3>
-                            <p className="text-gray-300 text-xs sm:text-sm leading-relaxed">
-                                {advantage.description}
-                            </p>
                         </div>
                     ))}
                 </div>
