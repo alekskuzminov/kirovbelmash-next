@@ -1,24 +1,11 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  // TODO: добавить output: 'standalone' если потребуется self-hosted деплой
   images: {
     remotePatterns: [
       {
         protocol: 'https',
-        hostname: 'cdn.kirovbelmash-next.ru',
-      },
-      {
-        protocol: 'https',
         hostname: 'cdn.kirovbelmash-site.ru',
-      },
-      {
-        protocol: 'https',
-        hostname: 'static.readdy.ai',
-      },
-      {
-        protocol: 'https',
-        hostname: 'readdy.ai',
       },
     ],
   },

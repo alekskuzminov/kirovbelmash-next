@@ -6,7 +6,7 @@ export default function AboutCTAForm() {
     return (
         <StaticLeadForm
             formId="about-callback-form"
-            endpoint="https://readdy.ai/api/form/d6ao9p5bd17lru29lum0"
+            source="about"
             title="Обратная связь"
             titleClassName="text-xl font-bold text-gray-900 mb-5"
             submitLabel="Отправить заявку"

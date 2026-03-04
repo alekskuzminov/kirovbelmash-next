@@ -33,6 +33,7 @@ export default function ContactForm({ initialMessage = '', isModal = false, moda
             email: formData.email,
             company: formData.company,
             message: formData.message,
+            source: isModal ? 'modal' : 'contact',
         });
 
         if (ok) {

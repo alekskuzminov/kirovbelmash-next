@@ -19,8 +19,7 @@ export const servicesData = [
         ],
         stats: { value: '120+', label: 'проектов разработано' },
         duration: 'от 2 до 6 недель',
-        image:
-            'https://readdy.ai/api/search-image?query=professional%20engineers%20working%20on%20industrial%20equipment%20blueprints%20and%203D%20CAD%20models%20on%20large%20monitors%20in%20modern%20engineering%20office%20warm%20lighting%20technical%20drawings%20and%20schematics%20visible%20clean%20workspace&width=800&height=600&seq=svcdesign1&orientation=landscape',
+        image: '/images/services/service-design.jpg',
     },
     {
         id: 'installation',
@@ -42,8 +41,7 @@ export const servicesData = [
         ],
         stats: { value: '80+', label: 'объектов смонтировано' },
         duration: 'от 1 до 4 недель',
-        image:
-            'https://readdy.ai/api/search-image?query=industrial%20workers%20installing%20heavy%20manufacturing%20equipment%20in%20factory%20hall%20using%20crane%20and%20tools%20professional%20installation%20process%20safety%20helmets%20and%20vests%20warm%20industrial%20lighting%20wide%20angle&width=800&height=600&seq=svcinstall1&orientation=landscape',
+        image: '/images/services/service-installation.jpg',
     },
     {
         id: 'commissioning',
@@ -65,8 +63,7 @@ export const servicesData = [
         ],
         stats: { value: '98%', label: 'успешных запусков' },
         duration: 'от 3 до 10 дней',
-        image:
-            'https://readdy.ai/api/search-image?query=engineer%20in%20safety%20gear%20adjusting%20and%20calibrating%20industrial%20machinery%20control%20panel%20with%20digital%20displays%20and%20gauges%20in%20modern%20factory%20setting%20warm%20lighting%20professional%20commissioning%20process&width=800&height=600&seq=svccommission1&orientation=landscape',
+        image: '/images/services/service-commissioning.jpg',
     },
     {
         id: 'training',
@@ -88,8 +85,7 @@ export const servicesData = [
         ],
         stats: { value: '500+', label: 'специалистов обучено' },
         duration: 'от 3 до 7 дней',
-        image:
-            'https://readdy.ai/api/search-image?query=professional%20industrial%20training%20session%20with%20instructor%20teaching%20group%20of%20factory%20workers%20about%20heavy%20machinery%20operation%20in%20modern%20workshop%20classroom%20setting%20with%20equipment%20visible%20warm%20lighting&width=800&height=600&seq=svctrain1&orientation=landscape',
+        image: '/images/services/service-training.jpg',
     },
 ];
 

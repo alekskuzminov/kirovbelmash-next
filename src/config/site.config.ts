@@ -9,7 +9,7 @@ export const SITE_CONFIG = {
     description:
       'Производство промышленного оборудования для линий брикетирования и гранулирования.',
     foundedYear: 2011,
-    copyrightYear: 2025,
+    copyrightYear: new Date().getFullYear(),
   },
 
   contacts: {

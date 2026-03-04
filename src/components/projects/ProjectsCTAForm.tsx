@@ -6,7 +6,7 @@ export default function ProjectsCTAForm() {
     return (
         <StaticLeadForm
             formId="project-inquiry-form"
-            endpoint="https://readdy.ai/api/form/d6ao3sua728k8ctu3e30"
+            source="projects"
             title="Оставить заявку"
             subtitle="Заполните форму и мы подготовим КП"
             submitLabel="Отправить заявку"

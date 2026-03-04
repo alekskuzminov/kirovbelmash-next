@@ -20,7 +20,7 @@ export default function CalculatorRequestForm({
     return (
         <StaticLeadForm
             formId="calculator-request-form"
-            endpoint="https://readdy.ai/api/form/d6ap48ma728k8ctu3en0"
+            source="calculator"
             title="Получить точный расчет"
             titleClassName="text-base font-bold text-gray-900 mb-4"
             submitLabel="Получить точный расчет"

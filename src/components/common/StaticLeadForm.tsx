@@ -5,7 +5,6 @@ import PrivacyDisclaimer from '@/components/ui/PrivacyDisclaimer';
 
 interface StaticLeadFormProps {
     formId: string;
-    endpoint: string;
     title: string;
     subtitle?: string;
     submitLabel: string;
@@ -16,6 +15,7 @@ interface StaticLeadFormProps {
     requiredErrorText: string;
     submitErrorText: string;
     networkErrorText: string;
+    source?: string;
     messageFieldName?: string;
     messageLabel?: string;
     messagePlaceholder?: string;
@@ -35,7 +35,6 @@ interface StaticLeadFormProps {
 
 export default function StaticLeadForm({
     formId,
-    endpoint,
     title,
     subtitle,
     submitLabel,
@@ -46,7 +45,8 @@ export default function StaticLeadForm({
     requiredErrorText,
     submitErrorText,
     networkErrorText,
-    messageFieldName = 'message',
+    source = 'general',
+    messageFieldName: _messageFieldName,
     messageLabel = 'Сообщение',
     messagePlaceholder = 'Опишите ваш проект или задачу',
     messageRows = 3,
@@ -89,20 +89,17 @@ export default function StaticLeadForm({
         setIsSubmitting(true);
 
         try {
-            const body = new URLSearchParams();
-            body.append('name', formData.name);
-            body.append('phone', formData.phone);
-            body.append('email', formData.email);
-            body.append(messageFieldName, formData.message);
-
-            if (extraPayload) {
-                Object.entries(extraPayload).forEach(([key, value]) => body.append(key, value));
-            }
-
-            const res = await fetch(endpoint, {
+            const res = await fetch('/api/contact', {
                 method: 'POST',
-                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-                body: body.toString(),
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    name: formData.name,
+                    phone: formData.phone,
+                    email: formData.email,
+                    message: formData.message,
+                    source,
+                    extra: extraPayload,
+                }),
             });
 
             if (res.ok) {
@@ -202,7 +199,7 @@ export default function StaticLeadForm({
                     </label>
                     <textarea
                         id={`${formId}-message`}
-                        name={messageFieldName}
+                        name="message"
                         value={formData.message}
                         onChange={(e) => {
                             if (e.target.value.length <= messageMaxLength) {

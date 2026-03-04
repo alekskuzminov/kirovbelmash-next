@@ -48,37 +48,37 @@ export const teamMembers = [
         name: 'Алексей Петров',
         position: 'Генеральный директор',
         description: 'Основатель компании. 15 лет опыта в машиностроении и управлении производством.',
-        image: 'https://readdy.ai/api/search-image?query=professional%20portrait%20of%20a%20middle%20aged%20russian%20man%20in%20business%20suit%20confident%20look%20industrial%20company%20CEO%20dark%20background%20studio%20lighting%20corporate%20headshot&width=400&height=500&seq=team1&orientation=portrait',
+        image: '/images/about/team/team-1-aleksey-petrov.jpg',
     },
     {
         name: 'Дмитрий Козлов',
         position: 'Главный инженер',
         description: 'Руководит проектированием оборудования. Автор 12 патентов в области промышленного машиностроения.',
-        image: 'https://readdy.ai/api/search-image?query=professional%20portrait%20of%20a%20russian%20man%20engineer%20in%20his%2040s%20wearing%20safety%20glasses%20and%20work%20shirt%20industrial%20background%20studio%20lighting%20corporate%20headshot&width=400&height=500&seq=team2&orientation=portrait',
+        image: '/images/about/team/team-2-dmitry-kozlov.jpg',
     },
     {
         name: 'Ирина Волкова',
         position: 'Коммерческий директор',
         description: 'Отвечает за развитие продаж и работу с ключевыми клиентами. 10 лет в промышленном секторе.',
-        image: 'https://readdy.ai/api/search-image?query=professional%20portrait%20of%20a%20russian%20businesswoman%20in%20her%2030s%20wearing%20elegant%20blazer%20confident%20smile%20corporate%20headshot%20studio%20lighting%20neutral%20background&width=400&height=500&seq=team3&orientation=portrait',
+        image: '/images/about/team/team-3-irina-volkova.jpg',
     },
     {
         name: 'Сергей Новиков',
         position: 'Начальник производства',
         description: 'Контролирует весь производственный процесс. Обеспечивает качество и соблюдение сроков.',
-        image: 'https://readdy.ai/api/search-image?query=professional%20portrait%20of%20a%20strong%20russian%20man%20in%20his%2050s%20wearing%20work%20uniform%20factory%20manager%20industrial%20setting%20studio%20lighting%20corporate%20headshot&width=400&height=500&seq=team4&orientation=portrait',
+        image: '/images/about/team/team-4-sergey-novikov.jpg',
     },
     {
         name: 'Андрей Смирнов',
         position: 'Руководитель сервисной службы',
         description: 'Организует монтаж, пусконаладку и гарантийное обслуживание оборудования по всей России.',
-        image: 'https://readdy.ai/api/search-image?query=professional%20portrait%20of%20a%20young%20russian%20man%20technician%20in%20his%2030s%20wearing%20polo%20shirt%20friendly%20look%20corporate%20headshot%20studio%20lighting%20neutral%20background&width=400&height=500&seq=team5&orientation=portrait',
+        image: '/images/about/team/team-5-andrey-smirnov.jpg',
     },
     {
         name: 'Елена Морозова',
         position: 'Руководитель отдела качества',
         description: 'Обеспечивает соответствие продукции стандартам. Сертифицированный аудитор систем менеджмента качества.',
-        image: 'https://readdy.ai/api/search-image?query=professional%20portrait%20of%20a%20russian%20woman%20quality%20manager%20in%20her%2040s%20wearing%20white%20lab%20coat%20corporate%20headshot%20studio%20lighting%20neutral%20background&width=400&height=500&seq=team6&orientation=portrait',
+        image: '/images/about/team/team-6-elena-morozova.jpg',
     },
 ];
 

@@ -630,8 +630,7 @@ export const testimonials = [
         location: 'Кировская область',
         rating: 5,
         text: 'Заказали линию брикетирования RUF 4 — от проектирования до запуска прошло всего 3 месяца. Оборудование работает стабильно уже год, производительность полностью соответствует заявленной. Отдельное спасибо за оперативную техподдержку.',
-        avatar:
-            'https://readdy.ai/api/search-image?query=professional%20portrait%20of%20middle%20aged%20Russian%20businessman%20in%20suit%20confident%20expression%20neutral%20background%20corporate%20headshot%20photography&width=80&height=80&seq=av1&orientation=squarish',
+        avatar: '/images/projects/testimonials/avatar-1.jpg',
         projectId: 1,
     },
     {
@@ -642,8 +641,7 @@ export const testimonials = [
         location: 'Московская область',
         rating: 5,
         text: 'Сотрудничаем с КировБелМаш уже третий год. Установили комплекс Cypress Nemesis — качество брикетов превосходное, клиенты довольны. Система рекуперации тепла реально экономит на энергозатратах. Рекомендуем!',
-        avatar:
-            'https://readdy.ai/api/search-image?query=professional%20portrait%20of%20Russian%20businesswoman%20in%20her%2040s%20wearing%20blazer%20confident%20smile%20neutral%20background%20corporate%20headshot%20photography&width=80&height=80&seq=av2&orientation=squarish',
+        avatar: '/images/projects/testimonials/avatar-2.jpg',
         projectId: 2,
     },
     {
@@ -654,8 +652,7 @@ export const testimonials = [
         location: 'Вологодская область',
         rating: 5,
         text: 'Брали сушильный комплекс АС-3. Ребята помогли с подбором оборудования, приехали на монтаж, обучили персонал. Сушилка работает на наших же отходах — экономия на топливе колоссальная. Окупилось за 8 месяцев.',
-        avatar:
-            'https://readdy.ai/api/search-image?query=professional%20portrait%20of%20young%20Russian%20man%20entrepreneur%20in%20casual%20business%20attire%20friendly%20expression%20neutral%20background%20headshot%20photography&width=80&height=80&seq=av3&orientation=squarish',
+        avatar: '/images/projects/testimonials/avatar-3.jpg',
         projectId: 4,
     },
     {
@@ -666,8 +663,7 @@ export const testimonials = [
         location: 'Республика Коми',
         rating: 4,
         text: 'Установили линию Nestro для переработки отходов нашей лесопилки. Качество брикетов отличное, автоматическая упаковка сильно упрощает логистику. Единственное — доставка заняла чуть дольше, чем планировали, но результат того стоит.',
-        avatar:
-            'https://readdy.ai/api/search-image?query=professional%20portrait%20of%20Russian%20man%20in%20his%2050s%20wearing%20glasses%20and%20business%20shirt%20serious%20expression%20neutral%20background%20corporate%20headshot%20photography&width=80&height=80&seq=av4&orientation=squarish',
+        avatar: '/images/projects/testimonials/avatar-4.jpg',
         projectId: 5,
     },
     {
@@ -678,8 +674,7 @@ export const testimonials = [
         location: 'Красноярский край',
         rating: 5,
         text: 'Заказали комплексную линию переработки на 40 тонн в сутки. Масштабный проект, но команда КировБелМаш справилась на отлично. Автоматизация на высшем уровне — линия работает практически без участия оператора.',
-        avatar:
-            'https://readdy.ai/api/search-image?query=professional%20portrait%20of%20Russian%20man%20in%20his%2030s%20wearing%20polo%20shirt%20confident%20look%20neutral%20background%20corporate%20headshot%20photography&width=80&height=80&seq=av5&orientation=squarish',
+        avatar: '/images/projects/testimonials/avatar-5.jpg',
         projectId: 8,
     },
     {
@@ -690,8 +685,7 @@ export const testimonials = [
         location: 'Пермский край',
         rating: 5,
         text: 'Выбрали компактную линию ГТ-500 для нашего небольшого производства. Идеальное соотношение цены и качества. Монтаж за 5 дней — и мы уже производим пеллеты. Инвестиция окупилась быстрее, чем рассчитывали.',
-        avatar:
-            'https://readdy.ai/api/search-image?query=professional%20portrait%20of%20Russian%20businesswoman%20in%20her%2030s%20with%20blonde%20hair%20wearing%20elegant%20blouse%20warm%20smile%20neutral%20background%20headshot%20photography&width=80&height=80&seq=av6&orientation=squarish',
+        avatar: '/images/projects/testimonials/avatar-6.jpg',
         projectId: 7,
     },
 ];
