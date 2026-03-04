@@ -6,6 +6,7 @@ import {
     productivityOptions,
     rawMaterialOptions,
     additionalServices,
+    equipmentPrices,
 } from './calculatorData';
 import CalculatorResult from './CalculatorResult';
 
@@ -30,10 +31,13 @@ export default function Calculator() {
             return { equipmentCost: 0, servicesCost: 0, total: 0, breakdown: [] };
         }
 
-        const basePrice = equipment.basePrice;
+        const exactBasePrice = (equipmentPrices[selectedEquipment] && productivity)
+            ? equipmentPrices[selectedEquipment][productivity.id]
+            : equipment.basePrice;
+
         const prodMultiplier = productivity ? productivity.multiplier : 1;
         const matModifier = material ? material.modifier : 1;
-        const equipmentCost = Math.round(basePrice * prodMultiplier * matModifier);
+        const equipmentCost = Math.round(exactBasePrice * matModifier);
 
         let servicesCost = 0;
         const breakdown: { title: string; price: number }[] = [];
@@ -86,8 +90,8 @@ export default function Calculator() {
                                         key={eq.id}
                                         onClick={() => setSelectedEquipment(eq.id)}
                                         className={`flex flex-col items-center p-3 sm:p-4 rounded-xl border-2 transition-all duration-200 cursor-pointer ${selectedEquipment === eq.id
-                                                ? 'border-red-500 bg-red-50 shadow-md'
-                                                : 'border-gray-100 bg-gray-50 hover:border-gray-200 hover:bg-white'
+                                            ? 'border-red-500 bg-red-50 shadow-md'
+                                            : 'border-gray-100 bg-gray-50 hover:border-gray-200 hover:bg-white'
                                             }`}
                                     >
                                         <div className={`w-9 h-9 sm:w-11 sm:h-11 flex items-center justify-center rounded-lg mb-2 sm:mb-2.5 ${selectedEquipment === eq.id ? 'bg-red-600' : 'bg-gray-200'
@@ -99,7 +103,7 @@ export default function Calculator() {
                                             {eq.title}
                                         </span>
                                         <span className="text-[10px] sm:text-xs text-gray-400 mt-0.5 sm:mt-1">
-                                            от {(eq.basePrice / 1000000).toFixed(1)} млн ₽
+                                            от {new Intl.NumberFormat('ru-RU').format(eq.basePrice)} ₽
                                         </span>
                                     </button>
                                 ))}
@@ -120,8 +124,8 @@ export default function Calculator() {
                                         key={opt.id}
                                         onClick={() => setSelectedProductivity(opt.id)}
                                         className={`px-3 sm:px-4 py-2.5 sm:py-3.5 rounded-xl border-2 text-xs sm:text-sm font-medium transition-all duration-200 cursor-pointer ${selectedProductivity === opt.id
-                                                ? 'border-red-500 bg-red-50 text-red-700 shadow-md'
-                                                : 'border-gray-100 bg-gray-50 text-gray-700 hover:border-gray-200 hover:bg-white'
+                                            ? 'border-red-500 bg-red-50 text-red-700 shadow-md'
+                                            : 'border-gray-100 bg-gray-50 text-gray-700 hover:border-gray-200 hover:bg-white'
                                             }`}
                                     >
                                         {opt.label}
@@ -144,8 +148,8 @@ export default function Calculator() {
                                         key={mat.id}
                                         onClick={() => setSelectedMaterial(mat.id)}
                                         className={`w-full flex items-center justify-between px-4 sm:px-5 py-3 sm:py-3.5 rounded-xl border-2 transition-all duration-200 cursor-pointer ${selectedMaterial === mat.id
-                                                ? 'border-red-500 bg-red-50 shadow-md'
-                                                : 'border-gray-100 bg-gray-50 hover:border-gray-200 hover:bg-white'
+                                            ? 'border-red-500 bg-red-50 shadow-md'
+                                            : 'border-gray-100 bg-gray-50 hover:border-gray-200 hover:bg-white'
                                             }`}
                                     >
                                         <span className={`text-xs sm:text-sm font-medium ${selectedMaterial === mat.id ? 'text-red-700' : 'text-gray-700'
@@ -178,8 +182,8 @@ export default function Calculator() {
                                             key={svc.id}
                                             onClick={() => toggleService(svc.id)}
                                             className={`flex items-start space-x-3 p-4 rounded-xl border-2 text-left transition-all duration-200 cursor-pointer ${isSelected
-                                                    ? 'border-red-500 bg-red-50 shadow-md'
-                                                    : 'border-gray-100 bg-gray-50 hover:border-gray-200 hover:bg-white'
+                                                ? 'border-red-500 bg-red-50 shadow-md'
+                                                : 'border-gray-100 bg-gray-50 hover:border-gray-200 hover:bg-white'
                                                 }`}
                                         >
                                             <div className={`w-10 h-10 flex items-center justify-center rounded-lg flex-shrink-0 mt-0.5 ${isSelected ? 'bg-red-600' : 'bg-gray-200'
