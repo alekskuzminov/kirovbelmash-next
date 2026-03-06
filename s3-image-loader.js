@@ -1,5 +1,5 @@
 export default function s3Loader({ src, width, quality }) {
-    const cdnHost = 'https://cdn.kirovbelmash-site.ru';
+    const cdnHost = 'https://cdn.kirovbelmash.ru';
 
     // Если путь начинается с /images/ (как это прописано везде в коде)
     if (src.startsWith('/images/')) {
