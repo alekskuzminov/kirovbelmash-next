@@ -5,25 +5,6 @@ import { SITE_CONFIG } from '@/config/site.config';
 export default function NotFound() {
     return (
         <div className="min-h-screen bg-white flex flex-col">
-            {/* Шапка */}
-            <header className="border-b border-gray-100 px-4 sm:px-6 lg:px-8 py-4">
-                <div className="max-w-7xl mx-auto">
-                    <Link href="/" className="inline-flex items-center space-x-3">
-                        <div className="w-10 h-10 relative">
-                            <Image
-                                src={SITE_CONFIG.assets.logo}
-                                alt={SITE_CONFIG.assets.logoAlt}
-                                fill
-                                className="object-contain"
-                            />
-                        </div>
-                        <div>
-                            <div className="text-xl font-bold text-gray-900">{SITE_CONFIG.company.name}</div>
-                            <div className="text-xs text-gray-500">{SITE_CONFIG.company.tagline}</div>
-                        </div>
-                    </Link>
-                </div>
-            </header>
 
             {/* Основной контент */}
             <main className="flex-1 flex flex-col items-center justify-center px-4 py-16 text-center">

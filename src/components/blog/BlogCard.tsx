@@ -46,7 +46,7 @@ export default function BlogCard({ post }: BlogCardProps) {
                     <span>{formatDate(post.date)}</span>
                 </div>
 
-                <Link href={`/blog/${post.id}`}>
+                <Link href={`/blog/${post.slug}`}>
                     <h3 className="text-lg font-bold text-gray-900 mb-3 leading-snug group-hover:text-red-600 transition-colors line-clamp-2">
                         {post.title}
                     </h3>
@@ -68,7 +68,7 @@ export default function BlogCard({ post }: BlogCardProps) {
                         ))}
                     </div>
                     <Link
-                        href={`/blog/${post.id}`}
+                        href={`/blog/${post.slug}`}
                         className="inline-flex items-center space-x-2 text-sm font-semibold text-red-600 hover:text-red-700 transition-colors"
                     >
                         <span>Читать статью</span>
