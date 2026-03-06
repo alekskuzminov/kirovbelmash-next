@@ -14,7 +14,6 @@ interface ContactFormProps {
 export default function ContactForm({ initialMessage = '', isModal = false, modalTitle }: ContactFormProps = {}) {
     const [formData, setFormData] = useState({
         name: '',
-        company: '',
         email: '',
         phone: '',
         message: initialMessage,
@@ -31,14 +30,13 @@ export default function ContactForm({ initialMessage = '', isModal = false, moda
             name: formData.name,
             phone: formData.phone,
             email: formData.email,
-            company: formData.company,
             message: formData.message,
             source: isModal ? 'modal' : 'contact',
         });
 
         if (ok) {
             setSubmitStatus('success');
-            setFormData({ name: '', company: '', email: '', phone: '', message: '' });
+            setFormData({ name: '', email: '', phone: '', message: '' });
         } else {
             setSubmitStatus('error');
         }
@@ -63,21 +61,6 @@ export default function ContactForm({ initialMessage = '', isModal = false, moda
                         onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                         className="w-full px-3 sm:px-4 py-2.5 sm:py-3 text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent outline-none transition-all"
                         placeholder="Введите ваше имя"
-                    />
-                </div>
-
-                <div>
-                    <label htmlFor="company" className="block text-xs sm:text-sm font-semibold text-gray-900 mb-1.5 sm:mb-2">
-                        Название компании
-                    </label>
-                    <input
-                        type="text"
-                        id="company"
-                        name="company"
-                        value={formData.company}
-                        onChange={(e) => setFormData({ ...formData, company: e.target.value })}
-                        className="w-full px-3 sm:px-4 py-2.5 sm:py-3 text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent outline-none transition-all"
-                        placeholder="Введите название компании"
                     />
                 </div>
 
