@@ -74,7 +74,9 @@ export default function CalculatorResult({
                                         </div>
                                         <span className="text-sm text-gray-300">{item.title}</span>
                                     </div>
-                                    <span className="text-sm font-medium text-white">{formatPrice(item.price)} ₽</span>
+                                    <span className="text-sm font-medium text-white">
+                                        {item.price > 0 ? `${formatPrice(item.price)} ₽` : 'по запросу'}
+                                    </span>
                                 </div>
                             ))}
                         </div>

@@ -2,7 +2,7 @@ import { Metadata } from 'next';
 import AboutHero from '@/components/about/AboutHero';
 import MissionValues from '@/components/about/MissionValues';
 import HistoryTimeline from '@/components/about/HistoryTimeline';
-import TeamSection from '@/components/about/TeamSection';
+// import TeamSection from '@/components/about/TeamSection';
 import CertificatesSection from '@/components/about/CertificatesSection';
 import AboutCTA from '@/components/about/AboutCTA';
 
@@ -19,7 +19,7 @@ export default function AboutPage() {
                 <MissionValues />
             </div>
             <HistoryTimeline />
-            <TeamSection />
+            {/* <TeamSection /> */}
             <CertificatesSection />
             <AboutCTA />
         </main>

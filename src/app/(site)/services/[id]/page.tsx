@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import Image from 'next/image';
+import Link from 'next/link';
 import ContactModalButton from '@/components/common/ContactModalButton';
 import { servicesData } from '@/components/services/servicesData';
 import ContactForm from '@/components/home/ContactForm';
@@ -123,7 +124,7 @@ export default async function ServicePage({ params }: ServicePageProps) {
                             </div>
                         </div>
 
-                        <div className="pt-4">
+                        <div className="pt-4 flex flex-col sm:flex-row items-center gap-4">
                             <ContactModalButton
                                 message={`\u041e\u0441\u0442\u0430\u0432\u0438\u0442\u044c \u0437\u0430\u044f\u0432\u043a\u0443 \u043d\u0430 \u0443\u0441\u043b\u0443\u0433\u0443: \u00ab${service.title}\u00bb`}
                                 className="inline-flex w-full sm:w-auto items-center justify-center px-8 py-4 bg-red-600 text-white font-medium rounded-xl hover:bg-red-700 transition-colors shadow-lg shadow-red-600/30 group"
@@ -131,6 +132,10 @@ export default async function ServicePage({ params }: ServicePageProps) {
                                 <span>Заказать услугу</span>
                                 <i className="ri-arrow-right-line ml-2 transform group-hover:translate-x-1 transition-transform"></i>
                             </ContactModalButton>
+                            <Link href="/services" className="inline-flex w-full sm:w-auto items-center justify-center px-8 py-4 bg-white text-gray-900 border border-gray-200 font-medium rounded-xl hover:bg-gray-50 hover:border-gray-300 transition-colors group">
+                                <i className="ri-arrow-left-line mr-2 transform group-hover:-translate-x-1 transition-transform text-gray-500"></i>
+                                <span className="ml-2">Назад к услугам</span>
+                            </Link>
                         </div>
                     </div>
                 </div>

@@ -90,34 +90,16 @@ export const certificates = [
         icon: 'ri-shield-check-line',
     },
     {
-        title: 'ГОСТ Р',
-        description: 'Сертификат соответствия продукции',
-        year: '2017',
-        icon: 'ri-file-shield-2-line',
-    },
-    {
-        title: 'ТР ТС 010/2011',
-        description: 'Безопасность машин и оборудования',
-        year: '2019',
+        title: 'Декларация ЕАЭС',
+        description: 'Безопасность машин и оборудования. Электромагнитная совместимость.',
+        year: '2024',
         icon: 'ri-verified-badge-line',
-    },
-    {
-        title: 'Декларация ТР ТС',
-        description: 'Электромагнитная совместимость',
-        year: '2020',
-        icon: 'ri-flashlight-line',
     },
     {
         title: 'Патенты РФ',
         description: '12 патентов на изобретения и полезные модели',
         year: '2016–2024',
         icon: 'ri-lightbulb-line',
-    },
-    {
-        title: 'Членство в СРО',
-        description: 'Допуск к проектированию и строительству',
-        year: '2019',
-        icon: 'ri-building-2-line',
     },
 ];
 

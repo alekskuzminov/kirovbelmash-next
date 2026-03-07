@@ -50,31 +50,15 @@ export default function ContactDetails() {
                         </div>
 
                         <div>
-                            <h3 className="text-lg font-bold text-gray-900 mb-4">Адреса</h3>
+                            <h3 className="text-lg font-bold text-gray-900 mb-4">Адрес</h3>
                             <div className="space-y-4">
-                                <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
-                                    <div className="flex items-start space-x-3">
-                                        <div className="w-8 h-8 flex items-center justify-center bg-red-50 rounded-md flex-shrink-0 mt-0.5">
-                                            <i className="ri-map-pin-line text-red-600 text-base"></i>
-                                        </div>
-                                        <div>
-                                            <p className="text-xs text-gray-500 mb-1">
-                                                Юридический адрес
-                                            </p>
-                                            <p className="text-sm text-gray-900 leading-relaxed">
-                                                Россия, 613200, Кировская область, г. Белая Холуница,
-                                                ул. Советская, д. 8
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
                                 <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
                                     <div className="flex items-start space-x-3">
                                         <div className="w-8 h-8 flex items-center justify-center bg-red-50 rounded-md flex-shrink-0 mt-0.5">
                                             <i className="ri-store-2-line text-red-600 text-base"></i>
                                         </div>
                                         <div>
-                                            <p className="text-xs text-gray-500 mb-1">Адрес склада</p>
+                                            <p className="text-xs text-gray-500 mb-1">Адрес производства</p>
                                             <p className="text-sm text-gray-900 leading-relaxed">
                                                 Россия, 613200, Кировская область, г. Белая Холуница,
                                                 ул. Глазырина, д. 112Л
@@ -100,7 +84,7 @@ export default function ContactDetails() {
                                                 Пн — Пт:
                                             </span>
                                             <span className="text-sm text-gray-700">
-                                                7:30 — 16:30
+                                                8:00 — 17:00
                                             </span>
                                         </div>
                                         <div className="flex items-center space-x-3">
@@ -170,23 +154,6 @@ export default function ContactDetails() {
                                 <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
                                     <div className="flex items-start space-x-3">
                                         <div className="w-8 h-8 flex items-center justify-center bg-red-50 rounded-md flex-shrink-0 mt-0.5">
-                                            <i className="ri-phone-line text-red-600 text-base"></i>
-                                        </div>
-                                        <div>
-                                            <p className="text-xs text-gray-500 mb-1">Общий</p>
-                                            <a
-                                                href={`tel:${SITE_CONFIG.contacts.departments.general.phone}`}
-                                                className="text-sm font-medium text-gray-900 hover:text-red-600 transition-colors cursor-pointer"
-                                            >
-                                                {SITE_CONFIG.contacts.departments.general.phoneFormatted}
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
-                                    <div className="flex items-start space-x-3">
-                                        <div className="w-8 h-8 flex items-center justify-center bg-red-50 rounded-md flex-shrink-0 mt-0.5">
                                             <i className="ri-shopping-bag-line text-red-600 text-base"></i>
                                         </div>
                                         <div>
@@ -221,25 +188,6 @@ export default function ContactDetails() {
                                         </div>
                                     </div>
                                 </div>
-
-                                <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
-                                    <div className="flex items-start space-x-3">
-                                        <div className="w-8 h-8 flex items-center justify-center bg-red-50 rounded-md flex-shrink-0 mt-0.5">
-                                            <i className="ri-calculator-line text-red-600 text-base"></i>
-                                        </div>
-                                        <div>
-                                            <p className="text-xs text-gray-500 mb-1">
-                                                Бухгалтерия
-                                            </p>
-                                            <a
-                                                href={`tel:${SITE_CONFIG.contacts.departments.accounting.phone}`}
-                                                className="block text-sm font-medium text-gray-900 hover:text-red-600 transition-colors cursor-pointer"
-                                            >
-                                                {SITE_CONFIG.contacts.departments.accounting.phoneFormatted}
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
                             </div>
                         </div>
 
@@ -252,17 +200,6 @@ export default function ContactDetails() {
                                             <i className="ri-mail-line text-red-600 text-base"></i>
                                         </div>
                                         <div className="space-y-2">
-                                            <div>
-                                                <p className="text-xs text-gray-500 mb-0.5">
-                                                    Общая почта
-                                                </p>
-                                                <a
-                                                    href={`mailto:${SITE_CONFIG.contacts.departments.general.email}`}
-                                                    className="text-sm text-red-600 hover:text-red-700 transition-colors cursor-pointer"
-                                                >
-                                                    {SITE_CONFIG.contacts.departments.general.email}
-                                                </a>
-                                            </div>
                                             <div>
                                                 <p className="text-xs text-gray-500 mb-0.5">
                                                     Отдел продаж
@@ -283,28 +220,6 @@ export default function ContactDetails() {
                                                     className="text-sm text-red-600 hover:text-red-700 transition-colors cursor-pointer"
                                                 >
                                                     {SITE_CONFIG.contacts.departments.supply.email}
-                                                </a>
-                                            </div>
-                                            <div>
-                                                <p className="text-xs text-gray-500 mb-0.5">
-                                                    Конструкторский отдел
-                                                </p>
-                                                <a
-                                                    href={`mailto:${SITE_CONFIG.contacts.departments.engineering.email}`}
-                                                    className="text-sm text-red-600 hover:text-red-700 transition-colors cursor-pointer"
-                                                >
-                                                    {SITE_CONFIG.contacts.departments.engineering.email}
-                                                </a>
-                                            </div>
-                                            <div>
-                                                <p className="text-xs text-gray-500 mb-0.5">
-                                                    Бухгалтерия
-                                                </p>
-                                                <a
-                                                    href={`mailto:${SITE_CONFIG.contacts.departments.accounting.email}`}
-                                                    className="text-sm text-red-600 hover:text-red-700 transition-colors cursor-pointer"
-                                                >
-                                                    {SITE_CONFIG.contacts.departments.accounting.email}
                                                 </a>
                                             </div>
                                         </div>

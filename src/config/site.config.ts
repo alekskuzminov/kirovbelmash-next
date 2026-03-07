@@ -16,7 +16,7 @@ export const SITE_CONFIG = {
     phone: '+79005218477',
     phoneFormatted: '+7 900 521-84-77',
     email: 'sale@kirovbelmash.ru',
-    workingHours: 'Пн-Пт: 7:30 — 16:30',
+    workingHours: 'Пн-Пт: 8:00 — 17:00',
     address: {
       city: 'г. Белая Холуница',
       region: 'Кировская область',

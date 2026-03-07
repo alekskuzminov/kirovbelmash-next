@@ -13,7 +13,7 @@ import CalculatorResult from './CalculatorResult';
 export default function Calculator() {
     const [selectedEquipment, setSelectedEquipment] = useState<string>('');
     const [selectedProductivity, setSelectedProductivity] = useState<string>('p1');
-    const [selectedMaterial, setSelectedMaterial] = useState<string>('wood');
+    const [selectedMaterial, setSelectedMaterial] = useState<string>('sawdust');
     const [selectedServices, setSelectedServices] = useState<string[]>([]);
 
     const toggleService = (id: string) => {
@@ -202,7 +202,7 @@ export default function Calculator() {
                                                 </div>
                                                 <p className="text-xs text-gray-500 mt-0.5 leading-relaxed">{svc.desc}</p>
                                                 <span className="text-xs text-gray-400 mt-1 inline-block">
-                                                    от {(svc.price / 1000).toFixed(0)} тыс. ₽
+                                                    по запросу
                                                 </span>
                                             </div>
                                         </button>
