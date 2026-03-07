@@ -7,7 +7,7 @@ export default function ServicesHero() {
         <section className="relative min-h-[450px] sm:min-h-[600px] overflow-visible pb-24 sm:pb-32 md:pb-40 mb-16 sm:mb-24 bg-gray-900">
             <div className="absolute inset-0 w-full h-full">
                 <Image
-                    src="/images/services/services-hero-bg.webp"
+                    src="/images/services/services-hero-bg-main-1.webp"
                     alt="Комплексные промышленные услуги КировБелМаш"
                     fill
                     className="object-cover object-top"
