@@ -18,7 +18,7 @@ export const servicesData = [
         ],
         stats: { value: '120+', label: 'проектов разработано' },
         duration: 'от 2 до 6 недель',
-        image: '/images/services/service-design.jpg',
+        image: '/images/services/service-design-v3.jpg',
     },
     {
         id: 'installation',
@@ -38,7 +38,7 @@ export const servicesData = [
         ],
         stats: { value: '80+', label: 'объектов смонтировано' },
         duration: 'от 1 до 4 недель',
-        image: '/images/services/service-installation.jpg',
+        image: '/images/services/service-installation-v3.jpg',
     },
     {
         id: 'commissioning',
@@ -59,7 +59,7 @@ export const servicesData = [
         ],
         stats: { value: '98%', label: 'успешных запусков' },
         duration: 'от 3 до 10 дней',
-        image: '/images/services/service-commissioning.jpg',
+        image: '/images/services/service-commissioning-v3.jpg',
     },
     {
         id: 'training',
@@ -80,7 +80,7 @@ export const servicesData = [
         ],
         stats: { value: '500+', label: 'специалистов обучено' },
         duration: 'от 3 до 7 дней',
-        image: '/images/services/service-training.jpg',
+        image: '/images/services/service-training-v3.jpg',
     },
 ];
 
