@@ -1,27 +1,26 @@
 import Image from 'next/image';
 import Breadcrumbs from '@/components/ui/Breadcrumbs';
 import { projectStats } from './projectsData';
-import { HERO_BLUR } from '@/lib/heroBlur';
 
 export default function ProjectsHero() {
     return (
-        <section className="relative min-h-[450px] sm:min-h-[480px] overflow-visible mb-16 sm:mb-24 bg-gray-900">
+        <section className="relative min-h-[450px] sm:min-h-[480px] overflow-visible mb-16 sm:mb-24 bg-gray-900 z-10">
             <div className="absolute inset-0 w-full h-full">
                 <Image
-                    src="/images/projects/projects-hero-bg.webp"
+                    src="/images/projects/projects-hero-bg-main.webp"
                     alt="Реализованные проекты КировБелМаш"
                     fill
-                    className="object-cover object-top"
+                    className="object-cover object-center"
                     priority
                     sizes="100vw"
-                    placeholder="blur"
-                    blurDataURL={HERO_BLUR.projects}
                 />
-                <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-black/30"></div>
-                <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/20 to-transparent h-1/2"></div>
+                {/* Brand Neutral Dark Gradient Filter */}
+                <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/60 to-black/80" />
+                {/* Additional top subtle darkening */}
+                <div className="absolute top-0 left-0 right-0 h-32 sm:h-48 bg-gradient-to-b from-black/20 to-transparent" />
             </div>
 
-            <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 sm:pt-40 pb-16 sm:pb-24">
+            <div className="relative z-20 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 sm:pt-40 pb-16 sm:pb-24">
                 <div className="max-w-2xl">
                     <Breadcrumbs
                         items={[
@@ -40,7 +39,8 @@ export default function ProjectsHero() {
                         </span>
                     </div>
                     <h1 className="text-2xl sm:text-4xl lg:text-5xl font-bold text-white mb-4 sm:mb-5 leading-tight">
-                        Реализованные<br />проекты
+                        Реализованные<br />
+                        <span className="text-red-600">проекты</span>
                     </h1>
                     <p className="text-sm sm:text-lg text-gray-200 leading-relaxed max-w-lg">
                         Более 80 успешно запущенных производственных линий по всей России. Каждый проект —
@@ -49,7 +49,7 @@ export default function ProjectsHero() {
                 </div>
             </div>
 
-            <div className="absolute bottom-0 left-0 right-0 z-10 w-full translate-y-1/2">
+            <div className="absolute bottom-0 left-0 right-0 z-30 w-full translate-y-1/2">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="grid grid-cols-2 lg:grid-cols-4 gap-2 sm:gap-4">
                         {projectStats.map((stat, index) => (
