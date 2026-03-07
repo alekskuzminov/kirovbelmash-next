@@ -7,17 +7,14 @@ export default function ProjectsHero() {
         <section className="relative min-h-[450px] sm:min-h-[480px] overflow-visible mb-16 sm:mb-24 bg-gray-900 z-10">
             <div className="absolute inset-0 w-full h-full">
                 <Image
-                    src="/images/projects/projects-hero-bg-main.webp"
+                    src="/images/projects/projects-hero-bg-main-real.webp"
                     alt="Реализованные проекты КировБелМаш"
                     fill
                     className="object-cover object-center"
                     priority
                     sizes="100vw"
                 />
-                {/* Brand Neutral Dark Gradient Filter */}
-                <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/60 to-black/80" />
-                {/* Additional top subtle darkening */}
-                <div className="absolute top-0 left-0 right-0 h-32 sm:h-48 bg-gradient-to-b from-black/20 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-r from-black/95 via-black/80 to-black/50"></div>
             </div>
 
             <div className="relative z-20 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 sm:pt-40 pb-16 sm:pb-24">
