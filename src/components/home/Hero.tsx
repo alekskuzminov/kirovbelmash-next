@@ -103,7 +103,8 @@ export default function Hero() {
                             </div>
                             <div>
                                 <p className="text-white text-base leading-relaxed">
-                                    Гарантийный срок 3 года
+                                    Гарантийный срок —<br />
+                                    3 года
                                 </p>
                             </div>
                         </div>
