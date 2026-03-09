@@ -6,8 +6,14 @@ import LinesCTA from '@/components/lines/LinesCTA';
 import { HERO_BLUR } from '@/lib/heroBlur';
 
 export const metadata: Metadata = {
-    title: 'Оборудование для производства топливных пеллет',
-    description: 'Линии гранулирования и оборудование для производства топливных пеллет из опилок, щепы и других древесных отходов. Проектирование, изготовление, монтаж, запуск',
+    title: 'Линии гранулирования — оборудование для производства пеллет',
+    description: 'Линии гранулирования пеллет под ключ. Производительность 500–2000 кг/час из опилок, щепы и древесных отходов. Проектирование, изготовление, монтаж, запуск.',
+    alternates: { canonical: '/linii-granulirovaniya' },
+    openGraph: {
+        title: 'Линии гранулирования | КировБелМаш',
+        description: 'Линии для производства пеллет под ключ. 500–2000 кг/час. Гарантия качества.',
+        url: 'https://kirovbelmash.ru/linii-granulirovaniya',
+    },
 };
 
 export default function GranulationLinePage() {

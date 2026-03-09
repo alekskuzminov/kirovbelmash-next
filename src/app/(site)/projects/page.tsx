@@ -5,8 +5,14 @@ import ProjectsCTA from '@/components/projects/ProjectsCTA';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-    title: 'Реализованные проекты | КировБелМаш',
-    description: 'Примеры реализованных проектов по установке оборудования для производства топливных брикетов и пеллет.',
+    title: 'Реализованные проекты',
+    description: '80+ реализованных проектов по установке линий брикетирования, гранулирования и сушки в 35+ регионах России. Кейсы с фото и видео.',
+    alternates: { canonical: '/projects' },
+    openGraph: {
+        title: 'Реализованные проекты КировБелМаш',
+        description: '80+ проектов в 35+ регионах. Линии брикетирования, гранулирования и сушки с фото и видео.',
+        url: 'https://kirovbelmash.ru/projects',
+    },
 };
 
 export default function ProjectsPage() {

@@ -7,6 +7,7 @@ import { equipmentItems, equipmentCategoriesConfig } from '@/components/equipmen
 import EquipmentCTA from '@/components/equipment/EquipmentCTA';
 import ContactForm from '@/components/home/ContactForm';
 import Breadcrumbs from '@/components/ui/Breadcrumbs';
+import BreadcrumbJsonLd from '@/components/ui/BreadcrumbJsonLd';
 import EquipmentImageGallery from '@/components/equipment/EquipmentImageGallery';
 import EquipmentPageClient from '../EquipmentPageClient';
 
@@ -23,6 +24,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         return {
             title: category.seoTitle || category.name,
             description: category.seoDescription || `Купить оборудование в категории "${category.name}". Каталог промышленных станков и линий с техническими характеристиками и описанием.`,
+            alternates: { canonical: `/oborudovanie/${slug}` },
+            openGraph: {
+                title: category.seoTitle || category.name,
+                description: category.seoDescription || '',
+                url: `https://kirovbelmash.ru/oborudovanie/${slug}`,
+            },
         };
     }
 
@@ -32,6 +39,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         return {
             title: item.seoTitle || `${item.name} | Оборудование`,
             description: item.description,
+            alternates: { canonical: `/oborudovanie/${slug}` },
+            openGraph: {
+                title: item.seoTitle || item.name,
+                description: item.description,
+                url: `https://kirovbelmash.ru/oborudovanie/${slug}`,
+            },
         };
     }
 
@@ -74,17 +87,20 @@ export default async function EquipmentDynamicPage({ params }: Props) {
         notFound();
     }
 
+    const breadcrumbItems = [
+        { label: 'Главная', href: '/' },
+        { label: 'Каталог оборудования', href: '/oborudovanie' },
+        { label: item.category, href: `/oborudovanie/${equipmentCategoriesConfig.find(c => c.name === item.category)?.slug || ''}` },
+        { label: item.name },
+    ];
+
     return (
         <div className="min-h-screen bg-gray-50/50 pb-12">
+            <BreadcrumbJsonLd items={breadcrumbItems} />
             {/* Хлебные крошки */}
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 sm:pt-40">
                 <Breadcrumbs
-                    items={[
-                        { label: 'Главная', href: '/' },
-                        { label: 'Каталог оборудования', href: '/oborudovanie' },
-                        { label: item.category, href: `/oborudovanie/${equipmentCategoriesConfig.find(c => c.name === item.category)?.slug || ''}` },
-                        { label: item.name }
-                    ]}
+                    items={breadcrumbItems}
                     className="mb-6"
                 />
 

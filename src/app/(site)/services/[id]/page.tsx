@@ -6,6 +6,7 @@ import ContactModalButton from '@/components/common/ContactModalButton';
 import { servicesData } from '@/components/services/servicesData';
 import ContactForm from '@/components/home/ContactForm';
 import Breadcrumbs from '@/components/ui/Breadcrumbs';
+import BreadcrumbJsonLd from '@/components/ui/BreadcrumbJsonLd';
 
 interface ServicePageProps {
     params: Promise<{ id: string }>;
@@ -30,6 +31,12 @@ export async function generateMetadata({ params }: ServicePageProps): Promise<Me
     return {
         title: `${service.title} | КировБелМаш`,
         description: service.shortDesc,
+        alternates: { canonical: `/services/${service.id}` },
+        openGraph: {
+            title: service.title,
+            description: service.shortDesc,
+            url: `https://kirovbelmash.ru/services/${service.id}`,
+        },
     };
 }
 
@@ -41,15 +48,18 @@ export default async function ServicePage({ params }: ServicePageProps) {
         notFound();
     }
 
+    const breadcrumbItems = [
+        { label: 'Главная', href: '/' },
+        { label: 'Услуги', href: '/services' },
+        { label: service.title },
+    ];
+
     return (
         <main className="pt-32 sm:pt-40 pb-0">
+            <BreadcrumbJsonLd items={breadcrumbItems} />
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-16 sm:mb-24">
                 <Breadcrumbs
-                    items={[
-                        { label: 'Главная', href: '/' },
-                        { label: 'Услуги', href: '/services' },
-                        { label: service.title }
-                    ]}
+                    items={breadcrumbItems}
                     className="mb-8 sm:mb-12 shadow-none"
                 />
 

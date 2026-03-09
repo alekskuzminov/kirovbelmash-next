@@ -7,8 +7,14 @@ import CertificatesSection from '@/components/about/CertificatesSection';
 import AboutCTA from '@/components/about/AboutCTA';
 
 export const metadata: Metadata = {
-    title: 'О компании - КировБелМаш',
-    description: 'КировБелМаш — надёжный партнёр с 2011 года. Мы проектируем и производим промышленное оборудование для брикетирования и гранулирования.',
+    title: 'О компании',
+    description: 'КировБелМаш — производитель промышленного оборудования для брикетирования и гранулирования с 2011 года. 80+ реализованных проектов в 35+ регионах России. 5000+ м² производственных площадей.',
+    alternates: { canonical: '/about' },
+    openGraph: {
+        title: 'О компании КировБелМаш',
+        description: 'Производитель линий брикетирования и гранулирования с 2011 года. 80+ реализованных проектов, гарантия и сервис.',
+        url: 'https://kirovbelmash.ru/about',
+    },
 };
 
 export default function AboutPage() {

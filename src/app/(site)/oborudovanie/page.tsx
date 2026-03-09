@@ -5,7 +5,13 @@ import { equipmentCategoriesConfig } from '@/components/equipment/equipmentData'
 
 export const metadata: Metadata = {
     title: 'Каталог оборудования',
-    description: 'Каталог промышленного оборудования для производства брикетов, пеллет и переработки древесины. Полный каталог станков и линий.',
+    description: 'Каталог промышленного оборудования для производства брикетов, пеллет и переработки древесины. Прессы, грануляторы, сушилки, дробилки, транспортёры.',
+    alternates: { canonical: '/oborudovanie' },
+    openGraph: {
+        title: 'Каталог оборудования КировБелМаш',
+        description: 'Прессы, грануляторы, сушилки, дробилки и транспортное оборудование для переработки древесного сырья.',
+        url: 'https://kirovbelmash.ru/oborudovanie',
+    },
 };
 
 export default function EquipmentPage({ searchParams }: { searchParams: { category?: string } }) {

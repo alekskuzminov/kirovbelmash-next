@@ -1,20 +1,24 @@
 import { Metadata } from 'next';
 import Breadcrumbs from '@/components/ui/Breadcrumbs';
+import BreadcrumbJsonLd from '@/components/ui/BreadcrumbJsonLd';
 
 export const metadata: Metadata = {
     title: 'Политика конфиденциальности - КировБелМаш',
     description: 'Политика в отношении обработки персональных данных ООО «КировБелМаш». Мы заботимся о безопасности ваших данных.',
 };
 
+const privacyBreadcrumbs = [
+    { label: 'Главная', href: '/' },
+    { label: 'Политика конфиденциальности' },
+];
+
 export default function PrivacyPolicyPage() {
     return (
         <main className="pt-32 sm:pt-40 pb-16 sm:pb-24 bg-white">
+            <BreadcrumbJsonLd items={privacyBreadcrumbs} />
             <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
                 <Breadcrumbs
-                    items={[
-                        { label: 'Главная', href: '/' },
-                        { label: 'Политика конфиденциальности' }
-                    ]}
+                    items={privacyBreadcrumbs}
                     className="mb-6 sm:mb-8"
                 />
 

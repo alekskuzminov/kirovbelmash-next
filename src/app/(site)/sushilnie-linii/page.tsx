@@ -6,8 +6,14 @@ import LinesCTA from '@/components/lines/LinesCTA';
 import { HERO_BLUR } from '@/lib/heroBlur';
 
 export const metadata: Metadata = {
-    title: 'Сушильные линии | КировБелМаш',
-    description: 'Производство линий для сушки сырья (опилок, щепы и биомассы). Изготовим линию сушки сырья на производстве брикетов, пеллет и гранул.',
+    title: 'Сушильные линии — сушка опилок, щепы и биомассы',
+    description: 'Производство линий для сушки опилок, щепы и биомассы под ключ. Производительность 500–2000 кг/час. Проектирование, изготовление, монтаж и запуск.',
+    alternates: { canonical: '/sushilnie-linii' },
+    openGraph: {
+        title: 'Сушильные линии | КировБелМаш',
+        description: 'Линии для сушки опилок, щепы и биомассы. 500–2000 кг/час. Под ключ.',
+        url: 'https://kirovbelmash.ru/sushilnie-linii',
+    },
 };
 
 export default function DryingLinePage() {

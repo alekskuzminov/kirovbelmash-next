@@ -6,8 +6,14 @@ import LinesCTA from '@/components/lines/LinesCTA';
 import { HERO_BLUR } from '@/lib/heroBlur';
 
 export const metadata: Metadata = {
-    title: 'Оборудование для производства топливных брикетов',
-    description: 'Линии брикетирования и оборудование для производства топливных брикетов из опилок и других древесных отходов. Проектирование, изготовление, монтаж, запуск',
+    title: 'Линии брикетирования — оборудование для производства топливных брикетов',
+    description: 'Линии брикетирования Pini Key и RUF под ключ. Производительность 500–2000 кг/час. Проектирование, изготовление, монтаж, запуск. Срок изготовления от 8 недель.',
+    alternates: { canonical: '/linii-briketirovaniya' },
+    openGraph: {
+        title: 'Линии брикетирования | КировБелМаш',
+        description: 'Линии брикетирования Pini Key и RUF под ключ. 500–2000 кг/час. Гарантия качества.',
+        url: 'https://kirovbelmash.ru/linii-briketirovaniya',
+    },
 };
 
 export default function BriquettingLinePage() {

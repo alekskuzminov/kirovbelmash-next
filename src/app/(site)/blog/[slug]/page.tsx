@@ -27,6 +27,14 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     return {
         title: `${post.title} | Блог КировБелМаш`,
         description: post.excerpt,
+        alternates: { canonical: `/blog/${post.slug}` },
+        openGraph: {
+            title: post.title,
+            description: post.excerpt,
+            url: `https://kirovbelmash.ru/blog/${post.slug}`,
+            type: 'article',
+            publishedTime: post.date,
+        },
     };
 }
 

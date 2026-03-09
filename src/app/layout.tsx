@@ -23,6 +23,10 @@ export const metadata: Metadata = {
     "производство пеллет",
     "переработка биомассы",
   ],
+  metadataBase: new URL("https://kirovbelmash.ru"),
+  alternates: {
+    canonical: "/",
+  },
   openGraph: {
     title:
       "КировБелМаш — Промышленное оборудование для брикетирования и гранулирования",
@@ -31,15 +35,28 @@ export const metadata: Metadata = {
     type: "website",
     locale: "ru_RU",
     url: "https://kirovbelmash.ru/",
+    siteName: "КировБелМаш",
+    images: [
+      {
+        url: "/images/logo/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "КировБелМаш — промышленное оборудование для брикетирования и гранулирования",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title:
+      "КировБелМаш — Промышленное оборудование для брикетирования и гранулирования",
+    description:
+      "Производственные линии брикетирования и гранулирования от 2 до 40 тонн/сутки. Полный цикл под ключ.",
+    images: ["/images/logo/og-image.jpg"],
   },
   other: {
     "geo.position": "58.603595;49.668007",
-    "geo.placename": "Киров, Россия",
+    "geo.placename": "Белая Холуница, Кировская область, Россия",
     "geo.region": "RU-KIR",
-  },
-  metadataBase: new URL("https://kirovbelmash.ru"),
-  alternates: {
-    canonical: "/",
   },
   icons: {
     icon: "/images/logo/logo.webp",
@@ -49,6 +66,46 @@ export const metadata: Metadata = {
 import { Suspense } from "react";
 import YandexMetrika from "@/components/YandexMetrika";
 
+const organizationSchema = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "@id": "https://kirovbelmash.ru/#organization",
+  name: "КировБелМаш",
+  alternateName: "ООО КировБелМаш",
+  url: "https://kirovbelmash.ru",
+  logo: "https://kirovbelmash.ru/images/logo/logo.webp",
+  image: "https://kirovbelmash.ru/images/logo/og-image.jpg",
+  description:
+    "Производство промышленного оборудования для линий брикетирования и гранулирования. Полный цикл: проектирование, изготовление, монтаж, обучение, сервис.",
+  foundingDate: "2011",
+  telephone: "+7-900-521-84-77",
+  email: "sale@kirovbelmash.ru",
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: "ул. Глазырина, 112",
+    addressLocality: "Белая Холуница",
+    addressRegion: "Кировская область",
+    addressCountry: "RU",
+  },
+  geo: {
+    "@type": "GeoCoordinates",
+    latitude: 58.603595,
+    longitude: 49.668007,
+  },
+  contactPoint: [
+    {
+      "@type": "ContactPoint",
+      telephone: "+7-900-521-84-77",
+      contactType: "sales",
+      availableLanguage: "Russian",
+    },
+  ],
+  sameAs: [
+    "https://vk.com/kirovbelmash",
+    "https://t.me/kirovbelmash",
+  ],
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -57,6 +114,12 @@ export default function RootLayout({
   return (
     // TODO: динамический lang при переносе i18n
     <html lang="ru" className="scroll-smooth scroll-pt-[64px] lg:scroll-pt-[108px]">
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
+        />
+      </head>
       <body className={`${inter.variable} font-sans antialiased`}>
         <Suspense fallback={null}>
           <YandexMetrika />

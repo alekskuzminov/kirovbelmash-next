@@ -8,6 +8,7 @@ import ProjectImageGallery from '@/components/projects/ProjectImageGallery';
 import ContactModalButton from '@/components/common/ContactModalButton';
 import { SITE_CONFIG } from '@/config/site.config';
 import Breadcrumbs from '@/components/ui/Breadcrumbs';
+import BreadcrumbJsonLd from '@/components/ui/BreadcrumbJsonLd';
 import ProjectVideo from '@/components/projects/ProjectVideo';
 
 interface PageProps {
@@ -33,6 +34,12 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     return {
         title: `${project.title} | Проекты КировБелМаш`,
         description: project.description,
+        alternates: { canonical: `/projects/${project.slug}` },
+        openGraph: {
+            title: project.title,
+            description: project.description,
+            url: `https://kirovbelmash.ru/projects/${project.slug}`,
+        },
     };
 }
 
@@ -48,16 +55,19 @@ export default async function ProjectDetailPage({ params }: PageProps) {
         ? item.gallery
         : Array(5).fill(item.image);
 
+    const breadcrumbItems = [
+        { label: 'Главная', href: '/' },
+        { label: 'Проекты', href: '/projects' },
+        { label: item.title },
+    ];
+
     return (
         <div className="min-h-screen bg-white pb-20 pt-32 sm:pt-40">
+            <BreadcrumbJsonLd items={breadcrumbItems} />
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 {/* Breadcrumbs */}
                 <Breadcrumbs
-                    items={[
-                        { label: 'Главная', href: '/' },
-                        { label: 'Проекты', href: '/projects' },
-                        { label: item.title }
-                    ]}
+                    items={breadcrumbItems}
                     className="mb-8"
                 />
 

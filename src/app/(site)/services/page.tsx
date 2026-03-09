@@ -8,8 +8,14 @@ import ServicesAdvantages from '@/components/services/ServicesAdvantages';
 import ContactForm from '@/components/home/ContactForm';
 
 export const metadata: Metadata = {
-    title: 'Наши услуги | КировБелМаш',
-    description: 'Комплексный подход к реализации промышленных проектов — от первого чертежа до стабильной работы вашего производства.',
+    title: 'Услуги',
+    description: 'Комплексные услуги КировБелМаш: проектирование, монтаж, пусконаладка, обучение персонала и гарантийное обслуживание производственных линий.',
+    alternates: { canonical: '/services' },
+    openGraph: {
+        title: 'Услуги КировБелМаш',
+        description: 'Проектирование, монтаж, пусконаладка и обслуживание линий брикетирования и гранулирования.',
+        url: 'https://kirovbelmash.ru/services',
+    },
 };
 
 export default function ServicesPage() {

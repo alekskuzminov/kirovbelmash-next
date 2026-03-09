@@ -8,6 +8,7 @@ import LineSpecs from '@/components/lines/LineSpecs';
 import LineComposition from '@/components/lines/LineComposition';
 import ContactForm from '@/components/home/ContactForm';
 import Breadcrumbs from '@/components/ui/Breadcrumbs';
+import BreadcrumbJsonLd from '@/components/ui/BreadcrumbJsonLd';
 
 interface ProductionLinePageProps {
     params: Promise<{ id: string }>;
@@ -24,6 +25,12 @@ export async function generateMetadata({ params }: ProductionLinePageProps): Pro
     return {
         title: `${variant.name} | КировБелМаш`,
         description: variant.description,
+        alternates: { canonical: `/production-lines/${id}` },
+        openGraph: {
+            title: variant.name,
+            description: variant.description,
+            url: `https://kirovbelmash.ru/production-lines/${id}`,
+        },
     };
 }
 
@@ -42,16 +49,19 @@ export default async function ProductionLinePage({ params }: ProductionLinePageP
     const backHref = getLineBackLink(id);
     const backLabel = backLabels[backHref] ?? 'Линии';
 
+    const breadcrumbItems = [
+        { label: 'Главная', href: '/' },
+        { label: 'Линии', href: '/#production-lines' },
+        { label: backLabel, href: backHref },
+        { label: variant.name },
+    ];
+
     return (
         <div className="min-h-screen bg-gray-50/50 pb-12">
+            <BreadcrumbJsonLd items={breadcrumbItems} />
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 sm:pt-40">
                 <Breadcrumbs
-                    items={[
-                        { label: 'Главная', href: '/' },
-                        { label: 'Линии', href: '/#production-lines' },
-                        { label: backLabel, href: backHref },
-                        { label: variant.name },
-                    ]}
+                    items={breadcrumbItems}
                     className="mb-6"
                 />
 
