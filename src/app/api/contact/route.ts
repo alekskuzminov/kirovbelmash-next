@@ -34,10 +34,7 @@ const transporter = nodemailer.createTransport({
 });
 
 const buildHtml = (data: ContactPayload): string => {
-    const sourceLabel = SOURCE_LABELS[data.source || ''] || data.source || 'Неизвестный источник';
-
     let rows = `
-        <tr><td style="padding:8px 12px;font-weight:600;color:#555;white-space:nowrap">Источник</td><td style="padding:8px 12px">${sourceLabel}</td></tr>
         <tr><td style="padding:8px 12px;font-weight:600;color:#555;white-space:nowrap">Имя</td><td style="padding:8px 12px">${data.name}</td></tr>
         <tr><td style="padding:8px 12px;font-weight:600;color:#555;white-space:nowrap">Телефон</td><td style="padding:8px 12px"><a href="tel:${data.phone}">${data.phone}</a></td></tr>
     `;
@@ -83,8 +80,7 @@ export async function POST(request: NextRequest) {
             );
         }
 
-        const sourceLabel = SOURCE_LABELS[data.source || ''] || 'Сайт';
-        const subject = `Заявка с сайта — ${data.name} (${sourceLabel})`;
+        const subject = `Заявка с сайта — ${data.name}`;
 
         await transporter.sendMail({
             from: `"КировБелМаш Сайт" <${process.env.SMTP_USER}>`,
