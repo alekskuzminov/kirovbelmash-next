@@ -15,6 +15,16 @@ export const metadata: Metadata = {
         title: 'Услуги КировБелМаш',
         description: 'Проектирование, монтаж, пусконаладка и обслуживание линий брикетирования и гранулирования.',
         url: 'https://kirovbelmash.ru/services',
+        type: 'website',
+        siteName: 'КировБелМаш',
+        images: [
+            {
+                url: '/images/logo/og-image.jpg',
+                width: 1200,
+                height: 630,
+                alt: 'Услуги КировБелМаш',
+            },
+        ],
     },
 };
 

@@ -11,6 +11,16 @@ export const metadata: Metadata = {
         title: 'Калькулятор стоимости оборудования | КировБелМаш',
         description: 'Онлайн-расчёт стоимости линии брикетирования, гранулирования или сушки. Ответ за 1 рабочий день.',
         url: 'https://kirovbelmash.ru/calculator',
+        type: 'website',
+        siteName: 'КировБелМаш',
+        images: [
+            {
+                url: '/images/logo/og-image.jpg',
+                width: 1200,
+                height: 630,
+                alt: 'Калькулятор стоимости оборудования | КировБелМаш',
+            },
+        ],
     },
 };
 

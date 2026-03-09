@@ -16,6 +16,16 @@ export const metadata: Metadata = {
         description:
             'Производство линий брикетирования и гранулирования "под ключ" за 60 дней. Полный цикл: проектирование, изготовление, обучение, запуск, сервис. Гарантия качества',
         url: 'https://kirovbelmash.ru/',
+        type: 'website',
+        siteName: 'КировБелМаш',
+        images: [
+            {
+                url: '/images/logo/og-image.jpg',
+                width: 1200,
+                height: 630,
+                alt: 'КировБелМаш | Линии брикетирования и гранулирования',
+            },
+        ],
     },
 };
 

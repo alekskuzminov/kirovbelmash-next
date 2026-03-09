@@ -10,6 +10,16 @@ export const metadata: Metadata = {
         title: 'Блог КировБелМаш — статьи об оборудовании',
         description: 'Экспертные статьи о брикетировании, гранулировании, выборе оборудования и реальные кейсы клиентов.',
         url: 'https://kirovbelmash.ru/blog',
+        type: 'website',
+        siteName: 'КировБелМаш',
+        images: [
+            {
+                url: '/images/logo/og-image.jpg',
+                width: 1200,
+                height: 630,
+                alt: 'Блог КировБелМаш',
+            },
+        ],
     },
 };
 

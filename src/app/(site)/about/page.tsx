@@ -14,6 +14,16 @@ export const metadata: Metadata = {
         title: 'О компании КировБелМаш',
         description: 'Производитель линий брикетирования и гранулирования с 2011 года. 80+ реализованных проектов, гарантия и сервис.',
         url: 'https://kirovbelmash.ru/about',
+        type: 'website',
+        siteName: 'КировБелМаш',
+        images: [
+            {
+                url: '/images/logo/og-image.jpg',
+                width: 1200,
+                height: 630,
+                alt: 'О компании КировБелМаш',
+            },
+        ],
     },
 };
 

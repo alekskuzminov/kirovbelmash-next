@@ -36,6 +36,16 @@ export async function generateMetadata({ params }: ServicePageProps): Promise<Me
             title: service.title,
             description: service.shortDesc,
             url: `https://kirovbelmash.ru/services/${service.id}`,
+            type: 'website',
+            siteName: 'КировБелМаш',
+            images: [
+                {
+                    url: service.image || '/images/logo/og-image.jpg',
+                    width: 1200,
+                    height: 630,
+                    alt: service.title,
+                },
+            ],
         },
     };
 }

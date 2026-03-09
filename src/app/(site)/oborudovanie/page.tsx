@@ -11,6 +11,16 @@ export const metadata: Metadata = {
         title: 'Каталог оборудования КировБелМаш',
         description: 'Прессы, грануляторы, сушилки, дробилки и транспортное оборудование для переработки древесного сырья.',
         url: 'https://kirovbelmash.ru/oborudovanie',
+        type: 'website',
+        siteName: 'КировБелМаш',
+        images: [
+            {
+                url: '/images/logo/og-image.jpg',
+                width: 1200,
+                height: 630,
+                alt: 'Каталог оборудования КировБелМаш',
+            },
+        ],
     },
 };
 

@@ -34,6 +34,15 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
             url: `https://kirovbelmash.ru/blog/${post.slug}`,
             type: 'article',
             publishedTime: post.date,
+            siteName: 'КировБелМаш',
+            images: [
+                {
+                    url: post.image || '/images/logo/og-image.jpg',
+                    width: 1200,
+                    height: 630,
+                    alt: post.title,
+                },
+            ],
         },
     };
 }

@@ -13,6 +13,16 @@ export const metadata: Metadata = {
         title: 'Линии гранулирования | КировБелМаш',
         description: 'Линии для производства пеллет под ключ. 500–2000 кг/час. Гарантия качества.',
         url: 'https://kirovbelmash.ru/linii-granulirovaniya',
+        type: 'website',
+        siteName: 'КировБелМаш',
+        images: [
+            {
+                url: '/images/logo/og-image.jpg',
+                width: 1200,
+                height: 630,
+                alt: 'Линии гранулирования | КировБелМаш',
+            },
+        ],
     },
 };
 

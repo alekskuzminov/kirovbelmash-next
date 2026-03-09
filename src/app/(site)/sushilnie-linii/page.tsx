@@ -13,6 +13,16 @@ export const metadata: Metadata = {
         title: 'Сушильные линии | КировБелМаш',
         description: 'Линии для сушки опилок, щепы и биомассы. 500–2000 кг/час. Под ключ.',
         url: 'https://kirovbelmash.ru/sushilnie-linii',
+        type: 'website',
+        siteName: 'КировБелМаш',
+        images: [
+            {
+                url: '/images/logo/og-image.jpg',
+                width: 1200,
+                height: 630,
+                alt: 'Сушильные линии | КировБелМаш',
+            },
+        ],
     },
 };
 

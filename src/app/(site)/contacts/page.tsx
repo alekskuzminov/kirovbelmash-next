@@ -11,6 +11,16 @@ export const metadata: Metadata = {
         title: 'Контакты КировБелМаш',
         description: 'Телефоны, адрес, email и форма заявки. Работаем Пн-Пт с 8:00 до 17:00.',
         url: 'https://kirovbelmash.ru/contacts',
+        type: 'website',
+        siteName: 'КировБелМаш',
+        images: [
+            {
+                url: '/images/logo/og-image.jpg',
+                width: 1200,
+                height: 630,
+                alt: 'Контакты КировБелМаш',
+            },
+        ],
     },
 };
 

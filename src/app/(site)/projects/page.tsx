@@ -12,6 +12,16 @@ export const metadata: Metadata = {
         title: 'Реализованные проекты КировБелМаш',
         description: '80+ проектов в 35+ регионах. Линии брикетирования, гранулирования и сушки с фото и видео.',
         url: 'https://kirovbelmash.ru/projects',
+        type: 'website',
+        siteName: 'КировБелМаш',
+        images: [
+            {
+                url: '/images/logo/og-image.jpg',
+                width: 1200,
+                height: 630,
+                alt: 'Реализованные проекты КировБелМаш',
+            },
+        ],
     },
 };
 

@@ -29,6 +29,16 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
                 title: category.seoTitle || category.name,
                 description: category.seoDescription || '',
                 url: `https://kirovbelmash.ru/oborudovanie/${slug}`,
+                type: 'website',
+                siteName: 'КировБелМаш',
+                images: [
+                    {
+                        url: '/images/logo/og-image.jpg',
+                        width: 1200,
+                        height: 630,
+                        alt: category.seoTitle || category.name,
+                    },
+                ],
             },
         };
     }
@@ -44,6 +54,16 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
                 title: item.seoTitle || item.name,
                 description: item.description,
                 url: `https://kirovbelmash.ru/oborudovanie/${slug}`,
+                type: 'website',
+                siteName: 'КировБелМаш',
+                images: [
+                    {
+                        url: item.image || '/images/logo/og-image.jpg',
+                        width: 1200,
+                        height: 630,
+                        alt: item.seoTitle || item.name,
+                    },
+                ],
             },
         };
     }

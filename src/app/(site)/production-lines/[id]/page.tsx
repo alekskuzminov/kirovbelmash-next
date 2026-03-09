@@ -30,6 +30,16 @@ export async function generateMetadata({ params }: ProductionLinePageProps): Pro
             title: variant.name,
             description: variant.description,
             url: `https://kirovbelmash.ru/production-lines/${id}`,
+            type: 'website',
+            siteName: 'КировБелМаш',
+            images: [
+                {
+                    url: variant.renders?.[0] || '/images/logo/og-image.jpg',
+                    width: 1200,
+                    height: 630,
+                    alt: variant.name,
+                },
+            ],
         },
     };
 }
