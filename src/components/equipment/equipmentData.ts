@@ -38,7 +38,7 @@ export const equipmentItems: EquipmentItem[] = [
 
     slug: 'avtomat-rezki-briketa',
 
-        seoTitle: 'Автомат резки брикетов | КировБелМаш',
+    seoTitle: 'Автомат резки брикетов',
 
     name: 'Автомат резки брикетов',
 
@@ -82,7 +82,7 @@ export const equipmentItems: EquipmentItem[] = [
 
     slug: 'press-pbm2-dlya-briketov',
 
-        seoTitle: 'Пресс ПБМ-2 для брикетов Pini Kay | КировБелМаш',
+    seoTitle: 'Пресс ПБМ-2 для брикетов Pini Kay',
 
     name: 'Пресс ПБМ-2 для брикетов Pini Kay',
 
@@ -124,7 +124,7 @@ export const equipmentItems: EquipmentItem[] = [
 
     slug: 'granuljator-ogm-1-5',
 
-        seoTitle: 'Гранулятор для пеллет – пеллетайзер ОГМ-1,5 | КировБелМаш',
+    seoTitle: 'Гранулятор для пеллет – пеллетайзер ОГМ-1,5',
 
     name: 'Гранулятор для пеллет – пеллетайзер ОГМ-1,5',
 
@@ -165,7 +165,7 @@ export const equipmentItems: EquipmentItem[] = [
 
     slug: 'kolonna-ohlazhdenija',
 
-        seoTitle: 'Колонна охлаждения гранул | КировБелМаш',
+    seoTitle: 'Колонна охлаждения гранул',
 
     name: 'Колонна охлаждения гранул',
 
@@ -208,7 +208,7 @@ export const equipmentItems: EquipmentItem[] = [
 
     slug: 'rubitelnaya-mashina-dlya-schepy-rdm-22',
 
-        seoTitle: 'Рубительная машина РДМ-22 | КировБелМаш',
+    seoTitle: 'Рубительная машина РДМ-22',
 
     name: 'Рубительная машина РДМ-22',
 
@@ -250,7 +250,7 @@ export const equipmentItems: EquipmentItem[] = [
 
     slug: 'rubitelnaya-mashina-dlya-drevesiny-rbm-55',
 
-        seoTitle: 'Рубительная машина РБМ-55 | КировБелМаш',
+    seoTitle: 'Рубительная машина РБМ-55',
 
     name: 'Рубительная машина РБМ-55',
 
@@ -290,7 +290,7 @@ export const equipmentItems: EquipmentItem[] = [
 
     slug: 'drobilnaja-ustanovka-kd',
 
-        seoTitle: 'Молотковая дробилка КДЕ | КировБелМаш',
+    seoTitle: 'Молотковая дробилка КДЕ',
 
     name: 'Молотковая дробилка КДЕ',
 
@@ -327,7 +327,7 @@ export const equipmentItems: EquipmentItem[] = [
 
     slug: 'drobilnaja-ustanovka-dss',
 
-        seoTitle: 'Молотковая дробилка ДСС | КировБелМаш',
+    seoTitle: 'Молотковая дробилка ДСС',
 
     name: 'Молотковая дробилка ДСС',
 
@@ -369,7 +369,7 @@ export const equipmentItems: EquipmentItem[] = [
 
     slug: 'bunker-nakopitel-v-3-kub-m',
 
-        seoTitle: 'Бункер-накопитель V=3 м³ | КировБелМаш',
+    seoTitle: 'Бункер-накопитель V=3 м³',
 
     name: 'Бункер-накопитель V=3 м³',
 
@@ -409,7 +409,7 @@ export const equipmentItems: EquipmentItem[] = [
 
     slug: 'bunker-nakopitel-v-6-kub-m',
 
-        seoTitle: 'Бункер-накопитель V=6 м³ | КировБелМаш',
+    seoTitle: 'Бункер-накопитель V=6 м³',
 
     name: 'Бункер-накопитель V=6 м³',
 
@@ -452,7 +452,7 @@ export const equipmentItems: EquipmentItem[] = [
 
     slug: 'baraban-sushilniy-avm-1-5',
 
-        seoTitle: 'Барабан сушильный АВМ-1,5 | КировБелМаш',
+    seoTitle: 'Барабан сушильный АВМ-1,5',
 
     name: 'Барабан сушильный АВМ-1,5',
 
@@ -496,7 +496,7 @@ export const equipmentItems: EquipmentItem[] = [
 
     slug: 'sushilniy-baraban-avm-0-65',
 
-        seoTitle: 'Сушильный барабан АВМ-0,65 | КировБелМаш',
+    seoTitle: 'Сушильный барабан АВМ-0,65',
 
     name: 'Сушильный барабан АВМ-0,65',
 
@@ -541,7 +541,7 @@ export const equipmentItems: EquipmentItem[] = [
 
     slug: 'teplogenerator-tgm-1-5',
 
-        seoTitle: 'Теплогенератор ТГМ-1,5 | КировБелМаш',
+    seoTitle: 'Теплогенератор ТГМ-1,5',
 
     name: 'Теплогенератор ТГМ-1,5',
 
@@ -583,7 +583,7 @@ export const equipmentItems: EquipmentItem[] = [
 
     slug: 'teplogenerator-tgk-1-0',
 
-        seoTitle: 'Теплогенератор ТГК-1,0 | КировБелМаш',
+    seoTitle: 'Теплогенератор ТГК-1,0',
 
     name: 'Теплогенератор ТГК-1,0',
 
@@ -622,7 +622,7 @@ export const equipmentItems: EquipmentItem[] = [
 
     slug: 'teplogenerator-tgvg-1-0',
 
-        seoTitle: 'Теплогенератор ТГВГ-1,0 | КировБелМаш',
+    seoTitle: 'Теплогенератор ТГВГ-1,0',
 
     name: 'Теплогенератор ТГВГ-1,0',
 
@@ -665,7 +665,7 @@ export const equipmentItems: EquipmentItem[] = [
 
     slug: 'tsiklon-osaditel-us-2500',
 
-        seoTitle: 'Циклон-осадитель для опилок УЦ-2500 | КировБелМаш',
+    seoTitle: 'Циклон-осадитель для опилок УЦ-2500',
 
     name: 'Циклон-осадитель для опилок УЦ-2500',
 
@@ -705,7 +705,7 @@ export const equipmentItems: EquipmentItem[] = [
 
     slug: 'tsiklon-osaditel-us-1600',
 
-        seoTitle: 'Циклон-осадитель для опилок УЦ-1600 | КировБелМаш',
+    seoTitle: 'Циклон-осадитель для опилок УЦ-1600',
 
     name: 'Циклон-осадитель для опилок УЦ-1600',
 
@@ -744,7 +744,7 @@ export const equipmentItems: EquipmentItem[] = [
 
     slug: 'tsiklon-osaditel-us-100',
 
-        seoTitle: 'Циклон-осадитель для опилок УЦ-100 | КировБелМаш',
+    seoTitle: 'Циклон-осадитель для опилок УЦ-100',
 
     name: 'Циклон-осадитель для опилок УЦ-100',
 
@@ -783,7 +783,7 @@ export const equipmentItems: EquipmentItem[] = [
 
     slug: 'zatvor-shlyuzovoy',
 
-        seoTitle: 'Затвор шлюзовой | КировБелМаш',
+    seoTitle: 'Затвор шлюзовой',
 
     name: 'Затвор шлюзовой',
 
@@ -827,7 +827,7 @@ export const equipmentItems: EquipmentItem[] = [
 
     slug: 'mekhanicheskoe-zhivoe-dno',
 
-        seoTitle: 'Стокерный склад «Живое дно» – механический | КировБелМаш',
+    seoTitle: 'Стокерный склад «Живое дно» – механический',
 
     name: 'Стокерный склад «Живое дно» – механический',
 
@@ -867,7 +867,7 @@ export const equipmentItems: EquipmentItem[] = [
 
     slug: 'stokernyj-sklad-zhivoe-dno',
 
-        seoTitle: 'Стокерный склад «Живое дно» гидравлический | КировБелМаш',
+    seoTitle: 'Стокерный склад «Живое дно» гидравлический',
 
     name: 'Стокерный склад «Живое дно» гидравлический',
 
@@ -912,7 +912,7 @@ export const equipmentItems: EquipmentItem[] = [
 
     slug: 'transporter-lentochniy',
 
-        seoTitle: 'Транспортер ленточный | КировБелМаш',
+    seoTitle: 'Транспортер ленточный',
 
     name: 'Транспортер ленточный',
 
@@ -949,7 +949,7 @@ export const equipmentItems: EquipmentItem[] = [
 
     slug: 'transporter-tsepnoy-skrebkoviy-z-obrazniy',
 
-        seoTitle: 'Транспортер цепной скребковый Z-образный | КировБелМаш',
+    seoTitle: 'Транспортер цепной скребковый Z-образный',
 
     name: 'Транспортер цепной скребковый Z-образный',
 
@@ -989,7 +989,7 @@ export const equipmentItems: EquipmentItem[] = [
 
     slug: 'transporter-tsepnoy-skrebkoviy-pryamoy',
 
-        seoTitle: 'Транспортер цепной скребковый прямой | КировБелМаш',
+    seoTitle: 'Транспортер цепной скребковый прямой',
 
     name: 'Транспортер цепной скребковый прямой',
 
@@ -1029,7 +1029,7 @@ export const equipmentItems: EquipmentItem[] = [
 
     slug: 'jelevator',
 
-        seoTitle: 'Нория-элеватор | КировБелМаш',
+    seoTitle: 'Нория-элеватор',
 
     name: 'Нория-элеватор',
 
@@ -1070,7 +1070,7 @@ export const equipmentItems: EquipmentItem[] = [
 
     slug: 'transporter-lentochniy-s-gofrobortom',
 
-        seoTitle: 'Ленточный транспортер с гофробортом | КировБелМаш',
+    seoTitle: 'Ленточный транспортер с гофробортом',
 
     name: 'Ленточный транспортер с гофробортом',
 
@@ -1105,7 +1105,7 @@ export const equipmentItems: EquipmentItem[] = [
 
     slug: 'dozator-shnekovyj',
 
-        seoTitle: 'Шнековый питатель | КировБелМаш',
+    seoTitle: 'Шнековый питатель',
 
     name: 'Шнековый питатель',
 
@@ -1142,7 +1142,7 @@ export const equipmentItems: EquipmentItem[] = [
 
     slug: 'transporter-cepnoj-skrebkovyj',
 
-        seoTitle: 'Наклонный L-образный цепной транспортер | КировБелМаш',
+    seoTitle: 'Наклонный L-образный цепной транспортер',
 
     name: 'Наклонный L-образный цепной транспортер',
 
@@ -1178,7 +1178,7 @@ export const equipmentItems: EquipmentItem[] = [
 
     slug: 'ustrojstvo-proseivajushhee',
 
-        seoTitle: 'Барабанный просеиватель | КировБелМаш',
+    seoTitle: 'Барабанный просеиватель',
 
     name: 'Барабанный просеиватель',
 
@@ -1214,7 +1214,7 @@ export const equipmentItems: EquipmentItem[] = [
 
     slug: 'separator-diskovyj',
 
-        seoTitle: 'Дисковый сепаратор | КировБелМаш',
+    seoTitle: 'Дисковый сепаратор',
 
     name: 'Дисковый сепаратор',
 

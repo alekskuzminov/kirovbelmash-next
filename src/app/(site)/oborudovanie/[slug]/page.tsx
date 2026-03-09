@@ -21,7 +21,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     const category = equipmentCategoriesConfig.find((c) => c.slug === slug);
     if (category) {
         return {
-            title: `${category.name} | Каталог оборудования | Kirovbelmash`,
+            title: `${category.name} | Каталог оборудования`,
             description: `Купить оборудование в категории "${category.name}". Каталог промышленных станков и линий с техническими характеристиками и описанием.`,
         };
     }
@@ -30,13 +30,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     const item = equipmentItems.find((e) => e.slug === slug);
     if (item) {
         return {
-            title: item.seoTitle || `${item.name} | Оборудование | Kirovbelmash`,
+            title: item.seoTitle || `${item.name} | Оборудование`,
             description: item.description,
         };
     }
 
     return {
-        title: 'Страница не найдена | Kirovbelmash'
+        title: 'Страница не найдена'
     };
 }
 
