@@ -2,6 +2,7 @@
 
 import { useState, FormEvent } from 'react';
 import { submitContactForm } from '@/lib/api';
+import { sendMetrikaGoal } from '@/lib/metrika';
 import PrivacyDisclaimer from '@/components/ui/PrivacyDisclaimer';
 
 export default function ContactsForm() {
@@ -39,10 +40,7 @@ export default function ContactsForm() {
         if (ok) {
             setSubmitStatus('success');
             setFormData({ name: '', phone: '', email: '', message: '' });
-            // Отправка события в Яндекс Метрику
-            if (typeof window !== "undefined" && (window as any).ym) {
-                (window as any).ym(105767551, 'reachGoal', 'form_submit');
-            }
+            sendMetrikaGoal('form_submit');
         } else {
             setSubmitStatus('error');
         }

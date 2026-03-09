@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { SITE_CONFIG } from '@/config/site.config';
+import { sendMetrikaGoal } from '@/lib/metrika';
 import PrivacyDisclaimer from '@/components/ui/PrivacyDisclaimer';
 
 interface LineQuoteFormProps {
@@ -26,10 +27,7 @@ export default function LineQuoteForm({ lineName }: LineQuoteFormProps) {
         e.preventDefault();
         // TODO: integrate with real form submission
         setSubmitted(true);
-        // Отправка события в Яндекс Метрику
-        if (typeof window !== "undefined" && (window as any).ym) {
-            (window as any).ym(105767551, 'reachGoal', 'form_submit');
-        }
+        sendMetrikaGoal('form_submit');
     };
 
     const inputCls =
