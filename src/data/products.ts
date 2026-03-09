@@ -105,10 +105,10 @@ export const advantages = [
         description: 'Опытные инженеры, технологи и сервисные специалисты',
     },
     {
-        icon: 'ri-key-2-line',
-        value: 'Под ключ',
-        title: 'Реализация проектов',
-        description: 'Полный цикл от проектирования до пусконаладки и обучения персонала',
+        icon: 'ri-shield-check-line',
+        value: '3 года',
+        title: 'Гарантийный срок',
+        description: 'Гарантия на всё поставляемое оборудование сроком 3 года',
     },
     {
         icon: 'ri-tools-line',

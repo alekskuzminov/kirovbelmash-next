@@ -99,11 +99,11 @@ export default function Hero() {
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-5xl">
                         <div className="flex items-start gap-4">
                             <div className="w-12 h-12 flex items-center justify-center">
-                                <i className="ri-tools-line text-4xl text-red-600"></i>
+                                <i className="ri-shield-check-line text-4xl text-red-600"></i>
                             </div>
                             <div>
                                 <p className="text-white text-base leading-relaxed">
-                                    Проектируем и запускаем «под ключ»
+                                    Гарантийный срок 3 года
                                 </p>
                             </div>
                         </div>
