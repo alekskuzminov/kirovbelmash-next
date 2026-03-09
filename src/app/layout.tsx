@@ -58,6 +58,9 @@ export const metadata: Metadata = {
     "geo.placename": "Белая Холуница, Кировская область, Россия",
     "geo.region": "RU-KIR",
   },
+  verification: {
+    yandex: "202639abf9a4bbe3",
+  },
   icons: {
     icon: "/images/logo/logo.webp",
   },
