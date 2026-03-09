@@ -23,7 +23,7 @@ export async function generateMetadata({ params }: ProductionLinePageProps): Pro
     const variant = findLineVariant(id);
     if (!variant) return {};
     return {
-        title: `${variant.name} | КировБелМаш`,
+        title: variant.name,
         description: variant.description,
         alternates: { canonical: `/production-lines/${id}` },
         openGraph: {

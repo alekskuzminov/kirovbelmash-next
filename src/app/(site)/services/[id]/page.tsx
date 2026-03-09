@@ -24,12 +24,12 @@ export async function generateMetadata({ params }: ServicePageProps): Promise<Me
 
     if (!service) {
         return {
-            title: 'Услуга не найдена | КировБелМаш',
+            title: 'Услуга не найдена',
         };
     }
 
     return {
-        title: `${service.title} | КировБелМаш`,
+        title: service.title,
         description: service.shortDesc,
         alternates: { canonical: `/services/${service.id}` },
         openGraph: {

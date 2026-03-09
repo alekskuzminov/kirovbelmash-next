@@ -25,7 +25,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     }
 
     return {
-        title: `${post.title} | Блог КировБелМаш`,
+        title: `${post.title} | Блог`,
         description: post.excerpt,
         alternates: { canonical: `/blog/${post.slug}` },
         openGraph: {
