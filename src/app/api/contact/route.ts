@@ -13,6 +13,7 @@ interface ContactPayload {
 
 const RECIPIENTS = [
     'a.kuzminow@yandex.ru',
+    'sale@kirovbelmash.ru',
 ];
 
 const SOURCE_LABELS: Record<string, string> = {
