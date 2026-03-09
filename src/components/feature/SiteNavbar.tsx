@@ -5,7 +5,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname, useRouter } from 'next/navigation';
 import { SITE_CONFIG } from '@/config/site.config';
-import { equipmentCategories } from '@/data/equipment';
+import { equipmentCategories, equipmentCategoriesConfig } from '@/data/equipment';
 import { openContactModal } from '@/components/common/ContactModal';
 
 interface SiteNavbarProps {
@@ -19,9 +19,9 @@ const linesSubMenu = [
 ];
 
 // Reuse categories from the single source of truth in mocks/equipment.ts
-const equipmentSubMenu = equipmentCategories
-    .filter((c) => c !== 'Все')
-    .map((category) => ({ label: category, category }));
+const equipmentSubMenu = equipmentCategoriesConfig
+    .filter((c) => c.slug !== 'all')
+    .map((cat) => ({ label: cat.name, href: `/oborudovanie/${cat.slug}` }));
 
 type DropdownId = 'lines' | 'equipment' | null;
 
@@ -301,8 +301,8 @@ export default function SiteNavbar({ variant = 'transparent' }: SiteNavbarProps)
                                                 <div className="bg-white rounded-lg shadow-xl border border-gray-100 py-2 min-w-[300px] max-h-[70vh] overflow-y-auto">
                                                     {equipmentSubMenu.map((sub) => (
                                                         <Link
-                                                            key={sub.category}
-                                                            href={`/oborudovanie?category=${encodeURIComponent(sub.category)}`}
+                                                            key={sub.label}
+                                                            href={sub.href}
                                                             onClick={() => setOpenDropdown(null)}
                                                             className={dropdownItemCls}
                                                         >
@@ -401,8 +401,8 @@ export default function SiteNavbar({ variant = 'transparent' }: SiteNavbarProps)
                                                 </Link>
                                                 {equipmentSubMenu.map((sub) => (
                                                     <Link
-                                                        key={sub.category}
-                                                        href={`/oborudovanie?category=${encodeURIComponent(sub.category)}`}
+                                                        key={sub.label}
+                                                        href={sub.href}
                                                         onClick={() => setIsMobileMenuOpen(false)}
                                                         className="block py-2 px-3 text-sm text-gray-600 hover:text-red-600 hover:bg-red-50 rounded-lg cursor-pointer transition-colors"
                                                     >

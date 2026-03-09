@@ -1,13 +1,13 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { SITE_CONFIG } from '@/config/site.config';
-import { equipmentCategories } from '@/components/equipment/equipmentData';
+import { equipmentCategories, equipmentCategoriesConfig } from '@/components/equipment/equipmentData';
 
 export default function SiteFooter() {
     const { contacts, social, assets, company } = SITE_CONFIG;
 
     // Filter out 'Все' category
-    const footerCategories = equipmentCategories.filter(cat => cat !== 'Все');
+    const footerCategories = equipmentCategoriesConfig.filter(cat => cat.slug !== 'all');
 
     return (
         <footer className="bg-gradient-to-b from-gray-900 to-gray-950 text-white">
@@ -117,12 +117,12 @@ export default function SiteFooter() {
                         </h4>
                         <ul className="space-y-2 sm:space-y-3">
                             {footerCategories.map((item) => (
-                                <li key={item}>
+                                <li key={item.slug}>
                                     <Link
-                                        href={`/oborudovanie?category=${encodeURIComponent(item)}`}
+                                        href={`/oborudovanie/${item.slug}`}
                                         className="text-xs sm:text-sm text-gray-400 hover:text-red-500 transition-colors cursor-pointer"
                                     >
-                                        {item}
+                                        {item.name}
                                     </Link>
                                 </li>
                             ))}

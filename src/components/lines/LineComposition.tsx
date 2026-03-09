@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { equipmentCategoriesConfig } from '@/data/equipment';
 
 // Mapping from composition item substrings/names to actual catalog categories
 const categoryMap: { [key: string]: string } = {
@@ -17,6 +18,11 @@ const categoryMap: { [key: string]: string } = {
     'Вентилятор': 'Пневмотранспортное оборудование',
     'Конвейер': 'Транспортирующее оборудование',
 };
+
+function getCategorySlug(categoryName: string): string | null {
+    const category = equipmentCategoriesConfig.find(c => c.name === categoryName);
+    return category ? category.slug : null;
+}
 
 function getCategoryForComposition(item: string): string | null {
     if (item.includes('Система автоматики') || item.includes('Система упаковки')) {
@@ -39,8 +45,9 @@ export default function LineComposition({ composition }: { composition: string[]
             </h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
                 {composition.map((item) => {
-                    const category = getCategoryForComposition(item);
-                    const isClickable = !!category;
+                    const categoryName = getCategoryForComposition(item);
+                    const slug = categoryName ? getCategorySlug(categoryName) : null;
+                    const isClickable = !!slug;
 
                     const content = (
                         <>
@@ -53,7 +60,7 @@ export default function LineComposition({ composition }: { composition: string[]
                         return (
                             <Link
                                 key={item}
-                                href={`/oborudovanie?category=${encodeURIComponent(category)}`}
+                                href={`/oborudovanie/${slug}`}
                                 className="flex items-start gap-3 bg-white hover:bg-red-50/50 rounded-xl px-4 py-3.5 border border-gray-100 hover:border-red-100 shadow-sm hover:shadow-md transition-all group"
                             >
                                 <i className="ri-checkbox-circle-fill text-red-500 group-hover:text-red-600 text-lg flex-shrink-0 mt-0.5 transition-colors" />
