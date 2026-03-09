@@ -1,5 +1,7 @@
 export interface EquipmentItem {
   id: number;
+  slug: string;
+  seoTitle: string;
   name: string;
   category: string;
   description: string;
@@ -33,10 +35,18 @@ export const equipmentItems: EquipmentItem[] = [
   // Станки для производства брикетов
   {
     id: 1,
+
+    slug: 'avtomat-rezki-briketa',
+
+        seoTitle: 'Автомат резки брикетов | КировБелМаш',
+
     name: 'Автомат резки брикетов',
+
     category: 'Станки для производства брикетов',
+
     description:
-      'Автоматическая система резки брикетов для получения изделий заданной длины. Обеспечивает точную резку и высокую производительность при минимальном участии оператора.',
+
+      'Автомат резки брикетов для точной нарезки Pini Kay: чистый рез, механический привод без компрессора, надежная конструкция.',
     image:
       '/images/equipment/briquette-presses/briquette-cutting-machine/preview-briquette-cutting-machine-catalog.webp',
     specs: [
@@ -69,10 +79,18 @@ export const equipmentItems: EquipmentItem[] = [
   },
   {
     id: 2,
+
+    slug: 'press-pbm2-dlya-briketov',
+
+        seoTitle: 'Пресс ПБМ-2 для брикетов Pini Kay | КировБелМаш',
+
     name: 'Пресс ПБМ-2 для брикетов Pini Kay',
+
     category: 'Станки для производства брикетов',
+
     description:
-      'Специализированный пресс для производства брикетов типа Pini Kay с характерной формой и центральным отверстием. Высокое качество брикетов и стабильная работа.',
+
+      'Пресс ПБМ-2 для брикетов Pini Kay: экструдер без связующих, высокий КПД, компактная компоновка, удобное обслуживание и транспортировка.',
     image:
       '/images/equipment/briquette-presses/pini-kay-press-pbm2/preview-pini-kay-press-pbm2-catalog.webp',
     specs: [
@@ -103,10 +121,18 @@ export const equipmentItems: EquipmentItem[] = [
   // Станки для производства пеллет
   {
     id: 3,
+
+    slug: 'granuljator-ogm-1-5',
+
+        seoTitle: 'Гранулятор для пеллет – пеллетайзер ОГМ-1,5 | КировБелМаш',
+
     name: 'Гранулятор для пеллет – пеллетайзер ОГМ-1,5',
+
     category: 'Станки для производства пеллет',
+
     description:
-      'Высокопроизводительный гранулятор с кольцевой матрицей для производства топливных пеллет. Надёжная конструкция и стабильное качество гранул.',
+
+      'Гранулятор ОГМ-1,5 для пеллет из опилок, соломы и лузги: прочные гранулы, усиленный прессующий узел, стабильная работа.',
     image:
       '/images/equipment/pellet-presses/pellet-mill-ogm15/preview-pellet-mill-ogm15-catalog.webp',
     specs: [
@@ -136,10 +162,18 @@ export const equipmentItems: EquipmentItem[] = [
   },
   {
     id: 4,
+
+    slug: 'kolonna-ohlazhdenija',
+
+        seoTitle: 'Колонна охлаждения гранул | КировБелМаш',
+
     name: 'Колонна охлаждения гранул',
+
     category: 'Станки для производства пеллет',
+
     description:
-      'Вертикальная колонна для охлаждения готовых пеллет после гранулятора. Обеспечивает равномерное охлаждение и подготовку гранул к упаковке.',
+
+      'Колонна охлаждения гранул непрерывного действия: снижает температуру и влажность, работает по принципу противотока, выгружает автоматически.',
     image:
       '/images/equipment/pellet-presses/pellet-cooling-column/preview-pellet-cooling-column-catalog.webp',
     specs: [
@@ -171,10 +205,18 @@ export const equipmentItems: EquipmentItem[] = [
   // Рубительные машины
   {
     id: 5,
+
+    slug: 'rubitelnaya-mashina-dlya-schepy-rdm-22',
+
+        seoTitle: 'Рубительная машина РДМ-22 | КировБелМаш',
+
     name: 'Рубительная машина РДМ-22',
+
     category: 'Рубительные машины',
+
     description:
-      'Дисковая рубительная машина для первичного измельчения древесины. Перерабатывает брёвна, горбыль и обрезки в технологическую щепу.',
+
+      'Рубительная машина РДМ-22 для влажных отходов деревообработки: перерабатывает рейки, ветки и горбыль в технологическую щепу.',
     image:
       '/images/equipment/chippers/wood-chipper-rdm22/preview-wood-chipper-rdm22-catalog.webp',
     specs: [
@@ -205,10 +247,18 @@ export const equipmentItems: EquipmentItem[] = [
   },
   {
     id: 6,
+
+    slug: 'rubitelnaya-mashina-dlya-drevesiny-rbm-55',
+
+        seoTitle: 'Рубительная машина РБМ-55 | КировБелМаш',
+
     name: 'Рубительная машина РБМ-55',
+
     category: 'Рубительные машины',
+
     description:
-      'Барабанная рубительная машина для переработки крупных древесных отходов. Высокая производительность и равномерная фракция щепы.',
+
+      'Рубительная машина РБМ-55 для отходов деревообработки: измельчает рейки, ветки, горбыль и бревна в технологическую щепу.',
     image:
       '/images/equipment/chippers/drum-chipper-rbm55/preview-drum-chipper-rbm55-catalog.webp',
     specs: [
@@ -237,10 +287,18 @@ export const equipmentItems: EquipmentItem[] = [
   // Дробильное оборудование
   {
     id: 7,
+
+    slug: 'drobilnaja-ustanovka-kd',
+
+        seoTitle: 'Молотковая дробилка КДЕ | КировБелМаш',
+
     name: 'Молотковая дробилка КДЕ',
+
     category: 'Дробильное оборудование',
+
     description:
-      'Высокопроизводительная молотковая дробилка для измельчения древесных отходов и щепы. Обеспечивает равномерную фракцию на выходе.',
+
+      'Молотковая дробилка КДЕ для древесных и сельхозотходов: измельчает щепу, стружку, шпон, солому и лузгу для дальнейшей переработки.',
     image:
       '/images/equipment/crushers/hammer-mill-kde/preview-hammer-mill-kde-catalog.webp',
     specs: [
@@ -266,10 +324,18 @@ export const equipmentItems: EquipmentItem[] = [
   },
   {
     id: 8,
+
+    slug: 'drobilnaja-ustanovka-dss',
+
+        seoTitle: 'Молотковая дробилка ДСС | КировБелМаш',
+
     name: 'Молотковая дробилка ДСС',
+
     category: 'Дробильное оборудование',
+
     description:
-      'Дробилка для вторичного измельчения щепы в мелкую фракцию. Равномерный помол и высокая надёжость при непрерывной работе.',
+
+      'Молотковая дробилка ДСС с пневмозагрузкой для зерна и древесного сырья: работает с фракцией до 30 мм и влажностью до 18%.',
     image:
       '/images/equipment/crushers/hammer-mill-dss/preview-hammer-mill-dss-catalog.webp',
     specs: [
@@ -300,10 +366,18 @@ export const equipmentItems: EquipmentItem[] = [
   // Бункеры-накопители с ворошителем
   {
     id: 9,
+
+    slug: 'bunker-nakopitel-v-3-kub-m',
+
+        seoTitle: 'Бункер-накопитель V=3 м³ | КировБелМаш',
+
     name: 'Бункер-накопитель V=3 м³',
+
     category: 'Бункеры-накопители с ворошителем',
+
     description:
-      'Компактный бункер-накопитель с ворошителем для хранения и равномерной подачи сыпучих материалов. Предотвращает сводообразование.',
+
+      'Бункер-накопитель V=3 м³ для линий переработки: накапливает сырье, стабилизирует поток и обеспечивает равномерную подачу в оборудование.',
     image:
       '/images/equipment/bunkers/bunker-3m3/preview-bunker-3m3-catalog.webp',
     specs: [
@@ -332,10 +406,18 @@ export const equipmentItems: EquipmentItem[] = [
   },
   {
     id: 10,
+
+    slug: 'bunker-nakopitel-v-6-kub-m',
+
+        seoTitle: 'Бункер-накопитель V=6 м³ | КировБелМаш',
+
     name: 'Бункер-накопитель V=6 м³',
+
     category: 'Бункеры-накопители с ворошителем',
+
     description:
-      'Бункер-накопитель среднего объёма с ворошителем для производственных линий. Надёжная система выгрузки и контроля уровня.',
+
+      'Бункер-накопитель V=6 м³ для производственных линий: работает как буфер и подает сырье дозированно с заданной скоростью.',
     image:
       '/images/equipment/bunkers/bunker-6m3/preview-bunker-6m3-catalog.webp',
     specs: [
@@ -367,10 +449,18 @@ export const equipmentItems: EquipmentItem[] = [
   // Сушильное оборудование
   {
     id: 11,
+
+    slug: 'baraban-sushilniy-avm-1-5',
+
+        seoTitle: 'Барабан сушильный АВМ-1,5 | КировБелМаш',
+
     name: 'Барабан сушильный АВМ-1,5',
+
     category: 'Сушильное оборудование',
+
     description:
-      'Промышленная барабанная сушилка для снижения влажности сырья перед брикетированием или гранулированием. Высокая эффективность теплообмена.',
+
+      'Барабан сушильный АВМ-1,5 для снижения влажности опилок и древесного сырья: стабильно сушит материал и комплектуется трубопроводом.',
     image:
       '/images/equipment/dryers/drum-dryer-avm15/preview-drum-dryer-avm15-catalog.webp',
     specs: [
@@ -403,10 +493,18 @@ export const equipmentItems: EquipmentItem[] = [
   },
   {
     id: 12,
+
+    slug: 'sushilniy-baraban-avm-0-65',
+
+        seoTitle: 'Сушильный барабан АВМ-0,65 | КировБелМаш',
+
     name: 'Сушильный барабан АВМ-0,65',
+
     category: 'Сушильное оборудование',
+
     description:
-      'Компактная барабанная сушилка для малых и средних производств. Эффективная сушка при минимальных энергозатратах.',
+
+      'Сушильный барабан АВМ-0,65 для зерна и другого сырья: снижает влажность в потоке теплоносителя и подает сухой материал в циклон.',
     image:
       '/images/equipment/dryers/drum-dryer-avm065/preview-drum-dryer-avm065-catalog.webp',
     specs: [
@@ -440,10 +538,18 @@ export const equipmentItems: EquipmentItem[] = [
   },
   {
     id: 13,
+
+    slug: 'teplogenerator-tgm-1-5',
+
+        seoTitle: 'Теплогенератор ТГМ-1,5 | КировБелМаш',
+
     name: 'Теплогенератор ТГМ-1,5',
+
     category: 'Сушильное оборудование',
+
     description:
-      'Теплогенератор для сушильных комплексов. Работает на древесных отходах, обеспечивает стабильную температуру теплоносителя.',
+
+      'Теплогенератор ТГМ-1,5 для сжигания древесного топлива: подает тепло для сушки мелкофракционных отходов в барабанах и сушилках.',
     image:
       '/images/equipment/dryers/heat-gen-tgm15/preview-heat-gen-tgm15-catalog.webp',
     specs: [
@@ -474,10 +580,18 @@ export const equipmentItems: EquipmentItem[] = [
   },
   {
     id: 14,
+
+    slug: 'teplogenerator-tgk-1-0',
+
+        seoTitle: 'Теплогенератор ТГК-1,0 | КировБелМаш',
+
     name: 'Теплогенератор ТГК-1,0',
+
     category: 'Сушильное оборудование',
+
     description:
-      'Компактный теплогенератор для небольших сушильных установок. Эффективное сжигание древесных отходов и стабильная работа.',
+
+      'Теплогенератор ТГК-1,0 для сжигания отходов деревообработки: подает тепло в сушильные барабаны, работает с топливом влажностью до 40%.',
     image:
       '/images/equipment/dryers/heat-gen-tgk10/preview-heat-gen-tgk10-catalog.webp',
     specs: [
@@ -505,10 +619,18 @@ export const equipmentItems: EquipmentItem[] = [
   },
   {
     id: 15,
+
+    slug: 'teplogenerator-tgvg-1-0',
+
+        seoTitle: 'Теплогенератор ТГВГ-1,0 | КировБелМаш',
+
     name: 'Теплогенератор ТГВГ-1,0',
+
     category: 'Сушильное оборудование',
+
     description:
-      'Вихревой теплогенератор для сушильных комплексов. Высокая эффективность сжигания и равномерный нагрев теплоносителя.',
+
+      'Теплогенератор ТГВГ-1,0 вихревого типа: дает тепло для сушки сырья, работает с древесными отходами влажностью до 40%.',
     image:
       '/images/equipment/dryers/heat-gen-tgvg10/preview-heat-gen-tgvg10-catalog.webp',
     specs: [
@@ -540,10 +662,18 @@ export const equipmentItems: EquipmentItem[] = [
   // Пневмотранспортное оборудование
   {
     id: 16,
+
+    slug: 'tsiklon-osaditel-us-2500',
+
+        seoTitle: 'Циклон-осадитель для опилок УЦ-2500 | КировБелМаш',
+
     name: 'Циклон-осадитель для опилок УЦ-2500',
+
     category: 'Пневмотранспортное оборудование',
+
     description:
-      'Крупный циклон-осадитель для отделения опилок и пыли из воздушного потока. Высокая эффективность очистки и большая производительность.',
+
+      'Циклон-осадитель УЦ-2500 очищает выбросы деревообработки от сухих опилок, стружки и неволокнистой пыли.',
     image:
       '/images/equipment/pneumatic/cyclone-uc2500/preview-cyclone-uc2500-catalog.webp',
     specs: [
@@ -572,10 +702,18 @@ export const equipmentItems: EquipmentItem[] = [
   },
   {
     id: 17,
+
+    slug: 'tsiklon-osaditel-us-1600',
+
+        seoTitle: 'Циклон-осадитель для опилок УЦ-1600 | КировБелМаш',
+
     name: 'Циклон-осадитель для опилок УЦ-1600',
+
     category: 'Пневмотранспортное оборудование',
+
     description:
-      'Циклон среднего размера для отделения опилок из воздушного потока. Оптимален для средних производственных линий.',
+
+      'Циклон-осадитель УЦ-1600 для очистки технологических выбросов: отделяет сухие опилки, стружку и неслипающуюся пыль.',
     image:
       '/images/equipment/pneumatic/cyclone-uc1600/preview-cyclone-uc1600-catalog.webp',
     specs: [
@@ -603,10 +741,18 @@ export const equipmentItems: EquipmentItem[] = [
   },
   {
     id: 18,
+
+    slug: 'tsiklon-osaditel-us-100',
+
+        seoTitle: 'Циклон-осадитель для опилок УЦ-100 | КировБелМаш',
+
     name: 'Циклон-осадитель для опилок УЦ-100',
+
     category: 'Пневмотранспортное оборудование',
+
     description:
-      'Компактный циклон для малых производств и локальной очистки воздуха от опилок и пыли. Простая конструкция и надёжная работа.',
+
+      'Циклон-осадитель УЦ-100 для деревообработки: очищает выбросы от сухих опилок, стружки и неволокнистой пыли.',
     image:
       '/images/equipment/pneumatic/cyclone-uc100/preview-cyclone-uc100-catalog.webp',
     specs: [
@@ -634,10 +780,18 @@ export const equipmentItems: EquipmentItem[] = [
   },
   {
     id: 19,
+
+    slug: 'zatvor-shlyuzovoy',
+
+        seoTitle: 'Затвор шлюзовой | КировБелМаш',
+
     name: 'Затвор шлюзовой',
+
     category: 'Пневмотранспортное оборудование',
+
     description:
-      'Шлюзовой затвор для герметичной выгрузки материала из циклонов и бункеров. Предотвращает подсос воздуха в систему.',
+
+      'Затвор шлюзовой для непрерывной выгрузки сыпучих продуктов из бункеров, фильтров и циклонов без потери герметичности.',
     image:
       '/images/equipment/pneumatic/airlock-valve/preview-airlock-valve-catalog.webp',
     specs: [
@@ -670,10 +824,18 @@ export const equipmentItems: EquipmentItem[] = [
   // Приёмное оборудование
   {
     id: 20,
+
+    slug: 'mekhanicheskoe-zhivoe-dno',
+
+        seoTitle: 'Стокерный склад «Живое дно» – механический | КировБелМаш',
+
     name: 'Стокерный склад «Живое дно» – механический',
+
     category: 'Приемное оборудование',
+
     description:
-      'Стокерный склад с механическим подвижным дном для хранения и равномерной подачи сыпучих материалов. Надёжная механическая конструкция.',
+
+      'Механический стокерный склад «Живое дно» для приема, накопления и равномерной подачи опила, щепы и сыпучего сырья без ручного труда.',
     image:
       '/images/equipment/receiving/walking-floor-mechanical/preview-walking-floor-mechanical-catalog.webp',
     specs: [
@@ -702,10 +864,18 @@ export const equipmentItems: EquipmentItem[] = [
   },
   {
     id: 21,
+
+    slug: 'stokernyj-sklad-zhivoe-dno',
+
+        seoTitle: 'Стокерный склад «Живое дно» гидравлический | КировБелМаш',
+
     name: 'Стокерный склад «Живое дно» гидравлический',
+
     category: 'Приемное оборудование',
+
     description:
-      'Стокерный склад с гидравлическим подвижным дном. Плавная регулировка скорости подачи и высокая надёжость гидропривода.',
+
+      'Гидравлический стокерный склад «Живое дно» объемом 35 м³: накапливает сырье и непрерывно подает его в линию до 6 часов.',
     image:
       '/images/equipment/receiving/walking-floor-hydraulic/preview-walking-floor-hydraulic-catalog.webp',
     specs: [
@@ -739,10 +909,18 @@ export const equipmentItems: EquipmentItem[] = [
   // Транспортирующее оборудование
   {
     id: 22,
+
+    slug: 'transporter-lentochniy',
+
+        seoTitle: 'Транспортер ленточный | КировБелМаш',
+
     name: 'Транспортер ленточный',
+
     category: 'Транспортирующее оборудование',
+
     description:
-      'Ленточный конвейер для горизонтального и наклонного перемещения сыпучих материалов. Универсальное решение для производственных линий.',
+
+      'Транспортер ленточный для стружки, щепы и сельхозсырья: обеспечивает стабильную подачу материала под углом до 45°.',
     image:
       '/images/equipment/conveyors/belt-conveyor/preview-belt-conveyor-catalog.webp',
     specs: [
@@ -768,10 +946,18 @@ export const equipmentItems: EquipmentItem[] = [
   },
   {
     id: 23,
+
+    slug: 'transporter-tsepnoy-skrebkoviy-z-obrazniy',
+
+        seoTitle: 'Транспортер цепной скребковый Z-образный | КировБелМаш',
+
     name: 'Транспортер цепной скребковый Z-образный',
+
     category: 'Транспортирующее оборудование',
+
     description:
-      'Z-образный скребковый транспортёр для вертикального и горизонтального перемещения материалов. Герметичная конструкция.',
+
+      'Z-образный цепной скребковый транспортер: перемещает сыпучие материалы по днищу корпуса и подает их в зону выгрузки.',
     image:
       '/images/equipment/conveyors/scraper-conveyor-z/preview-scraper-conveyor-z-catalog.webp',
     specs: [
@@ -800,10 +986,18 @@ export const equipmentItems: EquipmentItem[] = [
   },
   {
     id: 24,
+
+    slug: 'transporter-tsepnoy-skrebkoviy-pryamoy',
+
+        seoTitle: 'Транспортер цепной скребковый прямой | КировБелМаш',
+
     name: 'Транспортер цепной скребковый прямой',
+
     category: 'Транспортирующее оборудование',
+
     description:
-      'Прямой скребковый транспортёр для горизонтального перемещения сыпучих материалов. Надёжная конструкция и простое обслуживание.',
+
+      'Прямой цепной скребковый транспортер для сыпучих материалов: надежно перемещает сырье по корпусу в зону выгрузки.',
     image:
       '/images/equipment/conveyors/scraper-conveyor-straight/preview-scraper-conveyor-straight-catalog.webp',
     specs: [
@@ -832,10 +1026,18 @@ export const equipmentItems: EquipmentItem[] = [
   },
   {
     id: 25,
+
+    slug: 'jelevator',
+
+        seoTitle: 'Нория-элеватор | КировБелМаш',
+
     name: 'Нория-элеватор',
+
     category: 'Транспортирующее оборудование',
+
     description:
-      'Вертикальный ковшовый элеватор для подъёма сыпучих материалов на высоту. Компактная конструкция и высокая производительность.',
+
+      'Нория-элеватор для вертикальной подачи подготовленного сырья и других сыпучих мелкокусковых материалов размером до 40 мм.',
     image:
       '/images/equipment/conveyors/bucket-elevator/preview-bucket-elevator-catalog.webp',
     specs: [
@@ -865,10 +1067,18 @@ export const equipmentItems: EquipmentItem[] = [
   },
   {
     id: 26,
+
+    slug: 'transporter-lentochniy-s-gofrobortom',
+
+        seoTitle: 'Ленточный транспортер с гофробортом | КировБелМаш',
+
     name: 'Ленточный транспортер с гофробортом',
+
     category: 'Транспортирующее оборудование',
+
     description:
-      'Ленточный конвейер с гофрированными бортами для транспортировки под большим углом наклона. Предотвращает просыпание материала.',
+
+      'Ленточный транспортер с гофробортом и скребками: поднимает гранулы и другие сыпучие материалы под углом до 60°.',
     image:
       '/images/equipment/conveyors/belt-conveyor-sidewall/preview-belt-conveyor-sidewall-catalog.webp',
     specs: [
@@ -892,10 +1102,18 @@ export const equipmentItems: EquipmentItem[] = [
   },
   {
     id: 27,
+
+    slug: 'dozator-shnekovyj',
+
+        seoTitle: 'Шнековый питатель | КировБелМаш',
+
     name: 'Шнековый питатель',
+
     category: 'Транспортирующее оборудование',
+
     description:
-      'Шнековый транспортёр для дозированной подачи сыпучих материалов. Точная регулировка производительности и герметичная конструкция.',
+
+      'Шнековый питатель для равномерной и дозированной подачи сырья в дробилки, прессы, сушилки и теплогенераторы.',
     image:
       '/images/equipment/conveyors/screw-feeder/preview-screw-feeder-catalog.webp',
     specs: [
@@ -921,10 +1139,18 @@ export const equipmentItems: EquipmentItem[] = [
   },
   {
     id: 28,
+
+    slug: 'transporter-cepnoj-skrebkovyj',
+
+        seoTitle: 'Наклонный L-образный цепной транспортер | КировБелМаш',
+
     name: 'Наклонный L-образный цепной транспортер',
+
     category: 'Транспортирующее оборудование',
+
     description:
-      'L-образный скребковый транспортёр для подъёма материалов под углом. Сочетает горизонтальный и наклонный участки.',
+
+      'Наклонный L-образный цепной транспортер для опила, стружки и щепы: перемещает сыпучие материалы при угле подъема до 45°.',
     image:
       '/images/equipment/conveyors/chain-conveyor-l/preview-chain-conveyor-l-catalog.webp',
     specs: [
@@ -949,10 +1175,18 @@ export const equipmentItems: EquipmentItem[] = [
   // Сортировочно-просеивающее оборудование
   {
     id: 29,
+
+    slug: 'ustrojstvo-proseivajushhee',
+
+        seoTitle: 'Барабанный просеиватель | КировБелМаш',
+
     name: 'Барабанный просеиватель',
+
     category: 'Сортировочно-просеивающее оборудование',
+
     description:
-      'Барабанный грохот для сортировки щепы, опилок и других сыпучих материалов. Вращающийся барабан обеспечивает эффективное разделение по фракциям.',
+
+      'Барабанный просеиватель отделяет щепу от мелкого опила, снижает нагрузку на дробилку и помогает готовить топливо для теплогенератора.',
     image:
       '/images/equipment/screening/rotary-screener/preview-rotary-screener-catalog.webp',
     specs: [
@@ -977,10 +1211,18 @@ export const equipmentItems: EquipmentItem[] = [
   },
   {
     id: 30,
+
+    slug: 'separator-diskovyj',
+
+        seoTitle: 'Дисковый сепаратор | КировБелМаш',
+
     name: 'Дисковый сепаратор',
+
     category: 'Сортировочно-просеивающее оборудование',
+
     description:
-      'Дисковый сепаратор для отделения крупных включений и сортировки материала. Эффективное разделение по размеру частиц.',
+
+      'Дисковый сепаратор для отделения крупных включений, мусора и кусковых отходов от опила, щепы и других сыпучих материалов.',
     image:
       '/images/equipment/screening/disc-separator/preview-disc-separator-catalog.webp',
     specs: [

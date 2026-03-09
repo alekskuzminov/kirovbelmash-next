@@ -26,11 +26,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         };
     }
 
-    // Иначе проверяем, товар ли это (ID)
-    const item = equipmentItems.find((e) => e.id.toString() === slug);
+    // Иначе проверяем, товар ли это
+    const item = equipmentItems.find((e) => e.slug === slug);
     if (item) {
         return {
-            title: `${item.name} | Оборудование | Kirovbelmash`,
+            title: item.seoTitle || `${item.name} | Оборудование | Kirovbelmash`,
             description: item.description,
         };
     }
@@ -43,7 +43,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 // Generate static params for SSG
 export function generateStaticParams() {
     const itemParams = equipmentItems.map((item) => ({
-        slug: item.id.toString(),
+        slug: item.slug,
     }));
 
     const categoryParams = equipmentCategoriesConfig
@@ -69,7 +69,7 @@ export default async function EquipmentDynamicPage({ params }: Props) {
     }
 
     // Сценарий 2: Детальная страница товара
-    const item = equipmentItems.find((e) => e.id.toString() === slug);
+    const item = equipmentItems.find((e) => e.slug === slug);
     if (!item) {
         notFound();
     }

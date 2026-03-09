@@ -20,7 +20,7 @@ export default function EquipmentCard({ item, index }: EquipmentCardProps) {
             style={{ animationDelay: `${index * 60}ms` }}
         >
 
-            <Link href={`/oborudovanie/${item.id}`} className="block relative w-full h-48 sm:h-64 bg-white overflow-hidden flex-shrink-0">
+            <Link href={`/oborudovanie/${item.slug}`} className="block relative w-full h-48 sm:h-64 bg-white overflow-hidden flex-shrink-0">
                 <Image
                     src={item.image}
                     alt={item.name}
@@ -42,7 +42,7 @@ export default function EquipmentCard({ item, index }: EquipmentCardProps) {
                     {item.category}
                 </div>
 
-                <Link href={`/oborudovanie/${item.id}`} className="block block group-hover:text-red-600 transition-colors">
+                <Link href={`/oborudovanie/${item.slug}`} className="block block group-hover:text-red-600 transition-colors">
                     <h3 className="text-sm sm:text-base font-bold text-gray-900 mb-1.5 sm:mb-2 line-clamp-2 min-h-[2.5rem] sm:min-h-[3rem]">
                         {item.name}
                     </h3>
