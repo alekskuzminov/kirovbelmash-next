@@ -21,8 +21,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     const category = equipmentCategoriesConfig.find((c) => c.slug === slug);
     if (category) {
         return {
-            title: `${category.name} | Каталог оборудования`,
-            description: `Купить оборудование в категории "${category.name}". Каталог промышленных станков и линий с техническими характеристиками и описанием.`,
+            title: category.seoTitle || category.name,
+            description: category.seoDescription || `Купить оборудование в категории "${category.name}". Каталог промышленных станков и линий с техническими характеристиками и описанием.`,
         };
     }
 

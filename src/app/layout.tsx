@@ -46,6 +46,9 @@ export const metadata: Metadata = {
   },
 };
 
+import { Suspense } from "react";
+import YandexMetrika from "@/components/YandexMetrika";
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -54,7 +57,12 @@ export default function RootLayout({
   return (
     // TODO: динамический lang при переносе i18n
     <html lang="ru" className="scroll-smooth scroll-pt-[64px] lg:scroll-pt-[108px]">
-      <body className={`${inter.variable} font-sans antialiased`}>{children}</body>
+      <body className={`${inter.variable} font-sans antialiased`}>
+        <Suspense fallback={null}>
+          <YandexMetrika />
+        </Suspense>
+        {children}
+      </body>
     </html>
   );
 }

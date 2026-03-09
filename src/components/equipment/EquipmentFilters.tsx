@@ -9,7 +9,7 @@ interface EquipmentFiltersProps {
     searchQuery: string;
     onSearchChange: (query: string) => void;
     totalCount: number;
-    categories: { name: string; slug: string }[];
+    categories: { name: string; slug: string; seoDescription?: string }[];
 }
 
 export default function EquipmentFilters({
@@ -20,6 +20,9 @@ export default function EquipmentFilters({
     categories,
 }: EquipmentFiltersProps) {
     const [mobileOpen, setMobileOpen] = useState(false);
+
+    const activeCategoryConfig = categories.find(c => c.name === activeCategory);
+    const description = activeCategoryConfig?.seoDescription || "Детальный каталог промышленного оборудования с техническими характеристиками и описанием";
 
     const categoryList = (
         <ul className="space-y-1">
@@ -58,7 +61,7 @@ export default function EquipmentFilters({
                         {activeCategory === 'Все' ? 'Каталог оборудования' : activeCategory}
                     </h1>
                     <p className="text-sm sm:text-base text-gray-600 max-w-2xl">
-                        Детальный каталог промышленного оборудования с техническими характеристиками и описанием
+                        {description}
                     </p>
                 </div>
             </section>

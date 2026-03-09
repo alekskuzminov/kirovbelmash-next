@@ -4,7 +4,7 @@ import EquipmentPageClient from './EquipmentPageClient';
 import { equipmentCategoriesConfig } from '@/components/equipment/equipmentData';
 
 export const metadata: Metadata = {
-    title: 'Каталог оборудования | Kirovbelmash',
+    title: 'Каталог оборудования',
     description: 'Каталог промышленного оборудования для производства брикетов, пеллет и переработки древесины. Полный каталог станков и линий.',
 };
 
