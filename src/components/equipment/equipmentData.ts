@@ -13,19 +13,21 @@ export interface EquipmentItem {
   gallery?: string[];
 }
 
-export const equipmentCategories = [
-  'Все',
-  'Станки для производства брикетов',
-  'Станки для производства пеллет',
-  'Рубительные машины',
-  'Дробильное оборудование',
-  'Бункеры-накопители с ворошителем',
-  'Сушильное оборудование',
-  'Пневмотранспортное оборудование',
-  'Приемное оборудование',
-  'Транспортирующее оборудование',
-  'Сортировочно-просеивающее оборудование',
+export const equipmentCategoriesConfig = [
+  { name: 'Все', slug: 'all' },
+  { name: 'Станки для производства брикетов', slug: 'briketirujushhee-oborudovanie' },
+  { name: 'Станки для производства пеллет', slug: 'oborudovanie-dlja-proizvodstva-granul' },
+  { name: 'Рубительные машины', slug: 'rubitelnye-mashiny' },
+  { name: 'Дробильное оборудование', slug: 'drobilnoe-oborudovanie' },
+  { name: 'Бункеры-накопители с ворошителем', slug: 'bunkery-nakopiteli' },
+  { name: 'Сушильное оборудование', slug: 'sushilnoe-oborudovanie' },
+  { name: 'Пневмотранспортное оборудование', slug: 'pnevmotransportnoe-oborudovanie' },
+  { name: 'Приемное оборудование', slug: 'priemnoe-oborudovanie' },
+  { name: 'Транспортирующее оборудование', slug: 'transportirujushhee-oborudovanie' },
+  { name: 'Сортировочно-просеивающее оборудование', slug: 'sortirovochnoe-oborudovanie' },
 ];
+
+export const equipmentCategories = equipmentCategoriesConfig.map(c => c.name);
 
 export const equipmentItems: EquipmentItem[] = [
   // Станки для производства брикетов

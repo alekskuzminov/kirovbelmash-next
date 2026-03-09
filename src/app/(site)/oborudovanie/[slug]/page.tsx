@@ -3,44 +3,73 @@ import Image from 'next/image';
 import Link from 'next/link';
 import ContactModalButton from '@/components/common/ContactModalButton';
 import { notFound } from 'next/navigation';
-import { equipmentItems } from '@/components/equipment/equipmentData';
+import { equipmentItems, equipmentCategoriesConfig } from '@/components/equipment/equipmentData';
 import EquipmentCTA from '@/components/equipment/EquipmentCTA';
 import ContactForm from '@/components/home/ContactForm';
 import Breadcrumbs from '@/components/ui/Breadcrumbs';
-
 import EquipmentImageGallery from '@/components/equipment/EquipmentImageGallery';
+import EquipmentPageClient from '../EquipmentPageClient';
 
 interface Props {
-    params: Promise<{ id: string }>;
+    params: Promise<{ slug: string }>;
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-    const { id } = await params;
-    const item = equipmentItems.find((e) => e.id.toString() === id);
+    const { slug } = await params;
 
-    if (!item) {
+    // Сначала проверяем, категория ли это
+    const category = equipmentCategoriesConfig.find((c) => c.slug === slug);
+    if (category) {
         return {
-            title: 'Оборудование не найдено | Kirovbelmash'
+            title: `${category.name} | Каталог оборудования | Kirovbelmash`,
+            description: `Купить оборудование в категории "${category.name}". Каталог промышленных станков и линий с техническими характеристиками и описанием.`,
+        };
+    }
+
+    // Иначе проверяем, товар ли это (ID)
+    const item = equipmentItems.find((e) => e.id.toString() === slug);
+    if (item) {
+        return {
+            title: `${item.name} | Оборудование | Kirovbelmash`,
+            description: item.description,
         };
     }
 
     return {
-        title: `${item.name} | Оборудование | Kirovbelmash`,
-        description: item.description,
+        title: 'Страница не найдена | Kirovbelmash'
     };
 }
 
 // Generate static params for SSG
 export function generateStaticParams() {
-    return equipmentItems.map((item) => ({
-        id: item.id.toString(),
+    const itemParams = equipmentItems.map((item) => ({
+        slug: item.id.toString(),
     }));
+
+    const categoryParams = equipmentCategoriesConfig
+        .filter((cat) => cat.slug !== 'all')
+        .map((cat) => ({
+            slug: cat.slug,
+        }));
+
+    return [...categoryParams, ...itemParams];
 }
 
-export default async function EquipmentDetailPage({ params }: Props) {
-    const { id } = await params;
-    const item = equipmentItems.find((e) => e.id.toString() === id);
+export default async function EquipmentDynamicPage({ params }: Props) {
+    const { slug } = await params;
 
+    // Сценарий 1: Категория
+    const category = equipmentCategoriesConfig.find((c) => c.slug === slug);
+    if (category) {
+        return (
+            <div className="min-h-screen bg-gray-50/50">
+                <EquipmentPageClient activeCategory={category.name} />
+            </div>
+        );
+    }
+
+    // Сценарий 2: Детальная страница товара
+    const item = equipmentItems.find((e) => e.id.toString() === slug);
     if (!item) {
         notFound();
     }
@@ -53,6 +82,7 @@ export default async function EquipmentDetailPage({ params }: Props) {
                     items={[
                         { label: 'Главная', href: '/' },
                         { label: 'Каталог оборудования', href: '/oborudovanie' },
+                        { label: item.category, href: `/oborudovanie/${equipmentCategoriesConfig.find(c => c.name === item.category)?.slug || ''}` },
                         { label: item.name }
                     ]}
                     className="mb-6"
@@ -74,9 +104,12 @@ export default async function EquipmentDetailPage({ params }: Props) {
                         {/* Правая колонка: Инфо и Характеристики (всегда вторая) */}
                         <div className="order-2">
                             <div className="mb-8 font-inter">
-                                <div className="inline-block px-3 py-1 rounded-full bg-red-50 text-red-600 text-[10px] sm:text-xs font-bold uppercase tracking-wider mb-4 border border-red-100">
+                                <Link
+                                    href={`/oborudovanie/${equipmentCategoriesConfig.find(c => c.name === item.category)?.slug}`}
+                                    className="inline-block px-3 py-1 rounded-full bg-red-50 text-red-600 text-[10px] sm:text-xs font-bold uppercase tracking-wider mb-4 border border-red-100 hover:bg-red-100 transition-colors"
+                                >
                                     {item.category}
-                                </div>
+                                </Link>
                                 <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-4 leading-tight tracking-tight">
                                     {item.name}
                                 </h1>
@@ -89,11 +122,11 @@ export default async function EquipmentDetailPage({ params }: Props) {
 
                                 <div className="flex flex-wrap gap-3 mb-10">
                                     <Link
-                                        href="/oborudovanie"
+                                        href={`/oborudovanie/${equipmentCategoriesConfig.find(c => c.name === item.category)?.slug}`}
                                         className="inline-flex items-center gap-2 px-5 py-2.5 text-sm font-semibold text-gray-700 bg-gray-100 hover:bg-gray-200 rounded-xl transition-colors"
                                     >
                                         <i className="ri-arrow-left-line" />
-                                        Назад в каталог
+                                        Назад в категорию
                                     </Link>
                                     <ContactModalButton
                                         message={`Запрос КП: ${item.name}`}
@@ -139,7 +172,7 @@ export default async function EquipmentDetailPage({ params }: Props) {
                     </div>
                 </div>
 
-                {/* Особенности (вынесены отдельным блоком ниже, если нужно) */}
+                {/* Особенности */}
                 {item.features && item.features.length > 0 && (
                     <div className="bg-white rounded-3xl p-6 sm:p-10 shadow-sm border border-gray-100 mb-10">
                         <h2 className="text-xl font-bold text-gray-900 mb-6 flex items-center gap-2">

@@ -1,35 +1,18 @@
 "use client";
 
 import { useState, useMemo } from 'react';
-import { useSearchParams, useRouter, usePathname } from 'next/navigation';
+import Link from 'next/link';
 import EquipmentFilters from '@/components/equipment/EquipmentFilters';
 import EquipmentCard from '@/components/equipment/EquipmentCard';
 import EquipmentCTA from '@/components/equipment/EquipmentCTA';
-import { equipmentItems, equipmentCategories } from '@/components/equipment/equipmentData';
+import { equipmentItems, equipmentCategoriesConfig } from '@/components/equipment/equipmentData';
 
-export default function EquipmentPageClient() {
-    const searchParams = useSearchParams();
-    const router = useRouter();
-    const pathname = usePathname();
+interface EquipmentPageClientProps {
+    activeCategory?: string;
+}
 
-    const categoryFromUrl = searchParams.get('category') || 'Все';
-    const activeCategory = equipmentCategories.includes(categoryFromUrl) ? categoryFromUrl : 'Все';
+export default function EquipmentPageClient({ activeCategory = 'Все' }: EquipmentPageClientProps) {
     const [searchQuery, setSearchQuery] = useState('');
-
-    const handleCategoryChange = (category: string) => {
-        // Create new URLSearchParams object
-        const params = new URLSearchParams(searchParams.toString());
-
-        if (category === 'Все') {
-            params.delete('category');
-        } else {
-            params.set('category', category);
-        }
-
-        // Update URL
-        const query = params.toString();
-        router.push(query ? `${pathname}?${query}` : pathname, { scroll: false });
-    };
 
     const filteredItems = useMemo(() => {
         let items = equipmentItems;
@@ -55,11 +38,10 @@ export default function EquipmentPageClient() {
         <>
             <EquipmentFilters
                 activeCategory={activeCategory}
-                onCategoryChange={handleCategoryChange}
                 searchQuery={searchQuery}
                 onSearchChange={setSearchQuery}
                 totalCount={filteredItems.length}
-                categories={equipmentCategories}
+                categories={equipmentCategoriesConfig}
             />
 
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
@@ -72,21 +54,21 @@ export default function EquipmentPageClient() {
                             </div>
                             <nav className="px-3 py-3">
                                 <ul className="space-y-0.5">
-                                    {equipmentCategories.map((cat) => (
-                                        <li key={cat}>
-                                            <button
-                                                onClick={() => handleCategoryChange(cat)}
-                                                className={`w-full text-left px-3 py-2 rounded-lg text-sm font-medium transition-all duration-150 cursor-pointer flex items-center gap-2.5 ${activeCategory === cat
+                                    {equipmentCategoriesConfig.map((cat) => (
+                                        <li key={cat.slug}>
+                                            <Link
+                                                href={cat.slug === 'all' ? '/oborudovanie' : `/oborudovanie/${cat.slug}`}
+                                                className={`w-full text-left px-3 py-2 rounded-lg text-sm font-medium transition-all duration-150 flex items-center gap-2.5 ${activeCategory === cat.name
                                                     ? 'bg-red-600 text-white shadow-sm'
                                                     : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900'
                                                     }`}
                                             >
                                                 <span
-                                                    className={`w-1.5 h-1.5 rounded-full flex-shrink-0 transition-colors ${activeCategory === cat ? 'bg-red-200' : 'bg-gray-300'
+                                                    className={`w-1.5 h-1.5 rounded-full flex-shrink-0 transition-colors ${activeCategory === cat.name ? 'bg-red-200' : 'bg-gray-300'
                                                         }`}
                                                 />
-                                                <span className="leading-snug">{cat}</span>
-                                            </button>
+                                                <span className="leading-snug">{cat.name}</span>
+                                            </Link>
                                         </li>
                                     ))}
                                 </ul>
@@ -135,15 +117,13 @@ export default function EquipmentPageClient() {
                                 <p className="text-sm text-gray-500 mb-6 max-w-sm mx-auto">
                                     Попробуйте изменить параметры поиска или выбрать другую категорию
                                 </p>
-                                <button
-                                    onClick={() => {
-                                        handleCategoryChange('Все');
-                                        setSearchQuery('');
-                                    }}
+                                <Link
+                                    href="/oborudovanie"
+                                    onClick={() => setSearchQuery('')}
                                     className="px-6 py-2.5 bg-red-600 text-white text-sm font-medium rounded-lg hover:bg-red-700 transition-colors whitespace-nowrap cursor-pointer"
                                 >
                                     Сбросить фильтры
-                                </button>
+                                </Link>
                             </div>
                         )}
                     </div>

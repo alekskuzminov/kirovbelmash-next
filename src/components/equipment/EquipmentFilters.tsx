@@ -1,20 +1,19 @@
 "use client";
 
 import { useState } from 'react';
+import Link from 'next/link';
 import Breadcrumbs from '@/components/ui/Breadcrumbs';
 
 interface EquipmentFiltersProps {
     activeCategory: string;
-    onCategoryChange: (category: string) => void;
     searchQuery: string;
     onSearchChange: (query: string) => void;
     totalCount: number;
-    categories: string[];
+    categories: { name: string; slug: string }[];
 }
 
 export default function EquipmentFilters({
     activeCategory,
-    onCategoryChange,
     searchQuery,
     onSearchChange,
     totalCount,
@@ -25,23 +24,21 @@ export default function EquipmentFilters({
     const categoryList = (
         <ul className="space-y-1">
             {categories.map((cat) => (
-                <li key={cat}>
-                    <button
-                        onClick={() => {
-                            onCategoryChange(cat);
-                            setMobileOpen(false);
-                        }}
-                        className={`w-full text-left px-3 py-2 rounded-lg text-sm font-medium transition-all duration-150 cursor-pointer flex items-center gap-2 ${activeCategory === cat
+                <li key={cat.slug}>
+                    <Link
+                        href={cat.slug === 'all' ? '/oborudovanie' : `/oborudovanie/${cat.slug}`}
+                        onClick={() => setMobileOpen(false)}
+                        className={`w-full text-left px-3 py-2 rounded-lg text-sm font-medium transition-all duration-150 flex items-center gap-2 ${activeCategory === cat.name
                             ? 'bg-red-600 text-white shadow-sm'
                             : 'text-gray-600 hover:bg-gray-100 hover:text-gray-900'
                             }`}
                     >
                         <span
-                            className={`w-1.5 h-1.5 rounded-full flex-shrink-0 ${activeCategory === cat ? 'bg-white' : 'bg-gray-300'
+                            className={`w-1.5 h-1.5 rounded-full flex-shrink-0 ${activeCategory === cat.name ? 'bg-white' : 'bg-gray-300'
                                 }`}
                         />
-                        {cat}
-                    </button>
+                        {cat.name}
+                    </Link>
                 </li>
             ))}
         </ul>
@@ -54,11 +51,11 @@ export default function EquipmentFilters({
                     <Breadcrumbs
                         items={[
                             { label: 'Главная', href: '/' },
-                            { label: 'Каталог оборудования' }
+                            { label: 'Каталог оборудования', href: '/oborudovanie' }
                         ]}
                     />
                     <h1 className="text-2xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 sm:mb-5 leading-tight">
-                        Каталог оборудования
+                        {activeCategory === 'Все' ? 'Каталог оборудования' : activeCategory}
                     </h1>
                     <p className="text-sm sm:text-base text-gray-600 max-w-2xl">
                         Детальный каталог промышленного оборудования с техническими характеристиками и описанием
@@ -103,12 +100,12 @@ export default function EquipmentFilters({
                     <div className="mt-2 flex items-center gap-2 flex-wrap">
                         <span className="inline-flex items-center gap-1.5 px-2.5 py-1 bg-red-50 border border-red-200 text-red-700 text-xs font-medium rounded-full">
                             {activeCategory}
-                            <button
-                                onClick={() => onCategoryChange('Все')}
+                            <Link
+                                href="/oborudovanie"
                                 className="cursor-pointer hover:text-red-900"
                             >
                                 <i className="ri-close-line text-xs" />
-                            </button>
+                            </Link>
                         </span>
                     </div>
                 )}
