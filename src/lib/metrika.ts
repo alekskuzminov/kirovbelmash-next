@@ -1,14 +1,23 @@
-// Utility to safely trigger Yandex Metrika goals
 export const METRIKA_ID = 105767551;
 
-export const sendMetrikaGoal = (goal: string, params?: any) => {
-    if (typeof window !== "undefined") {
-        if (!(window as any).ym) {
-            (window as any).ym = function () {
-                ((window as any).ym.a = (window as any).ym.a || []).push(arguments);
-            };
-        }
+const fireGoal = (goal: string, params?: Record<string, unknown>) => {
+    try {
         (window as any).ym(METRIKA_ID, "reachGoal", goal, params);
-        console.log(`[Metrika] reachGoal: ${goal}`);
+    } catch (e) {
+        console.error("[Metrika] reachGoal error:", e);
     }
+};
+
+export const sendMetrikaGoal = (goal: string, params?: Record<string, unknown>) => {
+    if (typeof window === "undefined") return;
+
+    // Counter already initialized (yaCounterXXX object exists after triggerEvent fires)
+    if ((window as any)[`yaCounter${METRIKA_ID}`]) {
+        fireGoal(goal, params);
+        return;
+    }
+
+    // Wait for initialization event (triggerEvent: true in init config)
+    const onInit = () => fireGoal(goal, params);
+    document.addEventListener(`yacounter${METRIKA_ID}inited`, onInit, { once: true });
 };
