@@ -66,7 +66,7 @@ export default function EquipmentCard({ item, index }: EquipmentCardProps) {
                 </div>
 
                 <Link
-                    href={`/oborudovanie/${item.id}`}
+                    href={`/oborudovanie/${item.slug}`}
                     className="w-full py-2 sm:py-2.5 bg-gray-900 text-white text-xs sm:text-sm font-medium rounded-lg hover:bg-red-600 transition-colors whitespace-nowrap cursor-pointer flex items-center justify-center gap-1.5 sm:gap-2 mt-auto"
                 >
                     Характеристики
