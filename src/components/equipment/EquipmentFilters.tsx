@@ -54,7 +54,13 @@ export default function EquipmentFilters({
                     <Breadcrumbs
                         items={[
                             { label: 'Главная', href: '/' },
-                            { label: 'Каталог оборудования', href: '/oborudovanie' }
+                            ...(activeCategory === 'Все'
+                                ? [{ label: 'Каталог оборудования' }]
+                                : [
+                                    { label: 'Каталог оборудования', href: '/oborudovanie' },
+                                    { label: activeCategory },
+                                  ]
+                            ),
                         ]}
                     />
                     <h1 className="text-2xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 sm:mb-5 leading-tight">
