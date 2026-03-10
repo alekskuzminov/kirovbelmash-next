@@ -9,6 +9,7 @@ echo "🚀 Starting deploy..."
 cd /var/www/kirovbelmash-next
 
 echo "📥 Pulling latest changes from GitHub..."
+git checkout public/sitemap.xml public/robots.txt || true
 git pull origin main
 
 echo "📦 Installing dependencies..."

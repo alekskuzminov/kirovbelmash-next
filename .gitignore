@@ -42,3 +42,7 @@ next-env.d.ts
 
 # video files
 *.mp4
+
+# generated files
+public/sitemap.xml
+public/robots.txt
