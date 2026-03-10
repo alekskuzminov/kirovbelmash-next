@@ -138,7 +138,7 @@ export const serviceAdvantages = [
         icon: 'ri-calendar-check-line',
     },
     {
-        title: 'Гарантия 24 месяца',
+        title: 'Гарантия 36 месяцев',
         desc: 'Расширенная гарантия на всё поставляемое оборудование и работы',
         icon: 'ri-shield-check-line',
     },
