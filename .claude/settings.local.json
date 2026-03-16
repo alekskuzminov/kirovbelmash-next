@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(grep -n \"related\\\\|carousel\\\\|similar\\\\|other\" /c/Users/User/Desktop/kirovbelmash-next/src/app/\\\\\\(site\\\\\\)/oborudovanie/[slug]/page.tsx -i)",
+      "Bash(grep -l \"Carousel\\\\|Slider\\\\|Swiper\" /c/Users/User/Desktop/kirovbelmash-next/src/components/**/*.tsx)",
+      "Bash(npx tsc:*)",
+      "Bash(ls \"C:\\\\Users\\\\User\\\\Desktop\\\\kirovbelmash-next\\\\public\\\\images\\\\lines\\\\briquetting\"\" 2>/dev/null || dir \"C:UsersUserDesktopkirovbelmash-nextpublicimageslinesbriquetting\"\")"
+    ]
+  }
+}

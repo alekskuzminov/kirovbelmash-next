@@ -10,6 +10,7 @@ import { SITE_CONFIG } from '@/config/site.config';
 import Breadcrumbs from '@/components/ui/Breadcrumbs';
 import BreadcrumbJsonLd from '@/components/ui/BreadcrumbJsonLd';
 import ProjectVideo from '@/components/projects/ProjectVideo';
+import RelatedProjectsBlock from '@/components/projects/RelatedProjectsBlock';
 
 interface PageProps {
     params: Promise<{ slug: string }>;
@@ -64,6 +65,13 @@ export default async function ProjectDetailPage({ params }: PageProps) {
     const images = item.gallery && item.gallery.length > 0
         ? item.gallery
         : Array(5).fill(item.image);
+
+    const lineLink: Record<string, { href: string; label: string }> = {
+        'Брикетирование': { href: '/linii-briketirovaniya', label: 'Линии брикетирования' },
+        'Гранулирование': { href: '/linii-granulirovaniya', label: 'Линии гранулирования' },
+        'Сушка': { href: '/sushilnie-linii', label: 'Сушильные линии' },
+    };
+    const lineInfo = lineLink[item.category] ?? null;
 
     const breadcrumbItems = [
         { label: 'Главная', href: '/' },
@@ -121,6 +129,15 @@ export default async function ProjectDetailPage({ params }: PageProps) {
                                 Запросить КП
                                 <i className="ri-send-plane-fill text-base" />
                             </ContactModalButton>
+                            {lineInfo && (
+                                <Link
+                                    href={lineInfo.href}
+                                    className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg border border-red-200 text-red-600 text-sm font-medium hover:border-red-400 hover:bg-red-50 transition-colors"
+                                >
+                                    {lineInfo.label}
+                                    <i className="ri-arrow-right-s-line text-base" />
+                                </Link>
+                            )}
                         </div>
 
                         {item.specs && item.specs.length > 0 && (
@@ -183,6 +200,8 @@ export default async function ProjectDetailPage({ params }: PageProps) {
                 )}
                 <ContactForm initialMessage={`Требуется консультация по проекту: «${item.title}»`} isModal={false} />
             </div>
+
+            <RelatedProjectsBlock currentSlug={item.slug} category={item.category} />
         </div>
     );
 }

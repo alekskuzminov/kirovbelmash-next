@@ -4,6 +4,10 @@ import LineCard from '@/components/lines/LineCard';
 import LineHero from '@/components/lines/LineHero';
 import LinesCTA from '@/components/lines/LinesCTA';
 import { HERO_BLUR } from '@/lib/heroBlur';
+import Projects from '@/components/home/Projects';
+import BriquettingProcess from '@/components/lines/BriquettingProcess';
+import RelatedLinesBlock from '@/components/lines/RelatedLinesBlock';
+import ContactForm from '@/components/home/ContactForm';
 
 export const metadata: Metadata = {
     title: 'Оборудование для производства топливных брикетов',
@@ -86,7 +90,32 @@ export default function BriquettingLinePage() {
                 </div>
             </section>
 
+            <BriquettingProcess />
+
             <LinesCTA />
+
+            <RelatedLinesBlock
+                title="Выбираете направление производства?"
+                subtitle="КировБелМаш производит оборудование для трёх направлений переработки древесных отходов в топливо — сравните и выберите подходящее под ваше сырьё и объёмы."
+                lines={[
+                    {
+                        href: '/linii-granulirovaniya',
+                        label: 'Линии гранулирования топливных пеллет',
+                        description: 'Производство топливных пеллет стандарта DIN+ EN Plus диаметром 6–8 мм из опилок, щепы и растительных отходов.',
+                        image: '/images/lines/granulation/preview-pellets-line-home.webp',
+                    },
+                    {
+                        href: '/sushilnie-linii',
+                        label: 'Сушильные линии для опилок и щепы',
+                        description: 'Линии сушки сырья до оптимальной влажности 10% — обязательный этап перед прессованием брикетов.',
+                        image: '/images/lines/drying/preview-drying-line-home.webp',
+                    },
+                ]}
+            />
+
+            <Projects />
+
+            <ContactForm />
         </div>
     );
 }

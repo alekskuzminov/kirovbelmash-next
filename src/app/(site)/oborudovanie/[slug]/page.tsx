@@ -10,6 +10,7 @@ import Breadcrumbs from '@/components/ui/Breadcrumbs';
 import BreadcrumbJsonLd from '@/components/ui/BreadcrumbJsonLd';
 import EquipmentImageGallery from '@/components/equipment/EquipmentImageGallery';
 import EquipmentPageClient from '../EquipmentPageClient';
+import RelatedEquipmentCarousel from '@/components/equipment/RelatedEquipmentCarousel';
 
 interface Props {
     params: Promise<{ slug: string }>;
@@ -94,9 +95,20 @@ export default async function EquipmentDynamicPage({ params }: Props) {
     // Сценарий 1: Категория
     const category = equipmentCategoriesConfig.find((c) => c.slug === slug);
     if (category) {
+        const otherItems = equipmentItems.filter((e) => e.category !== category.name);
         return (
             <div className="min-h-screen bg-gray-50/50">
                 <EquipmentPageClient activeCategory={category.name} />
+                {otherItems.length > 0 && (
+                    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-12">
+                        <RelatedEquipmentCarousel
+                            items={otherItems}
+                            categorySlug="all"
+                            title="Другие элементы линий для производства брикетов и пеллет"
+                            linkLabel="Весь каталог оборудования"
+                        />
+                    </div>
+                )}
             </div>
         );
     }
@@ -106,6 +118,25 @@ export default async function EquipmentDynamicPage({ params }: Props) {
     if (!item) {
         notFound();
     }
+
+    const linksMap: Record<string, Array<{ href: string; label: string; image: string }>> = {
+        'Станки для производства брикетов': [
+            { href: '/linii-briketirovaniya', label: 'Линии брикетирования', image: '/images/lines/briquetting/preview-briquette-line-home.webp' },
+        ],
+        'Станки для производства пеллет': [
+            { href: '/linii-granulirovaniya', label: 'Линии гранулирования', image: '/images/lines/granulation/preview-pellets-line-home.webp' },
+        ],
+        'Сушильное оборудование': [
+            { href: '/sushilnie-linii', label: 'Сушильные линии', image: '/images/lines/drying/preview-drying-line-home.webp' },
+            { href: '/linii-briketirovaniya', label: 'Линии брикетирования', image: '/images/lines/briquetting/preview-briquette-line-home.webp' },
+            { href: '/linii-granulirovaniya', label: 'Линии гранулирования', image: '/images/lines/granulation/preview-pellets-line-home.webp' },
+        ],
+    };
+    const defaultLines = [
+        { href: '/linii-briketirovaniya', label: 'Линии брикетирования', image: '/images/lines/briquetting/preview-briquette-line-home.webp' },
+        { href: '/linii-granulirovaniya', label: 'Линии гранулирования', image: '/images/lines/granulation/preview-pellets-line-home.webp' },
+    ];
+    const usedInLines = linksMap[item.category] ?? defaultLines;
 
     const breadcrumbItems = [
         { label: 'Главная', href: '/' },
@@ -200,6 +231,37 @@ export default async function EquipmentDynamicPage({ params }: Props) {
                                                 <span className="text-gray-500">{spec.label}</span>
                                                 <span className="font-semibold text-gray-900">{spec.value}</span>
                                             </div>
+                                        ))}
+                                    </div>
+                                </div>
+
+                                {/* Входит в состав линий */}
+                                <div className="mt-10">
+                                    <h2 className="text-lg font-bold text-gray-900 mb-4 flex items-center gap-2">
+                                        <i className="ri-links-line text-red-600" />
+                                        Входит в состав линий
+                                    </h2>
+                                    <div className="flex flex-col gap-3">
+                                        {usedInLines.map((line) => (
+                                            <Link
+                                                key={line.href}
+                                                href={line.href}
+                                                className="flex items-center gap-4 p-3 rounded-xl border border-gray-100 hover:border-red-200 hover:bg-red-50/40 transition-all duration-200 group"
+                                            >
+                                                <div className="relative w-16 h-12 rounded-lg overflow-hidden flex-shrink-0 bg-gray-100">
+                                                    <Image
+                                                        src={line.image}
+                                                        alt={line.label}
+                                                        fill
+                                                        className="object-cover"
+                                                        sizes="64px"
+                                                    />
+                                                </div>
+                                                <span className="text-sm font-semibold text-gray-800 group-hover:text-red-600 transition-colors flex-1">
+                                                    {line.label}
+                                                </span>
+                                                <i className="ri-arrow-right-s-line text-gray-400 group-hover:text-red-500 transition-colors text-lg flex-shrink-0" />
+                                            </Link>
                                         ))}
                                     </div>
                                 </div>

@@ -4,6 +4,10 @@ import LineCard from '@/components/lines/LineCard';
 import LineHero from '@/components/lines/LineHero';
 import LinesCTA from '@/components/lines/LinesCTA';
 import { HERO_BLUR } from '@/lib/heroBlur';
+import Projects from '@/components/home/Projects';
+import DryingProcess from '@/components/lines/DryingProcess';
+import RelatedLinesBlock from '@/components/lines/RelatedLinesBlock';
+import ContactForm from '@/components/home/ContactForm';
 
 export const metadata: Metadata = {
     title: 'Оборудование для сушки древесного сырья',
@@ -86,7 +90,32 @@ export default function DryingLinePage() {
                 </div>
             </section>
 
+            <DryingProcess />
+
             <LinesCTA />
+
+            <RelatedLinesBlock
+                title="Выбираете направление производства?"
+                subtitle="Сушка сырья — обязательный этап в производстве и брикетов, и пеллет. Выберите производственную линию под ваши задачи."
+                lines={[
+                    {
+                        href: '/linii-briketirovaniya',
+                        label: 'Линии брикетирования топливных брикетов',
+                        description: 'Производство древесных топливных брикетов RUF и Pini Key. Сушильный барабан — ключевой этап подготовки сырья.',
+                        image: '/images/lines/briquetting/preview-briquette-line-home.webp',
+                    },
+                    {
+                        href: '/linii-granulirovaniya',
+                        label: 'Линии гранулирования топливных пеллет',
+                        description: 'Производство топливных пеллет стандарта DIN+ EN Plus. Сушка сырья обеспечивает стабильное качество готовых гранул.',
+                        image: '/images/lines/granulation/preview-pellets-line-home.webp',
+                    },
+                ]}
+            />
+
+            <Projects />
+
+            <ContactForm />
         </div>
     );
 }

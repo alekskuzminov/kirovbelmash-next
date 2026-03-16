@@ -4,6 +4,10 @@ import LineCard from '@/components/lines/LineCard';
 import LineHero from '@/components/lines/LineHero';
 import LinesCTA from '@/components/lines/LinesCTA';
 import { HERO_BLUR } from '@/lib/heroBlur';
+import Projects from '@/components/home/Projects';
+import GranulationProcess from '@/components/lines/GranulationProcess';
+import RelatedLinesBlock from '@/components/lines/RelatedLinesBlock';
+import ContactForm from '@/components/home/ContactForm';
 
 export const metadata: Metadata = {
     title: 'Оборудование для производства топливных пеллет',
@@ -86,7 +90,32 @@ export default function GranulationLinePage() {
                 </div>
             </section>
 
+            <GranulationProcess />
+
             <LinesCTA />
+
+            <RelatedLinesBlock
+                title="Выбираете направление производства?"
+                subtitle="КировБелМаш производит оборудование для трёх направлений переработки древесных отходов в топливо — сравните и выберите подходящее под ваше сырьё и объёмы."
+                lines={[
+                    {
+                        href: '/linii-briketirovaniya',
+                        label: 'Линии брикетирования топливных брикетов',
+                        description: 'Производство древесных топливных брикетов RUF и Pini Key из опилок, стружки и других отходов деревопереработки.',
+                        image: '/images/lines/briquetting/preview-briquette-line-home.webp',
+                    },
+                    {
+                        href: '/sushilnie-linii',
+                        label: 'Сушильные линии для опилок и щепы',
+                        description: 'Линии сушки сырья до оптимальной влажности 10% — обязательный этап перед гранулированием пеллет.',
+                        image: '/images/lines/drying/preview-drying-line-home.webp',
+                    },
+                ]}
+            />
+
+            <Projects />
+
+            <ContactForm />
         </div>
     );
 }
