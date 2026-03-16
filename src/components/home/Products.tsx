@@ -15,7 +15,7 @@ export default function Products() {
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="mb-8 sm:mb-12">
                     <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-3 sm:mb-4 text-gray-900 tracking-tight">
-                        Линии полного цикла
+                        Линии производства топливных брикетов и пеллет полного цикла
                     </h2>
                     <p className="text-sm sm:text-lg text-gray-600 max-w-3xl">
                         Комплексные производственные линии для переработки древесных отходов

@@ -11,7 +11,7 @@ export default function EquipmentCatalog() {
                     <div>
                         <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 tracking-tight">
                             <Link href="/oborudovanie" className="hover:text-red-600 transition-colors">
-                                Каталог оборудования
+                                Каталог оборудования для линий брикетирования и гранулирования
                             </Link>
                         </h2>
                     </div>
