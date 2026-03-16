@@ -52,11 +52,15 @@ export default function ProjectCard({ project }: ProjectCardProps) {
                 </div>
                 {project.specs && project.specs.length > 0 && (
                     <div className="mt-3 sm:mt-4 flex flex-wrap gap-1.5 sm:gap-2">
-                        {project.specs.slice(0, 2).map((spec, i) => (
-                            <span key={i} className="px-2 sm:px-2.5 py-0.5 sm:py-1 bg-gray-50 text-gray-600 text-[10px] sm:text-xs rounded-md border border-gray-100 whitespace-nowrap overflow-hidden text-ellipsis max-w-[200px]">
-                                {typeof spec === 'string' ? spec.split(':')[0] : spec}
-                            </span>
-                        ))}
+                        {project.specs.slice(0, 2).map((spec, i) => {
+                            const parts = typeof spec === 'string' ? spec.split(':') : [spec];
+                            const value = parts.length > 1 ? parts.slice(1).join(':').trim() : String(spec);
+                            return (
+                                <span key={i} className="px-2 sm:px-2.5 py-0.5 sm:py-1 bg-gray-50 text-gray-600 text-[10px] sm:text-xs rounded-md border border-gray-100 whitespace-nowrap overflow-hidden text-ellipsis max-w-[220px]">
+                                    {value}
+                                </span>
+                            );
+                        })}
                     </div>
                 )}
             </div>

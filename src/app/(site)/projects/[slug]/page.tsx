@@ -89,9 +89,11 @@ export default async function ProjectDetailPage({ params }: PageProps) {
                     className="mb-8"
                 />
 
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-20">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-20 lg:items-start">
                     {/* Левая колонка: Галерея */}
-                    <ProjectImageGallery images={images} title={item.title} />
+                    <div className="lg:sticky lg:top-32">
+                        <ProjectImageGallery images={images} title={item.title} />
+                    </div>
 
                     {/* Правая колонка: Информация о проекте */}
                     <div>
