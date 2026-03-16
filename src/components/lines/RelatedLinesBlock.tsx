@@ -35,12 +35,12 @@ export default function RelatedLinesBlock({ lines, title = 'Смотрите т�
                             href={line.href}
                             className="group flex flex-col rounded-2xl overflow-hidden border border-gray-200 bg-white hover:border-red-200 hover:shadow-lg transition-all duration-200"
                         >
-                            <div className="relative w-full aspect-[16/9] overflow-hidden bg-gray-100">
+                            <div className="relative w-full aspect-[16/9] bg-white p-4">
                                 <Image
                                     src={line.image}
                                     alt={line.label}
                                     fill
-                                    className="object-cover group-hover:scale-105 transition-transform duration-300"
+                                    className="object-contain group-hover:scale-105 transition-transform duration-300"
                                     sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                                 />
                             </div>
