@@ -4,7 +4,7 @@ import EquipmentPageClient from './EquipmentPageClient';
 import { equipmentCategoriesConfig } from '@/components/equipment/equipmentData';
 
 export const metadata: Metadata = {
-    title: 'Каталог оборудования',
+    title: 'Агрегаты для линий брикетирования и гранулирования',
     description: 'Каталог промышленного оборудования для производства брикетов, пеллет и переработки древесины. Прессы, грануляторы, сушилки, дробилки, транспортёры.',
     alternates: { canonical: '/oborudovanie' },
     openGraph: {
