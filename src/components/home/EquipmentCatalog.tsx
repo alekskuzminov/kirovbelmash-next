@@ -15,10 +15,10 @@ export default function EquipmentCatalog() {
                             </Link>
                         </h2>
                     </div>
-                    <div className="hidden sm:flex items-center">
+                    <div className="hidden sm:flex items-center shrink-0">
                         <Link
                             href="/oborudovanie"
-                            className="group inline-flex items-center justify-center gap-2 px-5 py-2.5 text-sm font-semibold text-red-600 bg-red-50 hover:bg-red-100 rounded-xl transition-all duration-300"
+                            className="group inline-flex items-center justify-center gap-2 px-5 py-2.5 text-sm font-semibold text-red-600 bg-red-50 hover:bg-red-100 rounded-xl transition-all duration-300 whitespace-nowrap"
                         >
                             В каталог
                             <i className="ri-arrow-right-line text-lg group-hover:translate-x-1 transition-transform"></i>
