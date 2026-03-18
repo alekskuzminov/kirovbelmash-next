@@ -54,7 +54,7 @@ export const blogPosts: BlogPost[] = [
         category: 'Продукт',
         date: '2026-03-18',
         readTime: 4,
-        image: '/images/blog/vidy-toplivnykh-briketov-i-pellet/pinikay-ruf-nestro.webp',
+        image: '/images/blog/vidy-toplivnykh-briketov-i-pellet/pinikay-ruf-nestro-preview.webp',
         tags: ['топливные брикеты', 'пеллеты', 'виды брикетов', 'Pini & Kay', 'RUF', 'Nestro'],
         content: [
             {
@@ -142,7 +142,7 @@ export const blogPosts: BlogPost[] = [
             },
             {
                 type: 'image',
-                src: '/images/blog/vidy-toplivnykh-briketov-i-pellet/nestro.webp',
+                src: '/images/blog/vidy-toplivnykh-briketov-i-pellet/nestro-briquette.webp',
                 alt: 'Топливный брикет Nestro — цилиндрическая форма',
                 caption: 'Брикет Nestro: цилиндрическая форма, плотность 1,1 т/м³ — [линии брикетирования](/linii-briketirovaniya)',
             },
