@@ -89,15 +89,25 @@ function renderSection(section: BlogSection, index: number) {
             return (
                 <div key={index} className="my-10 bg-gray-50 border border-gray-200 rounded-xl p-6 sm:p-8 flex flex-col sm:flex-row sm:items-center gap-4">
                     <p className="flex-1 text-gray-800 font-medium leading-relaxed">
-                        {section.content}
+                        {section.content ? parseLinks(section.content) : null}
                     </p>
-                    <Link
-                        href={section.href!}
-                        className="inline-flex items-center gap-2 px-5 py-3 bg-red-600 text-white text-sm font-semibold rounded-xl hover:bg-red-700 transition-colors whitespace-nowrap flex-shrink-0"
-                    >
-                        {section.linkText}
-                        <i className="ri-arrow-right-line text-base" />
-                    </Link>
+                    {section.modal ? (
+                        <ContactModalButton
+                            message={section.linkText}
+                            className="inline-flex items-center gap-2 px-5 py-3 bg-red-600 text-white text-sm font-semibold rounded-xl hover:bg-red-700 transition-colors whitespace-nowrap flex-shrink-0"
+                        >
+                            {section.linkText}
+                            <i className="ri-arrow-right-line text-base" />
+                        </ContactModalButton>
+                    ) : (
+                        <Link
+                            href={section.href!}
+                            className="inline-flex items-center gap-2 px-5 py-3 bg-red-600 text-white text-sm font-semibold rounded-xl hover:bg-red-700 transition-colors whitespace-nowrap flex-shrink-0"
+                        >
+                            {section.linkText}
+                            <i className="ri-arrow-right-line text-base" />
+                        </Link>
+                    )}
                 </div>
             );
         default:
