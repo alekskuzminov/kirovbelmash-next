@@ -1,10 +1,18 @@
+export interface BlogImageItem {
+    src: string;
+    alt: string;
+    caption?: string;
+}
+
 export interface BlogSection {
-    type: 'paragraph' | 'heading' | 'list' | 'quote' | 'image' | 'cta';
+    type: 'paragraph' | 'heading' | 'list' | 'quote' | 'image' | 'image-pair' | 'cta';
     content?: string;
     items?: string[];
     src?: string;
     alt?: string;
     caption?: string;
+    // image-pair fields
+    images?: BlogImageItem[];
     // cta fields
     href?: string;
     linkText?: string;
@@ -86,7 +94,7 @@ export const blogPosts: BlogPost[] = [
                 type: 'image',
                 src: '/images/blog/vidy-toplivnykh-briketov-i-pellet/pinikay.webp',
                 alt: 'Топливный брикет Pini & Kay — шестигранная форма с продольным отверстием',
-                caption: 'Брикет Pini & Kay: плотность 1,3 т/м³, форма шестигранника с отверстием',
+                caption: 'Брикет Pini & Kay: плотность 1,3 т/м³, форма шестигранника с отверстием — [линии брикетирования](/linii-briketirovaniya)',
             },
             {
                 type: 'heading',
@@ -111,7 +119,7 @@ export const blogPosts: BlogPost[] = [
                 type: 'image',
                 src: '/images/blog/vidy-toplivnykh-briketov-i-pellet/ruf.webp',
                 alt: 'Топливный брикет RUF в форме кирпича',
-                caption: 'Брикет RUF: форма кирпича, плотность 1,1 т/м³',
+                caption: 'Брикет RUF: форма кирпича, плотность 1,1 т/м³ — [линии брикетирования](/linii-briketirovaniya)',
             },
             {
                 type: 'heading',
@@ -136,7 +144,7 @@ export const blogPosts: BlogPost[] = [
                 type: 'image',
                 src: '/images/blog/vidy-toplivnykh-briketov-i-pellet/nestro.webp',
                 alt: 'Топливный брикет Nestro — цилиндрическая форма',
-                caption: 'Брикет Nestro: цилиндрическая форма, плотность 1,1 т/м³',
+                caption: 'Брикет Nestro: цилиндрическая форма, плотность 1,1 т/м³ — [линии брикетирования](/linii-briketirovaniya)',
             },
             {
                 type: 'heading',
@@ -171,6 +179,21 @@ export const blogPosts: BlogPost[] = [
                     'Белые — из чистого сухого сырья без коры: стружка от строжки сухой древесины. Низкая зольность, высокая цена реализации',
                     'Серые («капучино») — из сырья естественной влажности с корой: опилки и щепа от распиловки брёвен. При сушке топочными газами темнеют, кора дополнительно добавляет цвет',
                     'Белые стоят дороже серых — разница в зольности при сгорании напрямую влияет на цену',
+                ],
+            },
+            {
+                type: 'image-pair',
+                images: [
+                    {
+                        src: '/images/blog/vidy-toplivnykh-briketov-i-pellet/pellet-white.webp',
+                        alt: 'Белая пеллета — чистое сырьё без коры',
+                        caption: 'Белая пеллета: низкая зольность, высокая цена',
+                    },
+                    {
+                        src: '/images/blog/vidy-toplivnykh-briketov-i-pellet/pellet-grey.webp',
+                        alt: 'Серая пеллета («капучино») — сырьё с корой',
+                        caption: 'Серая пеллета («капучино»): цвет от коры и топочных газов',
+                    },
                 ],
             },
             {

@@ -80,10 +80,32 @@ function renderSection(section: BlogSection, index: number) {
                     </div>
                     {section.caption && (
                         <figcaption className="mt-3 text-sm text-gray-500 text-center italic">
-                            {section.caption}
+                            {parseLinks(section.caption)}
                         </figcaption>
                     )}
                 </figure>
+            );
+        case 'image-pair':
+            return (
+                <div key={index} className="my-10 grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    {section.images?.map((img, i) => (
+                        <figure key={i}>
+                            <div className="relative w-full aspect-video rounded-xl overflow-hidden shadow-md">
+                                <Image
+                                    src={img.src}
+                                    alt={img.alt}
+                                    fill
+                                    className="object-cover"
+                                />
+                            </div>
+                            {img.caption && (
+                                <figcaption className="mt-3 text-sm text-gray-500 text-center italic">
+                                    {parseLinks(img.caption)}
+                                </figcaption>
+                            )}
+                        </figure>
+                    ))}
+                </div>
             );
         case 'cta':
             return (
