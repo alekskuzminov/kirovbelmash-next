@@ -1,3 +1,4 @@
+import React from 'react';
 import Link from 'next/link';
 import ContactModalButton from '@/components/common/ContactModalButton';
 import Image from 'next/image';
@@ -9,12 +10,27 @@ interface ArticleBodyProps {
     relatedPosts: BlogPost[];
 }
 
+function parseLinks(text: string): React.ReactNode[] {
+    const parts = text.split(/(\[[^\]]+\]\([^)]+\))/g);
+    return parts.map((part, i) => {
+        const match = part.match(/^\[([^\]]+)\]\(([^)]+)\)$/);
+        if (match) {
+            return (
+                <Link key={i} href={match[2]} className="text-red-600 underline underline-offset-2 hover:text-red-700 transition-colors">
+                    {match[1]}
+                </Link>
+            );
+        }
+        return part;
+    });
+}
+
 function renderSection(section: BlogSection, index: number) {
     switch (section.type) {
         case 'paragraph':
             return (
                 <p key={index} className="text-gray-700 leading-relaxed text-base sm:text-lg mb-6">
-                    {section.content}
+                    {section.content ? parseLinks(section.content) : null}
                 </p>
             );
         case 'heading':
@@ -50,6 +66,39 @@ function renderSection(section: BlogSection, index: number) {
                         {section.content}
                     </p>
                 </blockquote>
+            );
+        case 'image':
+            return (
+                <figure key={index} className="my-10">
+                    <div className="relative w-full aspect-video rounded-xl overflow-hidden shadow-md">
+                        <Image
+                            src={section.src!}
+                            alt={section.alt || ''}
+                            fill
+                            className="object-cover"
+                        />
+                    </div>
+                    {section.caption && (
+                        <figcaption className="mt-3 text-sm text-gray-500 text-center italic">
+                            {section.caption}
+                        </figcaption>
+                    )}
+                </figure>
+            );
+        case 'cta':
+            return (
+                <div key={index} className="my-10 bg-gray-50 border border-gray-200 rounded-xl p-6 sm:p-8 flex flex-col sm:flex-row sm:items-center gap-4">
+                    <p className="flex-1 text-gray-800 font-medium leading-relaxed">
+                        {section.content}
+                    </p>
+                    <Link
+                        href={section.href!}
+                        className="inline-flex items-center gap-2 px-5 py-3 bg-red-600 text-white text-sm font-semibold rounded-xl hover:bg-red-700 transition-colors whitespace-nowrap flex-shrink-0"
+                    >
+                        {section.linkText}
+                        <i className="ri-arrow-right-line text-base" />
+                    </Link>
+                </div>
             );
         default:
             return null;
@@ -110,7 +159,7 @@ export default function ArticleBody({ post, relatedPosts }: ArticleBodyProps) {
                     </article>
 
                     {/* Sidebar */}
-                    <aside className="lg:w-[340px] flex-shrink-0 space-y-8">
+                    <aside className="lg:w-[340px] flex-shrink-0 space-y-8 lg:sticky lg:top-24 lg:self-start">
                         {/* CTA card */}
                         <div className="bg-[#1a1f2c] rounded-2xl p-8 text-white shadow-xl relative overflow-hidden">
                             {/* Decorative blur */}

@@ -7,10 +7,11 @@ import BlogCard from './BlogCard';
 export default function BlogGrid() {
     const [activeCategory, setActiveCategory] = useState('Все');
 
-    const filtered =
+    const filtered = (
         activeCategory === 'Все'
             ? blogPosts
-            : blogPosts.filter((p) => p.category === activeCategory);
+            : blogPosts.filter((p) => p.category === activeCategory)
+    ).slice().sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
 
     return (
         <section className="py-16 sm:py-24 bg-gray-50/50">
