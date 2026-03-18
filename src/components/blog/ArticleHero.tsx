@@ -23,7 +23,7 @@ export default function ArticleHero({ post }: ArticleHeroProps) {
                     src={imageSrc}
                     alt={post.title}
                     fill
-                    className="object-cover object-center"
+                    className="object-cover object-[center_30%]"
                     priority
                     sizes="100vw"
                     placeholder="blur"
