@@ -213,7 +213,6 @@ export const projectsData: Project[] = [
             '/images/projects/2022/2022-12-combined-khmao/2022-12-combined-khmao-gallery-4.webp',
             '/images/projects/2022/2022-12-combined-khmao/2022-12-combined-khmao-gallery-5.webp',
             '/images/projects/2022/2022-12-combined-khmao/2022-12-combined-khmao-gallery-6.webp',
-            '/images/projects/2022/2022-12-combined-khmao/2022-12-combined-khmao-gallery-7.webp',
             '/images/projects/2022/2022-12-combined-khmao/2022-12-combined-khmao-gallery-8.webp',
         ],
         slug: '2022-12-combined-khmao',
