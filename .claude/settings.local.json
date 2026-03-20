@@ -16,7 +16,12 @@
       "Bash(grep -r \"linesGranulation\\\\|granulation-\\\\|granular\" C:/Users/User/Desktop/kirovbelmash-next/src --include=*.ts --include=*.tsx)",
       "Bash(npm run:*)",
       "mcp__Claude_Preview__preview_start",
-      "Bash(netstat -tlnp)"
+      "Bash(netstat -tlnp)",
+      "Bash(grep -E '\\\\.\\(tsx|ts|json\\)$')",
+      "Bash(npx next:*)",
+      "Bash(node node_modules/next/dist/bin/next dev -p 3210)",
+      "Bash(tasklist)",
+      "Bash(netstat -ano)"
     ]
   }
 }

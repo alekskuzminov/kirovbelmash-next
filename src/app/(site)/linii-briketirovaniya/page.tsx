@@ -7,15 +7,17 @@ import { HERO_BLUR } from '@/lib/heroBlur';
 import Projects from '@/components/home/Projects';
 import BriquettingProcess from '@/components/lines/BriquettingProcess';
 import RelatedLinesBlock from '@/components/lines/RelatedLinesBlock';
+import BriquettingSeoText from '@/components/lines/BriquettingSeoText';
+import BriquettingFAQ from '@/components/lines/BriquettingFAQ';
 import ContactForm from '@/components/home/ContactForm';
 
 export const metadata: Metadata = {
-    title: 'Оборудование для производства топливных брикетов',
-    description: 'Линии брикетирования и оборудование для производства топливных брикетов из опилок и других древесных отходов. Проектирование, изготовление, монтаж, запуск',
+    title: 'Оборудование для изготовления топливных брикетов',
+    description: 'Оборудование для изготовления топливных брикетов из опилок. Линии брикетирования от 10,5 млн ₽. Производительность 500–2000 кг/ч. Изготовление, монтаж, запуск.',
     alternates: { canonical: '/linii-briketirovaniya' },
     openGraph: {
-        title: 'Оборудование для производства топливных брикетов | КировБелМаш',
-        description: 'Линии брикетирования и оборудование для производства топливных брикетов из опилок и других древесных отходов. Проектирование, изготовление, монтаж, запуск',
+        title: 'Оборудование для изготовления топливных брикетов | КировБелМаш',
+        description: 'Оборудование для изготовления топливных брикетов из опилок. Линии брикетирования от 10,5 млн ₽. Производительность 500–2000 кг/ч. Изготовление, монтаж, запуск.',
         url: 'https://kirovbelmash.ru/linii-briketirovaniya',
         type: 'website',
         siteName: 'КировБелМаш',
@@ -24,19 +26,114 @@ export const metadata: Metadata = {
                 url: '/images/logo/og-image.jpg',
                 width: 1200,
                 height: 630,
-                alt: 'Линии брикетирования | КировБелМаш',
+                alt: 'Оборудование для изготовления топливных брикетов | КировБелМаш',
             },
         ],
     },
 };
 
+const breadcrumbSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'Главная', item: 'https://kirovbelmash.ru/' },
+        { '@type': 'ListItem', position: 2, name: 'Линии брикетирования', item: 'https://kirovbelmash.ru/linii-briketirovaniya' },
+    ],
+};
+
+const itemListSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    name: 'Линии брикетирования топливных брикетов КировБелМаш',
+    description: 'Оборудование для изготовления топливных брикетов из опилок и древесных отходов',
+    numberOfItems: 4,
+    itemListElement: [
+        {
+            '@type': 'ListItem',
+            position: 1,
+            item: {
+                '@type': 'Product',
+                name: 'Линия по производству топливных брикетов 500 кг/час',
+                description: 'Комплексное решение для переработки древесных отходов в высококачественные топливные брикеты. Идеален для предприятий любого масштаба.',
+                brand: { '@type': 'Brand', name: 'КировБелМаш' },
+                offers: {
+                    '@type': 'Offer',
+                    price: 10524000,
+                    priceCurrency: 'RUB',
+                    availability: 'https://schema.org/InStock',
+                    priceValidUntil: '2026-12-31',
+                },
+            },
+        },
+        {
+            '@type': 'ListItem',
+            position: 2,
+            item: {
+                '@type': 'Product',
+                name: 'Линия по производству топливных брикетов 1000 кг/час',
+                description: 'Производительная линия брикетирования с двойной загрузкой для крупных деревообрабатывающих предприятий и лесозаготовительных комплексов.',
+                brand: { '@type': 'Brand', name: 'КировБелМаш' },
+                offers: {
+                    '@type': 'Offer',
+                    price: 12946000,
+                    priceCurrency: 'RUB',
+                    availability: 'https://schema.org/InStock',
+                    priceValidUntil: '2026-12-31',
+                },
+            },
+        },
+        {
+            '@type': 'ListItem',
+            position: 3,
+            item: {
+                '@type': 'Product',
+                name: 'Линия по производству топливных брикетов 1200 кг/час',
+                description: 'Высокопроизводительная линия брикетирования для промышленного уровня переработки древесины. Полная автоматизация всех процессов.',
+                brand: { '@type': 'Brand', name: 'КировБелМаш' },
+                offers: {
+                    '@type': 'Offer',
+                    price: 23173000,
+                    priceCurrency: 'RUB',
+                    availability: 'https://schema.org/InStock',
+                    priceValidUntil: '2026-12-31',
+                },
+            },
+        },
+        {
+            '@type': 'ListItem',
+            position: 4,
+            item: {
+                '@type': 'Product',
+                name: 'Линия по производству топливных брикетов 2000 кг/час',
+                description: 'Флагманская линия брикетирования для крупнейших производств. Максимальная производительность и полный контроль качества на каждом этапе.',
+                brand: { '@type': 'Brand', name: 'КировБелМаш' },
+                offers: {
+                    '@type': 'Offer',
+                    price: 33030000,
+                    priceCurrency: 'RUB',
+                    availability: 'https://schema.org/InStock',
+                    priceValidUntil: '2026-12-31',
+                },
+            },
+        },
+    ],
+};
+
 export default function BriquettingLinePage() {
     return (
         <div className="min-h-screen bg-gray-50/50">
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+            />
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(itemListSchema) }}
+            />
             <LineHero
                 label="Линии брикетирования"
-                headingMain="Оборудование для производства топливных брикетов"
-                headingAccent="из опилок и древесных отходов"
+                headingMain="Оборудование для изготовления топливных брикетов из опилок"
+                headingAccent="линии брикетирования «под ключ»"
                 description={[
                     // Десктопная версия (скрыта на мобильных)
                     <div key="desktop-1" className="hidden sm:block">
@@ -72,10 +169,10 @@ export default function BriquettingLinePage() {
             <section id="variants" className="pt-8 pb-6 bg-white border-b border-gray-100">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-2">
-                        Готовые линии производства топливных брикетов
+                        Оборудование для изготовления брикетов из опилок
                     </h2>
                     <p className="text-base text-gray-600 max-w-2xl">
-                        Производительность от 500 до 2000 кг/час. Комплектация «под ключ».
+                        Производительность от 500 до 2000 кг/час. Цена от 10,5 млн ₽. Комплектация «под ключ».
                     </p>
                 </div>
             </section>
@@ -112,6 +209,10 @@ export default function BriquettingLinePage() {
                     },
                 ]}
             />
+
+            <BriquettingSeoText />
+
+            <BriquettingFAQ />
 
             <Projects />
 
