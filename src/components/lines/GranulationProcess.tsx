@@ -9,8 +9,8 @@ export default function GranulationProcess() {
                 {/* Header */}
                 <div className="text-center mb-10 sm:mb-14">
                     <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-4 leading-tight">
-                        Как происходит переработка сырья в топливные пеллеты<br className="hidden sm:block" />
-                        на нашем оборудовании?
+                        Установка для производства пеллет —<br className="hidden sm:block" />
+                        как работает линия?
                     </h2>
                     <p className="text-base sm:text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed">
                         Линии гранулирования КировБелМаш — это современное оборудование для производства топливных пеллет,

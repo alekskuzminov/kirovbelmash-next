@@ -10,12 +10,12 @@ import RelatedLinesBlock from '@/components/lines/RelatedLinesBlock';
 import ContactForm from '@/components/home/ContactForm';
 
 export const metadata: Metadata = {
-    title: 'Оборудование для производства топливных пеллет',
-    description: 'Линии гранулирования и оборудование для производства топливных пеллет из опилок, щепы и других древесных отходов. Проектирование, изготовление, монтаж, запуск',
+    title: 'Оборудование для производства пеллет — пеллетные линии',
+    description: 'Оборудование для производства топливных пеллет из опилок и древесных отходов. Пеллетные линии гранулирования от 9,2 млн ₽. Производительность 500–2000 кг/ч. Изготовление, монтаж, запуск.',
     alternates: { canonical: '/linii-granulirovaniya' },
     openGraph: {
-        title: 'Оборудование для производства топливных пеллет | КировБелМаш',
-        description: 'Линии гранулирования и оборудование для производства топливных пеллет из опилок, щепы и других древесных отходов. Проектирование, изготовление, монтаж, запуск',
+        title: 'Оборудование для производства пеллет — пеллетные линии | КировБелМаш',
+        description: 'Оборудование для производства топливных пеллет из опилок и древесных отходов. Пеллетные линии гранулирования от 9,2 млн ₽. Производительность 500–2000 кг/ч. Изготовление, монтаж, запуск.',
         url: 'https://kirovbelmash.ru/linii-granulirovaniya',
         type: 'website',
         siteName: 'КировБелМаш',
@@ -24,19 +24,114 @@ export const metadata: Metadata = {
                 url: '/images/logo/og-image.jpg',
                 width: 1200,
                 height: 630,
-                alt: 'Линии гранулирования | КировБелМаш',
+                alt: 'Оборудование для производства пеллет | КировБелМаш',
             },
         ],
     },
 };
 
+const breadcrumbSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'Главная', item: 'https://kirovbelmash.ru/' },
+        { '@type': 'ListItem', position: 2, name: 'Линии гранулирования', item: 'https://kirovbelmash.ru/linii-granulirovaniya' },
+    ],
+};
+
+const itemListSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    name: 'Пеллетные линии гранулирования КировБелМаш',
+    description: 'Оборудование для производства топливных пеллет из опилок и древесных отходов',
+    numberOfItems: 4,
+    itemListElement: [
+        {
+            '@type': 'ListItem',
+            position: 1,
+            item: {
+                '@type': 'Product',
+                name: 'Линия по производству топливных пеллет 500 кг/час',
+                description: 'Стартовая линия гранулирования для производства пеллет класса ENplus. Оптимальна для малого бизнеса и первого вхождения в рынок биотоплива.',
+                brand: { '@type': 'Brand', name: 'КировБелМаш' },
+                offers: {
+                    '@type': 'Offer',
+                    price: 9200000,
+                    priceCurrency: 'RUB',
+                    availability: 'https://schema.org/InStock',
+                    priceValidUntil: '2026-12-31',
+                },
+            },
+        },
+        {
+            '@type': 'ListItem',
+            position: 2,
+            item: {
+                '@type': 'Product',
+                name: 'Линия по производству топливных пеллет 1000 кг/час',
+                description: 'Эффективная линия гранулирования с двойной гранулирующей установкой. Идеальна для предприятий со стабильным потоком сырья.',
+                brand: { '@type': 'Brand', name: 'КировБелМаш' },
+                offers: {
+                    '@type': 'Offer',
+                    price: 14800000,
+                    priceCurrency: 'RUB',
+                    availability: 'https://schema.org/InStock',
+                    priceValidUntil: '2026-12-31',
+                },
+            },
+        },
+        {
+            '@type': 'ListItem',
+            position: 3,
+            item: {
+                '@type': 'Product',
+                name: 'Линия по производству топливных пеллет 1200 кг/час',
+                description: 'Промышленная линия гранулирования с высокой производительностью. Обеспечивает стабильный выпуск пеллет европейского качества ENplus A1.',
+                brand: { '@type': 'Brand', name: 'КировБелМаш' },
+                offers: {
+                    '@type': 'Offer',
+                    price: 23302000,
+                    priceCurrency: 'RUB',
+                    availability: 'https://schema.org/InStock',
+                    priceValidUntil: '2026-12-31',
+                },
+            },
+        },
+        {
+            '@type': 'ListItem',
+            position: 4,
+            item: {
+                '@type': 'Product',
+                name: 'Линия по производству топливных пеллет 2000 кг/час',
+                description: 'Максимально производительная линия гранулирования для крупных лесопромышленных холдингов. Полная автоматизация и экспортное качество.',
+                brand: { '@type': 'Brand', name: 'КировБелМаш' },
+                offers: {
+                    '@type': 'Offer',
+                    price: 34511000,
+                    priceCurrency: 'RUB',
+                    availability: 'https://schema.org/InStock',
+                    priceValidUntil: '2026-12-31',
+                },
+            },
+        },
+    ],
+};
+
 export default function GranulationLinePage() {
     return (
         <div className="min-h-screen bg-gray-50/50">
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+            />
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(itemListSchema) }}
+            />
             <LineHero
                 label="Линии гранулирования"
-                headingMain="Оборудование для производства топливных пеллет"
-                headingAccent="из опилок и древесных отходов"
+                headingMain="Оборудование для производства пеллет из опилок"
+                headingAccent="линии гранулирования «под ключ»"
                 description={[
                     // Десктопная версия (скрыта на мобильных)
                     <div key="desktop-1" className="hidden sm:block">
@@ -72,10 +167,10 @@ export default function GranulationLinePage() {
             <section id="variants" className="pt-8 pb-6 bg-white border-b border-gray-100">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-2">
-                        Готовые линии производства топливных пеллет
+                        Пеллетное оборудование — готовые линии
                     </h2>
                     <p className="text-base text-gray-600 max-w-2xl">
-                        Производительность от 500 до 2000 кг/час. Комплектация «под ключ».
+                        Производительность от 500 до 2000 кг/час. Цена от 9,2 млн ₽. Комплектация «под ключ».
                     </p>
                 </div>
             </section>

@@ -7,7 +7,14 @@
       "Bash(ls \"C:\\\\Users\\\\User\\\\Desktop\\\\kirovbelmash-next\\\\public\\\\images\\\\lines\\\\briquetting\"\" 2>/dev/null || dir \"C:UsersUserDesktopkirovbelmash-nextpublicimageslinesbriquetting\"\")",
       "Bash(pandoc \"C:/Users/User/Desktop/Виды брикетов_ пеллет.docx\" -t plain --wrap=none)",
       "Bash(pandoc \"C:/Users/User/Desktop/Виды брикетов_ пеллет.docx\" -o - -t markdown)",
-      "Bash(python -c \":*)"
+      "Bash(python -c \":*)",
+      "Bash(find \"C:/Users/User/Desktop/kirovbelmash-next/src/app/\\(site\\)/linii-granulirovaniya\" -type f)",
+      "Bash(find \"C:/Users/User/Desktop/kirovbelmash-next/src/app/\\(site\\)\" -name \"layout.tsx\")",
+      "Bash(find C:/Users/User/Desktop/kirovbelmash-next -name sitemap* -o -name *sitemap*)",
+      "Bash(head -50 \"C:/Users/User/Desktop/kirovbelmash-next/src/app/\\(site\\)/linii-granulirovaniya/page.tsx\")",
+      "Bash(xargs wc:*)",
+      "Bash(grep -r \"linesGranulation\\\\|granulation-\\\\|granular\" C:/Users/User/Desktop/kirovbelmash-next/src --include=*.ts --include=*.tsx)",
+      "Bash(npm run:*)"
     ]
   }
 }
