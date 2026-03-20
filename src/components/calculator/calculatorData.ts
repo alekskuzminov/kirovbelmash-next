@@ -48,10 +48,10 @@ export const productivityOptions = [
 ];
 
 export const rawMaterialOptions = [
+    { id: 'shavings', label: 'Стружка сухая (влажность до 14%)', modifier: 1.00 },
     { id: 'sawdust', label: 'Опил естественной влажности', modifier: 1.03 },
     { id: 'chips', label: 'Щепа естественной влажности', modifier: 1.05 },
-    { id: 'shavings', label: 'Стружка сухая (влажность до 14%)', modifier: 1.07 },
-    { id: 'slabs', label: 'Горбыль, тонкомер естественной влажности', modifier: 1.10 },
+    { id: 'slabs', label: 'Горбыль, тонкомер естественной влажности', modifier: 1.07 },
 ];
 
 export const additionalServices = [

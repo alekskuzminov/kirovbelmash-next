@@ -93,7 +93,7 @@ export default function BriquettingSeoText() {
                             <Link href="/services/training" className="text-red-600 underline underline-offset-2 hover:text-red-700 font-medium">
                                 обучение персонала
                             </Link>{' '}
-                            работе на оборудовании для брикетирования. Гарантия — 24 месяца,
+                            работе на оборудовании для брикетирования. Гарантия — 36 месяцев,
                             сервисная поддержка — на весь срок эксплуатации.
                         </p>
                     </div>
