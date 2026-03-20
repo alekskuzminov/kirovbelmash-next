@@ -14,7 +14,9 @@
       "Bash(head -50 \"C:/Users/User/Desktop/kirovbelmash-next/src/app/\\(site\\)/linii-granulirovaniya/page.tsx\")",
       "Bash(xargs wc:*)",
       "Bash(grep -r \"linesGranulation\\\\|granulation-\\\\|granular\" C:/Users/User/Desktop/kirovbelmash-next/src --include=*.ts --include=*.tsx)",
-      "Bash(npm run:*)"
+      "Bash(npm run:*)",
+      "mcp__Claude_Preview__preview_start",
+      "Bash(netstat -tlnp)"
     ]
   }
 }

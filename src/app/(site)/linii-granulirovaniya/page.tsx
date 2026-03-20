@@ -7,6 +7,8 @@ import { HERO_BLUR } from '@/lib/heroBlur';
 import Projects from '@/components/home/Projects';
 import GranulationProcess from '@/components/lines/GranulationProcess';
 import RelatedLinesBlock from '@/components/lines/RelatedLinesBlock';
+import GranulationFAQ from '@/components/lines/GranulationFAQ';
+import GranulationSeoText from '@/components/lines/GranulationSeoText';
 import ContactForm from '@/components/home/ContactForm';
 
 export const metadata: Metadata = {
@@ -207,6 +209,10 @@ export default function GranulationLinePage() {
                     },
                 ]}
             />
+
+            <GranulationSeoText />
+
+            <GranulationFAQ />
 
             <Projects />
 
