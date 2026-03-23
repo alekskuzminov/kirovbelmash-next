@@ -26,7 +26,8 @@
       "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:3001/linii-briketirovaniya)",
       "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:3000/linii-briketirovaniya)",
       "Bash(curl -s http://localhost:3000/linii-briketirovaniya)",
-      "Bash(curl -s http://localhost:3000/linii-granulirovaniya)"
+      "Bash(curl -s http://localhost:3000/linii-granulirovaniya)",
+      "Bash(grep -v \"^--$\")"
     ]
   }
 }

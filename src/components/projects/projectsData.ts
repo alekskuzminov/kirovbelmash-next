@@ -431,7 +431,7 @@ export const projectsData: Project[] = [
         year: '2017',
         month: 'Декабрь',
         category: 'Гранулирование',
-        description: 'Стружка засасывается с помощью вакуумной молотковой дробилки, измельчается и подается в бункер-накопитель, далее поступает в гранулятор. Полученные гранулы охлаждаются в охладителе, просеиваются и поступают на фасовку.',
+        description: 'Линия гранулирования из сухой стружки хвойных пород, 1000 кг/ч, Кировская область. Стружка засасывается вакуумной молотковой дробилкой, поступает в бункер-накопитель, гранулятор, охладитель и на фасовку.',
         image: '/images/projects/2017/2017-12-granulation-kirov/2017-12-granulation-kirov-main.webp',
         gallery: [
             '/images/projects/2017/2017-12-granulation-kirov/2017-12-granulation-kirov-main.webp',
@@ -476,7 +476,7 @@ export const projectsData: Project[] = [
         year: '2016',
         month: 'Ноябрь',
         category: 'Брикетирование',
-        description: 'Линия брикетирования Pini & kay из сухого опила хвойных пород.',
+        description: 'Линия брикетирования Pini & kay производительностью 1000 кг/ч из сухого опила хвойных пород в Саратовской области. Сырьё поступало сразу на прессование без дополнительной подготовки.',
         image: '/images/projects/2016/2016-11-briquetting-saratov/2016-11-briquetting-saratov-main.webp',
         gallery: [
             '/images/projects/2016/2016-11-briquetting-saratov/2016-11-briquetting-saratov-main.webp',
@@ -495,7 +495,7 @@ export const projectsData: Project[] = [
         year: '2016',
         month: 'Август',
         category: 'Гранулирование',
-        description: 'Сырье засасывается с помощью вакуумной молотковой дробилки, измельчается и подается в бункер-накопитель, далее поступает в гранулятор. Полученные гранулы охлаждаются в охладителе, просеиваются и поступают на фасовку.',
+        description: 'Линия гранулирования из шелухи подсолнуха, 1000 кг/ч, Саратовская область. Сырье засасывается вакуумной молотковой дробилкой, поступает в бункер-накопитель, гранулятор, охладитель и на фасовку.',
         image: '/images/projects/2016/2016-08-granulation-saratov/2016-08-granulation-saratov-main.webp',
         gallery: [
             '/images/projects/2016/2016-08-granulation-saratov/2016-08-granulation-saratov-main.webp',
@@ -516,7 +516,7 @@ export const projectsData: Project[] = [
         year: '2016',
         month: 'Август',
         category: 'Брикетирование',
-        description: 'Линия брикетирования Pini & kay из опила естественной влажности.',
+        description: 'Линия брикетирования Pini & kay производительностью 1000 кг/ч из опила естественной влажности в Пензенской области. В составе линии — сушка, дробление и прессование.',
         image: '/images/projects/2016/2016-08-briquetting-saratov/2016-08-briquetting-saratov-main.webp',
         gallery: [
             '/images/projects/2016/2016-08-briquetting-saratov/2016-08-briquetting-saratov-main.webp',
@@ -537,7 +537,7 @@ export const projectsData: Project[] = [
         year: '2016',
         month: 'Январь',
         category: 'Брикетирование',
-        description: 'Нами был установлен участок брикетирования. Оборудование по подготовке сырья (дробление и сушка) были установлены заказчиком предварительно.',
+        description: 'Монтаж участка брикетирования Pini & kay, 600 кг/ч, из щепы и опила хвойных пород в Пермском крае. Оборудование подготовки сырья (дробление и сушка) было установлено заказчиком заранее.',
         image: '/images/projects/2016/2016-01-briquetting-perm/2016-01-briquetting-perm-main.webp',
         video: 'https://cdn.kirovbelmash.ru/projects/2016/2016-01-briquetting-perm/2016-01-briquetting-perm-video.mp4',
         gallery: [
@@ -560,7 +560,7 @@ export const projectsData: Project[] = [
         year: '2015',
         month: 'Сентябрь',
         category: 'Брикетирование',
-        description: 'Нами был установлен участок брикетирования. Оборудование по подготовке сырья (дробление и сушка) были установлены заказчиком предварительно.',
+        description: 'Монтаж участка брикетирования Pini & kay, 1000 кг/ч, из тонкомера и горбыля лиственных пород в Республике Северная Осетия. Оборудование подготовки сырья установлено заказчиком предварительно.',
         image: '/images/projects/2015/2015-09-briquetting-ossetia/2015-09-briquetting-ossetia-main.webp',
         video: 'https://cdn.kirovbelmash.ru/projects/2015/2015-09-briquetting-ossetia/2015-09-briquetting-ossetia-video.mp4',
         gallery: [
@@ -581,7 +581,7 @@ export const projectsData: Project[] = [
         year: '2014',
         month: 'Январь',
         category: 'Гранулирование',
-        description: 'Стружка засасывается с помощью вакуумной молотковой дробилки, измельчается и подается в бункер-накопитель, далее поступает в гранулятор. Полученные гранулы охлаждаются в охладителе, просеиваются и поступают на фасовку.',
+        description: 'Линия гранулирования из сухой стружки хвойных пород, 1000 кг/ч, г. Омутнинск (Кировская обл.). Стружка обрабатывается вакуумной молотковой дробилкой, гранулируется, охлаждается и поступает на фасовку.',
         image: '/images/projects/2014/2014-01-granulation-kirov/2014-01-granulation-kirov-main.webp',
         video: 'https://cdn.kirovbelmash.ru/projects/2014/2014-01-granulation-kirov/2014-01-granulation-kirov-video.mp4',
         gallery: [
