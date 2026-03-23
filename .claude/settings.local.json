@@ -21,7 +21,12 @@
       "Bash(npx next:*)",
       "Bash(node node_modules/next/dist/bin/next dev -p 3210)",
       "Bash(tasklist)",
-      "Bash(netstat -ano)"
+      "Bash(netstat -ano)",
+      "Read(//c/Users/User/AppData/Roaming/Claude/local-agent-mode-sessions/skills-plugin/fe5a74f3-b7ba-40c2-80b1-8153197a7aae/fb38f31f-74cb-4266-ab2c-05e2c0840c3a/skills/xlsx/**)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:3001/linii-briketirovaniya)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:3000/linii-briketirovaniya)",
+      "Bash(curl -s http://localhost:3000/linii-briketirovaniya)",
+      "Bash(curl -s http://localhost:3000/linii-granulirovaniya)"
     ]
   }
 }
