@@ -105,6 +105,8 @@ Allow: /
 Disallow: /api/
 Disallow: /admin/
 
+Clean-param: etext
+
 Host: ${BASE_URL}
 Sitemap: ${BASE_URL}/sitemap.xml
 `;
