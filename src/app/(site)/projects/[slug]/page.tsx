@@ -33,11 +33,11 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     }
 
     return {
-        title: project.title,
+        title: `${project.title} — ${project.location}, ${project.year}`,
         description: project.description,
         alternates: { canonical: `/projects/${project.slug}` },
         openGraph: {
-            title: project.title,
+            title: `${project.title} — ${project.location}, ${project.year}`,
             description: project.description,
             url: `https://kirovbelmash.ru/projects/${project.slug}`,
             type: 'article',
