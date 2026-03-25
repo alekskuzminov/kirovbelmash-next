@@ -27,7 +27,15 @@
       "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:3000/linii-briketirovaniya)",
       "Bash(curl -s http://localhost:3000/linii-briketirovaniya)",
       "Bash(curl -s http://localhost:3000/linii-granulirovaniya)",
-      "Bash(grep -v \"^--$\")"
+      "Bash(grep -v \"^--$\")",
+      "Bash(pip show:*)",
+      "Bash(python parse_projects.py)",
+      "Bash(python check_2025.py)",
+      "Bash(python add_compositions.py)",
+      "Bash(tasklist /FI 'PID eq 23272')",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:3000/projects/2025-08-briquetting-vologda)",
+      "Bash(curl -s http://localhost:3000/projects/2025-08-briquetting-vologda)",
+      "Bash(curl -s http://localhost:3000/projects/2022-12-combined-khmao)"
     ]
   }
 }
