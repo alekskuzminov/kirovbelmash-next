@@ -11,6 +11,7 @@ import Breadcrumbs from '@/components/ui/Breadcrumbs';
 import BreadcrumbJsonLd from '@/components/ui/BreadcrumbJsonLd';
 import ProjectVideo from '@/components/projects/ProjectVideo';
 import RelatedProjectsBlock from '@/components/projects/RelatedProjectsBlock';
+import LineComposition from '@/components/lines/LineComposition';
 
 interface PageProps {
     params: Promise<{ slug: string }>;
@@ -175,6 +176,10 @@ export default async function ProjectDetailPage({ params }: PageProps) {
                                     })}
                                 </div>
                             </div>
+                        )}
+
+                        {item.composition && item.composition.length > 0 && (
+                            <LineComposition composition={item.composition} />
                         )}
 
                         <div className="bg-red-50/50 rounded-xl p-5 flex gap-4 items-start border border-red-100">
