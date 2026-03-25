@@ -12,6 +12,8 @@ import BreadcrumbJsonLd from '@/components/ui/BreadcrumbJsonLd';
 import ProjectVideo from '@/components/projects/ProjectVideo';
 import RelatedProjectsBlock from '@/components/projects/RelatedProjectsBlock';
 import LineComposition from '@/components/lines/LineComposition';
+import ProjectSeoText from '@/components/projects/ProjectSeoText';
+import { projectSeoData } from '@/components/projects/projectSeoData';
 
 interface PageProps {
     params: Promise<{ slug: string }>;
@@ -196,6 +198,10 @@ export default async function ProjectDetailPage({ params }: PageProps) {
                     </div>
                 </div>
             </div>
+
+            {projectSeoData[item.slug] && (
+                <ProjectSeoText {...projectSeoData[item.slug]} />
+            )}
 
             <div className="bg-gray-50 pt-20">
                 {item.video && (
