@@ -22,7 +22,6 @@ async function generate() {
         { url: `${BASE_URL}/projects`, priority: 0.8, changefreq: 'monthly' },
         { url: `${BASE_URL}/services`, priority: 0.8, changefreq: 'monthly' },
         { url: `${BASE_URL}/sushilnie-linii`, priority: 0.9, changefreq: 'monthly' },
-        { url: `${BASE_URL}/privacy-policy`, priority: 0.3, changefreq: 'yearly' },
     ];
 
     blogPosts.forEach((post) => {
@@ -104,8 +103,9 @@ ${pages
 Allow: /
 Disallow: /api/
 Disallow: /admin/
+Disallow: /_next/
 
-Clean-param: etext
+Clean-param: etext&utm_source&utm_medium&utm_campaign&utm_content&utm_term&yclid&gclid&fbclid
 
 Host: ${BASE_URL}
 Sitemap: ${BASE_URL}/sitemap.xml

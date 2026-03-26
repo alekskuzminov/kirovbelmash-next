@@ -5,6 +5,7 @@ import BreadcrumbJsonLd from '@/components/ui/BreadcrumbJsonLd';
 export const metadata: Metadata = {
     title: 'Политика конфиденциальности',
     description: 'Политика в отношении обработки персональных данных ООО «КировБелМаш». Мы заботимся о безопасности ваших данных.',
+    robots: { index: false, follow: true },
 };
 
 const privacyBreadcrumbs = [
