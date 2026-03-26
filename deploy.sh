@@ -21,4 +21,7 @@ npm run build
 echo "🔄 Restarting PM2 process..."
 pm2 restart kbm-site
 
+echo "📡 Notifying Yandex via IndexNow..."
+bash /var/www/kirovbelmash-next/scripts/indexnow.sh || true
+
 echo "✅ Deploy complete! Site is live at https://kirovbelmash.ru"
