@@ -20,7 +20,6 @@ const EquipmentImageGallery = ({ mainImage, gallery = [], itemName }: EquipmentI
         <div className="w-full">
             {/* Основное изображение */}
             <div className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden bg-transparent mb-4 transition-all duration-500">
-
                 <Image
                     src={activeImage}
                     alt={itemName}

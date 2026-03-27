@@ -39,7 +39,8 @@
       "Bash(netstat -aon)",
       "Read(//proc/sys/kernel/random/**)",
       "Bash(python3 -c \"import uuid; print\\(uuid.uuid4\\(\\)\\)\")",
-      "Bash(powershell -Command \"[guid]::NewGuid\\(\\).ToString\\(\\)\")"
+      "Bash(powershell -Command \"[guid]::NewGuid\\(\\).ToString\\(\\)\")",
+      "Bash(node -e \":*)"
     ]
   }
 }

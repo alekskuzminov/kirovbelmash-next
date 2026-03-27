@@ -123,6 +123,8 @@ export const projectsData: Project[] = [
             '/images/projects/2025/2025-06-briquetting-perm/2025-06-briquetting-perm-gallery-5.webp',
             '/images/projects/2025/2025-06-briquetting-perm/2025-06-briquetting-perm-gallery-6.webp',
             '/images/projects/2025/2025-06-briquetting-perm/2025-06-briquetting-perm-gallery-7.webp',
+            '/images/projects/2025/2025-06-briquetting-perm/2025-06-briquetting-perm-gallery-8.webp',
+            '/images/projects/2025/2025-06-briquetting-perm/2025-06-briquetting-perm-gallery-9.webp',
         ],
         slug: '2025-06-briquetting-perm',
         capacity: '1000 кг/час',
