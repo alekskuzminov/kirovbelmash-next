@@ -4,7 +4,6 @@ import { useState, useMemo } from 'react';
 import Link from 'next/link';
 import EquipmentFilters from '@/components/equipment/EquipmentFilters';
 import EquipmentCard from '@/components/equipment/EquipmentCard';
-import EquipmentCTA from '@/components/equipment/EquipmentCTA';
 import { equipmentItems, equipmentCategoriesConfig } from '@/components/equipment/equipmentData';
 
 interface EquipmentPageClientProps {
@@ -130,7 +129,6 @@ export default function EquipmentPageClient({ activeCategory = 'Все' }: Equip
                 </div>
             </div>
 
-            <EquipmentCTA />
         </>
     );
 } 

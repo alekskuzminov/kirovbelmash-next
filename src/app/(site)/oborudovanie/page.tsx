@@ -1,6 +1,7 @@
 import { Metadata } from 'next';
 import { redirect } from 'next/navigation';
 import EquipmentPageClient from './EquipmentPageClient';
+import EquipmentCTA from '@/components/equipment/EquipmentCTA';
 import { equipmentCategoriesConfig } from '@/components/equipment/equipmentData';
 
 export const metadata: Metadata = {
@@ -35,6 +36,7 @@ export default function EquipmentPage({ searchParams }: { searchParams: { catego
     return (
         <div className="min-h-screen bg-gray-50/50">
             <EquipmentPageClient activeCategory="Все" />
+            <EquipmentCTA />
         </div>
     );
 }
