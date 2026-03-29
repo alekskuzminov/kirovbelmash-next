@@ -15,6 +15,10 @@ import PressPbm2SeoText from '@/components/equipment/seo/PressPbm2SeoText';
 import BriketirujushheeSeoText from '@/components/equipment/seo/BriketirujushheeSeoText';
 import PelletSeoText from '@/components/equipment/seo/PelletSeoText';
 import GranuljatorOgm15SeoText from '@/components/equipment/seo/GranuljatorOgm15SeoText';
+import BriketirujushheeEquipmentFAQ from '@/components/equipment/faq/BriketirujushheeEquipmentFAQ';
+import PelletEquipmentFAQ from '@/components/equipment/faq/PelletEquipmentFAQ';
+import PressPbm2FAQ from '@/components/equipment/faq/PressPbm2FAQ';
+import GranuljatorOgm15FAQ from '@/components/equipment/faq/GranuljatorOgm15FAQ';
 
 interface Props {
     params: Promise<{ slug: string }>;
@@ -103,8 +107,11 @@ export default async function EquipmentDynamicPage({ params }: Props) {
         return (
             <div className="min-h-screen bg-gray-50/50">
                 <EquipmentPageClient activeCategory={category.name} />
+                <EquipmentCTA />
                 {slug === 'briketirujushhee-oborudovanie' && <BriketirujushheeSeoText />}
                 {slug === 'oborudovanie-dlja-proizvodstva-granul' && <PelletSeoText />}
+                {slug === 'briketirujushhee-oborudovanie' && <BriketirujushheeEquipmentFAQ />}
+                {slug === 'oborudovanie-dlja-proizvodstva-granul' && <PelletEquipmentFAQ />}
                 {otherItems.length > 0 && (
                     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-12">
                         <RelatedEquipmentCarousel
@@ -295,15 +302,23 @@ export default async function EquipmentDynamicPage({ params }: Props) {
                 )}
             </div>
 
+            {/* Вызов к действию (общий) */}
+            <EquipmentCTA title={
+                (slug === 'press-pbm2-dlya-briketov' || slug === 'granuljator-ogm-1-5')
+                    ? 'Нужна помощь с подбором оборудования?'
+                    : 'Не нашли нужное оборудование?'
+            } />
+
             {/* SEO-секция (per-equipment) */}
             {slug === 'press-pbm2-dlya-briketov' && <PressPbm2SeoText />}
             {slug === 'granuljator-ogm-1-5' && <GranuljatorOgm15SeoText />}
 
+            {/* FAQ-секция (per-equipment) */}
+            {slug === 'press-pbm2-dlya-briketov' && <PressPbm2FAQ />}
+            {slug === 'granuljator-ogm-1-5' && <GranuljatorOgm15FAQ />}
+
             {/* Quote Form */}
             <ContactForm initialMessage={`Запрос КП: ${item.name}`} />
-
-            {/* Вызов к действию (общий) */}
-            <EquipmentCTA />
         </div>
     );
 }

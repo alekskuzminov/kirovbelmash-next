@@ -1,7 +1,7 @@
 import ContactModalButton from '@/components/common/ContactModalButton';
 import { SITE_CONFIG } from '@/config/site.config';
 
-export default function EquipmentCTA() {
+export default function EquipmentCTA({ title = 'Не нашли нужное оборудование?' }: { title?: string }) {
     return (
         <section className="py-12 sm:py-16 bg-white">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -12,7 +12,7 @@ export default function EquipmentCTA() {
                     <div className="relative z-10 flex flex-col lg:flex-row items-center justify-between gap-5 sm:gap-8">
                         <div className="text-center lg:text-left">
                             <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold text-white mb-2 sm:mb-3">
-                                Не нашли нужное оборудование?
+                                {title}
                             </h3>
                             <p className="text-sm sm:text-base text-red-100 max-w-xl">
                                 Мы проектируем и производим индивидуальные решения под ваши конкретные производственные задачи. Свяжитесь с нами для консультации.
