@@ -9,6 +9,7 @@ import LineComposition from '@/components/lines/LineComposition';
 import ContactForm from '@/components/home/ContactForm';
 import Breadcrumbs from '@/components/ui/Breadcrumbs';
 import BreadcrumbJsonLd from '@/components/ui/BreadcrumbJsonLd';
+import LineProductJsonLd from '@/components/lines/LineProductJsonLd';
 
 interface ProductionLinePageProps {
     params: Promise<{ id: string }>;
@@ -69,6 +70,7 @@ export default async function ProductionLinePage({ params }: ProductionLinePageP
     return (
         <div className="min-h-screen bg-gray-50/50 pb-12">
             <BreadcrumbJsonLd items={breadcrumbItems} />
+            <LineProductJsonLd variant={variant} categoryName={backLabel} />
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 sm:pt-40">
                 <Breadcrumbs
                     items={breadcrumbItems}
