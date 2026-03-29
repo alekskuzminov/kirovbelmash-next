@@ -61,9 +61,9 @@ function buildOffer(variant: LineVariant, categoryId: number): string {
         .map((r) => `      <picture>${SITE_URL}${r}</picture>`)
         .join('\n');
 
-    return `    <offer id="${variant.id}" type="vendor.model" available="true">
+    return `    <offer id="${variant.id}" available="true">
       <url>${url}</url>
-      <price>${price ?? 0}</price>
+      <price from="true">${price ?? 0}</price>
       <currencyId>RUR</currencyId>
       <categoryId>${categoryId}</categoryId>
       <picture>${picture}</picture>
@@ -90,9 +90,8 @@ function generateYml(): string {
         .join('\n');
 
     return `<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE yml_catalog SYSTEM "shops.dtd">
 <yml_catalog date="${now}">
-  <shop>
+  <shop version="1">
     <name>${COMPANY}</name>
     <company>ООО «КировБелМаш»</company>
     <url>${SITE_URL}</url>
