@@ -105,7 +105,7 @@ Disallow: /api/
 Disallow: /admin/
 Disallow: /_next/
 
-Clean-param: etext&utm_source&utm_medium&utm_campaign&utm_content&utm_term&yclid&gclid&fbclid
+Clean-param: etext&utm_source&utm_medium&utm_campaign&utm_content&utm_term&yclid&gclid&fbclid&category&ybaip
 
 Host: ${BASE_URL}
 Sitemap: ${BASE_URL}/sitemap.xml
