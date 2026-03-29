@@ -43,7 +43,6 @@ export const blogCategories = [
     'Опыт клиентов',
 ];
 
-// Архивные статьи (id 1–6) перенесены в blogData.archive.ts
 export const blogPosts: BlogPost[] = [
     {
         id: 9,

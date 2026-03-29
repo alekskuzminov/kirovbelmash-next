@@ -40,7 +40,8 @@
       "Read(//proc/sys/kernel/random/**)",
       "Bash(python3 -c \"import uuid; print\\(uuid.uuid4\\(\\)\\)\")",
       "Bash(powershell -Command \"[guid]::NewGuid\\(\\).ToString\\(\\)\")",
-      "Bash(node -e \":*)"
+      "Bash(node -e \":*)",
+      "Bash(find /c/Users/User/Desktop/kirovbelmash-next/src/app -name *granul* -type f)"
     ]
   }
 }
