@@ -91,7 +91,7 @@ function generateYml(): string {
 
     return `<?xml version="1.0" encoding="UTF-8"?>
 <yml_catalog date="${now}">
-  <shop version="1">
+  <shop>
     <name>${COMPANY}</name>
     <company>ООО «КировБелМаш»</company>
     <url>${SITE_URL}</url>
