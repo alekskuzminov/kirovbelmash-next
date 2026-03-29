@@ -213,7 +213,7 @@ export default function Calculator() {
                     </div>
 
                     {/* Правая панель — результат */}
-                    <div className="lg:col-span-2 lg:sticky lg:top-24">
+                    <div className="lg:col-span-2 lg:sticky lg:top-28">
                         <CalculatorResult
                             selectedEquipment={selectedEquipment}
                             selectedProductivity={selectedProductivity}

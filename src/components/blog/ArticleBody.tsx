@@ -191,7 +191,7 @@ export default function ArticleBody({ post, relatedPosts }: ArticleBodyProps) {
                     </article>
 
                     {/* Sidebar */}
-                    <aside className="lg:w-[340px] flex-shrink-0 space-y-8 lg:sticky lg:top-24 lg:self-start">
+                    <aside className="lg:w-[340px] flex-shrink-0 space-y-8 lg:sticky lg:top-28 lg:self-start">
                         {/* CTA card */}
                         <div className="bg-[#1a1f2c] rounded-2xl p-8 text-white shadow-xl relative overflow-hidden">
                             {/* Decorative blur */}
