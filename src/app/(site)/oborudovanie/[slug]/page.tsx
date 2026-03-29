@@ -12,6 +12,9 @@ import EquipmentImageGallery from '@/components/equipment/EquipmentImageGallery'
 import EquipmentPageClient from '../EquipmentPageClient';
 import RelatedEquipmentCarousel from '@/components/equipment/RelatedEquipmentCarousel';
 import PressPbm2SeoText from '@/components/equipment/seo/PressPbm2SeoText';
+import BriketirujushheeSeoText from '@/components/equipment/seo/BriketirujushheeSeoText';
+import PelletSeoText from '@/components/equipment/seo/PelletSeoText';
+import GranuljatorOgm15SeoText from '@/components/equipment/seo/GranuljatorOgm15SeoText';
 
 interface Props {
     params: Promise<{ slug: string }>;
@@ -100,6 +103,8 @@ export default async function EquipmentDynamicPage({ params }: Props) {
         return (
             <div className="min-h-screen bg-gray-50/50">
                 <EquipmentPageClient activeCategory={category.name} />
+                {slug === 'briketirujushhee-oborudovanie' && <BriketirujushheeSeoText />}
+                {slug === 'oborudovanie-dlja-proizvodstva-granul' && <PelletSeoText />}
                 {otherItems.length > 0 && (
                     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-12">
                         <RelatedEquipmentCarousel
@@ -292,6 +297,7 @@ export default async function EquipmentDynamicPage({ params }: Props) {
 
             {/* SEO-секция (per-equipment) */}
             {slug === 'press-pbm2-dlya-briketov' && <PressPbm2SeoText />}
+            {slug === 'granuljator-ogm-1-5' && <GranuljatorOgm15SeoText />}
 
             {/* Quote Form */}
             <ContactForm initialMessage={`Запрос КП: ${item.name}`} />
