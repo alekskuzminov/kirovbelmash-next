@@ -11,6 +11,7 @@ import BreadcrumbJsonLd from '@/components/ui/BreadcrumbJsonLd';
 import EquipmentImageGallery from '@/components/equipment/EquipmentImageGallery';
 import EquipmentPageClient from '../EquipmentPageClient';
 import RelatedEquipmentCarousel from '@/components/equipment/RelatedEquipmentCarousel';
+import PressPbm2SeoText from '@/components/equipment/seo/PressPbm2SeoText';
 
 interface Props {
     params: Promise<{ slug: string }>;
@@ -288,6 +289,9 @@ export default async function EquipmentDynamicPage({ params }: Props) {
                     </div>
                 )}
             </div>
+
+            {/* SEO-секция (per-equipment) */}
+            {slug === 'press-pbm2-dlya-briketov' && <PressPbm2SeoText />}
 
             {/* Quote Form */}
             <ContactForm initialMessage={`Запрос КП: ${item.name}`} />
