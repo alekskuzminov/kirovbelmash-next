@@ -41,7 +41,7 @@ export default function Hero() {
                 <div className="absolute inset-0 animate-slowZoom">
                     <Image
                         src="/images/home/hero-bg-line.jpg"
-                        alt="Производственные линии КировБелМаш"
+                        alt="Завод КировБелМаш — производство оборудования для переработки древесных отходов"
                         fill
                         priority
                         sizes="100vw"
@@ -60,8 +60,8 @@ export default function Hero() {
                     </div>
 
                     <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-6 leading-tight opacity-0 animate-slideUp [animation-delay:200ms]">
-                        Производство линий{' '}
-                        <span className="sm:whitespace-nowrap">брикетирования и гранулирования</span>
+                        Оборудование для переработки{' '}
+                        <span className="sm:whitespace-nowrap">древесных отходов</span>
                         <br />{' '}
                         <span className="text-red-600">под ключ за 60 дней</span>
                     </h1>
