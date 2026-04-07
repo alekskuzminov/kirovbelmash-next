@@ -82,9 +82,9 @@ const itemListSchema = {
                         '@type': 'ShippingDeliveryTime',
                         handlingTime: {
                             '@type': 'QuantitativeValue',
-                            minValue: 8,
-                            maxValue: 16,
-                            unitCode: 'WEE',
+                            minValue: 56,
+                            maxValue: 112,
+                            unitCode: 'DAY',
                         },
                     },
                 },
