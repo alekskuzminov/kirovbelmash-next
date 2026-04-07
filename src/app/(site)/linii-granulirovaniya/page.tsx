@@ -41,82 +41,56 @@ const breadcrumbSchema = {
     ],
 };
 
+const SITE_URL = 'https://kirovbelmash.ru';
+
+function parsePrice(priceStr: string): number | null {
+    const digits = priceStr.replace(/[^\d]/g, '');
+    return digits ? parseInt(digits, 10) : null;
+}
+
 const itemListSchema = {
     '@context': 'https://schema.org',
     '@type': 'ItemList',
     name: 'Пеллетные линии гранулирования КировБелМаш',
     description: 'Оборудование для производства топливных пеллет из опилок и древесных отходов',
-    numberOfItems: 4,
-    itemListElement: [
-        {
-            '@type': 'ListItem',
-            position: 1,
-            item: {
-                '@type': 'Product',
-                name: 'Линия по производству топливных пеллет 500 кг/час',
-                description: 'Стартовая линия гранулирования для производства пеллет класса ENplus. Оптимальна для малого бизнеса и первого вхождения в рынок биотоплива.',
-                brand: { '@type': 'Brand', name: 'КировБелМаш' },
-                offers: {
-                    '@type': 'Offer',
-                    price: 9200000,
-                    priceCurrency: 'RUB',
-                    availability: 'https://schema.org/InStock',
-                    priceValidUntil: '2026-12-31',
+    numberOfItems: lineVariants.granulation.length,
+    itemListElement: lineVariants.granulation.map((v, i) => ({
+        '@type': 'ListItem',
+        position: i + 1,
+        item: {
+            '@type': 'Product',
+            name: v.name,
+            description: v.description,
+            image: `${SITE_URL}${v.image}`,
+            brand: { '@type': 'Brand', name: 'КировБелМаш' },
+            offers: {
+                '@type': 'Offer',
+                price: parsePrice(v.price),
+                priceCurrency: 'RUB',
+                availability: 'https://schema.org/InStock',
+                priceValidUntil: '2026-12-31',
+                hasMerchantReturnPolicy: {
+                    '@type': 'MerchantReturnPolicy',
+                    applicableCountry: 'RU',
+                    returnPolicyCategory: 'https://schema.org/MerchantReturnNotPermitted',
+                },
+                shippingDetails: {
+                    '@type': 'OfferShippingDetails',
+                    shippingRate: { '@type': 'MonetaryAmount', value: '0', currency: 'RUB' },
+                    shippingDestination: { '@type': 'DefinedRegion', addressCountry: 'RU' },
+                    deliveryTime: {
+                        '@type': 'ShippingDeliveryTime',
+                        handlingTime: {
+                            '@type': 'QuantitativeValue',
+                            minValue: 8,
+                            maxValue: 16,
+                            unitCode: 'WEE',
+                        },
+                    },
                 },
             },
         },
-        {
-            '@type': 'ListItem',
-            position: 2,
-            item: {
-                '@type': 'Product',
-                name: 'Линия по производству топливных пеллет 1000 кг/час',
-                description: 'Эффективная линия гранулирования с двойной гранулирующей установкой. Идеальна для предприятий со стабильным потоком сырья.',
-                brand: { '@type': 'Brand', name: 'КировБелМаш' },
-                offers: {
-                    '@type': 'Offer',
-                    price: 14800000,
-                    priceCurrency: 'RUB',
-                    availability: 'https://schema.org/InStock',
-                    priceValidUntil: '2026-12-31',
-                },
-            },
-        },
-        {
-            '@type': 'ListItem',
-            position: 3,
-            item: {
-                '@type': 'Product',
-                name: 'Линия по производству топливных пеллет 1200 кг/час',
-                description: 'Промышленная линия гранулирования с высокой производительностью. Обеспечивает стабильный выпуск пеллет европейского качества ENplus A1.',
-                brand: { '@type': 'Brand', name: 'КировБелМаш' },
-                offers: {
-                    '@type': 'Offer',
-                    price: 23302000,
-                    priceCurrency: 'RUB',
-                    availability: 'https://schema.org/InStock',
-                    priceValidUntil: '2026-12-31',
-                },
-            },
-        },
-        {
-            '@type': 'ListItem',
-            position: 4,
-            item: {
-                '@type': 'Product',
-                name: 'Линия по производству топливных пеллет 2000 кг/час',
-                description: 'Максимально производительная линия гранулирования для крупных лесопромышленных холдингов. Полная автоматизация и экспортное качество.',
-                brand: { '@type': 'Brand', name: 'КировБелМаш' },
-                offers: {
-                    '@type': 'Offer',
-                    price: 34511000,
-                    priceCurrency: 'RUB',
-                    availability: 'https://schema.org/InStock',
-                    priceValidUntil: '2026-12-31',
-                },
-            },
-        },
-    ],
+    })),
 };
 
 export default function GranulationLinePage() {

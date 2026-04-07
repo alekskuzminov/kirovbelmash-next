@@ -53,6 +53,25 @@ export default function LineProductJsonLd({ variant, categoryName }: LineProduct
                           '@type': 'Organization',
                           name: 'КировБелМаш',
                       },
+                      hasMerchantReturnPolicy: {
+                          '@type': 'MerchantReturnPolicy',
+                          applicableCountry: 'RU',
+                          returnPolicyCategory: 'https://schema.org/MerchantReturnNotPermitted',
+                      },
+                      shippingDetails: {
+                          '@type': 'OfferShippingDetails',
+                          shippingRate: { '@type': 'MonetaryAmount', value: '0', currency: 'RUB' },
+                          shippingDestination: { '@type': 'DefinedRegion', addressCountry: 'RU' },
+                          deliveryTime: {
+                              '@type': 'ShippingDeliveryTime',
+                              handlingTime: {
+                                  '@type': 'QuantitativeValue',
+                                  minValue: parseInt(variant.deliveryWeeks) || 8,
+                                  maxValue: (parseInt(variant.deliveryWeeks) || 8) + 4,
+                                  unitCode: 'WEE',
+                              },
+                          },
+                      },
                       deliveryLeadTime: {
                           '@type': 'QuantitativeValue',
                           minValue: parseInt(variant.deliveryWeeks) || 8,

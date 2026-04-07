@@ -41,7 +41,21 @@
       "Bash(python3 -c \"import uuid; print\\(uuid.uuid4\\(\\)\\)\")",
       "Bash(powershell -Command \"[guid]::NewGuid\\(\\).ToString\\(\\)\")",
       "Bash(node -e \":*)",
-      "Bash(find /c/Users/User/Desktop/kirovbelmash-next/src/app -name *granul* -type f)"
+      "Bash(find /c/Users/User/Desktop/kirovbelmash-next/src/app -name *granul* -type f)",
+      "Bash(npm list:*)",
+      "Bash(npm install:*)",
+      "Bash(node generate-simple-kp.js)",
+      "Bash(python \"C:\\\\Users\\\\User\\\\AppData\\\\Roaming\\\\Claude\\\\local-agent-mode-sessions\\\\skills-plugin\\\\fe5a74f3-b7ba-40c2-80b1-8153197a7aae\\\\fb38f31f-74cb-4266-ab2c-05e2c0840c3a\\\\skills\\\\docx\\\\scripts\\\\office\\\\unpack.py\" \"kom-pred/КОММЕРЧЕСКОЕ ПРЕДЛОЖЕНИЕ макет.docx\" \"kom-pred/unpacked/\")",
+      "Bash(python \"C:\\\\Users\\\\User\\\\AppData\\\\Roaming\\\\Claude\\\\local-agent-mode-sessions\\\\skills-plugin\\\\fe5a74f3-b7ba-40c2-80b1-8153197a7aae\\\\fb38f31f-74cb-4266-ab2c-05e2c0840c3a\\\\skills\\\\docx\\\\scripts\\\\office\\\\pack.py\" \"kom-pred/unpacked-simple/\" \"kom-pred/КП_Линия_брикетирования_1000_простое.docx\" --original \"kom-pred/КОММЕРЧЕСКОЕ ПРЕДЛОЖЕНИЕ макет.docx\")",
+      "Bash(python -X utf8 build-simple-kp.py)",
+      "Bash(xargs grep:*)",
+      "Bash(python -X utf8 build-kp-ogm.py)",
+      "Bash(ls \"C:\\\\Users\\\\User\\\\Desktop\\\\kirovbelmash-next\\\\public\\\\images\"\" 2>&1 && echo \"---\" && ls \"C:UsersUserDesktopkirovbelmash-nextpublicimagesequipment\"\")",
+      "Bash(python -X utf8 -c \"from PIL import Image; print\\(''Pillow OK''\\); img = Image.open\\(''/c/Users/User/Desktop/kirovbelmash-next/public/images/equipment/pellet-presses/pellet-mill-ogm15/pellet-mill-ogm15-galery-1.webp''\\); print\\(img.size, img.mode\\)\")",
+      "Bash(python -X utf8 -c \":*)",
+      "Bash(python build-kp-ogm.py)",
+      "Bash(python3 -c \":*)",
+      "Bash(python build-simple-kp.py)"
     ]
   }
 }

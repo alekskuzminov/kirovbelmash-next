@@ -41,82 +41,56 @@ const breadcrumbSchema = {
     ],
 };
 
+const SITE_URL = 'https://kirovbelmash.ru';
+
+function parsePrice(priceStr: string): number | null {
+    const digits = priceStr.replace(/[^\d]/g, '');
+    return digits ? parseInt(digits, 10) : null;
+}
+
 const itemListSchema = {
     '@context': 'https://schema.org',
     '@type': 'ItemList',
     name: 'Линии брикетирования топливных брикетов КировБелМаш',
     description: 'Оборудование для изготовления топливных брикетов из опилок и древесных отходов',
-    numberOfItems: 4,
-    itemListElement: [
-        {
-            '@type': 'ListItem',
-            position: 1,
-            item: {
-                '@type': 'Product',
-                name: 'Линия по производству топливных брикетов 500 кг/час',
-                description: 'Комплексное решение для переработки древесных отходов в высококачественные топливные брикеты. Идеален для предприятий любого масштаба.',
-                brand: { '@type': 'Brand', name: 'КировБелМаш' },
-                offers: {
-                    '@type': 'Offer',
-                    price: 10524000,
-                    priceCurrency: 'RUB',
-                    availability: 'https://schema.org/InStock',
-                    priceValidUntil: '2026-12-31',
+    numberOfItems: lineVariants.briquetting.length,
+    itemListElement: lineVariants.briquetting.map((v, i) => ({
+        '@type': 'ListItem',
+        position: i + 1,
+        item: {
+            '@type': 'Product',
+            name: v.name,
+            description: v.description,
+            image: `${SITE_URL}${v.image}`,
+            brand: { '@type': 'Brand', name: 'КировБелМаш' },
+            offers: {
+                '@type': 'Offer',
+                price: parsePrice(v.price),
+                priceCurrency: 'RUB',
+                availability: 'https://schema.org/InStock',
+                priceValidUntil: '2026-12-31',
+                hasMerchantReturnPolicy: {
+                    '@type': 'MerchantReturnPolicy',
+                    applicableCountry: 'RU',
+                    returnPolicyCategory: 'https://schema.org/MerchantReturnNotPermitted',
+                },
+                shippingDetails: {
+                    '@type': 'OfferShippingDetails',
+                    shippingRate: { '@type': 'MonetaryAmount', value: '0', currency: 'RUB' },
+                    shippingDestination: { '@type': 'DefinedRegion', addressCountry: 'RU' },
+                    deliveryTime: {
+                        '@type': 'ShippingDeliveryTime',
+                        handlingTime: {
+                            '@type': 'QuantitativeValue',
+                            minValue: 8,
+                            maxValue: 16,
+                            unitCode: 'WEE',
+                        },
+                    },
                 },
             },
         },
-        {
-            '@type': 'ListItem',
-            position: 2,
-            item: {
-                '@type': 'Product',
-                name: 'Линия по производству топливных брикетов 1000 кг/час',
-                description: 'Производительная линия брикетирования с двойной загрузкой для крупных деревообрабатывающих предприятий и лесозаготовительных комплексов.',
-                brand: { '@type': 'Brand', name: 'КировБелМаш' },
-                offers: {
-                    '@type': 'Offer',
-                    price: 12946000,
-                    priceCurrency: 'RUB',
-                    availability: 'https://schema.org/InStock',
-                    priceValidUntil: '2026-12-31',
-                },
-            },
-        },
-        {
-            '@type': 'ListItem',
-            position: 3,
-            item: {
-                '@type': 'Product',
-                name: 'Линия по производству топливных брикетов 1200 кг/час',
-                description: 'Высокопроизводительная линия брикетирования для промышленного уровня переработки древесины. Полная автоматизация всех процессов.',
-                brand: { '@type': 'Brand', name: 'КировБелМаш' },
-                offers: {
-                    '@type': 'Offer',
-                    price: 23173000,
-                    priceCurrency: 'RUB',
-                    availability: 'https://schema.org/InStock',
-                    priceValidUntil: '2026-12-31',
-                },
-            },
-        },
-        {
-            '@type': 'ListItem',
-            position: 4,
-            item: {
-                '@type': 'Product',
-                name: 'Линия по производству топливных брикетов 2000 кг/час',
-                description: 'Флагманская линия брикетирования для крупнейших производств. Максимальная производительность и полный контроль качества на каждом этапе.',
-                brand: { '@type': 'Brand', name: 'КировБелМаш' },
-                offers: {
-                    '@type': 'Offer',
-                    price: 33030000,
-                    priceCurrency: 'RUB',
-                    availability: 'https://schema.org/InStock',
-                    priceValidUntil: '2026-12-31',
-                },
-            },
-        },
-    ],
+    })),
 };
 
 export default function BriquettingLinePage() {
