@@ -7,6 +7,8 @@ import { servicesData } from '@/components/services/servicesData';
 import ContactForm from '@/components/home/ContactForm';
 import Breadcrumbs from '@/components/ui/Breadcrumbs';
 import BreadcrumbJsonLd from '@/components/ui/BreadcrumbJsonLd';
+import ServiceJsonLd from '@/components/services/ServiceJsonLd';
+import ServicesFAQ from '@/components/services/ServicesFAQ';
 
 interface ServicePageProps {
     params: Promise<{ id: string }>;
@@ -67,6 +69,7 @@ export default async function ServicePage({ params }: ServicePageProps) {
     return (
         <main className="pt-32 sm:pt-40 pb-0">
             <BreadcrumbJsonLd items={breadcrumbItems} />
+            <ServiceJsonLd service={service} />
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-16 sm:mb-24">
                 <Breadcrumbs
                     items={breadcrumbItems}
@@ -160,6 +163,8 @@ export default async function ServicePage({ params }: ServicePageProps) {
                     </div>
                 </div>
             </div>
+
+            <ServicesFAQ />
 
             <div className="bg-gray-50 pt-20 pb-20">
                 <ContactForm initialMessage={`Оставить заявку на услугу: «${service.title}»`} isModal={false} />

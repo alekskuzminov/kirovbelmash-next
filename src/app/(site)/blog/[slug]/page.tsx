@@ -3,6 +3,8 @@ import { Metadata } from 'next';
 import { blogPosts } from '@/components/blog/blogData';
 import ArticleHero from '@/components/blog/ArticleHero';
 import ArticleBody from '@/components/blog/ArticleBody';
+import ArticleJsonLd from '@/components/blog/ArticleJsonLd';
+import BreadcrumbJsonLd from '@/components/ui/BreadcrumbJsonLd';
 
 interface PageProps {
     params: Promise<{ slug: string }>;
@@ -25,7 +27,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     }
 
     return {
-        title: `${post.title} | Блог`,
+        title: post.title,
         description: post.excerpt,
         alternates: { canonical: `/blog/${post.slug}` },
         openGraph: {
@@ -66,8 +68,16 @@ export default async function BlogPostPage({ params }: PageProps) {
             ? related
             : blogPosts.filter((p) => p.id !== post.id).slice(0, 3);
 
+    const breadcrumbItems = [
+        { label: 'Главная', href: '/' },
+        { label: 'Блог', href: '/blog' },
+        { label: post.title },
+    ];
+
     return (
         <main className="min-h-screen bg-white">
+            <BreadcrumbJsonLd items={breadcrumbItems} />
+            <ArticleJsonLd post={post} />
             <ArticleHero post={post} />
             <ArticleBody post={post} relatedPosts={relatedPosts} />
         </main>

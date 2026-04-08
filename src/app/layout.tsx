@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 
@@ -8,10 +8,14 @@ const inter = Inter({
   variable: "--font-inter",
 });
 
+export const viewport: Viewport = {
+  themeColor: "#1e3a5f",
+};
+
 export const metadata: Metadata = {
   title: {
     default:
-      "КировБелМаш — Производитель оборудования для переработки древесных отходов",
+      "КировБелМаш — Оборудование для переработки древесных отходов",
     template: "%s | КировБелМаш",
   },
   description:
@@ -64,7 +68,10 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: "/images/logo/logo.webp",
+    apple: "/images/logo/apple-touch-icon.png",
   },
+  manifest: "/manifest.json",
+  authors: [{ name: "КировБелМаш", url: "https://kirovbelmash.ru" }],
 };
 
 import { Suspense } from "react";

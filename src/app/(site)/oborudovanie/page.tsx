@@ -3,6 +3,9 @@ import { redirect } from 'next/navigation';
 import EquipmentPageClient from './EquipmentPageClient';
 import EquipmentCTA from '@/components/equipment/EquipmentCTA';
 import { equipmentCategoriesConfig } from '@/components/equipment/equipmentData';
+import WebPageJsonLd from '@/components/ui/WebPageJsonLd';
+import Breadcrumbs from '@/components/ui/Breadcrumbs';
+import BreadcrumbJsonLd from '@/components/ui/BreadcrumbJsonLd';
 
 export const metadata: Metadata = {
     title: 'Агрегаты для линий брикетирования и гранулирования',
@@ -33,8 +36,20 @@ export default function EquipmentPage({ searchParams }: { searchParams: { catego
         }
     }
 
+    const breadcrumbItems = [
+        { label: 'Главная', href: '/' },
+        { label: 'Каталог оборудования' },
+    ];
+
     return (
         <div className="min-h-screen bg-gray-50/50">
+            <BreadcrumbJsonLd items={breadcrumbItems} />
+            <WebPageJsonLd
+                type="CollectionPage"
+                name="Каталог оборудования КировБелМаш"
+                description="Прессы, грануляторы, сушилки, дробилки и транспортное оборудование для переработки древесного сырья."
+                url="/oborudovanie"
+            />
             <EquipmentPageClient activeCategory="Все" />
             <EquipmentCTA />
         </div>

@@ -6,6 +6,7 @@ import ProcessSteps from '@/components/services/ProcessSteps';
 import ServiceDetails from '@/components/services/ServiceDetails';
 import ServicesAdvantages from '@/components/services/ServicesAdvantages';
 import ContactForm from '@/components/home/ContactForm';
+import WebPageJsonLd from '@/components/ui/WebPageJsonLd';
 
 export const metadata: Metadata = {
     title: 'Услуги',
@@ -31,6 +32,12 @@ export const metadata: Metadata = {
 export default function ServicesPage() {
     return (
         <main>
+            <WebPageJsonLd
+                type="CollectionPage"
+                name="Услуги КировБелМаш"
+                description="Проектирование, монтаж, пусконаладка и обучение персонала для производственных линий."
+                url="/services"
+            />
             <ServicesHero />
 
             <section id="services" className="pt-20 sm:pt-28 pb-12 sm:pb-20 bg-gradient-to-b from-gray-50 to-white">

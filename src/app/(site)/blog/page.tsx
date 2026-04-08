@@ -1,6 +1,9 @@
 import { Metadata } from 'next';
 import BlogHero from '@/components/blog/BlogHero';
 import BlogGrid from '@/components/blog/BlogGrid';
+import WebPageJsonLd from '@/components/ui/WebPageJsonLd';
+import Breadcrumbs from '@/components/ui/Breadcrumbs';
+import BreadcrumbJsonLd from '@/components/ui/BreadcrumbJsonLd';
 
 export const metadata: Metadata = {
     title: 'Блог',
@@ -23,10 +26,25 @@ export const metadata: Metadata = {
     },
 };
 
+const breadcrumbItems = [
+    { label: 'Главная', href: '/' },
+    { label: 'Блог' },
+];
+
 export default function BlogPage() {
     return (
         <main className="min-h-screen bg-white pb-20">
+            <BreadcrumbJsonLd items={breadcrumbItems} />
+            <WebPageJsonLd
+                type="CollectionPage"
+                name="Блог КировБелМаш"
+                description="Статьи о производстве топливных брикетов и пеллет, выборе оборудования и реальном опыте клиентов."
+                url="/blog"
+            />
             <BlogHero />
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8">
+                <Breadcrumbs items={breadcrumbItems} className="mb-0" />
+            </div>
             <BlogGrid />
         </main>
     );

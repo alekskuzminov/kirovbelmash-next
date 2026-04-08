@@ -10,6 +10,7 @@ import ContactForm from '@/components/home/ContactForm';
 import Breadcrumbs from '@/components/ui/Breadcrumbs';
 import BreadcrumbJsonLd from '@/components/ui/BreadcrumbJsonLd';
 import LineProductJsonLd from '@/components/lines/LineProductJsonLd';
+import ProductionLineFAQ from '@/components/lines/ProductionLineFAQ';
 
 interface ProductionLinePageProps {
     params: Promise<{ id: string }>;
@@ -122,6 +123,9 @@ export default async function ProductionLinePage({ params }: ProductionLinePageP
                     </Link>
                 </div>
             </div>
+
+            {/* FAQ */}
+            <ProductionLineFAQ />
 
             {/* Quote Form */}
             <ContactForm initialMessage={`Запрос КП: ${variant.name}`} />

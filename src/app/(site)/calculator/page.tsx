@@ -2,6 +2,8 @@ import { Metadata } from 'next';
 import CalculatorHero from '@/components/calculator/CalculatorHero';
 import Calculator from '@/components/calculator/Calculator';
 import CalculatorFAQ from '@/components/calculator/CalculatorFAQ';
+import Breadcrumbs from '@/components/ui/Breadcrumbs';
+import BreadcrumbJsonLd from '@/components/ui/BreadcrumbJsonLd';
 
 export const metadata: Metadata = {
     title: 'Калькулятор стоимости оборудования',
@@ -79,14 +81,23 @@ const faqSchema = {
     ],
 };
 
+const breadcrumbItems = [
+    { label: 'Главная', href: '/' },
+    { label: 'Калькулятор стоимости' },
+];
+
 export default function CalculatorPage() {
     return (
         <main>
+            <BreadcrumbJsonLd items={breadcrumbItems} />
             <script
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
             />
             <CalculatorHero />
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8">
+                <Breadcrumbs items={breadcrumbItems} className="mb-0" />
+            </div>
             <Calculator />
             <CalculatorFAQ />
         </main>

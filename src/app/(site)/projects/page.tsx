@@ -3,6 +3,7 @@ import ProjectsGallery from '@/components/projects/ProjectsGallery';
 import Testimonials from '@/components/projects/Testimonials';
 import ProjectsCTA from '@/components/projects/ProjectsCTA';
 import { Metadata } from 'next';
+import WebPageJsonLd from '@/components/ui/WebPageJsonLd';
 
 export const metadata: Metadata = {
     title: 'Реализованные проекты',
@@ -28,6 +29,12 @@ export const metadata: Metadata = {
 export default function ProjectsPage() {
     return (
         <>
+            <WebPageJsonLd
+                type="CollectionPage"
+                name="Реализованные проекты КировБелМаш"
+                description="80+ проектов по установке линий брикетирования, гранулирования и сушки в 35+ регионах России."
+                url="/projects"
+            />
             <ProjectsHero />
             <ProjectsGallery />
             <Testimonials />

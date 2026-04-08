@@ -19,6 +19,8 @@ import BriketirujushheeEquipmentFAQ from '@/components/equipment/faq/Briketiruju
 import PelletEquipmentFAQ from '@/components/equipment/faq/PelletEquipmentFAQ';
 import PressPbm2FAQ from '@/components/equipment/faq/PressPbm2FAQ';
 import GranuljatorOgm15FAQ from '@/components/equipment/faq/GranuljatorOgm15FAQ';
+import EquipmentProductJsonLd from '@/components/equipment/EquipmentProductJsonLd';
+import WebPageJsonLd from '@/components/ui/WebPageJsonLd';
 
 interface Props {
     params: Promise<{ slug: string }>;
@@ -104,8 +106,20 @@ export default async function EquipmentDynamicPage({ params }: Props) {
     const category = equipmentCategoriesConfig.find((c) => c.slug === slug);
     if (category) {
         const otherItems = equipmentItems.filter((e) => e.category !== category.name);
+        const catBreadcrumbs = [
+            { label: 'Главная', href: '/' },
+            { label: 'Каталог оборудования', href: '/oborudovanie' },
+            { label: category.name },
+        ];
         return (
             <div className="min-h-screen bg-gray-50/50">
+                <BreadcrumbJsonLd items={catBreadcrumbs} />
+                <WebPageJsonLd
+                    type="CollectionPage"
+                    name={category.seoTitle || category.name}
+                    description={category.seoDescription || `Каталог оборудования в категории "${category.name}"`}
+                    url={`/oborudovanie/${slug}`}
+                />
                 <EquipmentPageClient activeCategory={category.name} />
                 <EquipmentCTA />
                 {slug === 'briketirujushhee-oborudovanie' && <BriketirujushheeSeoText />}
@@ -161,6 +175,7 @@ export default async function EquipmentDynamicPage({ params }: Props) {
     return (
         <div className="min-h-screen bg-gray-50/50 pb-12">
             <BreadcrumbJsonLd items={breadcrumbItems} />
+            <EquipmentProductJsonLd item={item} />
             {/* Хлебные крошки */}
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 sm:pt-40">
                 <Breadcrumbs
