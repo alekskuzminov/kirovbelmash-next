@@ -77,6 +77,21 @@ export const metadata: Metadata = {
 import { Suspense } from "react";
 import YandexMetrika from "@/components/YandexMetrika";
 
+const websiteSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "@id": "https://kirovbelmash.ru/#website",
+  "url": "https://kirovbelmash.ru",
+  "name": "КировБелМаш",
+  "publisher": {
+    "@type": "Organization",
+    "@id": "https://kirovbelmash.ru/#organization",
+    "name": "КировБелМаш",
+    "url": "https://kirovbelmash.ru",
+    "logo": "https://kirovbelmash.ru/images/logo/logo.webp",
+  },
+};
+
 const organizationSchema = {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
@@ -128,6 +143,10 @@ export default function RootLayout({
       <head>
         <meta name="HandheldFriendly" content="true" />
         <meta name="MobileOptimized" content="width" />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
+        />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
