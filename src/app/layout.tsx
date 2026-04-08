@@ -126,6 +126,8 @@ export default function RootLayout({
     // TODO: динамический lang при переносе i18n
     <html lang="ru" className="scroll-smooth scroll-pt-[64px] lg:scroll-pt-[108px]">
       <head>
+        <meta name="HandheldFriendly" content="true" />
+        <meta name="MobileOptimized" content="width" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
