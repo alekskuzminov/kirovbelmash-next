@@ -25,11 +25,11 @@ export async function generateMetadata({ params }: ProductionLinePageProps): Pro
     const variant = findLineVariant(id);
     if (!variant) return {};
     return {
-        title: variant.name,
+        title: variant.seoTitle ?? variant.name,
         description: variant.description,
         alternates: { canonical: `/production-lines/${id}` },
         openGraph: {
-            title: variant.name,
+            title: variant.seoTitle ?? variant.name,
             description: variant.description,
             url: `https://kirovbelmash.ru/production-lines/${id}`,
             type: 'website',

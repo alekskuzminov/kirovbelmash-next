@@ -22,6 +22,8 @@ export interface LineVariant {
     rawMoisture?: string;
     installationArea?: string;
     ceilingHeight?: string;
+
+    seoTitle?: string;
 }
 
 export const lineVariants: Record<'briquetting' | 'granulation' | 'drying', LineVariant[]> = {
@@ -30,6 +32,7 @@ export const lineVariants: Record<'briquetting' | 'granulation' | 'drying', Line
             id: 'liniya-briketirovaniya-500',
             capacity: '500 кг/час',
             name: 'Линия по производству топливных брикетов 500 кг/час',
+            seoTitle: 'Линия брикетирования 500 кг/ч - цена и характеристики',
             price: 'от 10 524 000 руб.',
             power: '101 кВт',
             installedPower: '101 кВт',
@@ -41,7 +44,7 @@ export const lineVariants: Record<'briquetting' | 'granulation' | 'drying', Line
             installationArea: '200 м²',
             ceilingHeight: 'Не менее 5 м',
             image: '/images/lines/briquetting/briquetting-500/preview-briquette-line-500.jpg',
-            description: 'Комплексное решение для переработки древесных отходов в высококачественные топливные брикеты. Идеален для предприятий любого масштаба.',
+            description: 'Для переработки опилок, щепы и горбыля в топливные брикеты. Цена от 10,5 млн ₽. Проектирование, изготовление, поставка и запуск под ключ.',
             deliveryWeeks: '8 недель',
             rfComplect: 'от 95 %',
             renders: [
@@ -71,6 +74,7 @@ export const lineVariants: Record<'briquetting' | 'granulation' | 'drying', Line
             id: 'liniya-briketirovaniya-1000',
             capacity: '800-1000 кг/час',
             name: 'Линия по производству топливных брикетов 1000 кг/час',
+            seoTitle: 'Линия брикетирования 1000 кг/ч - цена и характеристики',
             price: 'от 12 946 000 руб.',
             power: '148 кВт',
             installedPower: '148 кВт',
@@ -82,7 +86,7 @@ export const lineVariants: Record<'briquetting' | 'granulation' | 'drying', Line
             installationArea: '200 м²',
             ceilingHeight: 'Не менее 5 м',
             image: '/images/lines/briquetting/briquetting-1000/preview-briquette-line-1000.webp',
-            description: 'Производительная линия брикетирования с двойной загрузкой для крупных деревообрабатывающих предприятий и лесозаготовительных комплексов.',
+            description: 'Производительное решение для выпуска топливных брикетов из древесного сырья. Цена от 12,9 млн ₽. Поставка, запуск и ввод линии в работу под ключ.',
             deliveryWeeks: '10 недель',
             rfComplect: 'от 95 %',
             renders: [
@@ -112,6 +116,7 @@ export const lineVariants: Record<'briquetting' | 'granulation' | 'drying', Line
             id: 'liniya-briketirovaniya-1200',
             capacity: '1200 кг/час',
             name: 'Линия по производству топливных брикетов 1200 кг/час',
+            seoTitle: 'Линия брикетирования 1200 кг/ч - цена и характеристики',
             price: 'от 23 173 000 руб.',
             power: '255 кВт',
             installedPower: '255 кВт',
@@ -123,7 +128,7 @@ export const lineVariants: Record<'briquetting' | 'granulation' | 'drying', Line
             installationArea: '250 м²',
             ceilingHeight: 'Не менее 5 м',
             image: '/images/lines/briquetting/briquetting-1200/preview-briquette-line-1200.webp',
-            description: 'Высокопроизводительная линия брикетирования для промышленного уровня переработки древесины. Полная автоматизация всех процессов.',
+            description: 'Промышленная линия для производства топливных брикетов из опилок, щепы и горбыля. Цена от 23,1 млн ₽. Изготовление, поставка и запуск под ключ.',
             deliveryWeeks: '12 недель',
             rfComplect: 'от 95 %',
             renders: [
@@ -154,6 +159,7 @@ export const lineVariants: Record<'briquetting' | 'granulation' | 'drying', Line
             id: 'liniya-briketirovaniya-2000',
             capacity: '2000 кг/час',
             name: 'Линия по производству топливных брикетов 2000 кг/час',
+            seoTitle: 'Линия брикетирования 2000 кг/ч - цена и характеристики',
             price: 'от 33 030 000 руб.',
             power: '398 кВт',
             installedPower: '398 кВт',
@@ -165,7 +171,7 @@ export const lineVariants: Record<'briquetting' | 'granulation' | 'drying', Line
             installationArea: '400 м²',
             ceilingHeight: 'Не менее 6 м',
             image: '/images/lines/briquetting/briquetting-2000/preview-briquette-line-2000.webp',
-            description: 'Флагманская линия брикетирования для крупнейших производств. Максимальная производительность и полный контроль качества на каждом этапе.',
+            description: 'Флагманская линия для крупных производств по переработке древесного сырья. Цена от 33 млн ₽. Подбор, изготовление, поставка и запуск под ключ.',
             deliveryWeeks: '14 недель',
             rfComplect: 'от 95 %',
             renders: [
