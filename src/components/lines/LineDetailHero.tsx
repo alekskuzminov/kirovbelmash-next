@@ -21,9 +21,20 @@ export default function LineDetailHero({ variant, backHref, backLabel }: LineDet
                 {variant.price}
             </p>
 
-            <p className="text-gray-600 text-sm sm:text-base leading-relaxed mb-6">
-                {variant.description}
-            </p>
+            <div className="flex flex-wrap gap-3 mb-6">
+                <span className="inline-flex items-center gap-1.5 px-3 py-1.5 text-sm text-gray-700 bg-gray-100 rounded-lg">
+                    <i className="ri-time-line text-red-600" />
+                    Срок поставки: {variant.deliveryWeeks}
+                </span>
+                <span className="inline-flex items-center gap-1.5 px-3 py-1.5 text-sm text-gray-700 bg-gray-100 rounded-lg">
+                    <i className="ri-flag-line text-red-600" />
+                    Локализация: {variant.rfComplect}
+                </span>
+                <span className="inline-flex items-center gap-1.5 px-3 py-1.5 text-sm text-gray-700 bg-gray-100 rounded-lg">
+                    <i className="ri-tools-line text-red-600" />
+                    Под ключ
+                </span>
+            </div>
 
             <div className="flex flex-wrap gap-3">
                 <Link
