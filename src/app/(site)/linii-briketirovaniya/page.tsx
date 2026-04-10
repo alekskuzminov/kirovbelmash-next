@@ -10,6 +10,7 @@ import RelatedLinesBlock from '@/components/lines/RelatedLinesBlock';
 import BriquettingSeoText from '@/components/lines/BriquettingSeoText';
 import BriquettingFAQ from '@/components/lines/BriquettingFAQ';
 import ContactForm from '@/components/home/ContactForm';
+import BreadcrumbJsonLd from '@/components/ui/BreadcrumbJsonLd';
 
 export const metadata: Metadata = {
     title: 'Оборудование для производства топливных брикетов из опилок',
@@ -108,6 +109,11 @@ const itemListSchema = {
 export default function BriquettingLinePage() {
     return (
         <div className="min-h-screen bg-gray-50/50">
+            <BreadcrumbJsonLd items={[
+                { label: 'Главная', href: '/' },
+                { label: 'Линии', href: '/#production-lines' },
+                { label: 'Линии брикетирования' },
+            ]} />
             <script
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}

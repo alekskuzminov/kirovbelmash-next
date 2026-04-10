@@ -10,6 +10,7 @@ import RelatedLinesBlock from '@/components/lines/RelatedLinesBlock';
 import GranulationFAQ from '@/components/lines/GranulationFAQ';
 import GranulationSeoText from '@/components/lines/GranulationSeoText';
 import ContactForm from '@/components/home/ContactForm';
+import BreadcrumbJsonLd from '@/components/ui/BreadcrumbJsonLd';
 
 export const metadata: Metadata = {
     title: 'Оборудование для производства топливных пеллет из опилок',
@@ -107,6 +108,11 @@ const itemListSchema = {
 export default function GranulationLinePage() {
     return (
         <div className="min-h-screen bg-gray-50/50">
+            <BreadcrumbJsonLd items={[
+                { label: 'Главная', href: '/' },
+                { label: 'Линии', href: '/#production-lines' },
+                { label: 'Линии гранулирования' },
+            ]} />
             <script
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}

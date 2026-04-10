@@ -2,6 +2,7 @@ import { Metadata } from 'next';
 import { lineVariants } from '@/components/lines/linesData';
 import LineCard from '@/components/lines/LineCard';
 import LineHero from '@/components/lines/LineHero';
+import BreadcrumbJsonLd from '@/components/ui/BreadcrumbJsonLd';
 import LinesCTA from '@/components/lines/LinesCTA';
 import { HERO_BLUR } from '@/lib/heroBlur';
 import Projects from '@/components/home/Projects';
@@ -33,6 +34,11 @@ export const metadata: Metadata = {
 export default function DryingLinePage() {
     return (
         <div className="min-h-screen bg-gray-50/50">
+            <BreadcrumbJsonLd items={[
+                { label: 'Главная', href: '/' },
+                { label: 'Линии', href: '/#production-lines' },
+                { label: 'Сушильные линии' },
+            ]} />
             <LineHero
                 label="Сушильные линии"
                 headingMain={<>Производство линий<br />для сушки сырья</>}
