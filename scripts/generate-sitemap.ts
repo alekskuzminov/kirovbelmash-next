@@ -10,7 +10,7 @@ const BASE_URL = 'https://kirovbelmash.ru';
 const now = new Date().toISOString();
 
 async function generate() {
-    const pages = [
+    const pages: { url: string; priority: number; changefreq: string; lastmod?: string }[] = [
         { url: BASE_URL, priority: 1.0, changefreq: 'weekly' },
         { url: `${BASE_URL}/about`, priority: 0.7, changefreq: 'monthly' },
         { url: `${BASE_URL}/blog`, priority: 0.8, changefreq: 'weekly' },
@@ -29,6 +29,7 @@ async function generate() {
             url: `${BASE_URL}/blog/${post.slug}`,
             priority: 0.7,
             changefreq: 'monthly',
+            lastmod: new Date(post.date).toISOString(),
         });
     });
 
@@ -80,7 +81,7 @@ ${pages
             .map((page) => {
                 return `  <url>
     <loc>${page.url}</loc>
-    <lastmod>${now}</lastmod>
+    <lastmod>${page.lastmod ?? now}</lastmod>
     <changefreq>${page.changefreq}</changefreq>
     <priority>${page.priority}</priority>
   </url>`;
@@ -105,7 +106,7 @@ Disallow: /api/
 Disallow: /admin/
 Disallow: /_next/
 
-Clean-param: etext&utm_source&utm_medium&utm_campaign&utm_content&utm_term&yclid&gclid&fbclid&category&ybaip
+Clean-param: utm_referrer&etext&utm_source&utm_medium&utm_campaign&utm_content&utm_term&yclid&gclid&fbclid&category&ybaip
 
 Host: ${BASE_URL}
 Sitemap: ${BASE_URL}/sitemap.xml

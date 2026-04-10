@@ -55,7 +55,11 @@
       "Bash(python -X utf8 -c \":*)",
       "Bash(python build-kp-ogm.py)",
       "Bash(python3 -c \":*)",
-      "Bash(python build-simple-kp.py)"
+      "Bash(python build-simple-kp.py)",
+      "Bash(python -c ':*)",
+      "Bash(pip install:*)",
+      "Read(//c/Users/User/Downloads/**)",
+      "Bash(python3 -c ':*)"
     ]
   }
 }

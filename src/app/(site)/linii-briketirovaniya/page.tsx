@@ -80,7 +80,7 @@ const itemListSchema = {
                 price: parsePrice(v.price),
                 priceCurrency: 'RUB',
                 availability: 'https://schema.org/InStock',
-                priceValidUntil: '2026-12-31',
+                priceValidUntil: `${new Date().getFullYear()}-12-31`,
                 hasMerchantReturnPolicy: {
                     '@type': 'MerchantReturnPolicy',
                     applicableCountry: 'RU',
