@@ -1,6 +1,6 @@
 ## Default Project Scope
 
-По умолчанию основной рабочий проект: `C:\Users\User\Desktop\kirovbelmash-next`.
+По умолчанию основной рабочий проект: `F:\projects\kirovbelmash-next`.
 
 Правила:
 - Если пользователь явно не указал другой проект/путь, выполнять все команды и изменения в `kirovbelmash-next`.
