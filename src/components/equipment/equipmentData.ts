@@ -139,7 +139,7 @@ export const equipmentItems: EquipmentItem[] = [
 
     slug: 'press-pbm2-dlya-briketov',
 
-    seoTitle: 'Пресс для топливных брикетов из опилок ПБМ-2 — купить от производителя',
+    seoTitle: 'Пресс для топливных брикетов из опилок ПБМ-2 — купить',
 
     name: 'Пресс ПБМ-2 для брикетов Pini Kay',
 
@@ -147,7 +147,7 @@ export const equipmentItems: EquipmentItem[] = [
 
     description:
 
-      'Шнековый пресс ПБМ-2 для производства брикетов Pini Kay из опилок без связующих. Производительность 500–1000 кг/ч, компактная компоновка. Цена от производителя, доставка по РФ.',
+      'Купить пресс для топливных брикетов из опилок — брикетировочный пресс ПБМ-2. Производительность 500–1000 кг/ч. Цена от 1 654 000 р., доставка по России.',
     image:
       '/images/equipment/briquette-presses/pini-kay-press-pbm2/preview-pini-kay-press-pbm2-catalog.webp',
     specs: [

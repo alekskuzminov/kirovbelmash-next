@@ -10,7 +10,7 @@ export default function PressPbm2SeoText() {
                 <div className="flex items-center gap-3 mb-8">
                     <div className="w-8 h-0.5 bg-red-500" />
                     <h2 className="text-2xl sm:text-3xl font-bold text-gray-900">
-                        Пресс для топливных брикетов из опилок ПБМ-2
+                        Оборудование для производства топливных брикетов из опилок
                     </h2>
                 </div>
 
@@ -22,13 +22,12 @@ export default function PressPbm2SeoText() {
 
                         {/* Вводный абзац */}
                         <p className="text-base sm:text-lg text-gray-700 leading-relaxed">
-                            ПБМ-2 — шнековый пресс для брикетов Pini&nbsp;Kay, который мы
-                            проектируем и изготавливаем на собственном производстве в Кировской
-                            области. Пресс формирует брикет из измельчённых опилок, стружки и
-                            другой мелкой фракции без добавления связующих: при нагреве до
-                            250–300&nbsp;°C лигнин в древесине плавится и склеивает частицы.
-                            На выходе — плотный брикет с характерным отверстием по центру и
-                            глянцевой поверхностью обжига.
+                            ПБМ-2 — шнековый экструдер для изготовления топливных брикетов Pini&nbsp;Kay:
+                            оборудование собственного производства, которое мы изготавливаем на заводе
+                            в Кировской области. Пресс формирует брикет из измельчённых опилок, стружки
+                            и другой мелкой фракции без добавления связующих — при нагреве до
+                            250–300&nbsp;°C лигнин в древесине плавится и склеивает частицы. На выходе —
+                            плотный брикет с характерным отверстием по центру и глянцевой поверхностью обжига.
                         </p>
 
                         {/* Quote-блок */}
@@ -49,7 +48,7 @@ export default function PressPbm2SeoText() {
                         <div>
                             <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-4 flex items-center gap-2">
                                 <i className="ri-shield-check-line text-red-600 text-xl" />
-                                Почему выбирают пресс для брикетов ПБМ-2
+                                Почему выбирают пресс ПБМ-2 для брикетов
                             </h3>
                             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                                 {[
@@ -68,16 +67,58 @@ export default function PressPbm2SeoText() {
                             </div>
                         </div>
 
+                        {/* Сравнение Pini Kay vs RUF */}
+                        <div>
+                            <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-4 flex items-center gap-2">
+                                <i className="ri-scales-3-line text-red-600 text-xl" />
+                                Pini Kay или RUF: какое оборудование для брикетов выбрать
+                            </h3>
+                            <p className="text-sm sm:text-base text-gray-700 leading-relaxed mb-4">
+                                Два основных типа оборудования для производства топливных брикетов из опилок — шнековый экструдер (Pini Kay) и гидравлический пресс (RUF). Принципиальная разница — в форме брикета, цене реализации и требованиях к оператору.
+                            </p>
+                            <div className="overflow-x-auto rounded-xl border border-gray-100">
+                                <table className="w-full text-sm">
+                                    <thead>
+                                        <tr className="bg-gray-50 border-b border-gray-100">
+                                            <th className="text-left px-4 py-3 font-semibold text-gray-700">Параметр</th>
+                                            <th className="text-left px-4 py-3 font-semibold text-red-600">ПБМ-2 (Pini Kay)</th>
+                                            <th className="text-left px-4 py-3 font-semibold text-gray-500">Гидравлика (RUF)</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody className="divide-y divide-gray-50">
+                                        {[
+                                            ['Принцип работы', 'Шнековая экструзия', 'Гидроцилиндр (поршень)'],
+                                            ['Форма брикета', 'Шестигранник с отверстием', 'Кирпич 95×155×65 мм'],
+                                            ['Производительность', '500–1000 кг/ч', 'до 650 кг/ч'],
+                                            ['Цена готового брикета', 'Выше (+15–30%)', 'Ниже'],
+                                            ['Плотность', '1,1–1,2 г/см³', '1,0–1,1 г/см³'],
+                                            ['Основной расходник', 'Шнек (замена 1–2 ч)', 'Уплотнения гидросистемы'],
+                                        ].map(([param, pbm, ruf], i) => (
+                                            <tr key={param} className={i % 2 === 0 ? 'bg-white' : 'bg-gray-50/50'}>
+                                                <td className="px-4 py-3 text-gray-500">{param}</td>
+                                                <td className="px-4 py-3 font-medium text-gray-900">{pbm}</td>
+                                                <td className="px-4 py-3 text-gray-600">{ruf}</td>
+                                            </tr>
+                                        ))}
+                                    </tbody>
+                                </table>
+                            </div>
+                            <p className="text-sm sm:text-base text-gray-700 leading-relaxed mt-4">
+                                Если цель — производство брикетов для продажи, Pini Kay выигрывает по марже.
+                                Мы производим оборудование для брикетов Pini Kay и поставляем его как
+                                отдельным прессом ПБМ-2, так и в составе{' '}
+                                <Link href="/linii-briketirovaniya" className="text-red-600 underline underline-offset-2 hover:text-red-700 font-medium">
+                                    линии брикетирования «под ключ»
+                                </Link>.
+                            </p>
+                        </div>
+
                         {/* Абзац про сырьё и применение */}
                         <p className="text-base sm:text-lg text-gray-700 leading-relaxed">
-                            Пресс рассчитан на мелкую фракцию 1–5 мм при влажности 8–12%.
+                            Оборудование рассчитано на мелкую фракцию 1–5 мм при влажности 8–12%.
                             Подходят опилки хвойных и лиственных пород, мебельная пыль, шлифовальная
                             стружка. Если на входе крупная щепа или горбыль — перед прессом
-                            устанавливается{' '}
-                            <Link href="/oborudovanie/drobilki" className="text-red-600 underline underline-offset-2 hover:text-red-700 font-medium">
-                                дробилка
-                            </Link>{' '}
-                            и{' '}
+                            устанавливается дробилка и{' '}
                             <Link href="/sushilnie-linii" className="text-red-600 underline underline-offset-2 hover:text-red-700 font-medium">
                                 сушильная линия
                             </Link>.
@@ -92,7 +133,7 @@ export default function PressPbm2SeoText() {
                         <div className="border border-gray-200 rounded-xl p-5 sm:p-6 bg-gray-50">
                             <h3 className="text-base sm:text-lg font-bold text-gray-900 mb-3 flex items-center gap-2">
                                 <i className="ri-price-tag-3-line text-red-600 text-xl" />
-                                Купить пресс для брикетов от производителя
+                                Купить оборудование для брикетов от производителя
                             </h3>
                             <p className="text-sm sm:text-base text-gray-700 leading-relaxed mb-3">
                                 ПБМ-2 можно приобрести отдельно или в составе готовой линии
