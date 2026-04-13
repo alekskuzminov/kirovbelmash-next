@@ -46,3 +46,6 @@ next-env.d.ts
 # generated files
 public/sitemap.xml
 public/robots.txt
+
+# local notes
+/notes
