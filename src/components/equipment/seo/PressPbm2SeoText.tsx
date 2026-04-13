@@ -10,7 +10,7 @@ export default function PressPbm2SeoText() {
                 <div className="flex items-center gap-3 mb-8">
                     <div className="w-8 h-0.5 bg-red-500" />
                     <h2 className="text-2xl sm:text-3xl font-bold text-gray-900">
-                        Оборудование для производства топливных брикетов из опилок
+                        Брикетирующий пресс для производства топливных брикетов из опилок
                     </h2>
                 </div>
 
