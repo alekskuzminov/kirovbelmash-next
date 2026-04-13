@@ -119,7 +119,11 @@ export default function DryingLinePage() {
                 ]}
             />
 
-            <Projects />
+            <Projects
+                filterCategory="Сушка"
+                title="Реализованные проекты по сушке"
+                subtitle="Запущенные сушильные линии у наших клиентов"
+            />
 
             <ContactForm />
         </div>

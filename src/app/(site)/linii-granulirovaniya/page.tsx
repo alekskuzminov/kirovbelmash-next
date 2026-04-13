@@ -205,7 +205,11 @@ export default function GranulationLinePage() {
 
             <GranulationFAQ />
 
-            <Projects />
+            <Projects
+                filterCategory="Гранулирование"
+                title="Реализованные проекты по гранулированию"
+                subtitle="Запущенные линии гранулирования пеллет у наших клиентов"
+            />
 
             <ContactForm />
         </div>

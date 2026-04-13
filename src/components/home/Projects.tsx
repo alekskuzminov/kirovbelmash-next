@@ -7,11 +7,21 @@ import { projectsData } from '@/components/projects/projectsData';
 
 const VISIBLE_COUNT = 3;
 
-export default function Projects() {
+interface ProjectsProps {
+    filterCategory?: string;
+    title?: string;
+    subtitle?: string;
+}
+
+export default function Projects({ filterCategory, title, subtitle }: ProjectsProps) {
+    const filteredData = filterCategory
+        ? projectsData.filter((p) => p.category === filterCategory).slice(0, 4)
+        : projectsData;
+
     const [current, setCurrent] = useState(0);
     const isAnimating = useRef(false);
 
-    const total = projectsData.length;
+    const total = filteredData.length;
 
     const prev = useCallback(() => {
         if (isAnimating.current) return;
@@ -28,9 +38,11 @@ export default function Projects() {
     }, [total]);
 
     // Build the visible items array (with wrapping)
-    const visibleProjects = Array.from({ length: VISIBLE_COUNT }, (_, i) => {
-        return projectsData[(current + i) % total];
-    });
+    const visibleProjects = filterCategory
+        ? filteredData
+        : Array.from({ length: VISIBLE_COUNT }, (_, i) => {
+            return filteredData[(current + i) % total];
+          });
 
     return (
         <section id="projects" className="py-12 sm:py-20 bg-white overflow-hidden">
@@ -40,32 +52,34 @@ export default function Projects() {
                 <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between mb-8 sm:mb-12 gap-4">
                     <div>
                         <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-2 sm:mb-3">
-                            Реализованные проекты
+                            {title ?? 'Реализованные проекты'}
                         </h2>
                         <p className="text-sm sm:text-base text-gray-500 max-w-xl">
-                            Наши решения для переработки древесных отходов в работе у клиентов
+                            {subtitle ?? 'Наши решения для переработки древесных отходов в работе у клиентов'}
                         </p>
                     </div>
-                    {/* Nav arrows */}
-                    <div className="flex items-center gap-3 shrink-0">
-                        <button
-                            onClick={prev}
-                            aria-label="Предыдущий проект"
-                            className="w-10 h-10 sm:w-11 sm:h-11 rounded-full border-2 border-gray-200 flex items-center justify-center text-gray-600 hover:border-red-600 hover:text-red-600 hover:bg-red-50 transition-all duration-200 cursor-pointer"
-                        >
-                            <i className="ri-arrow-left-s-line text-xl" />
-                        </button>
-                        <span className="text-sm text-gray-400 font-medium tabular-nums">
-                            {current + 1} / {total}
-                        </span>
-                        <button
-                            onClick={next}
-                            aria-label="Следующий проект"
-                            className="w-10 h-10 sm:w-11 sm:h-11 rounded-full border-2 border-gray-200 flex items-center justify-center text-gray-600 hover:border-red-600 hover:text-red-600 hover:bg-red-50 transition-all duration-200 cursor-pointer"
-                        >
-                            <i className="ri-arrow-right-s-line text-xl" />
-                        </button>
-                    </div>
+                    {/* Nav arrows — только в режиме карусели */}
+                    {!filterCategory && (
+                        <div className="flex items-center gap-3 shrink-0">
+                            <button
+                                onClick={prev}
+                                aria-label="Предыдущий проект"
+                                className="w-10 h-10 sm:w-11 sm:h-11 rounded-full border-2 border-gray-200 flex items-center justify-center text-gray-600 hover:border-red-600 hover:text-red-600 hover:bg-red-50 transition-all duration-200 cursor-pointer"
+                            >
+                                <i className="ri-arrow-left-s-line text-xl" />
+                            </button>
+                            <span className="text-sm text-gray-400 font-medium tabular-nums">
+                                {current + 1} / {total}
+                            </span>
+                            <button
+                                onClick={next}
+                                aria-label="Следующий проект"
+                                className="w-10 h-10 sm:w-11 sm:h-11 rounded-full border-2 border-gray-200 flex items-center justify-center text-gray-600 hover:border-red-600 hover:text-red-600 hover:bg-red-50 transition-all duration-200 cursor-pointer"
+                            >
+                                <i className="ri-arrow-right-s-line text-xl" />
+                            </button>
+                        </div>
+                    )}
                 </div>
 
                 {/* Slider track */}
@@ -107,20 +121,22 @@ export default function Projects() {
                     ))}
                 </div>
 
-                {/* Dots pagination */}
-                <div className="flex justify-center gap-1.5 mt-6">
-                    {projectsData.map((_, i) => (
-                        <button
-                            key={i}
-                            onClick={() => setCurrent(i)}
-                            aria-label={`Слайд ${i + 1}`}
-                            className={`h-1.5 rounded-full transition-all duration-300 cursor-pointer ${i === current
-                                ? 'w-6 bg-red-600'
-                                : 'w-1.5 bg-gray-300 hover:bg-gray-400'
-                                }`}
-                        />
-                    ))}
-                </div>
+                {/* Dots pagination — только в режиме карусели */}
+                {!filterCategory && (
+                    <div className="flex justify-center gap-1.5 mt-6">
+                        {filteredData.map((_, i) => (
+                            <button
+                                key={i}
+                                onClick={() => setCurrent(i)}
+                                aria-label={`Слайд ${i + 1}`}
+                                className={`h-1.5 rounded-full transition-all duration-300 cursor-pointer ${i === current
+                                    ? 'w-6 bg-red-600'
+                                    : 'w-1.5 bg-gray-300 hover:bg-gray-400'
+                                    }`}
+                            />
+                        ))}
+                    </div>
+                )}
 
                 {/* CTA */}
                 <div className="text-center mt-8 sm:mt-10">

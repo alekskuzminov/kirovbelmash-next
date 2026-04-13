@@ -206,7 +206,11 @@ export default function BriquettingLinePage() {
 
             <BriquettingFAQ />
 
-            <Projects />
+            <Projects
+                filterCategory="Брикетирование"
+                title="Реализованные проекты по брикетированию"
+                subtitle="Запущенные линии брикетирования у наших клиентов"
+            />
 
             <ContactForm />
         </div>
