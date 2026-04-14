@@ -53,6 +53,7 @@ const nextConfig: NextConfig = {
               "style-src 'self' 'unsafe-inline'",
               "font-src 'self'",
               "img-src 'self' data: blob: https://cdn.kirovbelmash.ru https://cdn.kirovbelmash-site.ru",
+              "media-src 'self' https://cdn.kirovbelmash.ru https://cdn.kirovbelmash-site.ru",
               "connect-src 'self' https://mc.yandex.ru https://cdn.kirovbelmash.ru https://cdn.kirovbelmash-site.ru",
               "frame-src 'none'",
               "object-src 'none'",
