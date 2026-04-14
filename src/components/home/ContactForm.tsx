@@ -149,6 +149,27 @@ export default function ContactForm({ initialMessage = '', isModal = false, moda
     );
 
     if (isModal) {
+        if (submitStatus === 'success') {
+            return (
+                <div className="bg-white w-full flex flex-col h-full max-h-full overflow-hidden rounded-2xl">
+                    <div className="bg-gradient-to-r from-red-600 to-red-700 px-5 py-4 sm:px-8 sm:py-6 shrink-0 relative z-10">
+                        <h2 className="text-xl sm:text-2xl font-bold text-white mb-1.5 sm:mb-2 pr-6">Заявка отправлена</h2>
+                        <p className="text-red-100 text-xs sm:text-sm leading-snug">Мы свяжемся с вами в ближайшее время</p>
+                    </div>
+                    <div className="flex-1 flex flex-col items-center justify-center p-8 sm:p-12 text-center">
+                        <div className="w-16 h-16 sm:w-20 sm:h-20 flex items-center justify-center bg-green-100 rounded-full mb-5 sm:mb-6">
+                            <i className="ri-check-line text-3xl sm:text-4xl text-green-600"></i>
+                        </div>
+                        <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-3">Спасибо!</h3>
+                        <p className="text-sm sm:text-base text-gray-600 leading-relaxed">
+                            Ваша заявка успешно отправлена.<br />
+                            Наш менеджер свяжется с вами в течение рабочего дня.
+                        </p>
+                    </div>
+                </div>
+            );
+        }
+
         return (
             <div className="bg-white w-full flex flex-col h-full max-h-full overflow-hidden rounded-2xl">
                 <div className="bg-gradient-to-r from-red-600 to-red-700 px-5 py-4 sm:px-8 sm:py-6 shrink-0 relative z-10">
