@@ -55,7 +55,7 @@ export const SITE_CONFIG = {
     viber: 'viber://chat?number=79005218477',
     whatsapp: 'https://wa.me/79005218477',
     vk: 'https://vk.com/kirovbelmash',
-    max: 'https://max.ru/kirovbelmash',
+    max: 'https://max.ru/u/f9LHodD0cOJc10iMVofM5nWL19JYue301Ev0y8s6RHgbrpzs7a8FRG2MLpU',
   },
 
   assets: {

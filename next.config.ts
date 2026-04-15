@@ -2,6 +2,17 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   trailingSlash: false,
+  async redirects() {
+    return [
+      // Яндекс.Бот иногда строит rel. путь из tel:-ссылок: /page/tel:7xxxxxxxxxx → 404
+      // Редиректим на страницу без суффикса tel:*
+      {
+        source: '/:path*/tel\\::phone',
+        destination: '/:path*',
+        permanent: true,
+      },
+    ];
+  },
   images: {
     formats: ['image/webp'],
     remotePatterns: [
