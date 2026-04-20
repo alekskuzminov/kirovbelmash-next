@@ -15,7 +15,7 @@ interface ProjectsProps {
 
 export default function Projects({ filterCategory, title, subtitle }: ProjectsProps) {
     const filteredData = filterCategory
-        ? projectsData.filter((p) => p.category === filterCategory).slice(0, 4)
+        ? projectsData.filter((p) => p.category === filterCategory).slice(0, 3)
         : projectsData;
 
     const [current, setCurrent] = useState(0);
