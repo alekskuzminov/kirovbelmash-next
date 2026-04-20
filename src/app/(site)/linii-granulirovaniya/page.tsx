@@ -17,15 +17,10 @@ export const metadata: Metadata = {
     description: 'Линия гранулирования для изготовления топливных пеллетов из опилок и другого древесного сырья. Пеллетные линии по ценам от завода-производителя',
     alternates: { canonical: '/linii-granulirovaniya' },
     keywords: [
-        'оборудование для производства пеллет',
         'оборудование для производства пеллет из опилок',
-        'оборудование для производства топливных пеллет',
-        'линия гранулирования',
-        'оборудование для пеллетов',
+        'линия гранулирования под ключ',
         'пеллетная линия',
-        'оборудование для изготовления пеллет',
-        'оборудование для изготовления пеллетов',
-        'линия по производству пеллет',
+        'гранулятор для производства пеллет',
     ],
     openGraph: {
         title: 'Оборудование для производства топливных пеллет из опилок | КировБелМаш',
@@ -42,15 +37,6 @@ export const metadata: Metadata = {
             },
         ],
     },
-};
-
-const breadcrumbSchema = {
-    '@context': 'https://schema.org',
-    '@type': 'BreadcrumbList',
-    itemListElement: [
-        { '@type': 'ListItem', position: 1, name: 'Главная', item: 'https://kirovbelmash.ru/' },
-        { '@type': 'ListItem', position: 2, name: 'Линии гранулирования', item: 'https://kirovbelmash.ru/linii-granulirovaniya' },
-    ],
 };
 
 const SITE_URL = 'https://kirovbelmash.ru';
@@ -96,7 +82,7 @@ const itemListSchema = {
                             '@type': 'QuantitativeValue',
                             minValue: 56,
                             maxValue: 112,
-                            unitCode: 'DAY',
+                            unitText: 'days',
                         },
                     },
                 },
@@ -113,10 +99,6 @@ export default function GranulationLinePage() {
                 { label: 'Линии', href: '/#production-lines' },
                 { label: 'Линии гранулирования' },
             ]} />
-            <script
-                type="application/ld+json"
-                dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
-            />
             <script
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(itemListSchema) }}
@@ -160,7 +142,7 @@ export default function GranulationLinePage() {
             <section id="variants" className="pt-8 pb-6 bg-white border-b border-gray-100">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-2">
-                        Купить пеллетное оборудование для производства гранул из опилок
+                        Линии гранулирования полного цикла: производительность и цены
                     </h2>
                     <p className="text-base text-gray-600 max-w-2xl">
                         Производительность от 500 до 2000 кг/час. Цена от 9,2 млн ₽. Комплектация «под ключ».

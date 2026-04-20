@@ -17,16 +17,10 @@ export const metadata: Metadata = {
     description: 'Производство линий брикетирования и оборудование для изготовления топливных брикетов из опилок и древесного сырья: проектирование, изготовление, поставка и запуск.',
     alternates: { canonical: '/linii-briketirovaniya' },
     keywords: [
-        'оборудование для производства топливных брикетов',
-        'оборудование для изготовления топливных брикетов',
-        'оборудование для производства брикетов из опилок',
         'оборудование для производства топливных брикетов из опилок',
-        'линия по производству топливных брикетов',
-        'оборудование для изготовления брикетов из опилок',
-        'линия брикетирования',
-        'линия по производству топливных брикетов из опилок',
-        'оборудование для производства брикетов',
-        'оборудование для топливных брикетов',
+        'линия брикетирования под ключ',
+        'станок для брикетов из опилок',
+        'пресс для топливных брикетов pini kay',
     ],
     openGraph: {
         title: 'Оборудование для производства топливных брикетов из опилок',
@@ -43,15 +37,6 @@ export const metadata: Metadata = {
             },
         ],
     },
-};
-
-const breadcrumbSchema = {
-    '@context': 'https://schema.org',
-    '@type': 'BreadcrumbList',
-    itemListElement: [
-        { '@type': 'ListItem', position: 1, name: 'Главная', item: 'https://kirovbelmash.ru/' },
-        { '@type': 'ListItem', position: 2, name: 'Линии брикетирования', item: 'https://kirovbelmash.ru/linii-briketirovaniya' },
-    ],
 };
 
 const SITE_URL = 'https://kirovbelmash.ru';
@@ -97,7 +82,7 @@ const itemListSchema = {
                             '@type': 'QuantitativeValue',
                             minValue: 56,
                             maxValue: 112,
-                            unitCode: 'DAY',
+                            unitText: 'days',
                         },
                     },
                 },
@@ -114,10 +99,6 @@ export default function BriquettingLinePage() {
                 { label: 'Линии', href: '/#production-lines' },
                 { label: 'Линии брикетирования' },
             ]} />
-            <script
-                type="application/ld+json"
-                dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
-            />
             <script
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(itemListSchema) }}
@@ -161,7 +142,7 @@ export default function BriquettingLinePage() {
             <section id="variants" className="pt-8 pb-6 bg-white border-b border-gray-100">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-2">
-                        Купить оборудование для производства брикетов из опилок
+                        Линии брикетирования полного цикла: производительность и цены
                     </h2>
                     <p className="text-base text-gray-600 max-w-2xl">
                         Производительность от 500 до 2000 кг/час. Цена от 10,5 млн ₽. Комплектация «под ключ».
