@@ -12,6 +12,8 @@ export default function ContactsForm() {
         email: '',
         message: ''
     });
+    const [hp, setHp] = useState('');
+    const [formLoadedAt] = useState(() => Date.now());
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
 
@@ -35,6 +37,8 @@ export default function ContactsForm() {
             phone: formData.phone,
             email: formData.email,
             message: formData.message,
+            hp,
+            ts: formLoadedAt,
         });
 
         if (ok) {
@@ -59,6 +63,21 @@ export default function ContactsForm() {
 
                 <div className="bg-white rounded-xl sm:rounded-2xl shadow-lg border border-gray-100 p-5 sm:p-8">
                     <form id="contacts-page-form" onSubmit={handleSubmit}>
+                        <div
+                            aria-hidden="true"
+                            style={{ position: 'absolute', left: '-10000px', top: 'auto', width: '1px', height: '1px', overflow: 'hidden' }}
+                        >
+                            <label htmlFor="cp-website">Website</label>
+                            <input
+                                type="text"
+                                id="cp-website"
+                                name="website"
+                                tabIndex={-1}
+                                autoComplete="off"
+                                value={hp}
+                                onChange={(e) => setHp(e.target.value)}
+                            />
+                        </div>
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mb-5">
                             <div>
                                 <label htmlFor="cp-name" className="block text-sm font-semibold text-gray-900 mb-2">

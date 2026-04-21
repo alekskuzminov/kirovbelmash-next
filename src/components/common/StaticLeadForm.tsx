@@ -69,6 +69,8 @@ export default function StaticLeadForm({
         email: '',
         message: '',
     });
+    const [hp, setHp] = useState('');
+    const [formLoadedAt] = useState(() => Date.now());
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [isSubmitted, setIsSubmitted] = useState(false);
     const [error, setError] = useState('');
@@ -100,6 +102,8 @@ export default function StaticLeadForm({
                     message: formData.message,
                     source,
                     extra: extraPayload,
+                    hp,
+                    ts: formLoadedAt,
                 }),
             });
 
@@ -138,6 +142,21 @@ export default function StaticLeadForm({
 
     return (
         <form id={formId} onSubmit={handleSubmit}>
+            <div
+                aria-hidden="true"
+                style={{ position: 'absolute', left: '-10000px', top: 'auto', width: '1px', height: '1px', overflow: 'hidden' }}
+            >
+                <label htmlFor={`${formId}-website`}>Website</label>
+                <input
+                    type="text"
+                    id={`${formId}-website`}
+                    name="website"
+                    tabIndex={-1}
+                    autoComplete="off"
+                    value={hp}
+                    onChange={(e) => setHp(e.target.value)}
+                />
+            </div>
             <h3 className={titleClassName}>{title}</h3>
             {subtitle && <p className={subtitleClassName}>{subtitle}</p>}
 

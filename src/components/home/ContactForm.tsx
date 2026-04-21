@@ -19,6 +19,8 @@ export default function ContactForm({ initialMessage = '', isModal = false, moda
         phone: '',
         message: initialMessage,
     });
+    const [hp, setHp] = useState('');
+    const [formLoadedAt] = useState(() => Date.now());
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
 
@@ -33,6 +35,8 @@ export default function ContactForm({ initialMessage = '', isModal = false, moda
             email: formData.email,
             message: formData.message,
             source: isModal ? 'modal' : 'contact',
+            hp,
+            ts: formLoadedAt,
         });
 
         if (ok) {
@@ -49,6 +53,21 @@ export default function ContactForm({ initialMessage = '', isModal = false, moda
 
     const formContent = (
         <form id="contact-form" onSubmit={handleSubmit}>
+            <div
+                aria-hidden="true"
+                style={{ position: 'absolute', left: '-10000px', top: 'auto', width: '1px', height: '1px', overflow: 'hidden' }}
+            >
+                <label htmlFor="contact-website">Website</label>
+                <input
+                    type="text"
+                    id="contact-website"
+                    name="website"
+                    tabIndex={-1}
+                    autoComplete="off"
+                    value={hp}
+                    onChange={(e) => setHp(e.target.value)}
+                />
+            </div>
             <div className="space-y-4 sm:space-y-5">
                 <div>
                     <label htmlFor="name" className="block text-xs sm:text-sm font-semibold text-gray-900 mb-1.5 sm:mb-2">

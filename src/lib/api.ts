@@ -9,6 +9,8 @@ export interface ContactFormData {
     message?: string;
     source?: string;
     extra?: Record<string, string>;
+    hp?: string;   // honeypot (empty for real users)
+    ts?: number;   // form mount timestamp (client Date.now())
 }
 
 /**
