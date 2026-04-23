@@ -52,7 +52,7 @@ export default function BlogCard({ post }: BlogCardProps) {
                     </h3>
                 </Link>
 
-                <p className="text-sm text-gray-600 leading-relaxed line-clamp-3 mb-6 flex-1">
+                <p className="text-sm text-gray-600 leading-relaxed line-clamp-3 mb-6">
                     {post.excerpt}
                 </p>
 
