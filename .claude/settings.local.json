@@ -61,7 +61,8 @@
       "Read(//c/Users/User/Downloads/**)",
       "Bash(python3 -c ':*)",
       "Bash(file public/images/blog/proizvodstvo-pellet-iz-opilok/*)",
-      "Bash(file public/images/blog/stoimost-linii-granulirovaniya-pod-klyuch/*)"
+      "Bash(file public/images/blog/stoimost-linii-granulirovaniya-pod-klyuch/*)",
+      "Bash(node -e ':*)"
     ]
   }
 }
