@@ -7,8 +7,62 @@ import LinesCTA from '@/components/lines/LinesCTA';
 import { HERO_BLUR } from '@/lib/heroBlur';
 import Projects from '@/components/home/Projects';
 import DryingProcess from '@/components/lines/DryingProcess';
+import DryingFAQ from '@/components/lines/DryingFAQ';
+import LineComparisonTable from '@/components/lines/LineComparisonTable';
 import RelatedLinesBlock from '@/components/lines/RelatedLinesBlock';
 import ContactForm from '@/components/home/ContactForm';
+
+const SITE_URL = 'https://kirovbelmash.ru';
+
+function parsePrice(priceStr: string): number | null {
+    const digits = priceStr.replace(/[^\d]/g, '');
+    return digits ? parseInt(digits, 10) : null;
+}
+
+const itemListSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    name: 'Сушильные линии КировБелМаш',
+    description: 'Оборудование для сушки опилок, щепы и биомассы',
+    numberOfItems: lineVariants.drying.length,
+    itemListElement: lineVariants.drying.map((v, i) => ({
+        '@type': 'ListItem',
+        position: i + 1,
+        item: {
+            '@type': 'Product',
+            name: v.name,
+            description: v.description,
+            image: `${SITE_URL}${v.image}`,
+            brand: { '@type': 'Brand', name: 'КировБелМаш' },
+            offers: {
+                '@type': 'Offer',
+                price: parsePrice(v.price),
+                priceCurrency: 'RUB',
+                availability: 'https://schema.org/InStock',
+                priceValidUntil: `${new Date().getFullYear()}-12-31`,
+                hasMerchantReturnPolicy: {
+                    '@type': 'MerchantReturnPolicy',
+                    applicableCountry: 'RU',
+                    returnPolicyCategory: 'https://schema.org/MerchantReturnNotPermitted',
+                },
+                shippingDetails: {
+                    '@type': 'OfferShippingDetails',
+                    shippingRate: { '@type': 'MonetaryAmount', value: '0', currency: 'RUB' },
+                    shippingDestination: { '@type': 'DefinedRegion', addressCountry: 'RU' },
+                    deliveryTime: {
+                        '@type': 'ShippingDeliveryTime',
+                        handlingTime: {
+                            '@type': 'QuantitativeValue',
+                            minValue: 42,
+                            maxValue: 84,
+                            unitText: 'days',
+                        },
+                    },
+                },
+            },
+        },
+    })),
+};
 
 export const metadata: Metadata = {
     title: 'Оборудование для сушки древесного сырья',
@@ -39,6 +93,10 @@ export default function DryingLinePage() {
                 { label: 'Линии', href: '/#production-lines' },
                 { label: 'Сушильные линии' },
             ]} />
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(itemListSchema) }}
+            />
             <LineHero
                 label="Сушильные линии"
                 headingMain={<>Производство линий<br />для сушки сырья</>}
@@ -96,6 +154,8 @@ export default function DryingLinePage() {
                 </div>
             </section>
 
+            <LineComparisonTable variants={lineVariants.drying} ctaHref="/contacts" />
+
             <DryingProcess />
 
             <LinesCTA />
@@ -118,6 +178,8 @@ export default function DryingLinePage() {
                     },
                 ]}
             />
+
+            <DryingFAQ />
 
             <Projects
                 filterCategory="Сушка"

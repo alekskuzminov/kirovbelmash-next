@@ -9,6 +9,7 @@ import BriquettingProcess from '@/components/lines/BriquettingProcess';
 import RelatedLinesBlock from '@/components/lines/RelatedLinesBlock';
 import BriquettingSeoText from '@/components/lines/BriquettingSeoText';
 import BriquettingFAQ from '@/components/lines/BriquettingFAQ';
+import LineComparisonTable from '@/components/lines/LineComparisonTable';
 import ContactForm from '@/components/home/ContactForm';
 import BreadcrumbJsonLd from '@/components/ui/BreadcrumbJsonLd';
 
@@ -159,6 +160,8 @@ export default function BriquettingLinePage() {
                     </div>
                 </div>
             </section>
+
+            <LineComparisonTable variants={lineVariants.briquetting} ctaHref="/contacts" />
 
             <BriquettingProcess />
 

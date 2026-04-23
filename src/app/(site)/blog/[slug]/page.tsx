@@ -36,6 +36,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
             url: `https://kirovbelmash.ru/blog/${post.slug}`,
             type: 'article',
             publishedTime: post.date,
+            modifiedTime: post.updatedAt ?? post.date,
             siteName: 'КировБелМаш',
             images: [
                 {

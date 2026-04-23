@@ -9,6 +9,7 @@ import GranulationProcess from '@/components/lines/GranulationProcess';
 import RelatedLinesBlock from '@/components/lines/RelatedLinesBlock';
 import GranulationFAQ from '@/components/lines/GranulationFAQ';
 import GranulationSeoText from '@/components/lines/GranulationSeoText';
+import LineComparisonTable from '@/components/lines/LineComparisonTable';
 import ContactForm from '@/components/home/ContactForm';
 import BreadcrumbJsonLd from '@/components/ui/BreadcrumbJsonLd';
 
@@ -159,6 +160,8 @@ export default function GranulationLinePage() {
                     </div>
                 </div>
             </section>
+
+            <LineComparisonTable variants={lineVariants.granulation} ctaHref="/contacts" />
 
             <GranulationProcess />
 

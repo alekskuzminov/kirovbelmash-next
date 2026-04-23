@@ -14,10 +14,10 @@ export default function ArticleJsonLd({ post }: ArticleJsonLdProps) {
     description: post.excerpt,
     image: post.image ? `${SITE_URL}${post.image}` : `${SITE_URL}/images/logo/og-image.jpg`,
     datePublished: post.date,
-    dateModified: post.date,
+    dateModified: post.updatedAt ?? post.date,
     author: {
-      '@type': 'Organization',
-      name: 'КировБелМаш',
+      '@type': 'Person',
+      name: 'Редакция КировБелМаш',
       url: SITE_URL,
     },
     publisher: {
