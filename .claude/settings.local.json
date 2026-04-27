@@ -62,7 +62,9 @@
       "Bash(python3 -c ':*)",
       "Bash(file public/images/blog/proizvodstvo-pellet-iz-opilok/*)",
       "Bash(file public/images/blog/stoimost-linii-granulirovaniya-pod-klyuch/*)",
-      "Bash(node -e ':*)"
+      "Bash(node -e ':*)",
+      "Bash(.\\\\node_modules\\\\.bin\\\\prisma generate:*)",
+      "Bash(./node_modules/.bin/prisma generate:*)"
     ]
   }
 }

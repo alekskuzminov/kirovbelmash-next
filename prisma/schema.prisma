@@ -21,25 +21,31 @@ model User {
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
-  assignedDeals Deal[]     @relation("DealAssignee")
-  assignedTasks Task[]     @relation("TaskAssignee")
+  assignedDeals Deal[]          @relation("DealAssignee")
+  assignedTasks Task[]          @relation("TaskAssignee")
   notes         Note[]
   documents     Document[]
+  stageEvents   DealStageEvent[]
 }
 
 model Contact {
-  id        String   @id @default(cuid())
-  name      String
-  company   String?
-  phone     String?
-  email     String?
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  id              String    @id @default(cuid())
+  name            String
+  company         String?
+  phone           String?
+  phoneNormalized String?
+  email           String?
+  createdAt       DateTime  @default(now())
+  updatedAt       DateTime  @updatedAt
+  deletedAt       DateTime?
 
   deals     Deal[]
   tasks     Task[]
   notes     Note[]
   documents Document[]
+
+  @@index([phoneNormalized])
+  @@index([deletedAt])
 }
 
 model Pipeline {
@@ -58,15 +64,19 @@ model Stage {
   pipelineId String
   pipeline   Pipeline @relation(fields: [pipelineId], references: [id])
   deals      Deal[]
+
+  eventsFrom DealStageEvent[] @relation("FromStage")
+  eventsTo   DealStageEvent[] @relation("ToStage")
 }
 
 model Deal {
-  id         String   @id @default(cuid())
+  id         String    @id @default(cuid())
   title      String
   amount     Decimal?
   source     String?
-  createdAt  DateTime @default(now())
-  updatedAt  DateTime @updatedAt
+  createdAt  DateTime  @default(now())
+  updatedAt  DateTime  @updatedAt
+  deletedAt  DateTime?
 
   contactId  String
   contact    Contact  @relation(fields: [contactId], references: [id])
@@ -80,9 +90,16 @@ model Deal {
   assigneeId String?
   assignee   User?    @relation("DealAssignee", fields: [assigneeId], references: [id])
 
-  tasks      Task[]
-  notes      Note[]
-  documents  Document[]
+  tasks       Task[]
+  notes       Note[]
+  documents   Document[]
+  stageEvents DealStageEvent[]
+
+  @@index([stageId])
+  @@index([assigneeId])
+  @@index([contactId])
+  @@index([deletedAt])
+  @@index([createdAt])
 }
 
 model Task {
@@ -101,6 +118,11 @@ model Task {
 
   assigneeId String?
   assignee   User?    @relation("TaskAssignee", fields: [assigneeId], references: [id])
+
+  @@index([assigneeId])
+  @@index([dueDate])
+  @@index([dealId])
+  @@index([done])
 }
 
 model Note {
@@ -116,17 +138,21 @@ model Note {
 
   authorId  String?
   author    User?    @relation(fields: [authorId], references: [id])
+
+  @@index([dealId])
+  @@index([contactId])
 }
 
 model Document {
-  id           String   @id @default(cuid())
+  id           String    @id @default(cuid())
   filename     String
   originalName String
   s3Key        String
   s3Url        String
   size         Int
   mimeType     String?
-  createdAt    DateTime @default(now())
+  createdAt    DateTime  @default(now())
+  deletedAt    DateTime?
 
   dealId       String?
   deal         Deal?    @relation(fields: [dealId], references: [id])
@@ -136,4 +162,25 @@ model Document {
 
   uploadedById String?
   uploadedBy   User?    @relation(fields: [uploadedById], references: [id])
+
+  @@index([dealId])
+  @@index([contactId])
+  @@index([deletedAt])
+}
+
+model DealStageEvent {
+  id          String   @id @default(cuid())
+  createdAt   DateTime @default(now())
+
+  dealId      String
+  deal        Deal     @relation(fields: [dealId], references: [id])
+
+  fromStageId String?
+  fromStage   Stage?   @relation("FromStage", fields: [fromStageId], references: [id])
+
+  toStageId   String
+  toStage     Stage    @relation("ToStage", fields: [toStageId], references: [id])
+
+  actorId     String?
+  actor       User?    @relation(fields: [actorId], references: [id])
 }
