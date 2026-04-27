@@ -13,7 +13,7 @@ git checkout public/sitemap.xml public/robots.txt || true
 git pull origin main
 
 echo "📦 Installing dependencies..."
-npm install --frozen-lockfile
+npm install --legacy-peer-deps
 
 echo "🔨 Building the project..."
 npm run build
