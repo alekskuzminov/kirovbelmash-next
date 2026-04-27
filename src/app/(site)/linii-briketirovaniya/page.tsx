@@ -15,17 +15,11 @@ import BreadcrumbJsonLd from '@/components/ui/BreadcrumbJsonLd';
 
 export const metadata: Metadata = {
     title: 'Оборудование для производства топливных брикетов из опилок',
-    description: 'Производство линий брикетирования и оборудование для изготовления топливных брикетов из опилок и древесного сырья: проектирование, изготовление, поставка и запуск.',
+    description: 'Оборудование для производства топливных брикетов из опилок — от производителя. Цена за комплект от 10,5 млн ₽. Производительность 500–2000 кг/ч. Монтаж и запуск под ключ.',
     alternates: { canonical: '/linii-briketirovaniya' },
-    keywords: [
-        'оборудование для производства топливных брикетов из опилок',
-        'линия брикетирования под ключ',
-        'станок для брикетов из опилок',
-        'пресс для топливных брикетов pini kay',
-    ],
     openGraph: {
         title: 'Оборудование для производства топливных брикетов из опилок',
-        description: 'Производство линий брикетирования и оборудование для изготовления топливных брикетов из опилок и древесного сырья: проектирование, изготовление, поставка и запуск.',
+        description: 'Оборудование для производства топливных брикетов из опилок — от производителя. Цена за комплект от 10,5 млн ₽. Производительность 500–2000 кг/ч. Монтаж и запуск под ключ.',
         url: 'https://kirovbelmash.ru/linii-briketirovaniya',
         type: 'website',
         siteName: 'КировБелМаш',
@@ -63,30 +57,10 @@ const itemListSchema = {
             image: `${SITE_URL}${v.image}`,
             brand: { '@type': 'Brand', name: 'КировБелМаш' },
             offers: {
-                '@type': 'Offer',
-                price: parsePrice(v.price),
+                '@type': 'AggregateOffer',
+                lowPrice: parsePrice(v.price),
                 priceCurrency: 'RUB',
                 availability: 'https://schema.org/InStock',
-                priceValidUntil: `${new Date().getFullYear()}-12-31`,
-                hasMerchantReturnPolicy: {
-                    '@type': 'MerchantReturnPolicy',
-                    applicableCountry: 'RU',
-                    returnPolicyCategory: 'https://schema.org/MerchantReturnNotPermitted',
-                },
-                shippingDetails: {
-                    '@type': 'OfferShippingDetails',
-                    shippingRate: { '@type': 'MonetaryAmount', value: '0', currency: 'RUB' },
-                    shippingDestination: { '@type': 'DefinedRegion', addressCountry: 'RU' },
-                    deliveryTime: {
-                        '@type': 'ShippingDeliveryTime',
-                        handlingTime: {
-                            '@type': 'QuantitativeValue',
-                            minValue: 56,
-                            maxValue: 112,
-                            unitText: 'days',
-                        },
-                    },
-                },
             },
         },
     })),

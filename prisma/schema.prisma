@@ -1,0 +1,139 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum Role {
+  ADMIN
+  MANAGER
+}
+
+model User {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  name      String
+  password  String
+  role      Role     @default(MANAGER)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  assignedDeals Deal[]     @relation("DealAssignee")
+  assignedTasks Task[]     @relation("TaskAssignee")
+  notes         Note[]
+  documents     Document[]
+}
+
+model Contact {
+  id        String   @id @default(cuid())
+  name      String
+  company   String?
+  phone     String?
+  email     String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  deals     Deal[]
+  tasks     Task[]
+  notes     Note[]
+  documents Document[]
+}
+
+model Pipeline {
+  id     String  @id @default(cuid())
+  name   String
+  order  Int     @default(0)
+  stages Stage[]
+  deals  Deal[]
+}
+
+model Stage {
+  id         String   @id @default(cuid())
+  name       String
+  order      Int
+  color      String   @default("#6b7280")
+  pipelineId String
+  pipeline   Pipeline @relation(fields: [pipelineId], references: [id])
+  deals      Deal[]
+}
+
+model Deal {
+  id         String   @id @default(cuid())
+  title      String
+  amount     Decimal?
+  source     String?
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+
+  contactId  String
+  contact    Contact  @relation(fields: [contactId], references: [id])
+
+  stageId    String
+  stage      Stage    @relation(fields: [stageId], references: [id])
+
+  pipelineId String
+  pipeline   Pipeline @relation(fields: [pipelineId], references: [id])
+
+  assigneeId String?
+  assignee   User?    @relation("DealAssignee", fields: [assigneeId], references: [id])
+
+  tasks      Task[]
+  notes      Note[]
+  documents  Document[]
+}
+
+model Task {
+  id         String    @id @default(cuid())
+  title      String
+  dueDate    DateTime?
+  done       Boolean   @default(false)
+  createdAt  DateTime  @default(now())
+  updatedAt  DateTime  @updatedAt
+
+  dealId     String?
+  deal       Deal?    @relation(fields: [dealId], references: [id])
+
+  contactId  String?
+  contact    Contact? @relation(fields: [contactId], references: [id])
+
+  assigneeId String?
+  assignee   User?    @relation("TaskAssignee", fields: [assigneeId], references: [id])
+}
+
+model Note {
+  id        String   @id @default(cuid())
+  text      String
+  createdAt DateTime @default(now())
+
+  dealId    String?
+  deal      Deal?    @relation(fields: [dealId], references: [id])
+
+  contactId String?
+  contact   Contact? @relation(fields: [contactId], references: [id])
+
+  authorId  String?
+  author    User?    @relation(fields: [authorId], references: [id])
+}
+
+model Document {
+  id           String   @id @default(cuid())
+  filename     String
+  originalName String
+  s3Key        String
+  s3Url        String
+  size         Int
+  mimeType     String?
+  createdAt    DateTime @default(now())
+
+  dealId       String?
+  deal         Deal?    @relation(fields: [dealId], references: [id])
+
+  contactId    String?
+  contact      Contact? @relation(fields: [contactId], references: [id])
+
+  uploadedById String?
+  uploadedBy   User?    @relation(fields: [uploadedById], references: [id])
+}

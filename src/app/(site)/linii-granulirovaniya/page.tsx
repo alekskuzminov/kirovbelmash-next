@@ -14,18 +14,12 @@ import ContactForm from '@/components/home/ContactForm';
 import BreadcrumbJsonLd from '@/components/ui/BreadcrumbJsonLd';
 
 export const metadata: Metadata = {
-    title: 'Оборудование для производства топливных пеллет из опилок',
-    description: 'Линия гранулирования для изготовления топливных пеллетов из опилок и другого древесного сырья. Пеллетные линии по ценам от завода-производителя',
+    title: 'Оборудование для производства пеллет из опилок — купить линию гранулирования',
+    description: 'Оборудование для производства пеллет из опилок и древесных отходов — от производителя. Цена за комплект от 9,2 млн ₽. Производительность 500–2000 кг/ч. Монтаж и запуск под ключ.',
     alternates: { canonical: '/linii-granulirovaniya' },
-    keywords: [
-        'оборудование для производства пеллет из опилок',
-        'линия гранулирования под ключ',
-        'пеллетная линия',
-        'гранулятор для производства пеллет',
-    ],
     openGraph: {
-        title: 'Оборудование для производства топливных пеллет из опилок | КировБелМаш',
-        description: 'Линия гранулирования для изготовления топливных пеллетов из опилок и другого древесного сырья. Пеллетные линии по ценам от завода-производителя',
+        title: 'Оборудование для производства пеллет из опилок — купить линию гранулирования | КировБелМаш',
+        description: 'Оборудование для производства пеллет из опилок и древесных отходов — от производителя. Цена за комплект от 9,2 млн ₽. Производительность 500–2000 кг/ч. Монтаж и запуск под ключ.',
         url: 'https://kirovbelmash.ru/linii-granulirovaniya',
         type: 'website',
         siteName: 'КировБелМаш',
@@ -63,30 +57,10 @@ const itemListSchema = {
             image: `${SITE_URL}${v.image}`,
             brand: { '@type': 'Brand', name: 'КировБелМаш' },
             offers: {
-                '@type': 'Offer',
-                price: parsePrice(v.price),
+                '@type': 'AggregateOffer',
+                lowPrice: parsePrice(v.price),
                 priceCurrency: 'RUB',
                 availability: 'https://schema.org/InStock',
-                priceValidUntil: `${new Date().getFullYear()}-12-31`,
-                hasMerchantReturnPolicy: {
-                    '@type': 'MerchantReturnPolicy',
-                    applicableCountry: 'RU',
-                    returnPolicyCategory: 'https://schema.org/MerchantReturnNotPermitted',
-                },
-                shippingDetails: {
-                    '@type': 'OfferShippingDetails',
-                    shippingRate: { '@type': 'MonetaryAmount', value: '0', currency: 'RUB' },
-                    shippingDestination: { '@type': 'DefinedRegion', addressCountry: 'RU' },
-                    deliveryTime: {
-                        '@type': 'ShippingDeliveryTime',
-                        handlingTime: {
-                            '@type': 'QuantitativeValue',
-                            minValue: 56,
-                            maxValue: 112,
-                            unitText: 'days',
-                        },
-                    },
-                },
             },
         },
     })),

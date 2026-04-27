@@ -37,48 +37,15 @@ export default function LineProductJsonLd({ variant, categoryName }: LineProduct
         ...(price
             ? {
                   offers: {
-                      '@type': 'Offer',
-                      url: `${SITE_URL}/production-lines/${variant.id}`,
+                      '@type': 'AggregateOffer',
+                      lowPrice: price,
                       priceCurrency: 'RUB',
-                      price,
-                      priceSpecification: {
-                          '@type': 'PriceSpecification',
-                          price,
-                          priceCurrency: 'RUB',
-                          valueAddedTaxIncluded: true,
-                      },
                       availability: 'https://schema.org/InStock',
                       itemCondition: 'https://schema.org/NewCondition',
                       seller: {
                           '@type': 'Organization',
                           name: 'КировБелМаш',
                       },
-                      hasMerchantReturnPolicy: {
-                          '@type': 'MerchantReturnPolicy',
-                          applicableCountry: 'RU',
-                          returnPolicyCategory: 'https://schema.org/MerchantReturnNotPermitted',
-                      },
-                      shippingDetails: {
-                          '@type': 'OfferShippingDetails',
-                          shippingRate: { '@type': 'MonetaryAmount', value: '0', currency: 'RUB' },
-                          shippingDestination: { '@type': 'DefinedRegion', addressCountry: 'RU' },
-                          deliveryTime: {
-                              '@type': 'ShippingDeliveryTime',
-                              handlingTime: {
-                                  '@type': 'QuantitativeValue',
-                                  minValue: (parseInt(variant.deliveryWeeks) || 8) * 7,
-                                  maxValue: ((parseInt(variant.deliveryWeeks) || 8) + 4) * 7,
-                                  unitText: 'days',
-                              },
-                          },
-                      },
-                      deliveryLeadTime: {
-                          '@type': 'QuantitativeValue',
-                          minValue: (parseInt(variant.deliveryWeeks) || 8) * 7,
-                          maxValue: (parseInt(variant.deliveryWeeks) || 8) * 7,
-                          unitText: 'days',
-                      },
-                      priceValidUntil: `${new Date().getFullYear()}-12-31`,
                   },
               }
             : {}),

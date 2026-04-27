@@ -35,30 +35,10 @@ const itemListSchema = {
             image: `${SITE_URL}${v.image}`,
             brand: { '@type': 'Brand', name: 'КировБелМаш' },
             offers: {
-                '@type': 'Offer',
-                price: parsePrice(v.price),
+                '@type': 'AggregateOffer',
+                lowPrice: parsePrice(v.price),
                 priceCurrency: 'RUB',
                 availability: 'https://schema.org/InStock',
-                priceValidUntil: `${new Date().getFullYear()}-12-31`,
-                hasMerchantReturnPolicy: {
-                    '@type': 'MerchantReturnPolicy',
-                    applicableCountry: 'RU',
-                    returnPolicyCategory: 'https://schema.org/MerchantReturnNotPermitted',
-                },
-                shippingDetails: {
-                    '@type': 'OfferShippingDetails',
-                    shippingRate: { '@type': 'MonetaryAmount', value: '0', currency: 'RUB' },
-                    shippingDestination: { '@type': 'DefinedRegion', addressCountry: 'RU' },
-                    deliveryTime: {
-                        '@type': 'ShippingDeliveryTime',
-                        handlingTime: {
-                            '@type': 'QuantitativeValue',
-                            minValue: 42,
-                            maxValue: 84,
-                            unitText: 'days',
-                        },
-                    },
-                },
             },
         },
     })),
