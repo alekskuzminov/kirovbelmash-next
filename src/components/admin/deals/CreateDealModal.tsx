@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useTransition } from 'react';
+import { useState, useTransition, useRef } from 'react';
 import { createDeal } from '@/lib/crm/actions/deals';
 import { createContact } from '@/lib/crm/actions/contacts';
 import { useRouter } from 'next/navigation';
@@ -43,6 +43,7 @@ export default function CreateDealModal({
 }: Props) {
     const router = useRouter();
     const [isPending, startTransition] = useTransition();
+    const dropdownRef = useRef<HTMLDivElement>(null);
 
     const [title, setTitle] = useState('');
     const [stageId, setStageId] = useState(defaultStageId ?? stages[0]?.id ?? '');
@@ -57,6 +58,7 @@ export default function CreateDealModal({
     // Search mode
     const [contactId, setContactId] = useState('');
     const [contactSearch, setContactSearch] = useState('');
+    const [dropdownOpen, setDropdownOpen] = useState(false);
 
     // New contact mode
     const [newName, setNewName] = useState('');
@@ -76,10 +78,17 @@ export default function CreateDealModal({
         setContactMode(mode);
         setContactId('');
         setContactSearch('');
+        setDropdownOpen(false);
         setNewName('');
         setNewPhone('');
         setNewCompany('');
         setError('');
+    }
+
+    function selectContact(c: Contact) {
+        setContactId(c.id);
+        setContactSearch(c.name + (c.company ? ` (${c.company})` : ''));
+        setDropdownOpen(false);
     }
 
     function handleSubmit() {
@@ -171,34 +180,60 @@ export default function CreateDealModal({
                         </div>
 
                         {contactMode === 'search' ? (
-                            <>
-                                <input
-                                    className="w-full rounded-lg bg-gray-800 px-3 py-2 text-sm text-white placeholder-gray-500 focus:outline-none focus:ring-1 focus:ring-blue-500 mb-2"
-                                    value={contactSearch}
-                                    onChange={(e) => { setContactSearch(e.target.value); setContactId(''); }}
-                                    placeholder="Поиск по имени, компании, телефону"
-                                />
-                                <div className="max-h-36 overflow-y-auto rounded-lg border border-gray-700">
-                                    {filteredContacts.length === 0 && (
-                                        <p className="px-3 py-2 text-xs text-gray-500">Ничего не найдено</p>
-                                    )}
-                                    {filteredContacts.slice(0, 20).map((c) => (
+                            <div className="relative" ref={dropdownRef}>
+                                <div className="relative">
+                                    <input
+                                        className="w-full rounded-lg bg-gray-800 px-3 py-2 pr-8 text-sm text-white placeholder-gray-500 focus:outline-none focus:ring-1 focus:ring-blue-500"
+                                        value={contactSearch}
+                                        onChange={(e) => {
+                                            setContactSearch(e.target.value);
+                                            setContactId('');
+                                            setDropdownOpen(true);
+                                        }}
+                                        onFocus={() => setDropdownOpen(true)}
+                                        onBlur={() => setTimeout(() => setDropdownOpen(false), 150)}
+                                        placeholder="Поиск по имени, компании, телефону"
+                                    />
+                                    {contactId && (
                                         <button
-                                            key={c.id}
                                             type="button"
-                                            onClick={() => {
-                                                setContactId(c.id);
-                                                setContactSearch(c.name + (c.company ? ` (${c.company})` : ''));
+                                            className="absolute right-2 top-1/2 -translate-y-1/2 text-gray-500 hover:text-gray-300"
+                                            onMouseDown={(e) => {
+                                                e.preventDefault();
+                                                setContactId('');
+                                                setContactSearch('');
+                                                setDropdownOpen(true);
                                             }}
-                                            className={`w-full text-left px-3 py-2 text-sm hover:bg-gray-700 ${contactId === c.id ? 'bg-gray-700 text-white' : 'text-gray-300'}`}
                                         >
-                                            {c.name}
-                                            {c.company && <span className="text-gray-500 ml-1">· {c.company}</span>}
-                                            {c.phone && <span className="text-gray-500 ml-1">· {c.phone}</span>}
+                                            <i className="ri-close-line text-sm" />
                                         </button>
-                                    ))}
+                                    )}
                                 </div>
-                            </>
+
+                                {dropdownOpen && (
+                                    <div className="absolute z-10 mt-1 w-full rounded-lg border border-gray-700 bg-gray-800 shadow-xl max-h-48 overflow-y-auto">
+                                        {filteredContacts.length === 0 ? (
+                                            <p className="px-3 py-2 text-xs text-gray-500">Ничего не найдено</p>
+                                        ) : (
+                                            filteredContacts.slice(0, 30).map((c) => (
+                                                <button
+                                                    key={c.id}
+                                                    type="button"
+                                                    onMouseDown={(e) => {
+                                                        e.preventDefault();
+                                                        selectContact(c);
+                                                    }}
+                                                    className={`w-full text-left px-3 py-2 text-sm hover:bg-gray-700 ${contactId === c.id ? 'bg-gray-700 text-white' : 'text-gray-300'}`}
+                                                >
+                                                    {c.name}
+                                                    {c.company && <span className="text-gray-500 ml-1">· {c.company}</span>}
+                                                    {c.phone && <span className="text-gray-500 ml-1">· {c.phone}</span>}
+                                                </button>
+                                            ))
+                                        )}
+                                    </div>
+                                )}
+                            </div>
                         ) : (
                             <div className="space-y-2">
                                 <input
