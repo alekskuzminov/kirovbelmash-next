@@ -93,9 +93,15 @@ export default function ContactDetailClient({ contact }: Props) {
                                         </span>
                                         {deal.source && (
                                             <span>
-                                                {deal.source === 'Вручную'
-                                                    ? 'Создано вручную'
-                                                    : deal.source}
+                                                {({
+                                                    'Вручную': 'Создано вручную',
+                                                    'modal': 'Форма на сайте',
+                                                    'contact': 'Страница контактов',
+                                                    'calculator': 'Калькулятор',
+                                                    'general': 'Общая форма',
+                                                    'projects': 'Страница проектов',
+                                                    'about': 'О компании',
+                                                } as Record<string, string>)[deal.source] ?? deal.source}
                                             </span>
                                         )}
                                         <span>{new Date(deal.createdAt).toLocaleDateString('ru-RU')}</span>

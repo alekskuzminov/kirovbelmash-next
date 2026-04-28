@@ -386,7 +386,16 @@ interface DealCardProps {
 }
 
 function DealCard({ deal, isDragging, onClick, onDragStart, onDragEnd }: DealCardProps) {
-    const displaySource = deal.source === 'Вручную' ? 'Создано вручную' : deal.source;
+    const SOURCE_LABELS: Record<string, string> = {
+        'Вручную': 'Создано вручную',
+        'modal': 'Форма на сайте',
+        'contact': 'Страница контактов',
+        'calculator': 'Калькулятор',
+        'general': 'Общая форма',
+        'projects': 'Страница проектов',
+        'about': 'О компании',
+    };
+    const displaySource = SOURCE_LABELS[deal.source ?? ''] ?? deal.source;
 
     return (
         <div
