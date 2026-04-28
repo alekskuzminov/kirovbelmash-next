@@ -87,8 +87,11 @@ model Deal {
   pipelineId String
   pipeline   Pipeline @relation(fields: [pipelineId], references: [id])
 
-  assigneeId String?
-  assignee   User?    @relation("DealAssignee", fields: [assigneeId], references: [id])
+  assigneeId  String?
+  assignee    User?    @relation("DealAssignee", fields: [assigneeId], references: [id])
+
+  city        String?
+  documentUrl String?
 
   tasks       Task[]
   notes       Note[]

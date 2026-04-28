@@ -5,12 +5,16 @@ import { getServerSession } from 'next-auth';
 import { authOptions } from '@/lib/auth';
 import { prisma } from '@/lib/prisma';
 import { moveDealToStage } from '@/lib/crm/deals';
+import { s3 } from '@/lib/s3';
+import { DeleteObjectCommand } from '@aws-sdk/client-s3';
 
 export interface SerializedDeal {
     id: string;
     title: string;
     amount: string | null;
     source: string | null;
+    city: string | null;
+    documentUrl: string | null;
     createdAt: string;
     updatedAt: string;
     stageId: string;
@@ -21,6 +25,7 @@ export interface SerializedDeal {
         name: string;
         company: string | null;
         phone: string | null;
+        email: string | null;
     };
     assignee: { id: string; name: string } | null;
     notes: Array<{
@@ -29,6 +34,15 @@ export interface SerializedDeal {
         createdAt: string;
         author: { name: string } | null;
     }>;
+    stageEvents: Array<{
+        id: string;
+        createdAt: string;
+        toStageId: string;
+        fromStage: { name: string } | null;
+        toStage: { name: string };
+        actor: { name: string } | null;
+    }>;
+    taskCount: number;
 }
 
 export async function getDeals(filters?: {
@@ -42,12 +56,21 @@ export async function getDeals(filters?: {
             ...(filters?.assigneeId ? { assigneeId: filters.assigneeId } : {}),
         },
         include: {
-            contact: { select: { id: true, name: true, company: true, phone: true } },
+            contact: { select: { id: true, name: true, company: true, phone: true, email: true } },
             assignee: { select: { id: true, name: true } },
             notes: {
                 include: { author: { select: { name: true } } },
                 orderBy: { createdAt: 'desc' },
             },
+            stageEvents: {
+                orderBy: { createdAt: 'desc' },
+                include: {
+                    fromStage: { select: { name: true } },
+                    toStage: { select: { name: true } },
+                    actor: { select: { name: true } },
+                },
+            },
+            _count: { select: { tasks: { where: { done: false } } } },
         },
         orderBy: { createdAt: 'desc' },
     });
@@ -57,6 +80,8 @@ export async function getDeals(filters?: {
         title: d.title,
         amount: d.amount?.toString() ?? null,
         source: d.source,
+        city: d.city,
+        documentUrl: d.documentUrl,
         createdAt: d.createdAt.toISOString(),
         updatedAt: d.updatedAt.toISOString(),
         stageId: d.stageId,
@@ -70,6 +95,15 @@ export async function getDeals(filters?: {
             createdAt: n.createdAt.toISOString(),
             author: n.author,
         })),
+        stageEvents: d.stageEvents.map((e) => ({
+            id: e.id,
+            createdAt: e.createdAt.toISOString(),
+            toStageId: e.toStageId,
+            fromStage: e.fromStage,
+            toStage: e.toStage,
+            actor: e.actor,
+        })),
+        taskCount: d._count.tasks,
     }));
 }
 
@@ -105,6 +139,8 @@ export async function updateDeal(
         title?: string;
         amount?: string | null;
         source?: string | null;
+        city?: string | null;
+        documentUrl?: string | null;
         assigneeId?: string | null;
         stageId?: string;
     }
@@ -124,6 +160,8 @@ export async function updateDeal(
                 ? { amount: data.amount ? parseFloat(data.amount) : null }
                 : {}),
             ...(data.source !== undefined ? { source: data.source } : {}),
+            ...(data.city !== undefined ? { city: data.city } : {}),
+            ...(data.documentUrl !== undefined ? { documentUrl: data.documentUrl } : {}),
             ...(data.assigneeId !== undefined ? { assigneeId: data.assigneeId } : {}),
         },
     });
@@ -145,6 +183,25 @@ export async function addNote(dealId: string, text: string): Promise<void> {
     const session = await getServerSession(authOptions);
     await prisma.note.create({
         data: { dealId, text, authorId: session?.user?.id ?? null },
+    });
+    revalidatePath('/admin/crm/deals');
+}
+
+export async function deleteDealDocument(dealId: string): Promise<void> {
+    const bucket = process.env.S3_BUCKET;
+    const key = `crm/deals/${dealId}/doc.pdf`;
+
+    if (bucket) {
+        try {
+            await s3.send(new DeleteObjectCommand({ Bucket: bucket, Key: key }));
+        } catch {
+            // Ignore S3 errors — file may already be gone
+        }
+    }
+
+    await prisma.deal.update({
+        where: { id: dealId },
+        data: { documentUrl: null },
     });
     revalidatePath('/admin/crm/deals');
 }

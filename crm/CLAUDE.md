@@ -38,23 +38,43 @@ prisma/
 
 src/
 ├── app/
-│   ├── (admin)/          # Group route — пустой layout с robots:noindex (исторический, можно удалить позже)
 │   ├── admin/
-│   │   ├── layout.tsx    # SessionProvider + meta
-│   │   ├── login/
-│   │   │   └── page.tsx  # Форма входа
-│   │   └── (auth)/       # Защищённая зона (sidebar layout)
+│   │   ├── layout.tsx              # SessionProvider + meta
+│   │   ├── login/page.tsx          # Форма входа
+│   │   └── (auth)/                 # Защищённая зона (sidebar layout)
 │   │       ├── layout.tsx
-│   │       ├── page.tsx          # Редирект на /admin/deals
-│   │       └── deals/page.tsx    # Заглушка Kanban
+│   │       ├── page.tsx            # Хаб-страница /admin/ (навигация по разделам)
+│   │       ├── deals/page.tsx      # Редирект → /admin/crm/deals
+│   │       ├── contacts/page.tsx   # Редирект → /admin/crm/contacts
+│   │       └── crm/
+│   │           ├── deals/page.tsx      # Kanban-доска
+│   │           ├── contacts/page.tsx   # Список контактов
+│   │           ├── contacts/[id]/page.tsx  # Карточка контакта
+│   │           └── pipeline/page.tsx   # Управление этапами воронки
 │   └── api/
 │       └── auth/[...nextauth]/route.ts
 ├── lib/
 │   ├── prisma.ts         # Singleton PrismaClient
-│   └── auth.ts           # authOptions для NextAuth
+│   ├── auth.ts           # authOptions для NextAuth
+│   └── crm/
+│       ├── deals.ts      # moveDealToStage (низкоуровневый)
+│       └── actions/
+│           ├── deals.ts      # CRUD сделок (server actions)
+│           ├── contacts.ts   # CRUD контактов (server actions)
+│           └── pipeline.ts   # CRUD этапов воронки (server actions)
 ├── components/admin/
 │   ├── AdminSessionProvider.tsx
-│   └── AdminSidebar.tsx
+│   ├── AdminSidebar.tsx
+│   ├── deals/
+│   │   ├── KanbanBoard.tsx     # Kanban с drag-and-drop
+│   │   ├── DealModal.tsx       # Редактирование сделки
+│   │   └── CreateDealModal.tsx # Создание сделки
+│   ├── contacts/
+│   │   ├── ContactsClient.tsx
+│   │   ├── ContactDetailClient.tsx
+│   │   └── ContactFormModal.tsx
+│   └── pipeline/
+│       └── PipelineSettings.tsx  # CRUD этапов воронки
 ├── types/
 │   └── next-auth.d.ts    # Расширение типов сессии (id, role)
 └── proxy.ts              # Защита /admin/* (в Next.js 16 middleware → proxy)
