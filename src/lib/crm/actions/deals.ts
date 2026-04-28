@@ -117,6 +117,8 @@ export async function createDeal(data: {
     source?: string;
     assigneeId?: string;
 }): Promise<void> {
+    const normalizedSource = data.source === 'Вручную' ? 'Создано вручную' : data.source;
+
     const deal = await prisma.deal.create({
         data: {
             title: data.title,
@@ -124,7 +126,7 @@ export async function createDeal(data: {
             stageId: data.stageId,
             pipelineId: data.pipelineId,
             amount: data.amount ? parseFloat(data.amount) : null,
-            source: data.source || null,
+            source: normalizedSource || null,
             assigneeId: data.assigneeId || null,
         },
     });
