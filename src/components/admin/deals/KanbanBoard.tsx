@@ -148,16 +148,21 @@ export default function KanbanBoard({ stages, deals, users, contacts, pipelineId
                     </span>
                 </div>
                 <div className="flex items-center gap-3">
-                    <select
-                        className="h-9 rounded-lg border border-gray-300 bg-white px-3 text-sm text-gray-700 focus:outline-none focus:ring-1 focus:ring-blue-500"
-                        value={filterAssigneeId}
-                        onChange={(e) => setFilterAssigneeId(e.target.value)}
-                    >
+                    <div className="relative">
+                        <select
+                            className="h-9 min-w-44 appearance-none rounded-lg border border-gray-300 bg-white pl-4 pr-10 text-sm text-gray-700 shadow-sm transition focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-100"
+                            value={filterAssigneeId}
+                            onChange={(e) => setFilterAssigneeId(e.target.value)}
+                        >
                         <option value="">Все ответственные</option>
                         {users.map((u) => (
                             <option key={u.id} value={u.id}>{u.name}</option>
                         ))}
-                    </select>
+                        </select>
+                        <div className="pointer-events-none absolute inset-y-0 right-0 flex w-9 items-center justify-center text-gray-500">
+                            <i className="ri-arrow-down-s-line text-lg" />
+                        </div>
+                    </div>
                     <Link
                         href="/admin/crm/pipeline"
                         className="flex items-center gap-2 rounded-lg border border-gray-300 px-4 py-1.5 text-sm text-gray-600 hover:bg-gray-50"
