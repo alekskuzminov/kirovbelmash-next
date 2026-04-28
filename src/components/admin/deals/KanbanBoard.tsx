@@ -3,7 +3,7 @@
 import { useState, useTransition, useRef, useCallback } from 'react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
-import { SerializedDeal, moveDeal } from '@/lib/crm/actions/deals';
+import { SerializedDeal, moveDeal, deleteDeal, closeDeal } from '@/lib/crm/actions/deals';
 import DealModal from './DealModal';
 import CreateDealModal from './CreateDealModal';
 
@@ -42,6 +42,7 @@ export default function KanbanBoard({ stages, deals, users, contacts, pipelineId
     const [localDeals, setLocalDeals] = useState<SerializedDeal[]>(deals);
     const [draggingId, setDraggingId] = useState<string | null>(null);
     const [overStageId, setOverStageId] = useState<string | null>(null);
+    const [overZone, setOverZone] = useState<'delete' | 'lost' | 'won' | null>(null);
     const dragLeaveTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
     // Filters
@@ -76,6 +77,7 @@ export default function KanbanBoard({ stages, deals, users, contacts, pipelineId
     const handleDragEnd = useCallback(() => {
         setDraggingId(null);
         setOverStageId(null);
+        setOverZone(null);
     }, []);
 
     const handleDragOver = useCallback(
@@ -267,6 +269,44 @@ export default function KanbanBoard({ stages, deals, users, contacts, pipelineId
                     defaultStageId={createInStage}
                     onClose={() => setCreateInStage(null)}
                 />
+            )}
+
+            {/* Drop zones — visible only while dragging */}
+            {draggingId && (
+                <div className="pointer-events-none fixed bottom-6 right-6 z-40 flex items-center gap-3">
+                    {(
+                        [
+                            { key: 'delete', label: 'Удалить', icon: 'ri-delete-bin-line', bg: 'bg-red-600', hover: 'bg-red-500' },
+                            { key: 'lost',   label: 'Не реализована', icon: 'ri-close-circle-line', bg: 'bg-gray-600', hover: 'bg-gray-500' },
+                            { key: 'won',    label: 'Успешно завершена', icon: 'ri-checkbox-circle-line', bg: 'bg-emerald-600', hover: 'bg-emerald-500' },
+                        ] as const
+                    ).map(({ key, label, icon, bg, hover }) => (
+                        <div
+                            key={key}
+                            className={`pointer-events-auto flex flex-col items-center justify-center gap-1.5 rounded-xl px-5 py-4 text-white shadow-xl transition-all cursor-default
+                                ${overZone === key ? `${hover} scale-110 ring-2 ring-white/50` : bg}`}
+                            onDragOver={(e) => { e.preventDefault(); setOverZone(key); }}
+                            onDragLeave={() => setOverZone(null)}
+                            onDrop={(e) => {
+                                e.preventDefault();
+                                const dealId = e.dataTransfer.getData('dealId');
+                                setDraggingId(null);
+                                setOverZone(null);
+                                if (!dealId) return;
+                                if (key === 'delete') {
+                                    setLocalDeals((prev) => prev.filter((d) => d.id !== dealId));
+                                    startTransition(async () => { await deleteDeal(dealId); router.refresh(); });
+                                } else {
+                                    setLocalDeals((prev) => prev.filter((d) => d.id !== dealId));
+                                    startTransition(async () => { await closeDeal(dealId, key === 'won' ? 'WON' : 'LOST'); router.refresh(); });
+                                }
+                            }}
+                        >
+                            <i className={`${icon} text-2xl`} />
+                            <span className="text-xs font-medium whitespace-nowrap">{label}</span>
+                        </div>
+                    ))}
+                </div>
             )}
         </div>
     );

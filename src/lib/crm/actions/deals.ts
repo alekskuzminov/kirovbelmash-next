@@ -52,6 +52,7 @@ export async function getDeals(filters?: {
     const deals = await prisma.deal.findMany({
         where: {
             deletedAt: null,
+            closedAt: null,
             ...(filters?.stageId ? { stageId: filters.stageId } : {}),
             ...(filters?.assigneeId ? { assigneeId: filters.assigneeId } : {}),
         },
@@ -183,6 +184,14 @@ export async function addNote(dealId: string, text: string): Promise<void> {
     const session = await getServerSession(authOptions);
     await prisma.note.create({
         data: { dealId, text, authorId: session?.user?.id ?? null },
+    });
+    revalidatePath('/admin/crm/deals');
+}
+
+export async function closeDeal(id: string, result: 'WON' | 'LOST'): Promise<void> {
+    await prisma.deal.update({
+        where: { id },
+        data: { closedAs: result, closedAt: new Date() },
     });
     revalidatePath('/admin/crm/deals');
 }
