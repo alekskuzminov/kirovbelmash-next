@@ -400,14 +400,14 @@ function DealCard({ deal, isDragging, onClick, onDragStart, onDragEnd }: DealCar
         >
             {/* Строка 1: заголовок + дата */}
             <div className="flex items-start justify-between gap-2">
-                <p className="line-clamp-2 text-sm font-medium leading-snug text-gray-800">{deal.title}</p>
+                <p className="line-clamp-1 text-sm font-medium leading-snug text-gray-800">{deal.title}</p>
                 <p className="mt-0.5 shrink-0 whitespace-nowrap text-[10px] text-gray-400">
                     {new Date(deal.createdAt).toLocaleDateString('ru-RU')}
                 </p>
             </div>
 
             {/* Строка 2: контакт */}
-            <p className="mt-1 truncate text-xs text-gray-500">
+            <p className="mt-1 line-clamp-1 text-xs text-gray-500">
                 {deal.contact.name}
             </p>
 
