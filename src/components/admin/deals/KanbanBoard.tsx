@@ -276,15 +276,15 @@ export default function KanbanBoard({ stages, deals, users, contacts, pipelineId
                 <div className="pointer-events-none fixed bottom-6 right-6 z-40 flex items-center gap-3">
                     {(
                         [
-                            { key: 'delete', label: 'Удалить', icon: 'ri-delete-bin-line', bg: 'bg-red-600', hover: 'bg-red-500' },
-                            { key: 'lost',   label: 'Не реализована', icon: 'ri-close-circle-line', bg: 'bg-gray-600', hover: 'bg-gray-500' },
-                            { key: 'won',    label: 'Успешно завершена', icon: 'ri-checkbox-circle-line', bg: 'bg-emerald-600', hover: 'bg-emerald-500' },
+                            { key: 'delete', label: 'Удалить',           icon: 'ri-delete-bin-line',      base: 'bg-gray-900/80 border-red-500/50 text-red-400',       active: 'bg-red-900/80 border-red-400 text-red-300 scale-105' },
+                            { key: 'lost',   label: 'Не реализована',     icon: 'ri-close-circle-line',    base: 'bg-gray-900/80 border-gray-500/50 text-gray-400',     active: 'bg-gray-800/90 border-gray-300 text-gray-200 scale-105' },
+                            { key: 'won',    label: 'Успешно завершена',  icon: 'ri-checkbox-circle-line', base: 'bg-gray-900/80 border-emerald-500/50 text-emerald-400', active: 'bg-emerald-900/80 border-emerald-400 text-emerald-300 scale-105' },
                         ] as const
-                    ).map(({ key, label, icon, bg, hover }) => (
+                    ).map(({ key, label, icon, base, active }) => (
                         <div
                             key={key}
-                            className={`pointer-events-auto flex flex-col items-center justify-center gap-1.5 rounded-xl px-5 py-4 text-white shadow-xl transition-all cursor-default
-                                ${overZone === key ? `${hover} scale-110 ring-2 ring-white/50` : bg}`}
+                            className={`pointer-events-auto flex flex-col items-center justify-center gap-1.5 rounded-xl border px-5 py-4 shadow-lg backdrop-blur-sm transition-all cursor-default
+                                ${overZone === key ? active : base}`}
                             onDragOver={(e) => { e.preventDefault(); setOverZone(key); }}
                             onDragLeave={() => setOverZone(null)}
                             onDrop={(e) => {
