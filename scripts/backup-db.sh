@@ -25,6 +25,7 @@ echo "[backup] Uploading to S3..."
 AWS_ACCESS_KEY_ID="$S3_ACCESS_KEY_ID" \
 AWS_SECRET_ACCESS_KEY="$S3_SECRET_ACCESS_KEY" \
 AWS_DEFAULT_REGION="${S3_REGION:-ru-1}" \
+AWS_REQUEST_CHECKSUM_CALCULATION=when_required \
 aws s3 cp "$BACKUP_FILE" \
   "s3://${S3_BUCKET}/${S3_PREFIX}/$(basename $BACKUP_FILE)" \
   --endpoint-url https://s3.ru1.storage.beget.cloud \
@@ -51,6 +52,7 @@ aws s3 ls "s3://${S3_BUCKET}/${S3_PREFIX}/" \
         AWS_ACCESS_KEY_ID="$S3_ACCESS_KEY_ID" \
         AWS_SECRET_ACCESS_KEY="$S3_SECRET_ACCESS_KEY" \
         AWS_DEFAULT_REGION="${S3_REGION:-ru-1}" \
+        AWS_REQUEST_CHECKSUM_CALCULATION=when_required \
         aws s3 rm "s3://${S3_BUCKET}/${S3_PREFIX}/$key" \
           --endpoint-url https://s3.ru1.storage.beget.cloud \
           --region "${S3_REGION:-ru-1}"
