@@ -401,17 +401,14 @@ function DealCard({ deal, isDragging, onClick, onDragStart, onDragEnd }: DealCar
             {/* Строка 1: заголовок + дата */}
             <div className="flex items-start justify-between gap-2">
                 <p className="text-sm font-medium leading-snug text-gray-800">{deal.title}</p>
-                <p className="mt-0.5 shrink-0 whitespace-nowrap text-[10px] text-gray-300">
+                <p className="mt-0.5 shrink-0 whitespace-nowrap text-[10px] text-gray-400">
                     {new Date(deal.createdAt).toLocaleDateString('ru-RU')}
                 </p>
             </div>
 
-            {/* Строка 2: контакт · телефон */}
+            {/* Строка 2: контакт */}
             <p className="mt-1 truncate text-xs text-gray-500">
                 {deal.contact.name}
-                {deal.contact.phone && (
-                    <span className="text-gray-300"> · {deal.contact.phone}</span>
-                )}
             </p>
 
             {/* Строка 3: сумма + источник + аватар */}
@@ -425,7 +422,7 @@ function DealCard({ deal, isDragging, onClick, onDragStart, onDragEnd }: DealCar
                 )}
                 <span className="grow" />
                 {displaySource && (
-                    <span className="max-w-[90px] truncate text-[10px] text-gray-400" title={displaySource}>
+                    <span className="max-w-[120px] truncate text-[10px] text-gray-400" title={displaySource}>
                         <i className="ri-map-pin-line mr-0.5" />
                         {displaySource}
                     </span>
