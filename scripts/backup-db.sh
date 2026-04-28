@@ -22,12 +22,13 @@ PGPASSWORD="kirovbelmash" pg_dump \
   -f "$BACKUP_FILE"
 
 echo "[backup] Uploading to S3..."
-# Requires AWS CLI configured with Beget S3 credentials
 AWS_ACCESS_KEY_ID="$S3_ACCESS_KEY_ID" \
 AWS_SECRET_ACCESS_KEY="$S3_SECRET_ACCESS_KEY" \
+AWS_DEFAULT_REGION="${S3_REGION:-ru-1}" \
 aws s3 cp "$BACKUP_FILE" \
   "s3://${S3_BUCKET}/${S3_PREFIX}/$(basename $BACKUP_FILE)" \
-  --endpoint-url https://s3.ru1.storage.beget.cloud
+  --endpoint-url https://s3.ru1.storage.beget.cloud \
+  --region "${S3_REGION:-ru-1}"
 
 echo "[backup] Cleaning up local file..."
 rm -f "$BACKUP_FILE"
@@ -35,8 +36,10 @@ rm -f "$BACKUP_FILE"
 echo "[backup] Removing old backups (older than ${KEEP_DAYS} days)..."
 AWS_ACCESS_KEY_ID="$S3_ACCESS_KEY_ID" \
 AWS_SECRET_ACCESS_KEY="$S3_SECRET_ACCESS_KEY" \
+AWS_DEFAULT_REGION="${S3_REGION:-ru-1}" \
 aws s3 ls "s3://${S3_BUCKET}/${S3_PREFIX}/" \
-  --endpoint-url https://s3.ru1.storage.beget.cloud | \
+  --endpoint-url https://s3.ru1.storage.beget.cloud \
+  --region "${S3_REGION:-ru-1}" | \
   awk '{print $4}' | \
   while read key; do
     date_str=$(echo "$key" | grep -oP '\d{8}')
@@ -47,8 +50,10 @@ aws s3 ls "s3://${S3_BUCKET}/${S3_PREFIX}/" \
         echo "[backup] Deleting old backup: $key"
         AWS_ACCESS_KEY_ID="$S3_ACCESS_KEY_ID" \
         AWS_SECRET_ACCESS_KEY="$S3_SECRET_ACCESS_KEY" \
+        AWS_DEFAULT_REGION="${S3_REGION:-ru-1}" \
         aws s3 rm "s3://${S3_BUCKET}/${S3_PREFIX}/$key" \
-          --endpoint-url https://s3.ru1.storage.beget.cloud
+          --endpoint-url https://s3.ru1.storage.beget.cloud \
+          --region "${S3_REGION:-ru-1}"
       fi
     fi
   done
