@@ -149,7 +149,7 @@ export default function KanbanBoard({ stages, deals, users, contacts, pipelineId
                 </div>
                 <div className="flex items-center gap-3">
                     <select
-                        className="rounded-lg border border-gray-300 bg-white px-3 py-1.5 text-sm text-gray-700 focus:outline-none focus:ring-1 focus:ring-blue-500"
+                        className="h-9 rounded-lg border border-gray-300 bg-white px-3 text-sm text-gray-700 focus:outline-none focus:ring-1 focus:ring-blue-500"
                         value={filterAssigneeId}
                         onChange={(e) => setFilterAssigneeId(e.target.value)}
                     >
