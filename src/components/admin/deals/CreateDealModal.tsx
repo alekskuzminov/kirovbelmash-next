@@ -47,7 +47,7 @@ export default function CreateDealModal({
     const [title, setTitle] = useState('');
     const [stageId, setStageId] = useState(defaultStageId ?? stages[0]?.id ?? '');
     const [amount, setAmount] = useState('');
-    const [source, setSource] = useState('');
+    const [source, setSource] = useState('Вручную');
     const [assigneeId, setAssigneeId] = useState('');
     const [error, setError] = useState('');
 

@@ -215,7 +215,7 @@ export async function POST(request: NextRequest) {
                         contactId: contact.id,
                         stageId: firstStage.id,
                         pipelineId: pipeline.id,
-                        source: data.source || null,
+                        source: data.source || 'Сайт',
                     },
                 });
                 await prisma.dealStageEvent.create({

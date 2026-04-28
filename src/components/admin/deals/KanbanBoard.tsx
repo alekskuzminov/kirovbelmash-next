@@ -289,7 +289,12 @@ function DealCard({ deal, isDragging, onClick, onDragStart, onDragEnd }: DealCar
             onClick={onClick}
             className={`cursor-pointer rounded-lg bg-white p-3 shadow-sm ring-1 ring-gray-200 hover:shadow-md hover:ring-blue-300 transition-all select-none ${isDragging ? 'opacity-40 scale-95' : ''}`}
         >
-            <p className="text-sm font-medium text-gray-800 leading-snug">{deal.title}</p>
+            <div className="flex items-start justify-between gap-2">
+                <p className="text-sm font-medium text-gray-800 leading-snug">{deal.title}</p>
+                <p className="text-xs text-gray-400 shrink-0 whitespace-nowrap">
+                    Создано: {new Date(deal.createdAt).toLocaleDateString('ru-RU')}
+                </p>
+            </div>
             <p className="mt-1 text-xs text-gray-500">
                 {deal.contact.name}
                 {deal.contact.company && (
@@ -310,19 +315,12 @@ function DealCard({ deal, isDragging, onClick, onDragStart, onDragEnd }: DealCar
                     </span>
                 )}
             </div>
-            <div className="mt-1.5 flex items-center justify-between gap-2">
-                {deal.source ? (
-                    <p className="text-xs text-gray-400 truncate">
-                        <i className="ri-map-pin-line mr-0.5" />
-                        {deal.source}
-                    </p>
-                ) : (
-                    <span />
-                )}
-                <p className="text-xs text-gray-400 shrink-0">
-                    {new Date(deal.createdAt).toLocaleDateString('ru-RU', { day: 'numeric', month: 'short' })}
+            {deal.source && (
+                <p className="mt-1.5 text-xs text-gray-400 truncate">
+                    <i className="ri-map-pin-line mr-0.5" />
+                    {deal.source}
                 </p>
-            </div>
+            )}
         </div>
     );
 }
