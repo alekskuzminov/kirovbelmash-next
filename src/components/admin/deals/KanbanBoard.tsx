@@ -31,10 +31,18 @@ interface Props {
     deals: SerializedDeal[];
     users: User[];
     contacts: Contact[];
+    currentUserId: string;
     pipelineId: string;
 }
 
-export default function KanbanBoard({ stages, deals, users, contacts, pipelineId }: Props) {
+export default function KanbanBoard({
+    stages,
+    deals,
+    users,
+    contacts,
+    currentUserId,
+    pipelineId,
+}: Props) {
     const router = useRouter();
     const [, startTransition] = useTransition();
 
@@ -287,6 +295,7 @@ export default function KanbanBoard({ stages, deals, users, contacts, pipelineId
                     stages={stages}
                     users={users}
                     contacts={contacts}
+                    defaultAssigneeId={currentUserId}
                     defaultStageId={createInStage}
                     onClose={() => setCreateInStage(null)}
                 />

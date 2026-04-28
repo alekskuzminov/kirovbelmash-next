@@ -64,7 +64,9 @@ export default function DealModal({ deal, stages, users, onClose, onDeleted }: P
 
     const [title, setTitle] = useState(deal.title);
     const [amount, setAmount] = useState(deal.amount ?? '');
-    const [source, setSource] = useState(deal.source ?? '');
+    const [source, setSource] = useState(
+        deal.source === 'Вручную' ? 'Создано вручную' : (deal.source ?? '')
+    );
     const [city, setCity] = useState(deal.city ?? '');
     const [assigneeId, setAssigneeId] = useState(deal.assigneeId ?? '');
     const [stageId, setStageId] = useState(deal.stageId);

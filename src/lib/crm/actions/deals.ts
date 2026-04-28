@@ -117,7 +117,10 @@ export async function createDeal(data: {
     source?: string;
     assigneeId?: string;
 }): Promise<void> {
+    const session = await getServerSession(authOptions);
     const normalizedSource = data.source === 'Вручную' ? 'Создано вручную' : data.source;
+
+    const assigneeId = data.assigneeId || session?.user?.id || null;
 
     const deal = await prisma.deal.create({
         data: {
@@ -127,7 +130,7 @@ export async function createDeal(data: {
             pipelineId: data.pipelineId,
             amount: data.amount ? parseFloat(data.amount) : null,
             source: normalizedSource || null,
-            assigneeId: data.assigneeId || null,
+            assigneeId,
         },
     });
     await prisma.dealStageEvent.create({
@@ -150,6 +153,7 @@ export async function updateDeal(
 ): Promise<void> {
     const session = await getServerSession(authOptions);
     const currentDeal = await prisma.deal.findUnique({ where: { id }, select: { stageId: true } });
+    const normalizedSource = data.source === 'Вручную' ? 'Создано вручную' : data.source;
 
     if (data.stageId && currentDeal && data.stageId !== currentDeal.stageId) {
         await moveDealToStage(id, data.stageId, session?.user?.id);
@@ -162,7 +166,7 @@ export async function updateDeal(
             ...(data.amount !== undefined
                 ? { amount: data.amount ? parseFloat(data.amount) : null }
                 : {}),
-            ...(data.source !== undefined ? { source: data.source } : {}),
+            ...(data.source !== undefined ? { source: normalizedSource } : {}),
             ...(data.city !== undefined ? { city: data.city } : {}),
             ...(data.documentUrl !== undefined ? { documentUrl: data.documentUrl } : {}),
             ...(data.assigneeId !== undefined ? { assigneeId: data.assigneeId } : {}),

@@ -27,6 +27,7 @@ interface Props {
     stages: Stage[];
     users: User[];
     contacts: Contact[];
+    defaultAssigneeId?: string;
     defaultStageId?: string;
     onClose: () => void;
 }
@@ -38,6 +39,7 @@ export default function CreateDealModal({
     stages,
     users,
     contacts,
+    defaultAssigneeId,
     defaultStageId,
     onClose,
 }: Props) {
@@ -48,8 +50,8 @@ export default function CreateDealModal({
     const [title, setTitle] = useState('');
     const [stageId, setStageId] = useState(defaultStageId ?? stages[0]?.id ?? '');
     const [amount, setAmount] = useState('');
-    const [source, setSource] = useState('Вручную');
-    const [assigneeId, setAssigneeId] = useState('');
+    const [source, setSource] = useState('Создано вручную');
+    const [assigneeId, setAssigneeId] = useState(defaultAssigneeId ?? '');
     const [error, setError] = useState('');
 
     // Contact mode
