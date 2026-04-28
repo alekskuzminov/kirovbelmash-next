@@ -64,7 +64,8 @@
       "Bash(file public/images/blog/stoimost-linii-granulirovaniya-pod-klyuch/*)",
       "Bash(node -e ':*)",
       "Bash(.\\\\node_modules\\\\.bin\\\\prisma generate:*)",
-      "Bash(./node_modules/.bin/prisma generate:*)"
+      "Bash(./node_modules/.bin/prisma generate:*)",
+      "Bash(npx prisma:*)"
     ]
   }
 }

@@ -1,9 +1,11 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import { getServerSession } from 'next-auth';
+import { authOptions } from '@/lib/auth';
 
 export const metadata: Metadata = { title: 'Админка' };
 
-const SECTIONS = [
+const ALWAYS_SECTIONS = [
     {
         href: '/admin/crm/deals',
         icon: 'ri-kanban-view',
@@ -13,19 +15,34 @@ const SECTIONS = [
     },
 ];
 
-const COMING_SOON = [
-    { icon: 'ri-file-text-line', title: 'Контент', description: 'Блог, страницы, SEO' },
-    { icon: 'ri-settings-3-line', title: 'Настройки', description: 'Сайт, пользователи' },
+const ADMIN_SECTIONS = [
+    {
+        href: '/admin/users',
+        icon: 'ri-team-line',
+        title: 'Пользователи',
+        description: 'Учётные записи, роли',
+        color: 'bg-purple-50 text-purple-600',
+    },
 ];
 
-export default function AdminHubPage() {
+const COMING_SOON = [
+    { icon: 'ri-file-text-line', title: 'Контент', description: 'Блог, страницы, SEO' },
+    { icon: 'ri-settings-3-line', title: 'Настройки', description: 'Интеграции, уведомления' },
+];
+
+export default async function AdminHubPage() {
+    const session = await getServerSession(authOptions);
+    const isAdmin = session?.user?.role === 'ADMIN';
+
+    const sections = isAdmin ? [...ALWAYS_SECTIONS, ...ADMIN_SECTIONS] : ALWAYS_SECTIONS;
+
     return (
         <div className="p-8">
             <h1 className="text-2xl font-semibold text-gray-900 mb-1">Административная панель</h1>
             <p className="text-sm text-gray-500 mb-8">Управление сайтом и CRM</p>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                {SECTIONS.map((s) => (
+                {sections.map((s) => (
                     <Link
                         key={s.href}
                         href={s.href}
