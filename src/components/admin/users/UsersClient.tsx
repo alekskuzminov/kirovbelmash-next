@@ -57,7 +57,7 @@ export default function UsersClient({ users, currentUserId }: Props) {
                     className="flex items-center gap-2 rounded-lg bg-blue-600 px-4 py-2 text-sm text-white hover:bg-blue-700"
                 >
                     <i className="ri-user-add-line" />
-                    Добавить менеджера
+                    Добавить пользователя
                 </button>
             </div>
 

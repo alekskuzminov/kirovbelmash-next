@@ -48,7 +48,7 @@ export default function UserFormModal({ initial, onClose }: Props) {
             <div className="w-full max-w-md rounded-xl bg-gray-900 text-gray-100 shadow-2xl">
                 <div className="flex items-center justify-between border-b border-gray-700 px-5 py-4">
                     <h2 className="font-semibold text-white">
-                        {isEdit ? 'Редактировать пользователя' : 'Добавить менеджера'}
+                        {isEdit ? 'Редактировать пользователя' : 'Добавить пользователя'}
                     </h2>
                     <button onClick={onClose} className="text-gray-400 hover:text-white">
                         <i className="ri-close-line text-xl" />
