@@ -44,7 +44,7 @@ export default function KanbanBoard({
     pipelineId,
 }: Props) {
     const router = useRouter();
-    const [, startTransition] = useTransition();
+    const [isPending, startTransition] = useTransition();
 
     const [localDeals, setLocalDeals] = useState<SerializedDeal[]>(deals);
     const [draggingId, setDraggingId] = useState<string | null>(null);
@@ -161,6 +161,12 @@ export default function KanbanBoard({
                             </span>
                         )}
                     </span>
+                    {isPending && (
+                        <span className="flex items-center gap-1.5 text-xs text-blue-500">
+                            <i className="ri-loader-4-line animate-spin" />
+                            Сохранение...
+                        </span>
+                    )}
                 </div>
 
                 <div className="flex items-center gap-3">
@@ -200,7 +206,7 @@ export default function KanbanBoard({
                 </div>
             </div>
 
-            <div className="flex-1 overflow-x-auto p-4">
+            <div className={`flex-1 overflow-x-auto p-4 transition-opacity ${isPending ? 'pointer-events-none opacity-60' : ''}`}>
                 <div className="flex h-full gap-3" style={{ minWidth: `${stages.length * 264}px` }}>
                     {stages.map((stage) => {
                         const stageDeals = dealsByStage[stage.id] ?? [];

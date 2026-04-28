@@ -15,6 +15,9 @@ git pull origin main
 echo "📦 Installing dependencies..."
 npm install --legacy-peer-deps
 
+echo "💾 Backing up database..."
+bash /var/www/kirovbelmash-next/scripts/backup-db.sh || echo "⚠️  Backup failed — continuing deploy"
+
 echo "⚙️ Generating Prisma Client..."
 npx prisma@6 generate
 

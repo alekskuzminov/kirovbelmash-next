@@ -19,6 +19,11 @@ export async function POST(req: NextRequest): Promise<NextResponse> {
         return NextResponse.json({ error: 'file and dealId are required' }, { status: 400 });
     }
 
+    const deal = await prisma.deal.findUnique({ where: { id: dealId }, select: { id: true } });
+    if (!deal) {
+        return NextResponse.json({ error: 'Deal not found' }, { status: 404 });
+    }
+
     if (file.type !== 'application/pdf') {
         return NextResponse.json({ error: 'Only PDF files are allowed' }, { status: 400 });
     }

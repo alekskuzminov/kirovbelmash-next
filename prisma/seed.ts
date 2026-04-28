@@ -5,17 +5,29 @@ const prisma = new PrismaClient();
 
 async function main() {
     // Admin user
-    const existing = await prisma.user.findUnique({ where: { email: 'admin@kirovbelmash.ru' } });
+    const adminEmail = process.env.INITIAL_ADMIN_EMAIL || 'admin@kirovbelmash.ru';
+    const adminPassword = process.env.INITIAL_ADMIN_PASSWORD;
+
+    if (!adminPassword) {
+        throw new Error(
+            'INITIAL_ADMIN_PASSWORD env var is required. Set it before running seed:\n' +
+            '  INITIAL_ADMIN_PASSWORD=your_password npx prisma db seed'
+        );
+    }
+
+    const existing = await prisma.user.findUnique({ where: { email: adminEmail } });
     if (!existing) {
         await prisma.user.create({
             data: {
-                email: 'admin@kirovbelmash.ru',
+                email: adminEmail,
                 name: 'Администратор',
-                password: await bcrypt.hash('Admin123!', 12),
+                password: await bcrypt.hash(adminPassword, 12),
                 role: 'ADMIN',
             },
         });
-        console.log('Admin user created: admin@kirovbelmash.ru / Admin123!');
+        console.log(`Admin user created: ${adminEmail}`);
+    } else {
+        console.log(`Admin user already exists: ${adminEmail}`);
     }
 
     // Default pipeline

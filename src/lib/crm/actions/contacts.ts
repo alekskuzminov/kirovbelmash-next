@@ -2,6 +2,7 @@
 
 import { revalidatePath } from 'next/cache';
 import { prisma } from '@/lib/prisma';
+import { requireSession } from '@/lib/auth';
 import { normalizePhone } from '@/lib/phone';
 
 export interface SerializedContact {
@@ -15,6 +16,8 @@ export interface SerializedContact {
 }
 
 export async function getContacts(search?: string): Promise<SerializedContact[]> {
+    await requireSession();
+
     const contacts = await prisma.contact.findMany({
         where: {
             deletedAt: null,
@@ -62,6 +65,8 @@ export interface ContactDetail {
 }
 
 export async function getContact(id: string): Promise<ContactDetail | null> {
+    await requireSession();
+
     const contact = await prisma.contact.findUnique({
         where: { id, deletedAt: null },
         include: {
@@ -99,6 +104,8 @@ export async function createContact(data: {
     email?: string;
     company?: string;
 }): Promise<string> {
+    await requireSession();
+
     const phoneNormalized = data.phone ? normalizePhone(data.phone) : null;
     const contact = await prisma.contact.create({
         data: {
@@ -122,6 +129,8 @@ export async function updateContact(
         company?: string | null;
     }
 ): Promise<void> {
+    await requireSession();
+
     const phoneNormalized =
         data.phone !== undefined ? (data.phone ? normalizePhone(data.phone) : null) : undefined;
 
@@ -141,6 +150,8 @@ export async function updateContact(
 }
 
 export async function deleteContact(id: string): Promise<void> {
+    await requireSession();
+
     await prisma.contact.update({ where: { id }, data: { deletedAt: new Date() } });
     revalidatePath('/admin/crm/contacts');
 }

@@ -155,11 +155,19 @@ export async function POST(request: NextRequest) {
                 { status: 400 }
             );
         }
-        if (data.email && data.email.trim() && !EMAIL_RE.test(data.email.trim())) {
-            return NextResponse.json(
-                { error: 'Некорректный email' },
-                { status: 400 }
-            );
+        if (data.email && data.email.trim()) {
+            if (data.email.length > 254) {
+                return NextResponse.json({ error: 'Некорректный email' }, { status: 400 });
+            }
+            if (!EMAIL_RE.test(data.email.trim())) {
+                return NextResponse.json(
+                    { error: 'Некорректный email' },
+                    { status: 400 }
+                );
+            }
+        }
+        if (data.company && data.company.length > 200) {
+            return NextResponse.json({ error: 'Некорректное название компании' }, { status: 400 });
         }
         if (data.message) {
             if (data.message.length > 2000 || looksLikeGibberish(data.message)) {

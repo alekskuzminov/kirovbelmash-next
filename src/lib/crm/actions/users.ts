@@ -1,9 +1,8 @@
 'use server';
 
 import { revalidatePath } from 'next/cache';
-import { getServerSession } from 'next-auth';
-import { authOptions } from '@/lib/auth';
 import { prisma } from '@/lib/prisma';
+import { requireSession, requireAdmin } from '@/lib/auth';
 import bcrypt from 'bcryptjs';
 
 export interface SerializedUser {
@@ -13,13 +12,6 @@ export interface SerializedUser {
     role: 'ADMIN' | 'MANAGER';
     isActive: boolean;
     createdAt: string;
-}
-
-async function requireAdmin() {
-    const session = await getServerSession(authOptions);
-    if (!session) throw new Error('Не авторизован');
-    if (session.user.role !== 'ADMIN') throw new Error('Доступ запрещён');
-    return session;
 }
 
 export async function getUsers(): Promise<SerializedUser[]> {
@@ -109,8 +101,7 @@ export async function changeOwnPassword(
     currentPassword: string,
     newPassword: string,
 ): Promise<void> {
-    const session = await getServerSession(authOptions);
-    if (!session) throw new Error('Не авторизован');
+    const session = await requireSession();
 
     const user = await prisma.user.findUniqueOrThrow({
         where: { id: session.user.id },

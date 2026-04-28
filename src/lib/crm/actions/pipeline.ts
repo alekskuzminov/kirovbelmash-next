@@ -2,6 +2,7 @@
 
 import { revalidatePath } from 'next/cache';
 import { prisma } from '@/lib/prisma';
+import { requireSession, requireAdmin } from '@/lib/auth';
 
 export interface SerializedStage {
     id: string;
@@ -16,6 +17,8 @@ export async function getPipelineWithStages(): Promise<{
     name: string;
     stages: SerializedStage[];
 } | null> {
+    await requireSession();
+
     const pipeline = await prisma.pipeline.findFirst({
         include: {
             stages: {
@@ -45,6 +48,8 @@ export async function createStage(
     name: string,
     color: string = '#6b7280'
 ): Promise<SerializedStage> {
+    await requireAdmin();
+
     const maxOrder = await prisma.stage.aggregate({
         where: { pipelineId },
         _max: { order: true },
@@ -65,6 +70,8 @@ export async function updateStage(
     stageId: string,
     data: { name?: string; color?: string }
 ): Promise<void> {
+    await requireAdmin();
+
     await prisma.stage.update({
         where: { id: stageId },
         data: {
@@ -79,6 +86,8 @@ export async function updateStage(
 export async function deleteStage(
     stageId: string
 ): Promise<{ ok: true } | { error: 'has_deals'; count: number }> {
+    await requireAdmin();
+
     const dealsCount = await prisma.deal.count({
         where: { stageId, deletedAt: null },
     });
@@ -95,6 +104,8 @@ export async function deleteStage(
 }
 
 export async function reorderStages(orderedIds: string[]): Promise<void> {
+    await requireAdmin();
+
     await Promise.all(
         orderedIds.map((id, index) =>
             prisma.stage.update({ where: { id }, data: { order: index } })

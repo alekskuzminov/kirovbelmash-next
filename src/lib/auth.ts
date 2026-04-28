@@ -1,4 +1,4 @@
-import { NextAuthOptions } from 'next-auth';
+import { NextAuthOptions, getServerSession } from 'next-auth';
 import CredentialsProvider from 'next-auth/providers/credentials';
 import bcrypt from 'bcryptjs';
 import { prisma } from './prisma';
@@ -41,16 +41,28 @@ export const authOptions: NextAuthOptions = {
         jwt({ token, user }) {
             if (user) {
                 token.id = user.id;
-                token.role = (user as unknown as { role: string }).role;
+                token.role = user.role;
             }
             return token;
         },
         session({ session, token }) {
             if (session.user) {
-                (session.user as unknown as { id: string; role: string }).id = token.id as string;
-                (session.user as unknown as { id: string; role: string }).role = token.role as string;
+                session.user.id = token.id;
+                session.user.role = token.role;
             }
             return session;
         },
     },
 };
+
+export async function requireSession() {
+    const session = await getServerSession(authOptions);
+    if (!session) throw new Error('Не авторизован');
+    return session;
+}
+
+export async function requireAdmin() {
+    const session = await requireSession();
+    if (session.user.role !== 'ADMIN') throw new Error('Доступ запрещён');
+    return session;
+}
