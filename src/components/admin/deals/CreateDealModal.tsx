@@ -2,6 +2,7 @@
 
 import { useState, useTransition } from 'react';
 import { createDeal } from '@/lib/crm/actions/deals';
+import { createContact } from '@/lib/crm/actions/contacts';
 import { useRouter } from 'next/navigation';
 
 interface Stage {
@@ -30,6 +31,8 @@ interface Props {
     onClose: () => void;
 }
 
+type ContactMode = 'search' | 'new';
+
 export default function CreateDealModal({
     pipelineId,
     stages,
@@ -42,13 +45,23 @@ export default function CreateDealModal({
     const [isPending, startTransition] = useTransition();
 
     const [title, setTitle] = useState('');
-    const [contactId, setContactId] = useState('');
-    const [contactSearch, setContactSearch] = useState('');
     const [stageId, setStageId] = useState(defaultStageId ?? stages[0]?.id ?? '');
     const [amount, setAmount] = useState('');
     const [source, setSource] = useState('');
     const [assigneeId, setAssigneeId] = useState('');
     const [error, setError] = useState('');
+
+    // Contact mode
+    const [contactMode, setContactMode] = useState<ContactMode>('search');
+
+    // Search mode
+    const [contactId, setContactId] = useState('');
+    const [contactSearch, setContactSearch] = useState('');
+
+    // New contact mode
+    const [newName, setNewName] = useState('');
+    const [newPhone, setNewPhone] = useState('');
+    const [newCompany, setNewCompany] = useState('');
 
     const filteredContacts = contactSearch
         ? contacts.filter(
@@ -59,24 +72,58 @@ export default function CreateDealModal({
           )
         : contacts;
 
+    function switchMode(mode: ContactMode) {
+        setContactMode(mode);
+        setContactId('');
+        setContactSearch('');
+        setNewName('');
+        setNewPhone('');
+        setNewCompany('');
+        setError('');
+    }
+
     function handleSubmit() {
         if (!title.trim()) { setError('Введите название сделки'); return; }
-        if (!contactId) { setError('Выберите контакт'); return; }
-        setError('');
 
-        startTransition(async () => {
-            await createDeal({
-                title: title.trim(),
-                contactId,
-                stageId,
-                pipelineId,
-                amount: amount || undefined,
-                source: source || undefined,
-                assigneeId: assigneeId || undefined,
+        if (contactMode === 'search') {
+            if (!contactId) { setError('Выберите контакт'); return; }
+            setError('');
+            startTransition(async () => {
+                await createDeal({
+                    title: title.trim(),
+                    contactId,
+                    stageId,
+                    pipelineId,
+                    amount: amount || undefined,
+                    source: source || undefined,
+                    assigneeId: assigneeId || undefined,
+                });
+                router.refresh();
+                onClose();
             });
-            router.refresh();
-            onClose();
-        });
+        } else {
+            if (!newName.trim()) { setError('Введите имя контакта'); return; }
+            if (!newPhone.trim()) { setError('Введите телефон'); return; }
+            setError('');
+            startTransition(async () => {
+                const newContactId = await createContact({
+                    name: newName.trim(),
+                    phone: newPhone.trim(),
+                    company: newCompany.trim() || undefined,
+                });
+                await createDeal({
+                    title: title.trim(),
+                    contactId: newContactId,
+                    stageId,
+                    pipelineId,
+                    amount: amount || undefined,
+                    source: source || undefined,
+                    assigneeId: assigneeId || undefined,
+                });
+                router.refresh();
+                onClose();
+            });
+        }
     }
 
     return (
@@ -101,31 +148,80 @@ export default function CreateDealModal({
                         />
                     </div>
 
+                    {/* Contact section */}
                     <div>
-                        <label className="block text-xs text-gray-400 mb-1">Контакт *</label>
-                        <input
-                            className="w-full rounded-lg bg-gray-800 px-3 py-2 text-sm text-white placeholder-gray-500 focus:outline-none focus:ring-1 focus:ring-blue-500 mb-2"
-                            value={contactSearch}
-                            onChange={(e) => { setContactSearch(e.target.value); setContactId(''); }}
-                            placeholder="Поиск по имени, компании, телефону"
-                        />
-                        <div className="max-h-36 overflow-y-auto rounded-lg border border-gray-700">
-                            {filteredContacts.length === 0 && (
-                                <p className="px-3 py-2 text-xs text-gray-500">Ничего не найдено</p>
-                            )}
-                            {filteredContacts.slice(0, 20).map((c) => (
+                        <div className="flex items-center justify-between mb-2">
+                            <label className="text-xs text-gray-400">Контакт *</label>
+                            <div className="flex rounded-lg overflow-hidden border border-gray-700 text-xs">
                                 <button
-                                    key={c.id}
                                     type="button"
-                                    onClick={() => { setContactId(c.id); setContactSearch(c.name + (c.company ? ` (${c.company})` : '')); }}
-                                    className={`w-full text-left px-3 py-2 text-sm hover:bg-gray-700 ${contactId === c.id ? 'bg-gray-700 text-white' : 'text-gray-300'}`}
+                                    onClick={() => switchMode('search')}
+                                    className={`px-3 py-1 ${contactMode === 'search' ? 'bg-blue-600 text-white' : 'text-gray-400 hover:text-white'}`}
                                 >
-                                    {c.name}
-                                    {c.company && <span className="text-gray-500 ml-1">· {c.company}</span>}
-                                    {c.phone && <span className="text-gray-500 ml-1">· {c.phone}</span>}
+                                    Выбрать
                                 </button>
-                            ))}
+                                <button
+                                    type="button"
+                                    onClick={() => switchMode('new')}
+                                    className={`px-3 py-1 ${contactMode === 'new' ? 'bg-blue-600 text-white' : 'text-gray-400 hover:text-white'}`}
+                                >
+                                    + Новый
+                                </button>
+                            </div>
                         </div>
+
+                        {contactMode === 'search' ? (
+                            <>
+                                <input
+                                    className="w-full rounded-lg bg-gray-800 px-3 py-2 text-sm text-white placeholder-gray-500 focus:outline-none focus:ring-1 focus:ring-blue-500 mb-2"
+                                    value={contactSearch}
+                                    onChange={(e) => { setContactSearch(e.target.value); setContactId(''); }}
+                                    placeholder="Поиск по имени, компании, телефону"
+                                />
+                                <div className="max-h-36 overflow-y-auto rounded-lg border border-gray-700">
+                                    {filteredContacts.length === 0 && (
+                                        <p className="px-3 py-2 text-xs text-gray-500">Ничего не найдено</p>
+                                    )}
+                                    {filteredContacts.slice(0, 20).map((c) => (
+                                        <button
+                                            key={c.id}
+                                            type="button"
+                                            onClick={() => {
+                                                setContactId(c.id);
+                                                setContactSearch(c.name + (c.company ? ` (${c.company})` : ''));
+                                            }}
+                                            className={`w-full text-left px-3 py-2 text-sm hover:bg-gray-700 ${contactId === c.id ? 'bg-gray-700 text-white' : 'text-gray-300'}`}
+                                        >
+                                            {c.name}
+                                            {c.company && <span className="text-gray-500 ml-1">· {c.company}</span>}
+                                            {c.phone && <span className="text-gray-500 ml-1">· {c.phone}</span>}
+                                        </button>
+                                    ))}
+                                </div>
+                            </>
+                        ) : (
+                            <div className="space-y-2">
+                                <input
+                                    className="w-full rounded-lg bg-gray-800 px-3 py-2 text-sm text-white placeholder-gray-500 focus:outline-none focus:ring-1 focus:ring-blue-500"
+                                    value={newName}
+                                    onChange={(e) => setNewName(e.target.value)}
+                                    placeholder="Имя *"
+                                />
+                                <input
+                                    className="w-full rounded-lg bg-gray-800 px-3 py-2 text-sm text-white placeholder-gray-500 focus:outline-none focus:ring-1 focus:ring-blue-500"
+                                    value={newPhone}
+                                    onChange={(e) => setNewPhone(e.target.value)}
+                                    placeholder="Телефон *"
+                                    type="tel"
+                                />
+                                <input
+                                    className="w-full rounded-lg bg-gray-800 px-3 py-2 text-sm text-white placeholder-gray-500 focus:outline-none focus:ring-1 focus:ring-blue-500"
+                                    value={newCompany}
+                                    onChange={(e) => setNewCompany(e.target.value)}
+                                    placeholder="Компания (необязательно)"
+                                />
+                            </div>
+                        )}
                     </div>
 
                     <div className="grid grid-cols-2 gap-3">
