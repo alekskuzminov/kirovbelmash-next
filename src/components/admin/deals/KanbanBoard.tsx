@@ -394,56 +394,48 @@ function DealCard({ deal, isDragging, onClick, onDragStart, onDragEnd }: DealCar
             onDragStart={(e) => onDragStart(e, deal.id)}
             onDragEnd={onDragEnd}
             onClick={onClick}
-            className={`cursor-pointer select-none rounded-lg bg-white p-3 shadow-sm ring-1 ring-gray-200 transition-all hover:shadow-md hover:ring-blue-300 ${
+            className={`cursor-pointer select-none rounded-lg bg-white p-2.5 shadow-sm ring-1 ring-gray-200 transition-all hover:shadow-md hover:ring-blue-300 ${
                 isDragging ? 'scale-95 opacity-40' : ''
             }`}
         >
-            <div className="flex justify-end">
-                <p className="whitespace-nowrap text-xs text-gray-400">
-                    Создано: {new Date(deal.createdAt).toLocaleDateString('ru-RU')}
+            {/* Строка 1: заголовок + дата */}
+            <div className="flex items-start justify-between gap-2">
+                <p className="text-sm font-medium leading-snug text-gray-800">{deal.title}</p>
+                <p className="mt-0.5 shrink-0 whitespace-nowrap text-[10px] text-gray-300">
+                    {new Date(deal.createdAt).toLocaleDateString('ru-RU')}
                 </p>
             </div>
 
-            <p className="mt-1 text-sm font-medium leading-snug text-gray-800">{deal.title}</p>
-
-            <p className="mt-2 truncate text-xs text-gray-500" title={deal.contact.name}>
+            {/* Строка 2: контакт · телефон */}
+            <p className="mt-1 truncate text-xs text-gray-500">
                 {deal.contact.name}
+                {deal.contact.phone && (
+                    <span className="text-gray-300"> · {deal.contact.phone}</span>
+                )}
             </p>
 
-            {deal.contact.phone && (
-                <p className="mt-1 truncate text-xs text-gray-400" title={deal.contact.phone}>
-                    {deal.contact.phone}
-                </p>
-            )}
-
-            {deal.contact.email && (
-                <p className="mt-1 truncate text-xs text-gray-400" title={deal.contact.email}>
-                    {deal.contact.email}
-                </p>
-            )}
-
-            <div className="mt-2 flex items-center justify-between">
+            {/* Строка 3: сумма + источник + аватар */}
+            <div className="mt-1.5 flex items-center gap-1.5">
                 {deal.amount ? (
                     <span className="text-xs font-medium text-emerald-600">
                         {Number(deal.amount).toLocaleString('ru-RU')} ₽
                     </span>
                 ) : (
-                    <span />
+                    <span className="grow" />
                 )}
-
+                <span className="grow" />
+                {displaySource && (
+                    <span className="max-w-[90px] truncate text-[10px] text-gray-400" title={displaySource}>
+                        <i className="ri-map-pin-line mr-0.5" />
+                        {displaySource}
+                    </span>
+                )}
                 {deal.assignee && (
-                    <span className="flex h-5 w-5 items-center justify-center rounded-full bg-blue-100 text-xs font-medium text-blue-700">
+                    <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-blue-100 text-xs font-medium text-blue-700">
                         {deal.assignee.name.charAt(0).toUpperCase()}
                     </span>
                 )}
             </div>
-
-            {displaySource && (
-                <p className="mt-1.5 truncate text-xs text-gray-400">
-                    <i className="ri-map-pin-line mr-0.5" />
-                    {displaySource}
-                </p>
-            )}
         </div>
     );
 }
