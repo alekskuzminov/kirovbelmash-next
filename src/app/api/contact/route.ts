@@ -1,5 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import nodemailer from 'nodemailer';
+import { prisma } from '@/lib/prisma';
+import { normalizePhone } from '@/lib/phone';
 
 interface ContactPayload {
     name: string;
@@ -178,6 +180,51 @@ export async function POST(request: NextRequest) {
             html: buildHtml(data),
             replyTo: data.email || undefined,
         });
+
+        // Save to CRM — email is the priority; DB failure must not affect response
+        try {
+            const phoneNormalized = data.phone ? normalizePhone(data.phone) : null;
+
+            // Find or create contact by normalized phone (deduplication)
+            let contact = phoneNormalized
+                ? await prisma.contact.findFirst({ where: { phoneNormalized, deletedAt: null } })
+                : null;
+
+            if (!contact) {
+                contact = await prisma.contact.create({
+                    data: {
+                        name: data.name.trim(),
+                        phone: data.phone?.trim() || null,
+                        phoneNormalized,
+                        email: data.email?.trim() || null,
+                        company: data.company?.trim() || null,
+                    },
+                });
+            }
+
+            // Find default pipeline first stage
+            const pipeline = await prisma.pipeline.findFirst({
+                include: { stages: { orderBy: { order: 'asc' }, take: 1 } },
+            });
+
+            if (pipeline && pipeline.stages.length > 0) {
+                const firstStage = pipeline.stages[0];
+                const deal = await prisma.deal.create({
+                    data: {
+                        title: `Заявка с сайта — ${data.name.trim().slice(0, 60)}`,
+                        contactId: contact.id,
+                        stageId: firstStage.id,
+                        pipelineId: pipeline.id,
+                        source: data.source || null,
+                    },
+                });
+                await prisma.dealStageEvent.create({
+                    data: { dealId: deal.id, toStageId: firstStage.id },
+                });
+            }
+        } catch (dbError) {
+            console.error('[api/contact] DB save failed (email already sent):', dbError);
+        }
 
         return NextResponse.json({ ok: true });
     } catch (error) {

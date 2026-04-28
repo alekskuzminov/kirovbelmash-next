@@ -15,6 +15,9 @@ git pull origin main
 echo "📦 Installing dependencies..."
 npm install --legacy-peer-deps
 
+echo "⚙️ Generating Prisma Client..."
+npx prisma@6 generate
+
 echo "🔨 Building the project..."
 npm run build
 
