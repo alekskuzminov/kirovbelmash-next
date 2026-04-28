@@ -27,7 +27,7 @@ export default function AdminLoginPage() {
         if (result?.error) {
             setError('Неверный email или пароль');
         } else {
-            router.push('/admin/deals');
+            router.push('/admin');
         }
     }
 

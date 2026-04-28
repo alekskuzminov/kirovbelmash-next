@@ -98,7 +98,7 @@ export default function ContactsClient({ contacts }: Props) {
                             <tr key={contact.id} className="hover:bg-gray-50 transition-colors">
                                 <td className="px-4 py-3">
                                     <Link
-                                        href={`/admin/contacts/${contact.id}`}
+                                        href={`/admin/crm/contacts/${contact.id}`}
                                         className="font-medium text-gray-900 hover:text-blue-600"
                                     >
                                         {contact.name}
@@ -134,7 +134,7 @@ export default function ContactsClient({ contacts }: Props) {
                                 <td className="px-4 py-3">
                                     <div className="flex items-center gap-1 justify-end">
                                         <Link
-                                            href={`/admin/contacts/${contact.id}`}
+                                            href={`/admin/crm/contacts/${contact.id}`}
                                             className="rounded p-1 text-gray-400 hover:bg-gray-100 hover:text-gray-700"
                                             title="Открыть"
                                         >

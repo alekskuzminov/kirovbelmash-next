@@ -2,6 +2,7 @@
 
 import { useState, useTransition, useRef, useCallback } from 'react';
 import { useRouter } from 'next/navigation';
+import Link from 'next/link';
 import { SerializedDeal, moveDeal } from '@/lib/crm/actions/deals';
 import DealModal from './DealModal';
 import CreateDealModal from './CreateDealModal';
@@ -155,6 +156,13 @@ export default function KanbanBoard({ stages, deals, users, contacts, pipelineId
                             <option key={u.id} value={u.id}>{u.name}</option>
                         ))}
                     </select>
+                    <Link
+                        href="/admin/crm/pipeline"
+                        className="flex items-center gap-2 rounded-lg border border-gray-300 px-4 py-1.5 text-sm text-gray-600 hover:bg-gray-50"
+                    >
+                        <i className="ri-settings-3-line" />
+                        Настроить воронку
+                    </Link>
                     <button
                         onClick={() => setCreateInStage(stages[0]?.id ?? null)}
                         className="flex items-center gap-2 rounded-lg bg-blue-600 px-4 py-1.5 text-sm text-white hover:bg-blue-700"

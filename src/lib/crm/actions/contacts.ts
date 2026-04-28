@@ -109,7 +109,7 @@ export async function createContact(data: {
             company: data.company?.trim() || null,
         },
     });
-    revalidatePath('/admin/contacts');
+    revalidatePath('/admin/crm/contacts');
     return contact.id;
 }
 
@@ -136,11 +136,11 @@ export async function updateContact(
             ...(data.company !== undefined ? { company: data.company?.trim() || null } : {}),
         },
     });
-    revalidatePath('/admin/contacts');
-    revalidatePath(`/admin/contacts/${id}`);
+    revalidatePath('/admin/crm/contacts');
+    revalidatePath(`/admin/crm/contacts/${id}`);
 }
 
 export async function deleteContact(id: string): Promise<void> {
     await prisma.contact.update({ where: { id }, data: { deletedAt: new Date() } });
-    revalidatePath('/admin/contacts');
+    revalidatePath('/admin/crm/contacts');
 }

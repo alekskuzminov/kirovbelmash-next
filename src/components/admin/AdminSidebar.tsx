@@ -4,11 +4,10 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { signOut } from 'next-auth/react';
 
-const NAV = [
-    { href: '/admin/deals', label: 'Сделки', icon: 'ri-kanban-view' },
-    { href: '/admin/contacts', label: 'Контакты', icon: 'ri-contacts-book-2-line' },
-    { href: '/admin/tasks', label: 'Задачи', icon: 'ri-checkbox-line' },
-    { href: '/admin/users', label: 'Пользователи', icon: 'ri-team-line' },
+const CRM_NAV = [
+    { href: '/admin/crm/deals', label: 'Сделки', icon: 'ri-kanban-view' },
+    { href: '/admin/crm/contacts', label: 'Контакты', icon: 'ri-contacts-book-2-line' },
+    { href: '/admin/crm/tasks', label: 'Задачи', icon: 'ri-checkbox-line' },
 ];
 
 export default function AdminSidebar() {
@@ -17,14 +16,28 @@ export default function AdminSidebar() {
     return (
         <aside className="flex h-screen w-56 flex-col bg-gray-900 text-gray-300">
             <div className="px-5 py-5 border-b border-gray-700">
-                <span className="text-white font-semibold text-sm leading-tight">
+                <Link href="/admin" className="text-white font-semibold text-sm leading-tight hover:text-gray-200 transition-colors">
                     КировБелМаш<br />
-                    <span className="text-gray-400 font-normal">CRM</span>
-                </span>
+                    <span className="text-gray-400 font-normal">Админка</span>
+                </Link>
             </div>
 
-            <nav className="flex-1 overflow-y-auto py-4">
-                {NAV.map(({ href, label, icon }) => {
+            <nav className="flex-1 overflow-y-auto py-3">
+                <Link
+                    href="/admin"
+                    className={`flex items-center gap-3 px-5 py-2.5 text-sm transition-colors ${
+                        pathname === '/admin'
+                            ? 'bg-gray-700 text-white'
+                            : 'hover:bg-gray-800 hover:text-white'
+                    }`}
+                >
+                    <i className="ri-home-4-line text-lg" />
+                    Обзор
+                </Link>
+
+                <p className="px-5 pt-4 pb-1 text-xs font-medium text-gray-500 uppercase tracking-wider">CRM</p>
+
+                {CRM_NAV.map(({ href, label, icon }) => {
                     const active = pathname.startsWith(href);
                     return (
                         <Link

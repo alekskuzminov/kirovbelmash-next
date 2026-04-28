@@ -16,7 +16,7 @@ export default function ContactDetailClient({ contact }: Props) {
         <div className="p-6 max-w-4xl">
             {/* Breadcrumb */}
             <div className="flex items-center gap-2 text-sm text-gray-400 mb-6">
-                <Link href="/admin/contacts" className="hover:text-gray-700">Контакты</Link>
+                <Link href="/admin/crm/contacts" className="hover:text-gray-700">Контакты</Link>
                 <i className="ri-arrow-right-s-line" />
                 <span className="text-gray-700">{contact.name}</span>
             </div>

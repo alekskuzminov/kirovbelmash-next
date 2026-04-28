@@ -96,7 +96,7 @@ export async function createDeal(data: {
     await prisma.dealStageEvent.create({
         data: { dealId: deal.id, toStageId: data.stageId },
     });
-    revalidatePath('/admin/deals');
+    revalidatePath('/admin/crm/deals');
 }
 
 export async function updateDeal(
@@ -127,18 +127,18 @@ export async function updateDeal(
             ...(data.assigneeId !== undefined ? { assigneeId: data.assigneeId } : {}),
         },
     });
-    revalidatePath('/admin/deals');
+    revalidatePath('/admin/crm/deals');
 }
 
 export async function deleteDeal(id: string): Promise<void> {
     await prisma.deal.update({ where: { id }, data: { deletedAt: new Date() } });
-    revalidatePath('/admin/deals');
+    revalidatePath('/admin/crm/deals');
 }
 
 export async function moveDeal(dealId: string, newStageId: string): Promise<void> {
     const session = await getServerSession(authOptions);
     await moveDealToStage(dealId, newStageId, session?.user?.id);
-    revalidatePath('/admin/deals');
+    revalidatePath('/admin/crm/deals');
 }
 
 export async function addNote(dealId: string, text: string): Promise<void> {
@@ -146,5 +146,5 @@ export async function addNote(dealId: string, text: string): Promise<void> {
     await prisma.note.create({
         data: { dealId, text, authorId: session?.user?.id ?? null },
     });
-    revalidatePath('/admin/deals');
+    revalidatePath('/admin/crm/deals');
 }
