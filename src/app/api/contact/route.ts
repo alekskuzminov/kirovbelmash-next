@@ -209,9 +209,20 @@ export async function POST(request: NextRequest) {
 
             if (pipeline && pipeline.stages.length > 0) {
                 const firstStage = pipeline.stages[0];
+
+                // Build deal title: message → extra values → fallback
+                const trim60 = (s: string) => s.length > 60 ? s.slice(0, 60).trimEnd() + '…' : s;
+                let dealTitle = 'Входящая заявка';
+                if (data.message?.trim()) {
+                    dealTitle = trim60(data.message.trim());
+                } else if (data.extra && Object.keys(data.extra).length > 0) {
+                    const joined = Object.values(data.extra).filter(Boolean).join(', ');
+                    if (joined) dealTitle = trim60(joined);
+                }
+
                 const deal = await prisma.deal.create({
                     data: {
-                        title: `Заявка с сайта — ${data.name.trim().slice(0, 60)}`,
+                        title: dealTitle,
                         contactId: contact.id,
                         stageId: firstStage.id,
                         pipelineId: pipeline.id,
