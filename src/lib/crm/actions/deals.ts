@@ -41,6 +41,14 @@ export interface SerializedDeal {
         toStage: { name: string };
         actor: { name: string } | null;
     }>;
+    documents: Array<{
+        id: string;
+        originalName: string;
+        s3Url: string;
+        size: number;
+        mimeType: string | null;
+        createdAt: string;
+    }>;
     taskCount: number;
 }
 
@@ -71,6 +79,11 @@ export async function getDeals(filters?: {
                     toStage: { select: { name: true } },
                     actor: { select: { name: true } },
                 },
+            },
+            documents: {
+                where: { deletedAt: null },
+                orderBy: { createdAt: 'asc' },
+                select: { id: true, originalName: true, s3Url: true, size: true, mimeType: true, createdAt: true },
             },
             _count: { select: { tasks: { where: { done: false } } } },
         },
@@ -104,6 +117,14 @@ export async function getDeals(filters?: {
             fromStage: e.fromStage,
             toStage: e.toStage,
             actor: e.actor,
+        })),
+        documents: d.documents.map((doc) => ({
+            id: doc.id,
+            originalName: doc.originalName,
+            s3Url: doc.s3Url,
+            size: doc.size,
+            mimeType: doc.mimeType,
+            createdAt: doc.createdAt.toISOString(),
         })),
         taskCount: d._count.tasks,
     }));
@@ -204,6 +225,29 @@ export async function closeDeal(id: string, result: 'WON' | 'LOST'): Promise<voi
         where: { id },
         data: { closedAs: result, closedAt: new Date() },
     });
+    revalidatePath('/admin/crm/deals');
+}
+
+export async function deleteDocument(documentId: string): Promise<void> {
+    await requireSession();
+
+    const doc = await prisma.document.findUnique({
+        where: { id: documentId },
+        select: { s3Key: true },
+    });
+
+    if (doc?.s3Key) {
+        const bucket = process.env.S3_BUCKET;
+        if (bucket) {
+            try {
+                await s3.send(new DeleteObjectCommand({ Bucket: bucket, Key: doc.s3Key }));
+            } catch {
+                // Ignore S3 errors — file may already be gone
+            }
+        }
+    }
+
+    await prisma.document.delete({ where: { id: documentId } });
     revalidatePath('/admin/crm/deals');
 }
 

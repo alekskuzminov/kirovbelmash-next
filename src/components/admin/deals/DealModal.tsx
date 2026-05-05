@@ -2,9 +2,10 @@
 
 import { useRef, useState, useTransition } from 'react';
 import { SerializedDeal } from '@/lib/crm/actions/deals';
-import { updateDeal, deleteDeal, addNote, deleteDealDocument } from '@/lib/crm/actions/deals';
+import { updateDeal, deleteDeal, addNote, deleteDealDocument, deleteDocument } from '@/lib/crm/actions/deals';
 import { useRouter } from 'next/navigation';
 import PdfPreviewModal from './PdfPreviewModal';
+import FilePreviewModal from './FilePreviewModal';
 
 interface Stage {
     id: string;
@@ -42,6 +43,8 @@ type ActivityItem =
           actor: { name: string } | null;
       };
 
+type DocItem = SerializedDeal['documents'][0];
+
 function formatDate(iso: string) {
     return new Date(iso).toLocaleString('ru-RU', {
         day: 'numeric',
@@ -51,16 +54,33 @@ function formatDate(iso: string) {
     });
 }
 
+function formatSize(bytes: number): string {
+    if (bytes < 1024) return `${bytes} Б`;
+    if (bytes < 1024 * 1024) return `${(bytes / 1024).toFixed(0)} КБ`;
+    return `${(bytes / 1024 / 1024).toFixed(1)} МБ`;
+}
+
 function calcDaysInStage(deal: SerializedDeal): number {
     const lastEvent = deal.stageEvents.find((e) => e.toStageId === deal.stageId);
     const since = lastEvent ? new Date(lastEvent.createdAt) : new Date(deal.createdAt);
     return Math.max(0, Math.floor((Date.now() - since.getTime()) / 86400000));
 }
 
+function docIcon(mimeType: string | null): string {
+    if (mimeType === 'application/pdf') return 'ri-file-pdf-line text-red-400';
+    if (mimeType?.startsWith('image/')) return 'ri-image-line text-blue-400';
+    if (mimeType?.includes('wordprocessingml')) return 'ri-file-word-line text-blue-500';
+    if (mimeType?.includes('spreadsheetml')) return 'ri-file-excel-line text-green-500';
+    return 'ri-file-line text-gray-400';
+}
+
+function canPreview(mimeType: string | null): boolean {
+    return mimeType === 'application/pdf' || (mimeType?.startsWith('image/') ?? false);
+}
+
 export default function DealModal({ deal, stages, users, onClose, onDeleted }: Props) {
     const router = useRouter();
     const [isPending, startTransition] = useTransition();
-    const fileInputRef = useRef<HTMLInputElement>(null);
 
     const [title, setTitle] = useState(deal.title);
     const [amount, setAmount] = useState(deal.amount ?? '');
@@ -81,10 +101,18 @@ export default function DealModal({ deal, stages, users, onClose, onDeleted }: P
     const [stageId, setStageId] = useState(deal.stageId);
     const [noteText, setNoteText] = useState('');
     const [notes, setNotes] = useState(deal.notes);
-    const [documentUrl, setDocumentUrl] = useState(deal.documentUrl ?? '');
+
+    // Documents
+    const [documents, setDocuments] = useState<DocItem[]>(deal.documents);
     const [isUploadingDoc, setIsUploadingDoc] = useState(false);
-    const [showPdfPreview, setShowPdfPreview] = useState(false);
-    const [confirmDeleteDoc, setConfirmDeleteDoc] = useState(false);
+    const [previewDoc, setPreviewDoc] = useState<{ url: string; mimeType: string | null; name: string } | null>(null);
+    const [confirmDeleteDocId, setConfirmDeleteDocId] = useState<string | null>(null);
+
+    // Legacy single-doc (documentUrl on Deal)
+    const [legacyDocUrl, setLegacyDocUrl] = useState(deal.documentUrl ?? '');
+    const [showLegacyPreview, setShowLegacyPreview] = useState(false);
+    const [confirmDeleteLegacy, setConfirmDeleteLegacy] = useState(false);
+
     const [confirmDelete, setConfirmDelete] = useState(false);
 
     const activity: ActivityItem[] = [
@@ -124,27 +152,35 @@ export default function DealModal({ deal, stages, users, onClose, onDeleted }: P
         });
     }
 
-    async function handleDocUpload(file: File) {
+    async function handleDocUpload(files: FileList) {
         setIsUploadingDoc(true);
-        try {
-            const formData = new FormData();
-            formData.append('file', file);
-            formData.append('dealId', deal.id);
-            const res = await fetch('/api/crm/upload-deal-doc', { method: 'POST', body: formData });
-            if (!res.ok) throw new Error('Upload failed');
-            const { url } = (await res.json()) as { url: string };
-            setDocumentUrl(url);
-            router.refresh();
-        } finally {
-            setIsUploadingDoc(false);
+        for (const file of Array.from(files)) {
+            const fd = new FormData();
+            fd.append('file', file);
+            fd.append('dealId', deal.id);
+            const res = await fetch('/api/crm/documents', { method: 'POST', body: fd });
+            if (res.ok) {
+                const doc = (await res.json()) as DocItem;
+                setDocuments((prev) => [...prev, doc]);
+            }
         }
+        setIsUploadingDoc(false);
+        router.refresh();
     }
 
-    function handleDocDelete() {
+    function handleDeleteDoc(docId: string) {
+        startTransition(async () => {
+            await deleteDocument(docId);
+            setDocuments((prev) => prev.filter((d) => d.id !== docId));
+            setConfirmDeleteDocId(null);
+        });
+    }
+
+    function handleDeleteLegacy() {
         startTransition(async () => {
             await deleteDealDocument(deal.id);
-            setDocumentUrl('');
-            setConfirmDeleteDoc(false);
+            setLegacyDocUrl('');
+            setConfirmDeleteLegacy(false);
             router.refresh();
         });
     }
@@ -290,86 +326,137 @@ export default function DealModal({ deal, stages, users, onClose, onDeleted }: P
                                 <div>Обновлена: {new Date(deal.updatedAt).toLocaleDateString('ru-RU')}</div>
                             </div>
 
-                            {/* Document block */}
+                            {/* Documents */}
                             <div className="border-t border-gray-700 pt-4">
-                                <p className="text-xs text-gray-400 mb-2">Документ (КП)</p>
+                                <p className="text-xs text-gray-400 mb-2">Документы</p>
 
-                                {!documentUrl ? (
-                                    <button
-                                        onClick={() => fileInputRef.current?.click()}
-                                        disabled={isUploadingDoc}
-                                        className="flex w-full items-center justify-center gap-2 rounded-lg border border-dashed border-gray-600 px-3 py-2 text-xs text-gray-400 hover:border-gray-400 hover:text-gray-200 disabled:opacity-50"
-                                    >
-                                        {isUploadingDoc ? (
-                                            <>
-                                                <i className="ri-loader-4-line animate-spin" />
-                                                Загрузка...
-                                            </>
-                                        ) : (
-                                            <>
-                                                <i className="ri-upload-cloud-line" />
-                                                Загрузить КП (PDF)
-                                            </>
-                                        )}
-                                    </button>
-                                ) : (
-                                    <div className="space-y-2">
-                                        <div className="flex items-center gap-2 rounded-lg bg-gray-800 px-3 py-2">
-                                            <i className="ri-file-pdf-line text-red-400 shrink-0" />
-                                            <span className="flex-1 truncate text-xs text-gray-200">КП.pdf</span>
-                                            <button
-                                                onClick={() => setShowPdfPreview(true)}
-                                                className="text-xs text-blue-400 hover:text-blue-300 shrink-0"
-                                            >
-                                                Просмотр
-                                            </button>
-                                            <button
-                                                onClick={() => fileInputRef.current?.click()}
-                                                className="text-gray-400 hover:text-white shrink-0"
-                                                title="Заменить файл"
-                                            >
-                                                <i className="ri-pencil-line text-sm" />
-                                            </button>
-                                            <button
-                                                onClick={() => setConfirmDeleteDoc(true)}
-                                                className="text-gray-400 hover:text-red-400 shrink-0"
-                                                title="Удалить файл"
-                                            >
-                                                <i className="ri-delete-bin-line text-sm" />
-                                            </button>
-                                        </div>
-                                        {confirmDeleteDoc && (
-                                            <div className="flex items-center gap-2 text-xs">
-                                                <span className="text-red-400">Удалить документ?</span>
+                                <div className="space-y-1.5 max-h-40 overflow-y-auto mb-2">
+                                    {/* Legacy documentUrl */}
+                                    {legacyDocUrl && (
+                                        <div className="rounded-lg bg-gray-800 px-3 py-2">
+                                            <div className="flex items-center gap-2">
+                                                <i className="ri-file-pdf-line text-red-400 shrink-0 text-sm" />
+                                                <span className="flex-1 truncate text-xs text-gray-400 italic">КП (устаревший)</span>
                                                 <button
-                                                    onClick={handleDocDelete}
-                                                    disabled={isPending}
-                                                    className="rounded bg-red-600 px-2 py-0.5 text-white hover:bg-red-700"
+                                                    onClick={() => setShowLegacyPreview(true)}
+                                                    className="text-xs text-blue-400 hover:text-blue-300 shrink-0"
                                                 >
-                                                    Да
+                                                    Просмотр
                                                 </button>
                                                 <button
-                                                    onClick={() => setConfirmDeleteDoc(false)}
-                                                    className="text-gray-400 hover:text-white"
+                                                    onClick={() => setConfirmDeleteLegacy(true)}
+                                                    className="text-gray-400 hover:text-red-400 shrink-0"
+                                                    title="Удалить"
                                                 >
-                                                    Отмена
+                                                    <i className="ri-delete-bin-line text-sm" />
                                                 </button>
                                             </div>
-                                        )}
-                                    </div>
-                                )}
+                                            {confirmDeleteLegacy && (
+                                                <div className="flex items-center gap-2 mt-1.5 text-xs">
+                                                    <span className="text-red-400">Удалить?</span>
+                                                    <button
+                                                        onClick={handleDeleteLegacy}
+                                                        disabled={isPending}
+                                                        className="rounded bg-red-600 px-2 py-0.5 text-white hover:bg-red-700"
+                                                    >
+                                                        Да
+                                                    </button>
+                                                    <button
+                                                        onClick={() => setConfirmDeleteLegacy(false)}
+                                                        className="text-gray-400 hover:text-white"
+                                                    >
+                                                        Отмена
+                                                    </button>
+                                                </div>
+                                            )}
+                                        </div>
+                                    )}
 
-                                <input
-                                    ref={fileInputRef}
-                                    type="file"
-                                    accept=".pdf"
-                                    className="hidden"
-                                    onChange={(e) => {
-                                        const file = e.target.files?.[0];
-                                        if (file) void handleDocUpload(file);
-                                        e.target.value = '';
-                                    }}
-                                />
+                                    {/* New documents */}
+                                    {documents.map((doc) => (
+                                        <div key={doc.id} className="rounded-lg bg-gray-800 px-3 py-2">
+                                            <div className="flex items-center gap-2">
+                                                <i className={`${docIcon(doc.mimeType)} shrink-0 text-sm`} />
+                                                <span className="flex-1 truncate text-xs text-gray-200" title={doc.originalName}>
+                                                    {doc.originalName}
+                                                </span>
+                                                <span className="text-xs text-gray-500 shrink-0">{formatSize(doc.size)}</span>
+                                                {canPreview(doc.mimeType) ? (
+                                                    <button
+                                                        onClick={() => setPreviewDoc({ url: doc.s3Url, mimeType: doc.mimeType, name: doc.originalName })}
+                                                        className="text-xs text-blue-400 hover:text-blue-300 shrink-0"
+                                                    >
+                                                        Просмотр
+                                                    </button>
+                                                ) : (
+                                                    <a
+                                                        href={doc.s3Url}
+                                                        download={doc.originalName}
+                                                        target="_blank"
+                                                        rel="noopener noreferrer"
+                                                        className="text-xs text-blue-400 hover:text-blue-300 shrink-0"
+                                                    >
+                                                        Скачать
+                                                    </a>
+                                                )}
+                                                <button
+                                                    onClick={() => setConfirmDeleteDocId(doc.id)}
+                                                    className="text-gray-400 hover:text-red-400 shrink-0"
+                                                    title="Удалить"
+                                                >
+                                                    <i className="ri-delete-bin-line text-sm" />
+                                                </button>
+                                            </div>
+                                            {confirmDeleteDocId === doc.id && (
+                                                <div className="flex items-center gap-2 mt-1.5 text-xs">
+                                                    <span className="text-red-400">Удалить?</span>
+                                                    <button
+                                                        onClick={() => handleDeleteDoc(doc.id)}
+                                                        disabled={isPending}
+                                                        className="rounded bg-red-600 px-2 py-0.5 text-white hover:bg-red-700"
+                                                    >
+                                                        Да
+                                                    </button>
+                                                    <button
+                                                        onClick={() => setConfirmDeleteDocId(null)}
+                                                        className="text-gray-400 hover:text-white"
+                                                    >
+                                                        Отмена
+                                                    </button>
+                                                </div>
+                                            )}
+                                        </div>
+                                    ))}
+
+                                    {!legacyDocUrl && documents.length === 0 && (
+                                        <p className="text-xs text-gray-600 italic">Нет документов</p>
+                                    )}
+                                </div>
+
+                                {/* Upload button */}
+                                <label className={`flex w-full items-center justify-center gap-2 rounded-lg border border-dashed border-gray-600 px-3 py-2 text-xs text-gray-400 hover:border-gray-400 hover:text-gray-200 cursor-pointer ${isUploadingDoc ? 'opacity-50 pointer-events-none' : ''}`}>
+                                    {isUploadingDoc ? (
+                                        <>
+                                            <i className="ri-loader-4-line animate-spin" />
+                                            Загрузка...
+                                        </>
+                                    ) : (
+                                        <>
+                                            <i className="ri-upload-cloud-line" />
+                                            Добавить файл
+                                        </>
+                                    )}
+                                    <input
+                                        type="file"
+                                        accept=".pdf,.jpg,.jpeg,.png,.docx,.xlsx"
+                                        multiple
+                                        className="hidden"
+                                        onChange={(e) => {
+                                            if (e.target.files) void handleDocUpload(e.target.files);
+                                            e.target.value = '';
+                                        }}
+                                    />
+                                </label>
                             </div>
                         </div>
 
@@ -485,8 +572,19 @@ export default function DealModal({ deal, stages, users, onClose, onDeleted }: P
                 </div>
             </div>
 
-            {showPdfPreview && documentUrl && (
-                <PdfPreviewModal url={documentUrl} onClose={() => setShowPdfPreview(false)} />
+            {/* Legacy PDF preview */}
+            {showLegacyPreview && legacyDocUrl && (
+                <PdfPreviewModal url={legacyDocUrl} onClose={() => setShowLegacyPreview(false)} />
+            )}
+
+            {/* New file preview */}
+            {previewDoc && (
+                <FilePreviewModal
+                    url={previewDoc.url}
+                    mimeType={previewDoc.mimeType}
+                    name={previewDoc.name}
+                    onClose={() => setPreviewDoc(null)}
+                />
             )}
         </>
     );
