@@ -275,7 +275,7 @@ export default function DealModal({ deal, stages, users, onClose, onDeleted }: P
                                     onClick={() => setActiveTab('stats')}
                                     className={`pb-2 text-xs font-medium border-b-2 transition-colors ${activeTab === 'stats' ? 'border-blue-500 text-white' : 'border-transparent text-gray-500 hover:text-gray-300'}`}
                                 >
-                                    Статистика
+                                    UTM / Трафик
                                     {deal.visitParams && Object.keys(deal.visitParams).length > 0 && (
                                         <span className="ml-1.5 rounded-full bg-blue-600 px-1.5 py-0.5 text-[10px] text-white">
                                             {Object.keys(deal.visitParams).length}
