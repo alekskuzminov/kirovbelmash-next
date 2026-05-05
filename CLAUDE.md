@@ -157,7 +157,7 @@ S3_ACCESS_KEY_ID=
 S3_SECRET_ACCESS_KEY=
 S3_ENDPOINT=https://s3.ru1.storage.beget.cloud
 S3_REGION=ru-1
-S3_BUCKET=
+S3_BUCKET_NAME=
 NEXT_PUBLIC_S3_BUCKET_URL=https://cdn.kirovbelmash.ru
 
 # SMTP (Timeweb)

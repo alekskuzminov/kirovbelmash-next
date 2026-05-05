@@ -33,7 +33,7 @@ export async function POST(req: NextRequest): Promise<NextResponse> {
         return NextResponse.json({ error: 'File size must not exceed 20 MB' }, { status: 400 });
     }
 
-    const bucket = process.env.S3_BUCKET;
+    const bucket = process.env.S3_BUCKET_NAME;
     if (!bucket) {
         return NextResponse.json({ error: 'S3 bucket not configured' }, { status: 500 });
     }

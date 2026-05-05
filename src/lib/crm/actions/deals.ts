@@ -237,7 +237,7 @@ export async function deleteDocument(documentId: string): Promise<void> {
     });
 
     if (doc?.s3Key) {
-        const bucket = process.env.S3_BUCKET;
+        const bucket = process.env.S3_BUCKET_NAME;
         if (bucket) {
             try {
                 await s3.send(new DeleteObjectCommand({ Bucket: bucket, Key: doc.s3Key }));
@@ -254,7 +254,7 @@ export async function deleteDocument(documentId: string): Promise<void> {
 export async function deleteDealDocument(dealId: string): Promise<void> {
     await requireSession();
 
-    const bucket = process.env.S3_BUCKET;
+    const bucket = process.env.S3_BUCKET_NAME;
     const key = `crm/deals/${dealId}/doc.pdf`;
 
     if (bucket) {
