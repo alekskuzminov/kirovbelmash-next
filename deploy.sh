@@ -21,6 +21,9 @@ bash /var/www/kirovbelmash-next/scripts/backup-db.sh || echo "⚠️  Backup fai
 echo "⚙️ Generating Prisma Client..."
 npx prisma@6 generate
 
+echo "🗄️ Syncing database schema..."
+npx prisma@6 db push --accept-data-loss=false
+
 echo "🔨 Building the project..."
 npm run build
 

@@ -105,6 +105,7 @@ export default function DealModal({ deal, stages, users, onClose, onDeleted }: P
     // Documents
     const [documents, setDocuments] = useState<DocItem[]>(deal.documents);
     const [isUploadingDoc, setIsUploadingDoc] = useState(false);
+    const [uploadError, setUploadError] = useState<string | null>(null);
     const [previewDoc, setPreviewDoc] = useState<{ url: string; mimeType: string | null; name: string } | null>(null);
     const [confirmDeleteDocId, setConfirmDeleteDocId] = useState<string | null>(null);
 
@@ -154,6 +155,7 @@ export default function DealModal({ deal, stages, users, onClose, onDeleted }: P
 
     async function handleDocUpload(files: FileList) {
         setIsUploadingDoc(true);
+        setUploadError(null);
         for (const file of Array.from(files)) {
             const fd = new FormData();
             fd.append('file', file);
@@ -162,6 +164,9 @@ export default function DealModal({ deal, stages, users, onClose, onDeleted }: P
             if (res.ok) {
                 const doc = (await res.json()) as DocItem;
                 setDocuments((prev) => [...prev, doc]);
+            } else {
+                const body = await res.json().catch(() => ({})) as { error?: string };
+                setUploadError(body.error ?? `Ошибка загрузки (${res.status})`);
             }
         }
         setIsUploadingDoc(false);
@@ -432,6 +437,10 @@ export default function DealModal({ deal, stages, users, onClose, onDeleted }: P
                                         <p className="text-xs text-gray-600 italic">Нет документов</p>
                                     )}
                                 </div>
+
+                                {uploadError && (
+                                    <p className="text-xs text-red-400 mb-1.5">{uploadError}</p>
+                                )}
 
                                 {/* Upload button */}
                                 <label className={`flex w-full items-center justify-center gap-2 rounded-lg border border-dashed border-gray-600 px-3 py-2 text-xs text-gray-400 hover:border-gray-400 hover:text-gray-200 cursor-pointer ${isUploadingDoc ? 'opacity-50 pointer-events-none' : ''}`}>
