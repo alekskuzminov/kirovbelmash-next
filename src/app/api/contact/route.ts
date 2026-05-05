@@ -11,6 +11,7 @@ interface ContactPayload {
     message?: string;
     source?: string;
     extra?: Record<string, string>;
+    visitParams?: Record<string, string>;
     hp?: string;   // honeypot — must be empty
     ts?: number;   // form mount timestamp (client Date.now())
 }
@@ -235,6 +236,7 @@ export async function POST(request: NextRequest) {
                         stageId: firstStage.id,
                         pipelineId: pipeline.id,
                         source: data.source || 'Сайт',
+                        visitParams: data.visitParams ?? undefined,
                     },
                 });
                 await prisma.dealStageEvent.create({

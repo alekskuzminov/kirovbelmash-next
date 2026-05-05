@@ -331,6 +331,21 @@ export default function DealModal({ deal, stages, users, onClose, onDeleted }: P
                                 <div>Обновлена: {new Date(deal.updatedAt).toLocaleDateString('ru-RU')}</div>
                             </div>
 
+                            {/* UTM / Visit params */}
+                            {deal.visitParams && Object.keys(deal.visitParams).length > 0 && (
+                                <div className="border-t border-gray-700 pt-4">
+                                    <p className="text-xs text-gray-400 mb-2">UTM / Трафик</p>
+                                    <div className="space-y-1">
+                                        {Object.entries(deal.visitParams).map(([key, val]) => (
+                                            <div key={key} className="flex gap-2 text-xs">
+                                                <span className="text-gray-500 shrink-0 w-28">{key}</span>
+                                                <span className="text-gray-200 truncate" title={val}>{val}</span>
+                                            </div>
+                                        ))}
+                                    </div>
+                                </div>
+                            )}
+
                             {/* Documents */}
                             <div className="border-t border-gray-700 pt-4">
                                 <p className="text-xs text-gray-400 mb-2">Документы</p>

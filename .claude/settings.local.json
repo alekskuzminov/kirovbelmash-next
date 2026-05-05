@@ -65,7 +65,10 @@
       "Bash(node -e ':*)",
       "Bash(.\\\\node_modules\\\\.bin\\\\prisma generate:*)",
       "Bash(./node_modules/.bin/prisma generate:*)",
-      "Bash(npx prisma:*)"
+      "Bash(npx prisma:*)",
+      "Bash(ls F:/projects/kirovbelmash-next/.env*)",
+      "Bash(npx dotenv:*)",
+      "Bash(node -e \"require\\('dotenv'\\).config\\({path:'.env.local'}\\)\")"
     ]
   }
 }

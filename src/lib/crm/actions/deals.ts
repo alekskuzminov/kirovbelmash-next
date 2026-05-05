@@ -14,6 +14,7 @@ export interface SerializedDeal {
     source: string | null;
     city: string | null;
     documentUrl: string | null;
+    visitParams: Record<string, string> | null;
     createdAt: string;
     updatedAt: string;
     stageId: string;
@@ -97,6 +98,7 @@ export async function getDeals(filters?: {
         source: d.source,
         city: d.city,
         documentUrl: d.documentUrl,
+        visitParams: (d.visitParams as Record<string, string> | null) ?? null,
         createdAt: d.createdAt.toISOString(),
         updatedAt: d.updatedAt.toISOString(),
         stageId: d.stageId,

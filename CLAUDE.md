@@ -276,5 +276,15 @@ knowledge-base/
 ```
 
 - **Сервер:** VPS с PM2 (процесс `kbm-site`)
+- **Путь на VPS:** `/var/www/kirovbelmash-next/`
 - **Nginx:** конфиг `nginx-kirovbelmash.conf` в корне репозитория
 - **CDN:** Beget S3 → `cdn.kirovbelmash.ru`
+
+### Prisma-миграции на VPS
+
+```bash
+cd /var/www/kirovbelmash-next
+npx prisma migrate deploy   # применить pending-миграции (production)
+# или для разработки:
+npx prisma migrate dev --name <имя>
+```
