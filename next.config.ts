@@ -66,7 +66,7 @@ const nextConfig: NextConfig = {
               "img-src 'self' data: blob: https://cdn.kirovbelmash.ru https://cdn.kirovbelmash-site.ru",
               "media-src 'self' https://cdn.kirovbelmash.ru https://cdn.kirovbelmash-site.ru",
               "connect-src 'self' https://mc.yandex.ru https://cdn.kirovbelmash.ru https://cdn.kirovbelmash-site.ru",
-              "frame-src 'none'",
+              "frame-src https://cdn.kirovbelmash.ru https://cdn.kirovbelmash-site.ru",
               "object-src 'none'",
             ].join('; '),
           },
