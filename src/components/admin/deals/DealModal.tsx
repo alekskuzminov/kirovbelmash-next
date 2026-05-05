@@ -115,6 +115,7 @@ export default function DealModal({ deal, stages, users, onClose, onDeleted }: P
     const [confirmDeleteLegacy, setConfirmDeleteLegacy] = useState(false);
 
     const [confirmDelete, setConfirmDelete] = useState(false);
+    const [activeTab, setActiveTab] = useState<'main' | 'stats'>('main');
 
     const activity: ActivityItem[] = [
         ...notes.map((n) => ({ type: 'note' as const, ...n })),
@@ -261,6 +262,28 @@ export default function DealModal({ deal, stages, users, onClose, onDeleted }: P
 
                     <div className="grid grid-cols-2 gap-0 divide-x divide-gray-700">
                         {/* Left: fields */}
+                        <div className="flex flex-col">
+                            {/* Tabs */}
+                            <div className="flex border-b border-gray-700 px-5 pt-4">
+                                <button
+                                    onClick={() => setActiveTab('main')}
+                                    className={`mr-4 pb-2 text-xs font-medium border-b-2 transition-colors ${activeTab === 'main' ? 'border-blue-500 text-white' : 'border-transparent text-gray-500 hover:text-gray-300'}`}
+                                >
+                                    Основное
+                                </button>
+                                <button
+                                    onClick={() => setActiveTab('stats')}
+                                    className={`pb-2 text-xs font-medium border-b-2 transition-colors ${activeTab === 'stats' ? 'border-blue-500 text-white' : 'border-transparent text-gray-500 hover:text-gray-300'}`}
+                                >
+                                    Статистика
+                                    {deal.visitParams && Object.keys(deal.visitParams).length > 0 && (
+                                        <span className="ml-1.5 rounded-full bg-blue-600 px-1.5 py-0.5 text-[10px] text-white">
+                                            {Object.keys(deal.visitParams).length}
+                                        </span>
+                                    )}
+                                </button>
+                            </div>
+                        {activeTab === 'main' && (
                         <div className="p-5 space-y-4">
                             <div>
                                 <label className="block text-xs text-gray-400 mb-1">Этап</label>
@@ -330,21 +353,6 @@ export default function DealModal({ deal, stages, users, onClose, onDeleted }: P
                                 <div>Создана: {new Date(deal.createdAt).toLocaleDateString('ru-RU')}</div>
                                 <div>Обновлена: {new Date(deal.updatedAt).toLocaleDateString('ru-RU')}</div>
                             </div>
-
-                            {/* UTM / Visit params */}
-                            {deal.visitParams && Object.keys(deal.visitParams).length > 0 && (
-                                <div className="border-t border-gray-700 pt-4">
-                                    <p className="text-xs text-gray-400 mb-2">UTM / Трафик</p>
-                                    <div className="space-y-1">
-                                        {Object.entries(deal.visitParams).map(([key, val]) => (
-                                            <div key={key} className="flex gap-2 text-xs">
-                                                <span className="text-gray-500 shrink-0 w-28">{key}</span>
-                                                <span className="text-gray-200 truncate" title={val}>{val}</span>
-                                            </div>
-                                        ))}
-                                    </div>
-                                </div>
-                            )}
 
                             {/* Documents */}
                             <div className="border-t border-gray-700 pt-4">
@@ -482,6 +490,25 @@ export default function DealModal({ deal, stages, users, onClose, onDeleted }: P
                                     />
                                 </label>
                             </div>
+                        </div>
+                        )}
+
+                        {activeTab === 'stats' && (
+                        <div className="p-5">
+                            {deal.visitParams && Object.keys(deal.visitParams).length > 0 ? (
+                                <div className="space-y-2">
+                                    {Object.entries(deal.visitParams).map(([key, val]) => (
+                                        <div key={key} className="flex gap-3 text-xs py-1.5 border-b border-gray-800 last:border-0">
+                                            <span className="text-gray-500 shrink-0 w-32">{key}</span>
+                                            <span className="text-gray-200 break-all" title={val}>{val}</span>
+                                        </div>
+                                    ))}
+                                </div>
+                            ) : (
+                                <p className="text-xs text-gray-600 italic">Нет данных о визите. Параметры сохраняются для заявок, поступивших после обновления сайта.</p>
+                            )}
+                        </div>
+                        )}
                         </div>
 
                         {/* Right: activity feed */}
