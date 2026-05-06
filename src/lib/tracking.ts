@@ -80,13 +80,23 @@ export function captureVisitParams(): void {
 
 /**
  * Returns all captured visit parameters from sessionStorage.
+ * Also re-reads _ym_uid cookie at call time — it may not have existed yet
+ * when captureVisitParams() ran on first page load (YM initialises async).
  * Returns an empty object if nothing was captured yet.
  */
 export function getVisitParams(): Record<string, string> {
     if (typeof window === 'undefined') return {};
     try {
         const raw = sessionStorage.getItem(SESSION_KEY);
-        return raw ? (JSON.parse(raw) as Record<string, string>) : {};
+        const stored: Record<string, string> = raw ? (JSON.parse(raw) as Record<string, string>) : {};
+
+        // Re-read YM clientID — may have been set after captureVisitParams() ran
+        if (!stored['ya_client_id']) {
+            const ymUid = getCookie('_ym_uid');
+            if (ymUid) stored['ya_client_id'] = trim(ymUid);
+        }
+
+        return stored;
     } catch {
         return {};
     }
