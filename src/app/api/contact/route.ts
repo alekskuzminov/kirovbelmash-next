@@ -24,6 +24,45 @@ const RECIPIENTS = [
 // Minimum time between form mount and submit. Bots typically submit instantly.
 const MIN_FORM_TIME_MS = 2000;
 
+// IP rate limit: max RATE_MAX requests per RATE_WINDOW_MS sliding window.
+// In-memory state (single Node process via PM2). Honeypot/time-checks remain;
+// this protects against floods that bypass them.
+const RATE_WINDOW_MS = 60_000;
+const RATE_MAX = 5;
+const rateLimitMap = new Map<string, number[]>();
+let rateLimitCallsSinceCleanup = 0;
+
+const getClientIp = (request: NextRequest): string => {
+    const xff = request.headers.get('x-forwarded-for');
+    if (xff) return xff.split(',')[0].trim();
+    const real = request.headers.get('x-real-ip');
+    if (real) return real.trim();
+    return 'unknown';
+};
+
+const checkRateLimit = (ip: string): { ok: boolean; retryAfter: number } => {
+    const now = Date.now();
+    const cutoff = now - RATE_WINDOW_MS;
+    const stamps = (rateLimitMap.get(ip) ?? []).filter((t) => t > cutoff);
+
+    if (stamps.length >= RATE_MAX) {
+        const retryAfter = Math.max(1, Math.ceil((stamps[0] + RATE_WINDOW_MS - now) / 1000));
+        rateLimitMap.set(ip, stamps);
+        return { ok: false, retryAfter };
+    }
+    stamps.push(now);
+    rateLimitMap.set(ip, stamps);
+
+    // Periodic cleanup: drop entries with no fresh timestamps.
+    if (++rateLimitCallsSinceCleanup >= 1000) {
+        rateLimitCallsSinceCleanup = 0;
+        for (const [k, v] of rateLimitMap) {
+            if (v.every((t) => t <= cutoff)) rateLimitMap.delete(k);
+        }
+    }
+    return { ok: true, retryAfter: 0 };
+};
+
 const transporter = nodemailer.createTransport({
     host: process.env.SMTP_HOST || 'smtp.yandex.ru',
     port: Number(process.env.SMTP_PORT) || 465,
@@ -122,6 +161,17 @@ const buildHtml = (data: ContactPayload): string => {
 
 export async function POST(request: NextRequest) {
     try {
+        // Anti-spam 0: per-IP rate limit. Honeypot is good but insufficient against
+        // determined floods — limit to RATE_MAX requests per RATE_WINDOW_MS.
+        const ip = getClientIp(request);
+        const limit = checkRateLimit(ip);
+        if (!limit.ok) {
+            return NextResponse.json(
+                { error: 'Слишком много запросов. Попробуйте позже.' },
+                { status: 429, headers: { 'Retry-After': String(limit.retryAfter) } },
+            );
+        }
+
         const data: ContactPayload = await request.json();
 
         // Anti-spam 1: honeypot. Real users cannot see the field; bots fill all inputs.

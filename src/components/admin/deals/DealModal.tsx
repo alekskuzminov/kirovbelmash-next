@@ -22,6 +22,7 @@ interface Props {
     deal: SerializedDeal;
     stages: Stage[];
     users: User[];
+    isAdmin: boolean;
     onClose: () => void;
     onDeleted?: () => void;
 }
@@ -78,7 +79,7 @@ function canPreview(mimeType: string | null): boolean {
     return mimeType === 'application/pdf' || (mimeType?.startsWith('image/') ?? false);
 }
 
-export default function DealModal({ deal, stages, users, onClose, onDeleted }: Props) {
+export default function DealModal({ deal, stages, users, isAdmin, onClose, onDeleted }: Props) {
     const router = useRouter();
     const [isPending, startTransition] = useTransition();
 
@@ -371,13 +372,15 @@ export default function DealModal({ deal, stages, users, onClose, onDeleted }: P
                                                 >
                                                     Просмотр
                                                 </button>
-                                                <button
-                                                    onClick={() => setConfirmDeleteLegacy(true)}
-                                                    className="text-gray-400 hover:text-red-400 shrink-0"
-                                                    title="Удалить"
-                                                >
-                                                    <i className="ri-delete-bin-line text-sm" />
-                                                </button>
+                                                {isAdmin && (
+                                                    <button
+                                                        onClick={() => setConfirmDeleteLegacy(true)}
+                                                        className="text-gray-400 hover:text-red-400 shrink-0"
+                                                        title="Удалить"
+                                                    >
+                                                        <i className="ri-delete-bin-line text-sm" />
+                                                    </button>
+                                                )}
                                             </div>
                                             {confirmDeleteLegacy && (
                                                 <div className="flex items-center gap-2 mt-1.5 text-xs">
@@ -427,13 +430,15 @@ export default function DealModal({ deal, stages, users, onClose, onDeleted }: P
                                                         Скачать
                                                     </a>
                                                 )}
-                                                <button
-                                                    onClick={() => setConfirmDeleteDocId(doc.id)}
-                                                    className="text-gray-400 hover:text-red-400 shrink-0"
-                                                    title="Удалить"
-                                                >
-                                                    <i className="ri-delete-bin-line text-sm" />
-                                                </button>
+                                                {isAdmin && (
+                                                    <button
+                                                        onClick={() => setConfirmDeleteDocId(doc.id)}
+                                                        className="text-gray-400 hover:text-red-400 shrink-0"
+                                                        title="Удалить"
+                                                    >
+                                                        <i className="ri-delete-bin-line text-sm" />
+                                                    </button>
+                                                )}
                                             </div>
                                             {confirmDeleteDocId === doc.id && (
                                                 <div className="flex items-center gap-2 mt-1.5 text-xs">
@@ -578,31 +583,35 @@ export default function DealModal({ deal, stages, users, onClose, onDeleted }: P
 
                     {/* Footer */}
                     <div className="flex items-center justify-between border-t border-gray-700 px-5 py-4">
-                        {!confirmDelete ? (
-                            <button
-                                onClick={() => setConfirmDelete(true)}
-                                className="text-sm text-red-400 hover:text-red-300"
-                            >
-                                <i className="ri-delete-bin-line mr-1" />
-                                Удалить
-                            </button>
+                        {isAdmin ? (
+                            !confirmDelete ? (
+                                <button
+                                    onClick={() => setConfirmDelete(true)}
+                                    className="text-sm text-red-400 hover:text-red-300"
+                                >
+                                    <i className="ri-delete-bin-line mr-1" />
+                                    Удалить
+                                </button>
+                            ) : (
+                                <div className="flex items-center gap-3">
+                                    <span className="text-sm text-red-400">Удалить сделку?</span>
+                                    <button
+                                        onClick={handleDelete}
+                                        disabled={isPending}
+                                        className="rounded bg-red-600 px-3 py-1 text-xs text-white hover:bg-red-700"
+                                    >
+                                        Да
+                                    </button>
+                                    <button
+                                        onClick={() => setConfirmDelete(false)}
+                                        className="text-xs text-gray-400 hover:text-white"
+                                    >
+                                        Отмена
+                                    </button>
+                                </div>
+                            )
                         ) : (
-                            <div className="flex items-center gap-3">
-                                <span className="text-sm text-red-400">Удалить сделку?</span>
-                                <button
-                                    onClick={handleDelete}
-                                    disabled={isPending}
-                                    className="rounded bg-red-600 px-3 py-1 text-xs text-white hover:bg-red-700"
-                                >
-                                    Да
-                                </button>
-                                <button
-                                    onClick={() => setConfirmDelete(false)}
-                                    className="text-xs text-gray-400 hover:text-white"
-                                >
-                                    Отмена
-                                </button>
-                            </div>
+                            <span />
                         )}
                         <div className="flex gap-3">
                             <button

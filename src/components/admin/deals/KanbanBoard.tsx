@@ -32,6 +32,7 @@ interface Props {
     users: User[];
     contacts: Contact[];
     currentUserId: string;
+    currentUserRole: 'ADMIN' | 'MANAGER';
     pipelineId: string;
 }
 
@@ -41,8 +42,10 @@ export default function KanbanBoard({
     users,
     contacts,
     currentUserId,
+    currentUserRole,
     pipelineId,
 }: Props) {
+    const isAdmin = currentUserRole === 'ADMIN';
     const router = useRouter();
     const [isPending, startTransition] = useTransition();
 
@@ -290,6 +293,7 @@ export default function KanbanBoard({
                     deal={editingDeal}
                     stages={stages}
                     users={users}
+                    isAdmin={isAdmin}
                     onClose={() => setEditingDeal(null)}
                     onDeleted={handleDealUpdated}
                 />
@@ -333,7 +337,10 @@ export default function KanbanBoard({
                                 active: 'bg-emerald-700/90 text-white scale-105',
                             },
                         ] as const
-                    ).map(({ key, label, icon, base, active }) => (
+                    )
+                        // Hard delete is admin-only — see deleteDeal in deals.ts.
+                        .filter(({ key }) => key !== 'delete' || isAdmin)
+                        .map(({ key, label, icon, base, active }) => (
                         <div
                             key={key}
                             className={`pointer-events-auto flex cursor-default flex-col items-center justify-center gap-1.5 rounded-xl px-5 py-4 shadow-lg backdrop-blur-sm transition-all ${

@@ -1,7 +1,7 @@
 'use server';
 
 import { revalidatePath } from 'next/cache';
-import { requireSession } from '@/lib/auth';
+import { requireSession, requireAdmin } from '@/lib/auth';
 import { prisma } from '@/lib/prisma';
 import { moveDealToStage } from '@/lib/crm/deals';
 import { s3 } from '@/lib/s3';
@@ -200,7 +200,9 @@ export async function updateDeal(
 }
 
 export async function deleteDeal(id: string): Promise<void> {
-    await requireSession();
+    // Even though the delete is soft (deletedAt), keep destructive ops admin-only
+    // to prevent accidental loss by managers.
+    await requireAdmin();
 
     await prisma.deal.update({ where: { id }, data: { deletedAt: new Date() } });
     revalidatePath('/admin/crm/deals');
@@ -231,7 +233,8 @@ export async function closeDeal(id: string, result: 'WON' | 'LOST'): Promise<voi
 }
 
 export async function deleteDocument(documentId: string): Promise<void> {
-    await requireSession();
+    // Hard delete from S3 + DB is irreversible — restrict to admin.
+    await requireAdmin();
 
     const doc = await prisma.document.findUnique({
         where: { id: documentId },
@@ -254,7 +257,8 @@ export async function deleteDocument(documentId: string): Promise<void> {
 }
 
 export async function deleteDealDocument(dealId: string): Promise<void> {
-    await requireSession();
+    // Removes the file from S3 — restrict to admin.
+    await requireAdmin();
 
     const bucket = process.env.S3_BUCKET_NAME;
     const key = `crm/deals/${dealId}/doc.pdf`;

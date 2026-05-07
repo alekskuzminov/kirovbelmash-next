@@ -42,6 +42,7 @@ export default async function DealsPage() {
                 users={users}
                 contacts={contacts}
                 currentUserId={session?.user?.id ?? ''}
+                currentUserRole={session?.user?.role ?? 'MANAGER'}
                 pipelineId={pipeline.id}
             />
         </div>
