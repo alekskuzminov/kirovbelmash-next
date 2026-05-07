@@ -49,3 +49,6 @@ public/robots.txt
 
 # local notes
 /notes
+
+# Claude Code worktrees
+.claude/worktrees/
