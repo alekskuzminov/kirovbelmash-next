@@ -107,6 +107,44 @@ function renderSection(section: BlogSection, index: number) {
                     ))}
                 </div>
             );
+        case 'faq':
+            return (
+                <div key={index} className="my-10">
+                    {section.content && (
+                        <div className="text-center mb-8 sm:mb-10">
+                            <div className="flex items-center justify-center space-x-2 mb-3">
+                                <div className="w-8 h-0.5 bg-red-500" />
+                                <span className="text-red-600 text-sm font-medium tracking-wider uppercase">Вопросы</span>
+                                <div className="w-8 h-0.5 bg-red-500" />
+                            </div>
+                            <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 tracking-tight">
+                                {section.content}
+                            </h2>
+                        </div>
+                    )}
+                    <div className="space-y-3">
+                        {section.faqs?.map((item, i) => (
+                            <details
+                                key={i}
+                                className="group bg-gray-50 rounded-xl border border-gray-100 overflow-hidden"
+                            >
+                                <summary className="flex items-center justify-between px-5 sm:px-6 py-4 cursor-pointer list-none">
+                                    <h3 className="text-sm sm:text-base font-medium text-gray-900 pr-4">{item.q}</h3>
+                                    <div className="w-7 h-7 flex items-center justify-center flex-shrink-0">
+                                        <i className="ri-add-line text-lg text-gray-400 group-open:hidden" />
+                                        <i className="ri-subtract-line text-lg text-red-500 hidden group-open:block" />
+                                    </div>
+                                </summary>
+                                <div className="px-5 sm:px-6 pb-4">
+                                    <p className="text-sm text-gray-600 leading-relaxed">
+                                        {parseLinks(item.a)}
+                                    </p>
+                                </div>
+                            </details>
+                        ))}
+                    </div>
+                </div>
+            );
         case 'cta':
             return (
                 <div key={index} className="my-10 bg-gray-50 border border-gray-200 rounded-xl p-6 sm:p-8 flex flex-col sm:flex-row sm:items-center gap-4">
