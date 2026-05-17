@@ -712,9 +712,9 @@ export default function KpLiniyaBriketirovaniya1000Page() {
 
             {/* === Стр. 5–7: Проектная документация (альбомный формат) === */}
             {[
-                { src: '/images/kp/briket-schema-1.jpg', alt: 'Схема линии брикетирования, лист 1', pageNo: 5 },
-                { src: '/images/kp/briket-schema-2.jpg', alt: 'Схема линии брикетирования, лист 2', pageNo: 6 },
-                { src: '/images/kp/briket-schema-3.jpg', alt: 'Схема линии брикетирования, лист 3', pageNo: 7 },
+                { src: '/images/kp/briket-schema-1.webp', alt: 'Схема линии брикетирования, лист 1', pageNo: 5 },
+                { src: '/images/kp/briket-schema-2.webp', alt: 'Схема линии брикетирования, лист 2', pageNo: 6 },
+                { src: '/images/kp/briket-schema-3.webp', alt: 'Схема линии брикетирования, лист 3', pageNo: 7 },
             ].map(({ src, alt, pageNo }) => (
                 <section key={pageNo} className="kp-page kp-page--landscape">
                     <PageHeader />

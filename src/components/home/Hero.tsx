@@ -40,7 +40,7 @@ export default function Hero() {
             >
                 <div className="absolute inset-0 animate-slowZoom">
                     <Image
-                        src="/images/home/hero-bg-line.jpg"
+                        src="/images/home/hero-bg-line.webp"
                         alt="Завод КировБелМаш — производство оборудования для переработки древесных отходов"
                         fill
                         priority
