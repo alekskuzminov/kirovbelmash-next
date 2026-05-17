@@ -1,0 +1,33 @@
+/**
+ * Blur placeholder data URLs for hero background images.
+ * Each is a 10×6px WebP encoded as base64.
+ * Generated via: sharp(src).resize(10,6).webp({quality:20}).toBuffer()
+ *
+ * Usage: <Image ... placeholder="blur" blurDataURL={BLUR.heroHome} />
+ */
+export const HERO_BLUR: Record<string, string> = {
+    heroHome:
+        'data:image/webp;base64,UklGRkIAAABXRUJQVlA4IDYAAADwAQCdASoKAAYABUB8JYgCdAEPNXWl/oAA+6GD7rggLAYpMTV2bFM7c0i32V1R87imdcmgAAA=',
+    whyHome:
+        'data:image/webp;base64,UklGRjwAAABXRUJQVlA4IDAAAACwAQCdASoKAAYABUB8JZQAAppnLGoAAPAkMi6aG0VMjKm2n5moVf7wQmiDwfMIAAA=',
+    aboutHero:
+        'data:image/webp;base64,UklGRjoAAABXRUJQVlA4IC4AAADQAQCdASoKAAYABUB8JYwCdAD0lbhgAAD7pchTbhtS5tWBu8f8KCgPWxHdgAAA',
+    aboutMission:
+        'data:image/webp;base64,UklGRjoAAABXRUJQVlA4IC4AAACwAQCdASoKAAYABUB8JZQAAqxWdJIAAP68G1TDLLCKgoJ5WQhmrfqzcpgCuIAA',
+    aboutCerts:
+        'data:image/webp;base64,UklGRkYAAABXRUJQVlA4IDoAAADQAQCdASoKAAYABUB8JQBOgBuMKz+rAAD+wF5GWsYHtQEkkI6N21xFp7IdLSBgGbO+gSclm62ZoAAA',
+    blog:
+        'data:image/webp;base64,UklGRkQAAABXRUJQVlA4IDgAAADQAQCdASoKAAYABUB8JQBOgCFp04FwgAD+wj+r4wO0lOT1Bxf0Km0OGwx+aBAooYGAFywRmGAAAA==',
+    calculator:
+        'data:image/webp;base64,UklGRkoAAABXRUJQVlA4ID4AAACwAQCdASoKAAYABUB8JQBOgB6Do5awAP7ayySWu7+Pl8bmxpAilJ7ZtJ4wbWY5VaHUA4JZPeb0hvhG4XQAAA==',
+    services:
+        'data:image/webp;base64,UklGRkQAAABXRUJQVlA4IDgAAADQAQCdASoKAAYABUB8JQBOgB+Fvf/WgAD+TD7Fcx/syn0/c4kAdMensaSB8OXFEU4XHYUHMwAAAA==',
+    projects:
+        'data:image/webp;base64,UklGRkQAAABXRUJQVlA4IDgAAADwAQCdASoKAAYABUB8JYgCdAEQD/zP6AAA/qnLl0yyRmvYgsy+86Hh1d+8zsoQOU3F+RUi3IAAAA==',
+    linesBriquetting:
+        'data:image/webp;base64,UklGRkAAAABXRUJQVlA4IDQAAACwAQCdASoKAAYABUB8JQBWABtqhAYMAP6f2iZifGJgWsFi0+l/RXR/ltcyolMs7ksb0AAA',
+    linesDrying:
+        'data:image/webp;base64,UklGRkIAAABXRUJQVlA4IDYAAACwAQCdASoKAAYABUB8JQAAVWVCqUXgAPqR/sme9cdg2fh99CD7D+Szi/A46qiCaVkCLVwoAAA=',
+    linesGranulation:
+        'data:image/webp;base64,UklGRj4AAABXRUJQVlA4IDIAAACQAQCdASoKAAYABUB8JZQAAkrTR0AA9iMnpaokQrcPHzTgRI/S9+HoXQpBcU0vmEAAAA==',
+};
