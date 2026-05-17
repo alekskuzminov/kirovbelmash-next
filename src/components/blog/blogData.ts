@@ -36,6 +36,7 @@ export interface BlogPost {
     updatedAt?: string;
     readTime: number;
     image: string;
+    heroImage?: string;
     tags: string[];
     content: BlogSection[];
 }
@@ -61,7 +62,8 @@ export const blogPosts: BlogPost[] = [
         category: 'Брикетирование',
         date: '2026-05-17',
         readTime: 6,
-        image: '/images/blog/proizvodstvo-briketov-ruf/proizvodstvo-briketov-ruf.webp',
+        image: '/images/blog/proizvodstvo-briketov-ruf/proizvodstvo-briketov-ruf-preview.webp',
+        heroImage: '/images/blog/proizvodstvo-briketov-ruf/proizvodstvo-briketov-ruf-hero.webp',
         tags: ['RUF', 'брикетирование', 'пресс для брикетов', 'топливные брикеты', 'технология RUF'],
         content: [
             {

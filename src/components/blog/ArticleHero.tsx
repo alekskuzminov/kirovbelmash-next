@@ -14,7 +14,7 @@ function formatDate(dateStr: string) {
 
 export default function ArticleHero({ post }: ArticleHeroProps) {
     const defaultImage = `/images/blog/blog_placeholder.png`;
-    const imageSrc = post.image || defaultImage;
+    const imageSrc = post.heroImage || post.image || defaultImage;
 
     return (
         <section className="relative min-h-[420px] sm:min-h-[560px] overflow-hidden bg-gray-900">
