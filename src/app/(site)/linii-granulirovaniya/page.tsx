@@ -118,7 +118,7 @@ export default function GranulationLinePage() {
             <section id="variants" className="pt-8 pb-6 bg-white border-b border-gray-100">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-2">
-                        Линии гранулирования полного цикла: производительность, состав линии и цены
+                        Линии гранулирования полного цикла:<br className="hidden sm:block" />производительность, состав линии и цены
                     </h2>
                     <p className="text-base text-gray-600 max-w-2xl">
                         Производительность от 500 до 2000 кг/час. Цена от 9,2 млн ₽. Комплектация «под ключ».
