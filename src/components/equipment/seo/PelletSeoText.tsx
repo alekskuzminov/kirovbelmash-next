@@ -9,7 +9,7 @@ export default function PelletSeoText() {
                 <div className="flex items-center gap-3 mb-8">
                     <div className="w-8 h-0.5 bg-red-500" />
                     <h2 className="text-2xl sm:text-3xl font-bold text-gray-900">
-                        Станок для производства пеллет из опилок
+                        Станки для производства пеллет из опилок
                     </h2>
                 </div>
 
@@ -81,6 +81,24 @@ export default function PelletSeoText() {
                                 линии гранулирования под ключ
                             </Link>.
                         </p>
+
+                        <div className="border border-red-100 rounded-xl p-5 sm:p-6 bg-red-50/60">
+                            <h3 className="text-base sm:text-lg font-bold text-gray-900 mb-3 flex items-center gap-2">
+                                <i className="ri-flow-chart text-red-600 text-xl" />
+                                Когда нужен не станок, а комплексная линия
+                            </h3>
+                            <p className="text-sm sm:text-base text-gray-700 leading-relaxed">
+                                Если вы запускаете производство пеллет с нуля, работаете с сырьём
+                                естественной влажности или хотите получить единый проект с сушкой,
+                                охлаждением, фасовкой, монтажом и запуском, выгоднее смотреть не
+                                отдельные станки, а{' '}
+                                <Link href="/linii-granulirovaniya" className="text-red-600 underline underline-offset-2 hover:text-red-700 font-medium">
+                                    линии гранулирования под ключ
+                                </Link>.
+                                На странице линии собраны готовые комплектации 500–2000 кг/ч
+                                с ценами, составом и требованиями к сырью.
+                            </p>
+                        </div>
 
                         {/* Блок: покупка */}
                         <div className="border border-gray-200 rounded-xl p-5 sm:p-6 bg-gray-50">
