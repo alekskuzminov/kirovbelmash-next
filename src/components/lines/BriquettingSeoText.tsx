@@ -106,7 +106,7 @@ export default function BriquettingSeoText() {
                             </h3>
                             <p className="text-sm sm:text-base text-gray-700 leading-relaxed">
                                 Если вы модернизируете действующий цех, можно купить не только
-                                комплектную линию, но и отдельное оборудование для производства
+                                комплексную линию, но и отдельное оборудование для производства
                                 брикетов: например,{' '}
                                 <Link href="/oborudovanie/press-pbm2-dlya-briketov" className="text-red-600 underline underline-offset-2 hover:text-red-700 font-medium">
                                     пресс ПБМ-2

@@ -76,6 +76,24 @@ export default function BriketirujushheeSeoText() {
                             транспортёрами и системой управления.
                         </p>
 
+                        <div className="border border-red-100 rounded-xl p-5 sm:p-6 bg-red-50/60">
+                            <h3 className="text-base sm:text-lg font-bold text-gray-900 mb-3 flex items-center gap-2">
+                                <i className="ri-flow-chart text-red-600 text-xl" />
+                                Когда нужен не станок, а комплектная линия
+                            </h3>
+                            <p className="text-sm sm:text-base text-gray-700 leading-relaxed">
+                                Если вы запускаете производство брикетов с нуля, работаете с сырьём
+                                естественной влажности или хотите получить единый проект с сушкой,
+                                транспортом, автоматикой, монтажом и запуском, выгоднее смотреть не
+                                отдельные станки, а{' '}
+                                <Link href="/linii-briketirovaniya" className="text-red-600 underline underline-offset-2 hover:text-red-700 font-medium">
+                                    линии брикетирования под ключ
+                                </Link>.
+                                На странице линии собраны готовые комплектации 500–2000 кг/ч с
+                                ценами, составом оборудования и требованиями к помещению.
+                            </p>
+                        </div>
+
                         {/* Блок: покупка */}
                         <div className="border border-gray-200 rounded-xl p-5 sm:p-6 bg-gray-50">
                             <h3 className="text-base sm:text-lg font-bold text-gray-900 mb-3 flex items-center gap-2">
