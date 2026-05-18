@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import { Metadata } from 'next';
 import { lineVariants } from '@/components/lines/linesData';
 import LineCard from '@/components/lines/LineCard';
@@ -14,12 +15,12 @@ import ContactForm from '@/components/home/ContactForm';
 import BreadcrumbJsonLd from '@/components/ui/BreadcrumbJsonLd';
 
 export const metadata: Metadata = {
-    title: 'Оборудование для производства топливных брикетов из опилок',
-    description: 'Оборудование для производства топливных брикетов из опилок — от производителя. Цена за комплект от 10,5 млн ₽. Производительность 500–2000 кг/ч. Монтаж и запуск под ключ.',
+    title: 'Линии брикетирования и оборудование для производства брикетов',
+    description: 'Линии брикетирования и оборудование для производства топливных брикетов из опилок. Цена за комплект от 10,5 млн ₽. Производительность 500–2000 кг/ч. Монтаж и запуск под ключ.',
     alternates: { canonical: '/linii-briketirovaniya' },
     openGraph: {
-        title: 'Оборудование для производства топливных брикетов из опилок',
-        description: 'Оборудование для производства топливных брикетов из опилок — от производителя. Цена за комплект от 10,5 млн ₽. Производительность 500–2000 кг/ч. Монтаж и запуск под ключ.',
+        title: 'Линии брикетирования и оборудование для производства брикетов',
+        description: 'Линии брикетирования и оборудование для производства топливных брикетов из опилок. Цена за комплект от 10,5 млн ₽. Производительность 500–2000 кг/ч. Монтаж и запуск под ключ.',
         url: 'https://kirovbelmash.ru/linii-briketirovaniya',
         type: 'website',
         siteName: 'КировБелМаш',
@@ -28,7 +29,7 @@ export const metadata: Metadata = {
                 url: '/images/logo/og-image.jpg',
                 width: 1200,
                 height: 630,
-                alt: 'Оборудование для производства топливных брикетов из опилок | КировБелМаш',
+                alt: 'Линии брикетирования и оборудование для производства брикетов | КировБелМаш',
             },
         ],
     },
@@ -44,8 +45,8 @@ function parsePrice(priceStr: string): number | null {
 const itemListSchema = {
     '@context': 'https://schema.org',
     '@type': 'ItemList',
-    name: 'Линии брикетирования топливных брикетов КировБелМаш',
-    description: 'Оборудование для изготовления топливных брикетов из опилок и древесных отходов',
+    name: 'Линии брикетирования и оборудование для производства брикетов КировБелМаш',
+    description: 'Линия по производству топливных брикетов из опилок и древесных отходов: дробление, сушка, прессование и упаковка',
     numberOfItems: lineVariants.briquetting.length,
     itemListElement: lineVariants.briquetting.map((v, i) => ({
         '@type': 'ListItem',
@@ -80,28 +81,28 @@ export default function BriquettingLinePage() {
             />
             <LineHero
                 label="Линии брикетирования"
-                headingMain="Оборудование для производства топливных брикетов из опилок"
-                headingAccent="линии брикетирования «под ключ»"
+                headingMain="Линии брикетирования и оборудование для производства топливных брикетов"
+                headingAccent="из опилок «под ключ»"
                 description={[
                     // Десктопная версия (скрыта на мобильных)
                     <div key="desktop-1" className="hidden sm:block">
-                        Изготовим линию брикетирования евродров Pini Key и Ruf «под ключ» за 2 месяца.
+                        Изготовим линию для производства топливных брикетов из опилок — срок 2&nbsp;месяца.
                     </div>,
                     <div key="desktop-2" className="hidden sm:block">
-                        Полный цикл: проектируем, производим, обучаем и запускаем.
+                        Подберём состав оборудования: дробилка, сушка, пресс, резка, автоматика и упаковка.
                     </div>,
                     <div key="desktop-3" className="hidden sm:block">
-                        Гарантия качества и сервисная поддержка.
+                        Цена комплектной линии — от 10,5 млн ₽. Монтаж, запуск и обучение включаем в проект.
                     </div>,
                     // Мобильная версия (скрыта на десктопах)
                     <div key="mobile-1" className="block sm:hidden text-base">
-                        Линии брикетирования Pini Key и Ruf &quot;под ключ&quot; за 2 месяца
+                        Линия по производству брикетов Pini & Kay из опилок за 2 месяца
                     </div>,
                     <div key="mobile-2" className="block sm:hidden text-base">
-                        Проектирование, производство, обучение персонала и запуск
+                        Дробилка, сушка, пресс, резка и автоматика в одном проекте
                     </div>,
                     <div key="mobile-3" className="block sm:hidden text-base">
-                        Гарантия качества и сервис
+                        Цена от 10,5 млн ₽, монтаж и запуск под ключ
                     </div>,
                 ]}
                 breadcrumbs={[
@@ -117,11 +118,35 @@ export default function BriquettingLinePage() {
             <section id="variants" className="pt-8 pb-6 bg-white border-b border-gray-100">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-2">
-                        Линии брикетирования полного цикла: производительность и цены
+                        Линии брикетирования полного цикла:<br className="hidden sm:block" />производительность, состав оборудования и цены
                     </h2>
                     <p className="text-base text-gray-600 max-w-2xl">
                         Производительность от 500 до 2000 кг/час. Цена от 10,5 млн ₽. Комплектация «под ключ».
                     </p>
+                    <p className="mt-4 text-base text-gray-600 max-w-4xl leading-relaxed">
+                        Ниже представлены линии по производству брикетов из опилок, щепы, горбыля и лузги.
+                        В составе каждой линии — оборудование для брикетов полного цикла: дробилка, сушильный барабан,
+                        бункер-накопитель, пресс, автомат резки и система автоматики. Если вам нужны не только
+                        комплектные линии, но и отдельные узлы, смотрите{' '}
+                        <Link href="/oborudovanie/briketirujushhee-oborudovanie" className="text-red-600 hover:underline font-medium">
+                            станки для производства брикетов
+                        </Link>{' '}
+                        и{' '}
+                        <Link href="/oborudovanie/press-pbm2-dlya-briketov" className="text-red-600 hover:underline font-medium">
+                            пресс ПБМ-2
+                        </Link>.
+                    </p>
+                    <div className="mt-4 flex flex-wrap gap-3 text-sm">
+                        <Link href="/oborudovanie/briketirujushhee-oborudovanie" className="inline-flex items-center rounded-full border border-red-100 bg-red-50 px-4 py-2 font-medium text-red-700 transition-colors hover:bg-red-100">
+                            Станки для производства брикетов
+                        </Link>
+                        <Link href="/oborudovanie/press-pbm2-dlya-briketov" className="inline-flex items-center rounded-full border border-red-100 bg-red-50 px-4 py-2 font-medium text-red-700 transition-colors hover:bg-red-100">
+                            Пресс ПБМ-2
+                        </Link>
+                        <Link href="/sushilnie-linii" className="inline-flex items-center rounded-full border border-red-100 bg-red-50 px-4 py-2 font-medium text-red-700 transition-colors hover:bg-red-100">
+                            Сушильные линии для опилок
+                        </Link>
+                    </div>
                 </div>
             </section>
 

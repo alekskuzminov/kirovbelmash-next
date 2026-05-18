@@ -9,12 +9,13 @@ export default function BriquettingProcess() {
                 {/* Header */}
                 <div className="text-center mb-10 sm:mb-14">
                     <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-4 leading-tight">
-                        Как происходит переработка сырья в топливные брикеты<br className="hidden sm:block" />
-                        с помощью нашего оборудования?
+                        Как линия брикетирования перерабатывает опилки<br className="hidden sm:block" />
+                        в топливные брикеты
                     </h2>
                     <p className="text-base sm:text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed">
-                        Производственные линии КировБелМаш для изготовления топливных брикетов позволяют эффективно
-                        перерабатывать широкий спектр сырья в качественное топливо. Весь процесс осуществляется в 3 этапа:
+                        Линия по производству брикетов включает подготовку сырья, сушку и прессование.
+                        Ниже показано, как работает комплект оборудования для брикетирования полного цикла
+                        и какие этапы проходит сырьё до готового продукта.
                     </p>
                 </div>
 
@@ -101,7 +102,7 @@ export default function BriquettingProcess() {
                         <div className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden mb-5 bg-gray-100">
                             <Image
                                 src="/images/lines/briquetting/briquettes-result.webp"
-                                alt="Готовые топливные брикеты RUF и Pini Kay"
+                                alt="Готовые топливные брикеты Pini & Kay"
                                 fill
                                 className="object-cover"
                                 sizes="(max-width: 768px) 100vw, 33vw"
@@ -117,7 +118,7 @@ export default function BriquettingProcess() {
                         </div>
                         <div className="text-sm text-gray-600 leading-relaxed pl-11 space-y-2">
                             <p>
-                                Наши готовые линии производят древесные топливные брикеты формата RUF и Pini Key.
+                                Наши готовые линии производят древесные топливные брикеты Pini & Kay.
                                 Они эффективно заменяют дрова, уголь и другие виды топлива.
                             </p>
                             <p>

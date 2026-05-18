@@ -85,7 +85,7 @@ export default function LineHero({
 
             {/* Content */}
             <div className="relative z-20 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 sm:pt-40 pb-12 sm:pb-16">
-                <div className="max-w-4xl">
+                <div className="max-w-5xl">
                     {/* Breadcrumbs - Entrance Animation */}
                     <div className="opacity-0 animate-slideUp">
                         <Breadcrumbs
