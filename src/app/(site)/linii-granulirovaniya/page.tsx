@@ -124,7 +124,7 @@ export default function GranulationLinePage() {
                         Производительность от 500 до 2000 кг/час. Цена от 9,2 млн ₽. Комплектация «под ключ».
                     </p>
                     <p className="mt-4 text-base text-gray-600 max-w-4xl leading-relaxed">
-                        Ниже представлены линии по производству пеллет из опилок, щепы, горбыля и лузги.
+                        Ниже представлены линии по производству пеллет из опилок, стружки, щепы и лузги.
                         В составе каждой линии — дробилка, сушильный барабан, гранулятор, колонна охлаждения,
                         фасовка и автоматика. Если вам нужны не комплексные линии, а отдельные станки,
                         смотрите{' '}
@@ -152,7 +152,7 @@ export default function GranulationLinePage() {
 
             <section className="py-10">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                         {lineVariants.granulation.map((variant) => (
                             <LineCard key={variant.id} variant={variant} />
                         ))}

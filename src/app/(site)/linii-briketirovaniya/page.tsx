@@ -124,7 +124,7 @@ export default function BriquettingLinePage() {
                         Производительность от 500 до 2000 кг/час. Цена от 10,5 млн ₽. Комплектация «под ключ».
                     </p>
                     <p className="mt-4 text-base text-gray-600 max-w-4xl leading-relaxed">
-                        Ниже представлены линии по производству брикетов из опилок, щепы, горбыля и лузги.
+                        Ниже представлены линии по производству брикетов из опилок, стружки, щепы и лузги.
                         В составе каждой линии — оборудование для брикетов полного цикла: дробилка, сушильный барабан,
                         бункер-накопитель, пресс, автомат резки и система автоматики. Если вам нужны не только
                         комплексные линии, но и отдельные узлы, смотрите{' '}
@@ -152,7 +152,7 @@ export default function BriquettingLinePage() {
 
             <section className="py-10">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                         {lineVariants.briquetting.map((variant) => (
                             <LineCard key={variant.id} variant={variant} />
                         ))}

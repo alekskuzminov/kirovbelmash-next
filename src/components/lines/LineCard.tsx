@@ -31,7 +31,7 @@ export default function LineCard({ variant }: LineCardProps) {
                     src={variant.image}
                     alt={variant.name}
                     fill
-                    sizes="(max-width: 768px) 100vw, 50vw"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                     className="object-contain p-2 object-center transition-transform duration-500 hover:scale-105"
                 />
             </div>
@@ -42,8 +42,8 @@ export default function LineCard({ variant }: LineCardProps) {
                     {variant.name}
                 </h3>
 
-                <p className="text-2xl font-bold text-gray-900 mb-4">
-                    <span className="text-lg font-medium text-gray-600">Цена: </span>
+                <p className="text-xl font-bold text-gray-900 mb-4">
+                    <span className="text-base font-medium text-gray-600">Цена: </span>
                     {variant.price}
                 </p>
 

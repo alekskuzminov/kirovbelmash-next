@@ -2,19 +2,16 @@ export const equipmentPrices: Record<string, Record<string, number>> = {
     briquetting: {
         p1: 10524000,
         p2: 12946000,
-        p3: 23173000,
         p4: 33030000,
     },
     granulation: {
         p1: 9200000,
         p2: 14800000,
-        p3: 23302000,
         p4: 34511000,
     },
     drying: {
         p1: 6097000,
         p2: 7769000,
-        p3: 15005000,
         p4: 21631000,
     }
 };
@@ -43,7 +40,6 @@ export const equipmentTypes = [
 export const productivityOptions = [
     { id: 'p1', label: '500 кг/час', multiplier: 1.0 },
     { id: 'p2', label: '1000 кг/час', multiplier: 1.35 },
-    { id: 'p3', label: '1200 кг/час', multiplier: 1.8 },
     { id: 'p4', label: '2000 кг/час', multiplier: 2.5 },
 ];
 
