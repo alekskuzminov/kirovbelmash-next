@@ -1,18 +1,18 @@
 export const equipmentPrices: Record<string, Record<string, number>> = {
     briquetting: {
-        p1: 10524000,
-        p2: 12946000,
-        p4: 33030000,
+        p1: 9368000,
+        p2: 11745000,
+        p4: 27895000,
     },
     granulation: {
-        p1: 9200000,
-        p2: 14800000,
-        p4: 34511000,
+        p1: 10563000,
+        p2: 13833000,
+        p4: 28591000,
     },
     drying: {
-        p1: 6097000,
-        p2: 7769000,
-        p4: 21631000,
+        p1: 5413000,
+        p2: 7129000,
+        p4: 17565000,
     }
 };
 
@@ -21,19 +21,19 @@ export const equipmentTypes = [
         id: 'briquetting',
         title: 'Брикетирование',
         icon: 'ri-shape-line',
-        basePrice: 10524000,
+        basePrice: 9368000,
     },
     {
         id: 'granulation',
         title: 'Гранулирование',
         icon: 'ri-bubble-chart-line',
-        basePrice: 9200000,
+        basePrice: 10563000,
     },
     {
         id: 'drying',
         title: 'Сушка',
         icon: 'ri-fire-line',
-        basePrice: 6097000,
+        basePrice: 5413000,
     },
 ];
 
