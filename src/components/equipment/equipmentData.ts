@@ -13,6 +13,8 @@ export interface EquipmentItem {
   capacity: string;
   weight: string;
   gallery?: string[];
+  /** Цена «от …» в виде строки. Если не указана — в YML-фиде оффер уходит с available="false" и sales_notes="Цена по запросу". */
+  price?: string;
 }
 
 export const equipmentCategoriesConfig = [
