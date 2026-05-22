@@ -1,10 +1,5 @@
 import { NextResponse } from 'next/server';
 import { lineVariants, type LineVariant } from '@/components/lines/linesData';
-import {
-    equipmentItems,
-    equipmentCategoriesConfig,
-    type EquipmentItem,
-} from '@/components/equipment/equipmentData';
 
 const SITE_URL = 'https://kirovbelmash.ru';
 const COMPANY = 'КировБелМаш';
@@ -14,6 +9,11 @@ const SALES_NOTES_ON_REQUEST = 'Цена по запросу';
 /**
  * Категории фида. ID-ы стабильные — на них завязываются кампании в Я.Директе,
  * поэтому менять/переиспользовать существующие нельзя. Новые добавлять с новыми id.
+ *
+ * Сейчас в фид идут только производственные линии. Оборудование (отдельные агрегаты)
+ * пока вынесено за пределы фида — у позиций не проставлены цены, а Я.Директ отказывается
+ * принимать офферы с `price=0`. Когда появятся цены, для оборудования сделаем отдельный
+ * роут (например, `/api/feed/yml-equipment`).
  */
 const LINE_CATEGORIES = [
     { id: 1, name: 'Линии брикетирования' },
@@ -37,19 +37,6 @@ const lineShortNameMap: Record<keyof typeof lineVariants, string> = {
     granulation: 'Линия гранулирования',
     drying: 'Сушильная линия',
 };
-
-/** ID-ы категорий оборудования начинаем с 10, чтобы оставить запас под линии. */
-const EQUIPMENT_CATEGORY_ID_BASE = 10;
-
-const equipmentCategories = equipmentCategoriesConfig
-    // Категория «Все» — UI-шная агрегирующая, в фиде не нужна.
-    .filter((c) => c.slug !== 'all')
-    .map((c, idx) => ({
-        id: EQUIPMENT_CATEGORY_ID_BASE + idx,
-        name: c.name,
-    }));
-
-const equipmentCategoryByName = new Map(equipmentCategories.map((c) => [c.name, c.id]));
 
 function parsePrice(priceStr: string | undefined | null): number | null {
     if (!priceStr) return null;
@@ -173,77 +160,20 @@ function buildLineOffer(
     ]);
 }
 
-function buildEquipmentOffer(item: EquipmentItem, categoryId: number): string {
-    const url = `${SITE_URL}/oborudovanie/${item.slug}`;
-    const { available, priceTag, salesNotesTag } = priceFields(item.price);
-
-    const pictures: string[] = [];
-    if (item.image) pictures.push(item.image);
-    if (item.gallery && item.gallery.length > 0) pictures.push(...item.gallery);
-
-    // Параметры — из specs[]. Дублирующиеся top-level поля (power/capacity/weight) уже там есть,
-    // но если specs пуст — подстрахуемся ими.
-    const specParams: Array<[string, string | undefined | null]> =
-        item.specs.length > 0
-            ? item.specs.map((s) => [s.label, s.value])
-            : [
-                  ['Производительность', item.capacity],
-                  ['Установленная мощность', item.power],
-                  ['Масса', item.weight],
-              ];
-
-    return compact([
-        `    <offer id="eq-${item.id}" available="${available}">`,
-        `      <url>${escapeXml(url)}</url>`,
-        priceTag,
-        '      <currencyId>RUR</currencyId>',
-        `      <categoryId>${categoryId}</categoryId>`,
-        buildPictureTags(pictures),
-        `      <vendor>${escapeXml(COMPANY)}</vendor>`,
-        `      <name>${escapeXml(item.name)}</name>`,
-        `      <description>${escapeXml(item.description)}</description>`,
-        salesNotesTag,
-        buildParamLines(specParams),
-        '    </offer>',
-    ]);
-}
-
 function generateYml(): string {
     const now = new Date().toISOString().replace(/\.\d{3}Z$/, '+03:00');
 
-    const allCategories = [
-        ...LINE_CATEGORIES.map((c) => ({ id: c.id, name: c.name })),
-        ...equipmentCategories,
-    ];
+    const categoriesXml = LINE_CATEGORIES.map(
+        (c) => `      <category id="${c.id}">${escapeXml(c.name)}</category>`
+    ).join('\n');
 
-    const categoriesXml = allCategories
-        .map(
-            (c) => `      <category id="${c.id}">${escapeXml(c.name)}</category>`
-        )
-        .join('\n');
-
-    const lineOffersXml = (Object.keys(lineVariants) as Array<keyof typeof lineVariants>)
+    const offersXml = (Object.keys(lineVariants) as Array<keyof typeof lineVariants>)
         .flatMap((type) =>
             lineVariants[type].map((variant) =>
                 buildLineOffer(variant, lineCategoryMap[type], lineShortNameMap[type])
             )
         )
         .join('\n');
-
-    const equipmentOffersXml = equipmentItems
-        .map((item) => {
-            const categoryId = equipmentCategoryByName.get(item.category);
-            if (!categoryId) {
-                // Категория из equipmentData не нашлась в конфиге — оффер пропускаем,
-                // иначе фид будет ссылаться на несуществующий categoryId.
-                return '';
-            }
-            return buildEquipmentOffer(item, categoryId);
-        })
-        .filter(Boolean)
-        .join('\n');
-
-    const offersXml = [lineOffersXml, equipmentOffersXml].filter(Boolean).join('\n');
 
     return `<?xml version="1.0" encoding="UTF-8"?>
 <yml_catalog date="${now}">
