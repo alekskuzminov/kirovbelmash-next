@@ -1,7 +1,6 @@
 'use client';
 
 import { useState } from 'react';
-import Image from 'next/image';
 import { testimonials } from './projectsData';
 
 export default function Testimonials() {
@@ -32,7 +31,7 @@ export default function Testimonials() {
                         Что говорят наши клиенты
                     </h2>
                     <p className="text-sm sm:text-base text-gray-600 max-w-2xl mx-auto">
-                        Реальные отзывы руководителей предприятий, которые выбрали оборудование
+                        Опыт руководителей предприятий, которые выбрали оборудование
                         КировБелМаш
                     </p>
                 </div>
@@ -78,18 +77,12 @@ export default function Testimonials() {
                                 </div>
 
                                 <div className="flex items-center space-x-3 pt-4 border-t border-gray-100">
-                                    <div className="w-11 h-11 relative rounded-full overflow-hidden bg-gray-100 flex-shrink-0">
-                                        <Image src={t.avatar} alt={t.name} fill sizes="44px" className="object-cover object-top" />
+                                    <div className="w-11 h-11 rounded-full bg-red-50 text-red-600 flex items-center justify-center flex-shrink-0">
+                                        <i className="ri-user-line text-xl"></i>
                                     </div>
                                     <div className="min-w-0">
                                         <div className="text-sm font-semibold text-gray-900 truncate">{t.name}</div>
-                                        <div className="text-xs text-gray-500 truncate">
-                                            {t.position}, {t.company}
-                                        </div>
-                                        <div className="flex items-center space-x-1 text-xs text-gray-400 mt-0.5">
-                                            <i className="ri-map-pin-2-line"></i>
-                                            <span>{t.location}</span>
-                                        </div>
+                                        <div className="text-xs text-gray-500 truncate">{t.role}</div>
                                     </div>
                                 </div>
                             </article>
