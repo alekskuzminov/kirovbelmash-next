@@ -30,6 +30,23 @@ npm run build
 echo "🔄 Restarting PM2 process..."
 pm2 restart kbm-site
 
+# Sync nginx config from repo to /etc/nginx/, reload if changed.
+# Requires passwordless sudo for: cp, nginx -t, systemctl reload nginx.
+# Setup once on VPS: `sudo visudo` →
+#   <deploy-user> ALL=(root) NOPASSWD: /usr/bin/cp /var/www/kirovbelmash-next/nginx-kirovbelmash.conf /etc/nginx/sites-available/kirovbelmash, /usr/sbin/nginx -t, /bin/systemctl reload nginx
+echo "🌐 Checking nginx config..."
+NGINX_SRC="/var/www/kirovbelmash-next/nginx-kirovbelmash.conf"
+NGINX_DEST="/etc/nginx/sites-available/kirovbelmash"
+if ! cmp -s "$NGINX_SRC" "$NGINX_DEST"; then
+    echo "   Config changed — applying and reloading nginx..."
+    sudo cp "$NGINX_SRC" "$NGINX_DEST"
+    sudo nginx -t
+    sudo systemctl reload nginx
+    echo "   ✅ Nginx reloaded"
+else
+    echo "   No changes — skipping nginx reload"
+fi
+
 echo "📡 Notifying Yandex via IndexNow..."
 bash /var/www/kirovbelmash-next/scripts/indexnow.sh || true
 
