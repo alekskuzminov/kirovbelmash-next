@@ -2,7 +2,7 @@ export const projectsData: Project[] = [
     {
         id: 1,
         title: 'Линия брикетирования Pini & kay',
-        location: 'Никольск (Вологодская обл.)',
+        location: 'Вологодская область',
         year: '2025',
         month: 'Август',
         category: 'Брикетирование',
@@ -45,7 +45,7 @@ export const projectsData: Project[] = [
     {
         id: 2,
         title: 'Линия брикетирования (пресс Nielsen)',
-        location: 'Борисово-Судское (Вологодская обл.)',
+        location: 'Вологодская область',
         year: '2025',
         month: 'Июль',
         category: 'Брикетирование',
@@ -158,7 +158,7 @@ export const projectsData: Project[] = [
     {
         id: 4,
         title: 'Линия брикетирования (пресс Nielsen)',
-        location: 'Усть-Кулом (Республика Коми)',
+        location: 'Республика Коми',
         year: '2024',
         month: 'Апрель',
         category: 'Брикетирование',
@@ -206,7 +206,7 @@ export const projectsData: Project[] = [
     {
         id: 5,
         title: 'Линия гранулирования',
-        location: 'Никольск (Вологодская обл.)',
+        location: 'Вологодская область',
         year: '2023',
         month: 'Декабрь',
         category: 'Гранулирование',
@@ -260,7 +260,7 @@ export const projectsData: Project[] = [
     {
         id: 6,
         title: 'Линия брикетирования Pini & kay',
-        location: 'Мирный (Кировская обл.)',
+        location: 'Кировская область',
         year: '2023',
         month: 'Июнь',
         category: 'Брикетирование',
@@ -307,7 +307,7 @@ export const projectsData: Project[] = [
     {
         id: 7,
         title: 'Линия брикетирования Pini & kay',
-        location: 'Кез (Республика Удмуртия)',
+        location: 'Республика Удмуртия',
         year: '2022',
         month: 'Декабрь',
         category: 'Брикетирование',
@@ -438,7 +438,7 @@ export const projectsData: Project[] = [
     {
         id: 10,
         title: 'Линия брикетирования Pini & kay',
-        location: 'Суслонгер (Республика Марий Эл)',
+        location: 'Республика Марий Эл',
         year: '2020',
         month: 'Сентябрь',
         category: 'Брикетирование',
@@ -485,7 +485,7 @@ export const projectsData: Project[] = [
     {
         id: 11,
         title: 'Линия гранулирования',
-        location: 'Сыктывкар (Республика Коми)',
+        location: 'Республика Коми',
         year: '2020',
         month: 'Март',
         category: 'Гранулирование',
@@ -537,7 +537,7 @@ export const projectsData: Project[] = [
     {
         id: 12,
         title: 'Линия сушки',
-        location: 'Котлас (Архангельская обл.)',
+        location: 'Архангельская область',
         year: '2019',
         month: 'Сентябрь',
         category: 'Сушка',
@@ -904,7 +904,7 @@ export const projectsData: Project[] = [
     {
         id: 23,
         title: 'Линия гранулирования',
-        location: 'Омутнинск (Кировская обл.)',
+        location: 'Кировская область',
         year: '2014',
         month: 'Январь',
         category: 'Гранулирование',
