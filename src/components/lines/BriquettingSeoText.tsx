@@ -108,8 +108,8 @@ export default function BriquettingSeoText() {
                                 Если вы модернизируете действующий цех, можно купить не только
                                 комплексную линию, но и отдельное оборудование для производства
                                 брикетов: например,{' '}
-                                <Link href="/oborudovanie/press-pbm2-dlya-briketov" className="text-red-600 underline underline-offset-2 hover:text-red-700 font-medium">
-                                    пресс ПБМ-2
+                                <Link href="/oborudovanie/press-pbm-pini-kay" className="text-red-600 underline underline-offset-2 hover:text-red-700 font-medium">
+                                    пресс ПБМ
                                 </Link>{' '}
                                 или весь раздел{' '}
                                 <Link href="/oborudovanie/briketirujushhee-oborudovanie" className="text-red-600 underline underline-offset-2 hover:text-red-700 font-medium">

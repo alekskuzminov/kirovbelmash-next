@@ -132,16 +132,16 @@ export default function BriquettingLinePage() {
                             станки для производства брикетов
                         </Link>{' '}
                         и{' '}
-                        <Link href="/oborudovanie/press-pbm2-dlya-briketov" className="text-red-600 hover:underline font-medium">
-                            пресс ПБМ-2
+                        <Link href="/oborudovanie/press-pbm-pini-kay" className="text-red-600 hover:underline font-medium">
+                            пресс ПБМ
                         </Link>.
                     </p>
                     <div className="mt-4 flex flex-wrap gap-3 text-sm">
                         <Link href="/oborudovanie/briketirujushhee-oborudovanie" className="inline-flex items-center rounded-full border border-red-100 bg-red-50 px-4 py-2 font-medium text-red-700 transition-colors hover:bg-red-100">
                             Станки для производства брикетов
                         </Link>
-                        <Link href="/oborudovanie/press-pbm2-dlya-briketov" className="inline-flex items-center rounded-full border border-red-100 bg-red-50 px-4 py-2 font-medium text-red-700 transition-colors hover:bg-red-100">
-                            Пресс ПБМ-2
+                        <Link href="/oborudovanie/press-pbm-pini-kay" className="inline-flex items-center rounded-full border border-red-100 bg-red-50 px-4 py-2 font-medium text-red-700 transition-colors hover:bg-red-100">
+                            Пресс ПБМ
                         </Link>
                         <Link href="/sushilnie-linii" className="inline-flex items-center rounded-full border border-red-100 bg-red-50 px-4 py-2 font-medium text-red-700 transition-colors hover:bg-red-100">
                             Сушильные линии для опилок

@@ -77,7 +77,7 @@ const faqs: FAQItem[] = [
                 в сушильном барабане, подать через бункер-накопитель. Поэтому мы поставляем готовые
                 линии, где все станки подобраны и увязаны между собой. На линию 500 кг/ч — один пресс,
                 на 1000 кг/ч — два, на 2000 кг/ч — четыре пресса.{' '}
-                <Link href="/oborudovanie/press-pbm2-dlya-briketov" className="text-red-600 hover:underline font-medium">
+                <Link href="/oborudovanie/press-pbm-pini-kay" className="text-red-600 hover:underline font-medium">
                     Подробнее о прессе Pini & Kay
                 </Link>.
             </>

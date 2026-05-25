@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import ContactModalButton from '@/components/common/ContactModalButton';
 
-export default function PressPbm2SeoText() {
+export default function PressPbmSeoText() {
     return (
         <section className="py-12 sm:py-16 bg-white border-t border-gray-100">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -22,7 +22,7 @@ export default function PressPbm2SeoText() {
 
                         {/* Вводный абзац */}
                         <p className="text-base sm:text-lg text-gray-700 leading-relaxed">
-                            ПБМ-2 — шнековый экструдер для изготовления топливных брикетов Pini&nbsp;Kay:
+                            ПБМ — шнековый экструдер для изготовления топливных брикетов Pini&nbsp;Kay:
                             оборудование собственного производства, которое мы изготавливаем на заводе
                             в Кировской области. Пресс формирует брикет из измельчённых опилок, стружки
                             и другой мелкой фракции без добавления связующих — при нагреве до
@@ -44,11 +44,11 @@ export default function PressPbm2SeoText() {
                             </p>
                         </div>
 
-                        {/* Список — почему ПБМ-2 */}
+                        {/* Список — почему ПБМ */}
                         <div>
                             <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-4 flex items-center gap-2">
                                 <i className="ri-shield-check-line text-red-600 text-xl" />
-                                Почему выбирают пресс ПБМ-2 для брикетов
+                                Почему выбирают пресс ПБМ для брикетов
                             </h3>
                             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                                 {[
@@ -81,7 +81,7 @@ export default function PressPbm2SeoText() {
                                     <thead>
                                         <tr className="bg-gray-50 border-b border-gray-100">
                                             <th className="text-left px-4 py-3 font-semibold text-gray-700">Параметр</th>
-                                            <th className="text-left px-4 py-3 font-semibold text-red-600">ПБМ-2 (Pini Kay)</th>
+                                            <th className="text-left px-4 py-3 font-semibold text-red-600">ПБМ (Pini Kay)</th>
                                             <th className="text-left px-4 py-3 font-semibold text-gray-500">Гидравлика (RUF)</th>
                                         </tr>
                                     </thead>
@@ -106,7 +106,7 @@ export default function PressPbm2SeoText() {
                             <p className="text-sm sm:text-base text-gray-700 leading-relaxed mt-4">
                                 Если цель — производство брикетов для продажи, Pini Kay выигрывает по марже.
                                 Мы производим оборудование для брикетов Pini Kay и поставляем его как
-                                отдельным прессом ПБМ-2, так и в составе{' '}
+                                отдельным прессом ПБМ, так и в составе{' '}
                                 <Link href="/linii-briketirovaniya" className="text-red-600 underline underline-offset-2 hover:text-red-700 font-medium">
                                     линии брикетирования «под ключ»
                                 </Link>.
@@ -136,7 +136,7 @@ export default function PressPbm2SeoText() {
                                 Купить оборудование для брикетов от производителя
                             </h3>
                             <p className="text-sm sm:text-base text-gray-700 leading-relaxed mb-3">
-                                ПБМ-2 можно приобрести отдельно или в составе готовой линии
+                                ПБМ можно приобрести отдельно или в составе готовой линии
                                 брикетирования. Цена зависит от комплектации: базовый пресс,
                                 пресс + автомат резки, полная линия с сушкой и дроблением.
                                 Точную стоимость рассчитаем после уточнения параметров сырья
@@ -163,7 +163,7 @@ export default function PressPbm2SeoText() {
                                 подготовим КП с ценой и сроками.
                             </p>
                             <ContactModalButton
-                                message="Запрос КП: Пресс ПБМ-2 для брикетов"
+                                message="Запрос КП: Пресс ПБМ для брикетов"
                                 className="w-full px-5 py-3 bg-red-600 text-white text-sm font-semibold rounded-xl hover:bg-red-700 transition-colors cursor-pointer inline-flex items-center justify-center gap-2"
                             >
                                 Запросить КП

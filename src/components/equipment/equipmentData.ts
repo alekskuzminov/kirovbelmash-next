@@ -28,7 +28,7 @@ export const equipmentCategoriesConfig = [
     name: 'Станки для производства брикетов',
     slug: 'briketirujushhee-oborudovanie',
     seoTitle: 'Станок для производства топливных брикетов из опилок',
-    seoDescription: 'Станки для изготовления топливных брикетов из опилок: шнековый пресс ПБМ-2 (Pini Kay), автомат резки. Купить станок для производства брикетов из опилок — цена от производителя, доставка по России.'
+    seoDescription: 'Станки для изготовления топливных брикетов из опилок: шнековый пресс ПБМ (Pini Kay), автомат резки. Купить станок для производства брикетов из опилок — цена от производителя, доставка по России.'
   },
   {
     name: 'Станки для производства пеллет',
@@ -139,19 +139,19 @@ export const equipmentItems: EquipmentItem[] = [
   {
     id: 2,
 
-    slug: 'press-pbm2-dlya-briketov',
+    slug: 'press-pbm-pini-kay',
 
-    seoTitle: 'Пресс для топливных брикетов из опилок ПБМ-2 — купить',
+    seoTitle: 'Пресс для топливных брикетов из опилок ПБМ — купить',
 
-    name: 'Пресс ПБМ-2 для брикетов Pini Kay',
+    name: 'Пресс ПБМ для брикетов Pini Kay',
 
     category: 'Станки для производства брикетов',
 
     description:
 
-      'Купить пресс для топливных брикетов из опилок — брикетировочный пресс ПБМ-2. Производительность 500–1000 кг/ч. Цена от 1 654 000 р., доставка по России.',
+      'Купить пресс для топливных брикетов из опилок — брикетировочный пресс ПБМ. Производительность 500–1000 кг/ч. Цена от 1 654 000 р., доставка по России.',
     image:
-      '/images/equipment/briquette-presses/pini-kay-press-pbm2/preview-pini-kay-press-pbm2-catalog.webp',
+      '/images/equipment/briquette-presses/pini-kay-press-pbm/preview-pini-kay-press-pbm-catalog.webp',
     specs: [
       { label: 'Производительность', value: '500-1000 кг/час' },
       { label: 'Влажность исходного сырья', value: '8-12 %' },
@@ -172,9 +172,9 @@ export const equipmentItems: EquipmentItem[] = [
     capacity: '500-1000 кг/час',
     weight: '1100 кг',
     gallery: [
-      '/images/equipment/briquette-presses/pini-kay-press-pbm2/pini-kay-press-pbm2-galery-1.webp',
-      '/images/equipment/briquette-presses/pini-kay-press-pbm2/pini-kay-press-pbm2-galery-2.webp',
-      '/images/equipment/briquette-presses/pini-kay-press-pbm2/pini-kay-press-pbm2-galery-3.webp',
+      '/images/equipment/briquette-presses/pini-kay-press-pbm/pini-kay-press-pbm-galery-1.webp',
+      '/images/equipment/briquette-presses/pini-kay-press-pbm/pini-kay-press-pbm-galery-2.webp',
+      '/images/equipment/briquette-presses/pini-kay-press-pbm/pini-kay-press-pbm-galery-3.webp',
     ],
   },
   // Станки для производства пеллет
