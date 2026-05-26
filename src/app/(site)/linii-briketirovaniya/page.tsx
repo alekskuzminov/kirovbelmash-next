@@ -15,7 +15,7 @@ import ContactForm from '@/components/home/ContactForm';
 import BreadcrumbJsonLd from '@/components/ui/BreadcrumbJsonLd';
 
 export const metadata: Metadata = {
-    title: 'Оборудование для производства топливных брикетов из опилок',
+    title: 'Оборудование для производства топливных брикетов из опилок — линии под ключ',
     description: 'Линии брикетирования и оборудование для производства топливных брикетов из опилок. Цена за комплект от 9,4 млн ₽. Производительность 500–2000 кг/ч. Монтаж и запуск под ключ.',
     alternates: { canonical: '/linii-briketirovaniya' },
     openGraph: {
@@ -81,8 +81,8 @@ export default function BriquettingLinePage() {
             />
             <LineHero
                 label="Линии брикетирования"
-                headingMain="Линии брикетирования – оборудование для производства топливных брикетов"
-                headingAccent="из опилок «под ключ»"
+                headingMain="Оборудование для производства топливных брикетов из опилок"
+                headingAccent="комплектные линии 500–2000 кг/ч"
                 description={[
                     // Десктопная версия (скрыта на мобильных)
                     <div key="desktop-1" className="hidden sm:block">
@@ -138,7 +138,7 @@ export default function BriquettingLinePage() {
                     </p>
                     <div className="mt-4 flex flex-wrap gap-3 text-sm">
                         <Link href="/oborudovanie/briketirujushhee-oborudovanie" className="inline-flex items-center rounded-full border border-red-100 bg-red-50 px-4 py-2 font-medium text-red-700 transition-colors hover:bg-red-100">
-                            Станки для производства брикетов
+                            Брикетировочные прессы и автомат резки
                         </Link>
                         <Link href="/oborudovanie/press-pbm-pini-kay" className="inline-flex items-center rounded-full border border-red-100 bg-red-50 px-4 py-2 font-medium text-red-700 transition-colors hover:bg-red-100">
                             Пресс ПБМ
