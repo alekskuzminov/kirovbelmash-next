@@ -1,4 +1,3 @@
-import Link from 'next/link';
 import { Metadata } from 'next';
 import { lineVariants } from '@/components/lines/linesData';
 import LineCard from '@/components/lines/LineCard';
@@ -81,28 +80,11 @@ export default function GranulationLinePage() {
             />
             <LineHero
                 label="Линии гранулирования"
-                headingMain="Линии гранулирования для производства топливных пеллет"
-                headingAccent="из опилок «под ключ»"
+                headingMain="Линии производства топливных пеллет"
+                headingAccent="под ключ за 60 дней"
                 description={[
-                    // Десктопная версия (скрыта на мобильных)
-                    <div key="desktop-1" className="hidden sm:block">
-                        Изготовим линию гранулирования пеллет из опилок и древесных отходов за 2 месяца.
-                    </div>,
-                    <div key="desktop-2" className="hidden sm:block">
-                        Подберём состав линии: дробилка, сушка, гранулятор, охлаждение, фасовка и автоматика.
-                    </div>,
-                    <div key="desktop-3" className="hidden sm:block">
-                        Цена комплектной линии — от 10,6 млн ₽. Монтаж, запуск и обучение включаем в проект.
-                    </div>,
-                    // Мобильная версия (скрыта на десктопах)
-                    <div key="mobile-1" className="block sm:hidden text-base">
-                        Линия гранулирования пеллет из опилок за 2 месяца
-                    </div>,
-                    <div key="mobile-2" className="block sm:hidden text-base">
-                        Дробилка, сушка, гранулятор, охлаждение и автоматика в одном проекте
-                    </div>,
-                    <div key="mobile-3" className="block sm:hidden text-base">
-                        Цена от 10,6 млн ₽, монтаж и запуск под ключ
+                    <div key="desc">
+                        Стоимость линии — от 10,6 млн ₽. Монтаж, запуск и обучение включаем в проект.
                     </div>,
                 ]}
                 breadcrumbs={[
@@ -117,36 +99,9 @@ export default function GranulationLinePage() {
             {/* Подзаголовок секции */}
             <section id="variants" className="pt-8 pb-6 bg-white border-b border-gray-100">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-2">
-                        Линии гранулирования полного цикла:<br className="hidden sm:block" />производительность, состав линии и цены
+                    <h2 className="text-2xl sm:text-3xl font-bold text-gray-900">
+                        Линии гранулирования полного цикла
                     </h2>
-                    <p className="text-base text-gray-600 max-w-2xl">
-                        Производительность от 500 до 2000 кг/час. Цена от 10,6 млн ₽. Комплектация «под ключ».
-                    </p>
-                    <p className="mt-4 text-base text-gray-600 max-w-4xl leading-relaxed">
-                        Ниже представлены линии по производству пеллет из опилок, стружки, щепы и лузги.
-                        В составе каждой линии — дробилка, сушильный барабан, гранулятор, колонна охлаждения,
-                        фасовка и автоматика. Если вам нужны не комплексные линии, а отдельные станки,
-                        смотрите{' '}
-                        <Link href="/oborudovanie/oborudovanie-dlja-proizvodstva-granul" className="text-red-600 hover:underline font-medium">
-                            станки для производства пеллет
-                        </Link>{' '}
-                        и{' '}
-                        <Link href="/oborudovanie/granuljator-ogm-1-5" className="text-red-600 hover:underline font-medium">
-                            гранулятор ОГМ-1,5
-                        </Link>.
-                    </p>
-                    <div className="mt-4 flex flex-wrap gap-3 text-sm">
-                        <Link href="/oborudovanie/oborudovanie-dlja-proizvodstva-granul" className="inline-flex items-center rounded-full border border-red-100 bg-red-50 px-4 py-2 font-medium text-red-700 transition-colors hover:bg-red-100">
-                            Станки для производства пеллет
-                        </Link>
-                        <Link href="/oborudovanie/granuljator-ogm-1-5" className="inline-flex items-center rounded-full border border-red-100 bg-red-50 px-4 py-2 font-medium text-red-700 transition-colors hover:bg-red-100">
-                            Гранулятор ОГМ-1,5
-                        </Link>
-                        <Link href="/sushilnie-linii" className="inline-flex items-center rounded-full border border-red-100 bg-red-50 px-4 py-2 font-medium text-red-700 transition-colors hover:bg-red-100">
-                            Сушильные линии для опилок
-                        </Link>
-                    </div>
                 </div>
             </section>
 

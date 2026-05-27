@@ -1,4 +1,3 @@
-import Link from 'next/link';
 import { Metadata } from 'next';
 import { lineVariants } from '@/components/lines/linesData';
 import LineCard from '@/components/lines/LineCard';
@@ -81,28 +80,11 @@ export default function BriquettingLinePage() {
             />
             <LineHero
                 label="Линии брикетирования"
-                headingMain="Оборудование для производства топливных брикетов из опилок"
-                headingAccent="комплектные линии 500–2000 кг/ч"
+                headingMain="Линии производства топливных брикетов"
+                headingAccent="под ключ за 60 дней"
                 description={[
-                    // Десктопная версия (скрыта на мобильных)
-                    <div key="desktop-1" className="hidden sm:block">
-                        Изготовим линию для производства топливных брикетов из опилок — срок 2&nbsp;месяца.
-                    </div>,
-                    <div key="desktop-2" className="hidden sm:block">
-                        Подберём состав оборудования: дробилка, сушка, пресс, резка, автоматика и упаковка.
-                    </div>,
-                    <div key="desktop-3" className="hidden sm:block">
-                        Цена комплектной линии — от 9,4 млн ₽. Монтаж, запуск и обучение включаем в проект.
-                    </div>,
-                    // Мобильная версия (скрыта на десктопах)
-                    <div key="mobile-1" className="block sm:hidden text-base">
-                        Линия по производству брикетов Pini & Kay из опилок за 2 месяца
-                    </div>,
-                    <div key="mobile-2" className="block sm:hidden text-base">
-                        Дробилка, сушка, пресс, резка и автоматика в одном проекте
-                    </div>,
-                    <div key="mobile-3" className="block sm:hidden text-base">
-                        Цена от 9,4 млн ₽, монтаж и запуск под ключ
+                    <div key="desc">
+                        Стоимость линии — от 9,4 млн ₽. Монтаж, запуск и обучение включаем в проект.
                     </div>,
                 ]}
                 breadcrumbs={[
@@ -117,36 +99,9 @@ export default function BriquettingLinePage() {
             {/* Подзаголовок секции */}
             <section id="variants" className="pt-8 pb-6 bg-white border-b border-gray-100">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-2">
-                        Линии брикетирования полного цикла:<br className="hidden sm:block" />производительность, состав оборудования и цены
+                    <h2 className="text-2xl sm:text-3xl font-bold text-gray-900">
+                        Линии брикетирования полного цикла
                     </h2>
-                    <p className="text-base text-gray-600 max-w-2xl">
-                        Производительность от 500 до 2000 кг/час. Цена от 9,4 млн ₽. Комплектация «под ключ».
-                    </p>
-                    <p className="mt-4 text-base text-gray-600 max-w-4xl leading-relaxed">
-                        Ниже представлены линии по производству брикетов из опилок, стружки, щепы и лузги.
-                        В составе каждой линии — оборудование для брикетов полного цикла: дробилка, сушильный барабан,
-                        бункер-накопитель, пресс, автомат резки и система автоматики. Если вам нужны не только
-                        комплексные линии, но и отдельные узлы, смотрите{' '}
-                        <Link href="/oborudovanie/briketirujushhee-oborudovanie" className="text-red-600 hover:underline font-medium">
-                            станки для производства брикетов
-                        </Link>{' '}
-                        и{' '}
-                        <Link href="/oborudovanie/press-pbm-pini-kay" className="text-red-600 hover:underline font-medium">
-                            пресс ПБМ
-                        </Link>.
-                    </p>
-                    <div className="mt-4 flex flex-wrap gap-3 text-sm">
-                        <Link href="/oborudovanie/briketirujushhee-oborudovanie" className="inline-flex items-center rounded-full border border-red-100 bg-red-50 px-4 py-2 font-medium text-red-700 transition-colors hover:bg-red-100">
-                            Брикетировочные прессы и автомат резки
-                        </Link>
-                        <Link href="/oborudovanie/press-pbm-pini-kay" className="inline-flex items-center rounded-full border border-red-100 bg-red-50 px-4 py-2 font-medium text-red-700 transition-colors hover:bg-red-100">
-                            Пресс ПБМ
-                        </Link>
-                        <Link href="/sushilnie-linii" className="inline-flex items-center rounded-full border border-red-100 bg-red-50 px-4 py-2 font-medium text-red-700 transition-colors hover:bg-red-100">
-                            Сушильные линии для опилок
-                        </Link>
-                    </div>
                 </div>
             </section>
 
