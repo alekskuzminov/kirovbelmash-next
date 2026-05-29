@@ -40,7 +40,6 @@ export default function LineGallery({
                     fill
                     className="object-contain object-center"
                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 75vw, 100vw"
-                    unoptimized={true}
                 />
             </div>
 
@@ -62,7 +61,6 @@ export default function LineGallery({
                                 fill
                                 className="object-cover object-center"
                                 sizes="80px"
-                                unoptimized={true}
                             />
                         </button>
                     ))}

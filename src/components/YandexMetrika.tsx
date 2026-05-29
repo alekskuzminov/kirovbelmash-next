@@ -6,14 +6,22 @@ import Script from "next/script";
 
 const METRIKA_ID = 105767551;
 
+type YmFunction = (counterId: number, action: string, ...args: unknown[]) => void;
+
+declare global {
+    interface Window {
+        ym?: YmFunction;
+    }
+}
+
 export default function YandexMetrika() {
     const pathname = usePathname();
     const searchParams = useSearchParams();
 
     useEffect(() => {
         const url = `${pathname}${searchParams.toString() ? `?${searchParams.toString()}` : ""}`;
-        if (typeof window !== "undefined" && (window as any).ym) {
-            (window as any).ym(METRIKA_ID, "hit", url);
+        if (typeof window !== "undefined" && window.ym) {
+            window.ym(METRIKA_ID, "hit", url);
         }
     }, [pathname, searchParams]);
 

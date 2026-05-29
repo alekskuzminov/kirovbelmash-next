@@ -2,7 +2,7 @@ export const METRIKA_ID = 105767551;
 
 const fireGoal = (goal: string, params?: Record<string, unknown>) => {
     try {
-        (window as any).ym(METRIKA_ID, "reachGoal", goal, params);
+        window.ym?.(METRIKA_ID, "reachGoal", goal, params);
     } catch (e) {
         console.error("[Metrika] reachGoal error:", e);
     }
@@ -12,7 +12,8 @@ export const sendMetrikaGoal = (goal: string, params?: Record<string, unknown>) 
     if (typeof window === "undefined") return;
 
     // Counter already initialized (yaCounterXXX object exists after triggerEvent fires)
-    if ((window as any)[`yaCounter${METRIKA_ID}`]) {
+    const counterKey = `yaCounter${METRIKA_ID}` as const;
+    if ((window as unknown as Record<string, unknown>)[counterKey]) {
         fireGoal(goal, params);
         return;
     }

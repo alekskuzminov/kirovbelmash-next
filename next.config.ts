@@ -58,6 +58,9 @@ const nextConfig: NextConfig = {
           },
           {
             key: 'Content-Security-Policy',
+            // 'unsafe-eval' нужен для вебвизора Яндекс.Метрики (webvisor:true в YandexMetrika.tsx
+            // использует new Function для записи сессий). Без него вебвизор молча сломается.
+            // 'unsafe-inline' нужен для инлайн-скрипта инициализации Метрики.
             value: [
               "default-src 'self'",
               "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://mc.yandex.ru",
