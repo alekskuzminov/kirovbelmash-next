@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import nodemailer from 'nodemailer';
 import { prisma } from '@/lib/prisma';
 import { normalizePhone } from '@/lib/phone';
+import { notifyTelegram } from '@/lib/telegram';
 
 interface ContactPayload {
     name: string;
@@ -64,7 +65,7 @@ const checkRateLimit = (ip: string): { ok: boolean; retryAfter: number } => {
 };
 
 const transporter = nodemailer.createTransport({
-    host: process.env.SMTP_HOST || 'smtp.yandex.ru',
+    host: process.env.SMTP_HOST || 'smtp.beget.com',
     port: Number(process.env.SMTP_PORT) || 465,
     secure: true,
     auth: {
@@ -159,6 +160,21 @@ const buildHtml = (data: ContactPayload): string => {
     `;
 };
 
+const buildTgAlert = (data: ContactPayload, fails: { db?: string; email?: string }): string => {
+    const lines: string[] = ['🔴 [KBM] Ошибка обработки заявки с сайта'];
+    if (fails.db) lines.push(`БД: ${fails.db}`);
+    if (fails.email) lines.push(`SMTP: ${fails.email}`);
+    lines.push('');
+    lines.push('Данные заявки:');
+    lines.push(`Имя: ${data.name}`);
+    lines.push(`Телефон: ${data.phone}`);
+    if (data.email) lines.push(`Email: ${data.email}`);
+    if (data.company) lines.push(`Компания: ${data.company}`);
+    if (data.message) lines.push(`Сообщение: ${data.message.slice(0, 300)}`);
+    if (data.source) lines.push(`Источник: ${data.source}`);
+    return lines.join('\n');
+};
+
 export async function POST(request: NextRequest) {
     try {
         // Anti-spam 0: per-IP rate limit. Honeypot is good but insufficient against
@@ -229,18 +245,14 @@ export async function POST(request: NextRequest) {
             }
         }
 
-        const nameForSubject = data.name.trim().slice(0, 60);
-        const subject = `Заявка с сайта — ${nameForSubject}`;
+        let dbOk = false;
+        let dbError: string | null = null;
+        let emailOk = false;
+        let emailError: string | null = null;
 
-        await transporter.sendMail({
-            from: `"КировБелМаш Сайт" <${process.env.SMTP_USER}>`,
-            to: RECIPIENTS.join(', '),
-            subject,
-            html: buildHtml(data),
-            replyTo: data.email || undefined,
-        });
-
-        // Save to CRM — email is the priority; DB failure must not affect response
+        // 1. Save to CRM FIRST — the lead must not be lost even if SMTP is down.
+        //    (Previously email came first and DB was best-effort; a dead SMTP
+        //    silently dropped every lead. Now order is reversed.)
         try {
             const phoneNormalized = data.phone ? normalizePhone(data.phone) : null;
 
@@ -293,15 +305,52 @@ export async function POST(request: NextRequest) {
                     data: { dealId: deal.id, toStageId: firstStage.id },
                 });
             }
-        } catch (dbError) {
-            console.error('[api/contact] DB save failed (email already sent):', dbError);
+            dbOk = true;
+        } catch (err) {
+            dbError = err instanceof Error ? err.message : String(err);
+            console.error('[api/contact] DB save failed:', err);
         }
 
+        // 2. Send email (best-effort).
+        try {
+            const nameForSubject = data.name.trim().slice(0, 60);
+            await transporter.sendMail({
+                from: `"КировБелМаш Сайт" <${process.env.SMTP_USER}>`,
+                to: RECIPIENTS.join(', '),
+                subject: `Заявка с сайта — ${nameForSubject}`,
+                html: buildHtml(data),
+                replyTo: data.email || undefined,
+            });
+            emailOk = true;
+        } catch (err) {
+            emailError = err instanceof Error ? err.message : String(err);
+            console.error('[api/contact] Email send failed:', err);
+        }
+
+        // 3. Alert on any failure so we know to fix it before more leads come in.
+        if (!dbOk || !emailOk) {
+            await notifyTelegram(buildTgAlert(data, {
+                db: dbError ?? undefined,
+                email: emailError ?? undefined,
+            }));
+        }
+
+        // 4. Only return 500 if BOTH channels failed (lead is truly lost).
+        //    If at least one worked, the lead is captured somewhere — ack as ok.
+        if (!dbOk && !emailOk) {
+            return NextResponse.json(
+                { error: 'Не удалось принять заявку. Попробуйте позже или свяжитесь с нами напрямую.' },
+                { status: 500 }
+            );
+        }
         return NextResponse.json({ ok: true });
     } catch (error) {
-        console.error('[api/contact] Error sending email:', error);
+        console.error('[api/contact] Unexpected error:', error);
+        await notifyTelegram(
+            `🔴 [KBM] /api/contact упал необработанно: ${error instanceof Error ? error.message : String(error)}`
+        );
         return NextResponse.json(
-            { error: 'Ошибка отправки письма' },
+            { error: 'Внутренняя ошибка' },
             { status: 500 }
         );
     }
