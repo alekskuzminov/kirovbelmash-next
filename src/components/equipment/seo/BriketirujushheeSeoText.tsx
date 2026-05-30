@@ -79,7 +79,7 @@ export default function BriketirujushheeSeoText() {
                         <div className="border border-red-100 rounded-xl p-5 sm:p-6 bg-red-50/60">
                             <h3 className="text-base sm:text-lg font-bold text-gray-900 mb-3 flex items-center gap-2">
                                 <i className="ri-flow-chart text-red-600 text-xl" />
-                                Когда нужен не станок, а комплектная линия
+                                Когда нужен не станок, а вся линия
                             </h3>
                             <p className="text-sm sm:text-base text-gray-700 leading-relaxed">
                                 Если вы запускаете производство брикетов с нуля, работаете с сырьём
