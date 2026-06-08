@@ -36,11 +36,11 @@ export default function PressPbmSeoText() {
                                 <path d="M4.583 17.321C3.553 16.227 3 15 3 13.011c0-3.5 2.457-6.637 6.03-8.188l.893 1.378c-3.335 1.804-3.987 4.145-4.247 5.621.537-.278 1.24-.375 1.929-.311 1.804.167 3.226 1.648 3.226 3.489a3.5 3.5 0 01-3.5 3.5c-1.073 0-2.099-.49-2.748-1.179zm10 0C13.553 16.227 13 15 13 13.011c0-3.5 2.457-6.637 6.03-8.188l.893 1.378c-3.335 1.804-3.987 4.145-4.247 5.621.537-.278 1.24-.375 1.929-.311 1.804.167 3.226 1.648 3.226 3.489a3.5 3.5 0 01-3.5 3.5c-1.073 0-2.099-.49-2.748-1.179z" />
                             </svg>
                             <p className="text-base sm:text-lg text-gray-800 italic font-medium leading-relaxed pl-4">
-                                Pini&nbsp;Kay продаётся дороже RUF и нестингового брикета —
-                                розничная цена на 15–30% выше за счёт плотности и внешнего вида.
-                                При этом шнековый пресс проще в обслуживании, чем гидравлический:
-                                основной расходник — шнек и обжимная втулка, замена занимает
-                                2–3 часа без демонтажа линии.
+                                Pini&nbsp;Kay — премиальный формат топливных брикетов: высокая
+                                плотность, узнаваемая шестигранная форма с отверстием и глянцевая
+                                поверхность обжига. Шнековый пресс прост в обслуживании: основной
+                                расходник — шнек и обжимная втулка, замена занимает 30 минут без
+                                демонтажа линии.
                             </p>
                         </div>
 
@@ -52,10 +52,10 @@ export default function PressPbmSeoText() {
                             </h3>
                             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                                 {[
-                                    'Производительность 500–1000 кг/ч на одном шнеке',
+                                    'Производительность 500–1000 кг/ч',
                                     'Работа без связующих — только давление и нагрев',
                                     'Компактные габариты — помещается в цех от 80 м²',
-                                    'Быстрая замена шнека и втулки без разборки линии',
+                                    'Быстрая замена шнека и втулки',
                                     'Низкое энергопотребление: привод 0,55 кВт + нагрев 2,7 кВт',
                                     'Готовый брикет Pini Kay — премиум-сегмент рынка',
                                 ].map((item) => (
@@ -65,52 +65,6 @@ export default function PressPbmSeoText() {
                                     </div>
                                 ))}
                             </div>
-                        </div>
-
-                        {/* Сравнение Pini Kay vs RUF */}
-                        <div>
-                            <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-4 flex items-center gap-2">
-                                <i className="ri-scales-3-line text-red-600 text-xl" />
-                                Pini Kay или RUF: какое оборудование для брикетов выбрать
-                            </h3>
-                            <p className="text-sm sm:text-base text-gray-700 leading-relaxed mb-4">
-                                Два основных типа оборудования для производства топливных брикетов из опилок — шнековый экструдер (Pini Kay) и гидравлический пресс (RUF). Принципиальная разница — в форме брикета, цене реализации и требованиях к оператору.
-                            </p>
-                            <div className="overflow-x-auto rounded-xl border border-gray-100">
-                                <table className="w-full text-sm">
-                                    <thead>
-                                        <tr className="bg-gray-50 border-b border-gray-100">
-                                            <th className="text-left px-4 py-3 font-semibold text-gray-700">Параметр</th>
-                                            <th className="text-left px-4 py-3 font-semibold text-red-600">ПБМ (Pini Kay)</th>
-                                            <th className="text-left px-4 py-3 font-semibold text-gray-500">Гидравлика (RUF)</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody className="divide-y divide-gray-50">
-                                        {[
-                                            ['Принцип работы', 'Шнековая экструзия', 'Гидроцилиндр (поршень)'],
-                                            ['Форма брикета', 'Шестигранник с отверстием', 'Кирпич 95×155×65 мм'],
-                                            ['Производительность', '500–1000 кг/ч', 'до 650 кг/ч'],
-                                            ['Цена готового брикета', 'Выше (+15–30%)', 'Ниже'],
-                                            ['Плотность', '1,1–1,2 г/см³', '1,0–1,1 г/см³'],
-                                            ['Основной расходник', 'Шнек (замена 1–2 ч)', 'Уплотнения гидросистемы'],
-                                        ].map(([param, pbm, ruf], i) => (
-                                            <tr key={param} className={i % 2 === 0 ? 'bg-white' : 'bg-gray-50/50'}>
-                                                <td className="px-4 py-3 text-gray-500">{param}</td>
-                                                <td className="px-4 py-3 font-medium text-gray-900">{pbm}</td>
-                                                <td className="px-4 py-3 text-gray-600">{ruf}</td>
-                                            </tr>
-                                        ))}
-                                    </tbody>
-                                </table>
-                            </div>
-                            <p className="text-sm sm:text-base text-gray-700 leading-relaxed mt-4">
-                                Если цель — производство брикетов для продажи, Pini Kay выигрывает по марже.
-                                Мы производим оборудование для брикетов Pini Kay и поставляем его как
-                                отдельным прессом ПБМ, так и в составе{' '}
-                                <Link href="/linii-briketirovaniya" className="text-red-600 underline underline-offset-2 hover:text-red-700 font-medium">
-                                    линии брикетирования «под ключ»
-                                </Link>.
-                            </p>
                         </div>
 
                         {/* Абзац про сырьё и применение */}
