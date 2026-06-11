@@ -3,7 +3,7 @@
 import { useState, FormEvent } from 'react';
 import { submitContactForm } from '@/lib/api';
 import { sendMetrikaGoal } from '@/lib/metrika';
-import PrivacyDisclaimer from '@/components/ui/PrivacyDisclaimer';
+import PrivacyConsent from '@/components/ui/PrivacyConsent';
 
 export default function ContactsForm() {
     const [formData, setFormData] = useState({
@@ -13,6 +13,7 @@ export default function ContactsForm() {
         message: ''
     });
     const [hp, setHp] = useState('');
+    const [consent, setConsent] = useState(false);
     const [formLoadedAt] = useState(() => Date.now());
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
@@ -37,6 +38,7 @@ export default function ContactsForm() {
             phone: formData.phone,
             email: formData.email,
             message: formData.message,
+            consent,
             hp,
             ts: formLoadedAt,
         });
@@ -44,6 +46,7 @@ export default function ContactsForm() {
         if (ok) {
             setSubmitStatus('success');
             setFormData({ name: '', phone: '', email: '', message: '' });
+            setConsent(false);
             sendMetrikaGoal('form_submit');
         } else {
             setSubmitStatus('error');
@@ -146,6 +149,13 @@ export default function ContactsForm() {
                             </div>
                         </div>
 
+                        <PrivacyConsent
+                            id="cp-consent"
+                            checked={consent}
+                            onChange={setConsent}
+                            className="mb-5"
+                        />
+
                         <button
                             type="submit"
                             disabled={isSubmitting}
@@ -169,8 +179,6 @@ export default function ContactsForm() {
                                 </p>
                             </div>
                         )}
-
-                        <PrivacyDisclaimer />
                     </form>
                 </div>
             </div>

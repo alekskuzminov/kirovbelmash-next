@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import { SITE_CONFIG } from '@/config/site.config';
 import { sendMetrikaGoal } from '@/lib/metrika';
-import PrivacyDisclaimer from '@/components/ui/PrivacyDisclaimer';
+import PrivacyConsent from '@/components/ui/PrivacyConsent';
 
 interface LineQuoteFormProps {
     lineName: string;
@@ -17,6 +17,7 @@ export default function LineQuoteForm({ lineName }: LineQuoteFormProps) {
         city: '',
         message: '',
     });
+    const [consent, setConsent] = useState(false);
     const [submitted, setSubmitted] = useState(false);
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -166,13 +167,17 @@ export default function LineQuoteForm({ lineName }: LineQuoteFormProps) {
                                         {form.message.length} / 500 символов
                                     </p>
                                 </div>
+                                <PrivacyConsent
+                                    id="line-quote-consent"
+                                    checked={consent}
+                                    onChange={setConsent}
+                                />
                                 <button
                                     type="submit"
                                     className="w-full py-3.5 bg-red-600 hover:bg-red-700 text-white text-sm font-bold rounded-xl transition-colors shadow-sm hover:shadow-md cursor-pointer"
                                 >
                                     Отправить заявку
                                 </button>
-                                <PrivacyDisclaimer className="mt-4" />
                             </form>
                         )}
                     </div>

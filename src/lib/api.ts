@@ -12,6 +12,7 @@ export interface ContactFormData {
     source?: string;
     extra?: Record<string, string>;
     visitParams?: Record<string, string>;
+    consent?: boolean; // согласие на обработку ПДн (152-ФЗ), сервер требует true
     hp?: string;   // honeypot (empty for real users)
     ts?: number;   // form mount timestamp (client Date.now())
 }

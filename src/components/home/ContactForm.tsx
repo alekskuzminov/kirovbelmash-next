@@ -4,7 +4,7 @@ import { useState, FormEvent } from 'react';
 import { SITE_CONFIG } from '@/config/site.config';
 import { submitContactForm } from '@/lib/api';
 import { sendMetrikaGoal } from '@/lib/metrika';
-import PrivacyDisclaimer from '@/components/ui/PrivacyDisclaimer';
+import PrivacyConsent from '@/components/ui/PrivacyConsent';
 
 interface ContactFormProps {
     initialMessage?: string;
@@ -20,6 +20,7 @@ export default function ContactForm({ initialMessage = '', isModal = false, moda
         message: initialMessage,
     });
     const [hp, setHp] = useState('');
+    const [consent, setConsent] = useState(false);
     const [formLoadedAt] = useState(() => Date.now());
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
@@ -35,6 +36,7 @@ export default function ContactForm({ initialMessage = '', isModal = false, moda
             email: formData.email,
             message: formData.message,
             source: isModal ? 'modal' : 'contact',
+            consent,
             hp,
             ts: formLoadedAt,
         });
@@ -42,6 +44,7 @@ export default function ContactForm({ initialMessage = '', isModal = false, moda
         if (ok) {
             setSubmitStatus('success');
             setFormData({ name: '', email: '', phone: '', message: '' });
+            setConsent(false);
             sendMetrikaGoal('form_submit');
         } else {
             setSubmitStatus('error');
@@ -138,6 +141,12 @@ export default function ContactForm({ initialMessage = '', isModal = false, moda
                     </div>
                 </div>
 
+                <PrivacyConsent
+                    id={isModal ? 'modal-consent' : 'contact-consent'}
+                    checked={consent}
+                    onChange={setConsent}
+                />
+
                 <button
                     type="submit"
                     disabled={isSubmitting}
@@ -161,8 +170,6 @@ export default function ContactForm({ initialMessage = '', isModal = false, moda
                         </p>
                     </div>
                 )}
-
-                <PrivacyDisclaimer />
             </div>
         </form>
     );

@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import { sendMetrikaGoal } from '@/lib/metrika';
-import PrivacyDisclaimer from '@/components/ui/PrivacyDisclaimer';
+import PrivacyConsent from '@/components/ui/PrivacyConsent';
 
 interface StaticLeadFormProps {
     formId: string;
@@ -70,6 +70,7 @@ export default function StaticLeadForm({
         message: '',
     });
     const [hp, setHp] = useState('');
+    const [consent, setConsent] = useState(false);
     const [formLoadedAt] = useState(() => Date.now());
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [isSubmitted, setIsSubmitted] = useState(false);
@@ -102,6 +103,7 @@ export default function StaticLeadForm({
                     message: formData.message,
                     source,
                     extra: extraPayload,
+                    consent,
                     hp,
                     ts: formLoadedAt,
                 }),
@@ -110,6 +112,7 @@ export default function StaticLeadForm({
             if (res.ok) {
                 setIsSubmitted(true);
                 setFormData({ name: '', phone: '', email: '', message: '' });
+                setConsent(false);
                 sendMetrikaGoal('form_submit');
             } else {
                 setError(submitErrorText);
@@ -235,18 +238,22 @@ export default function StaticLeadForm({
                     <div className="text-xs text-gray-400 text-right mt-1">{formData.message.length}/{messageMaxLength}</div>
                 </div>
 
+                <PrivacyConsent
+                    id={`${formId}-consent`}
+                    checked={consent}
+                    onChange={setConsent}
+                />
+
                 <button type="submit" disabled={isSubmitting} className={buttonClassName}>
                     <span>{isSubmitting ? submittingLabel : submitLabel}</span>
                     {!isSubmitting && showSubmitArrow && <i className="ri-arrow-right-line text-lg"></i>}
                 </button>
             </div>
 
-            {footerNote ? (
+            {footerNote && (
                 <p className="text-xs text-gray-400 text-center mt-3">
                     {footerNote}
                 </p>
-            ) : (
-                <PrivacyDisclaimer />
             )}
         </form>
     );

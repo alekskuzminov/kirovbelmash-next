@@ -41,6 +41,7 @@ model Contact {
   phone           String?
   phoneNormalized String?
   email           String?
+  consentAt       DateTime? // дата последнего согласия на обработку ПДн (чекбокс в форме)
   createdAt       DateTime  @default(now())
   updatedAt       DateTime  @updatedAt
   deletedAt       DateTime?

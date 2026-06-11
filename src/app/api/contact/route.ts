@@ -13,6 +13,7 @@ interface ContactPayload {
     source?: string;
     extra?: Record<string, string>;
     visitParams?: Record<string, string>;
+    consent?: boolean; // согласие на обработку ПДн (152-ФЗ) — обязательно true
     hp?: string;   // honeypot — must be empty
     ts?: number;   // form mount timestamp (client Date.now())
 }
@@ -209,6 +210,14 @@ export async function POST(request: NextRequest) {
             );
         }
 
+        // 152-ФЗ: без явного согласия персональные данные не обрабатываем.
+        if (data.consent !== true) {
+            return NextResponse.json(
+                { error: 'Необходимо согласие на обработку персональных данных' },
+                { status: 400 }
+            );
+        }
+
         // Format validation
         if (!isValidName(data.name)) {
             return NextResponse.json(
@@ -269,7 +278,14 @@ export async function POST(request: NextRequest) {
                         phoneNormalized,
                         email: data.email?.trim() || null,
                         company: data.company?.trim() || null,
+                        consentAt: new Date(),
                     },
+                });
+            } else {
+                // Повторная заявка — обновляем дату согласия (последнее подтверждение)
+                await prisma.contact.update({
+                    where: { id: contact.id },
+                    data: { consentAt: new Date() },
                 });
             }
 
