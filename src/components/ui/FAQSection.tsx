@@ -17,19 +17,26 @@ interface FAQSectionProps {
     description?: ReactNode;
     /** Дополнительные классы на корневую `<section>`. По умолчанию — `bg-white py-12 sm:py-16`. */
     className?: string;
+    /** Отключает FAQPage JSON-LD, например на тестовой странице с noindex. */
+    includeSchema?: boolean;
 }
 
 const getAnswerText = (item: FAQItem): string => {
     if (typeof item.answer === 'string') return item.answer;
     if (item.answerText) return item.answerText;
     if (process.env.NODE_ENV !== 'production') {
-        // eslint-disable-next-line no-console
         console.warn(`FAQSection: item "${item.question}" has JSX answer but no answerText for JSON-LD`);
     }
     return '';
 };
 
-export default function FAQSection({ items, title, description, className }: FAQSectionProps) {
+export default function FAQSection({
+    items,
+    title,
+    description,
+    className,
+    includeSchema = true,
+}: FAQSectionProps) {
     const schema = {
         '@context': 'https://schema.org',
         '@type': 'FAQPage',
@@ -45,10 +52,12 @@ export default function FAQSection({ items, title, description, className }: FAQ
 
     return (
         <section className={className ?? 'py-12 sm:py-16 bg-white'}>
-            <script
-                type="application/ld+json"
-                dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
-            />
+            {includeSchema && (
+                <script
+                    type="application/ld+json"
+                    dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+                />
+            )}
             <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="text-center mb-10 sm:mb-12">
                     <div className="flex items-center justify-center space-x-2 mb-3">
